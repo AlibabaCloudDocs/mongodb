@@ -1,5 +1,7 @@
 # API概览 {#reference_gwx_tss_l2b .reference}
 
+**[OpenAPI Explorer](https://api.aliyun.com)** 提供在线调用云产品API、动态生成 SDK示例代码和快速检索接口等功能，能显著降低使用API 的难度，强烈推荐您使用。
+
 ## 生命周期管理 {#section_xrj_kts_l2b .section}
 
 |API|描述|
