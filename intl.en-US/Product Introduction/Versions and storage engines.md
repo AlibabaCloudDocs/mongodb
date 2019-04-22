@@ -22,8 +22,7 @@ ApsaraDB for MongoDB supports MongoDB 3.2, 3.4, and 4.0. Compared with MongoDB 3
 
 **Note:** 
 
--   You cannot upgrade existing instances to MongoDB 4.0. To use MongoDB 4.0, you need to select **MongoDB 4.0** for **Database Version** when you create an instance.****\[DO NOT TRANSLATE\]
--   You can manually upgrade the database version of an instance from MongoDB 3.2 to MongoDB 3.4 when the instance is running, but cannot downgrade the upgraded version.
+-   You can manually upgrade the database version of an instance from MongoDB 3.2 to MongoDB 3.4 or MongoDB 4.0 when the instance is running, but cannot downgrade the upgraded version.
 -   During the upgrade of the database version, instances are restarted once. The upgrade is completed when instances are being restarted.
 -   You can clone ApsaraDB for MongoDB instances only from those of the same database version, but not from those of different database versions.
 
