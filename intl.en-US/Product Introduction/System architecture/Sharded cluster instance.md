@@ -2,7 +2,7 @@
 
 A sharded cluster instance is created based on multiple three-node replica sets. Each sharded cluster instance consists of three components: mongos, shard, and config server. You can specify the number and configuration of mongos nodes and shards as required to create ApsaraDB for MongoDB clusters that provide different service capabilities.
 
- ![](images/917_en-US.png) 
+ ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6646/1555921943917_en-US.png) 
 
 -   **Mongos**: A service agent configured with only one node. You can purchase multiple mongos nodes to achieve load balancing and failover. A sharded cluster instance supports 2–32 mongos nodes.
 -   **Shard**: A shard server. Currently, each shard is deployed as a three-node replica set. You can change the configuration of a shard, but cannot change the number of nodes in its replica set. A sharded cluster instance supports 2–32 shards.
