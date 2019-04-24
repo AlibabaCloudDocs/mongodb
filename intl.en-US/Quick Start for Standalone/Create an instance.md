@@ -21,7 +21,7 @@ You can log on to the Alibaba Cloud [ApsaraDB for MongoDB console](https://mongo
  |
     |**Zone**| The physical area with its power supply and network isolated from other counterparts in the same region.
 
- For more information about regions and zones, see [Regions and zones](https://www.alibabacloud.com/help/zh/doc-detail/40654.htm).
+ For more information about regions and zones, see [Regions and zones](https://www.alibabacloud.com/help/doc-detail/40654.htm).
 
  An ApsaraDB for MongoDB instance and an ECS instance in different zones of the same region can be interconnected through an intranet. For more information, see [Connect to an ApsaraDB for MongoDB instance through a cross-zone intranet](../../../../intl.en-US/User Guide/Instance connection/Connect to an ApsaraDB for MongoDB instance through a cross-zone intranet.md#).
 
