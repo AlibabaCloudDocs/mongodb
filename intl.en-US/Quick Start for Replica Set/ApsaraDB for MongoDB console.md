@@ -12,7 +12,7 @@ You have logged on to the ApsaraDB for MongoDB console with your Alibaba Cloud a
 
 The information on the home page of the ApsaraDB for MongoDB console is the same for all replica set instances.
 
-Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/). In the left-side navigation pane, click Replica Set Instances to view the list of instances, as shown in the following figure, which is provided only as an example. The actual GUI prevails.![](images/13769_en-US.png)
+Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/). In the left-side navigation pane, click Replica Set Instances to view the list of instances, as shown in the following figure, which is provided only as an example. The actual GUI prevails.![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6668/155608843813769_en-US.png)
 
 GUI element description
 
