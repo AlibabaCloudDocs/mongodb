@@ -34,7 +34,9 @@
 |SecurityIpGroupName|String|否|allowserver|进行修改的IP白名单所属分组名称，默认为**default**分组。
 
  |
-|SecurityIpGroupAttribute|String|否|Disable|分组属性。
+|SecurityIpGroupAttribute|String|否|test|白名单分组属性。支持大写字母、小写字母、数字，长度最大为120个字符。
+
+ 默认为空字符串。
 
  |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
