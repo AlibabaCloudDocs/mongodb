@@ -14,7 +14,7 @@ During the maintenance period, instances may be disconnected transiently once or
 4.  Locate the target instance and click its instance ID. 
 5.  In the Specification Information area, click **Edit** to the right of **Maintenance Period**. 
 
-    ![](images/6827_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15432/15561688396827_en-US.png)
 
 6.  Specify a maintenance period for the instance and click **OK**. 
 
