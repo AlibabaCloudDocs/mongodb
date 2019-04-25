@@ -27,15 +27,15 @@ In hybrid access mode, you can gradually switch the network type or migrate ECS 
 5.  In the left-side navigation pane, click **Database Connection**.
 6.  In the Intranet Connection - Classic area, click **Switch to VPC**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6717/155617363437277_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6717/155617371637277_en-US.png)
 
 7.  In the VPC dialog box that appears, set related parameters.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6718/155617363437314_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6718/155617371637314_en-US.png)
 
     1.  Specify **VPC** and **VSwitch**.
 
-        **Note:** For more information about how to create a VPC or VSwitch, see [Create a VPC and VSwitch](https://www.alibabacloud.com/help/zh/doc-detail/65398.htm).
+        **Note:** For more information about how to create a VPC or VSwitch, see [Create a VPC and VSwitch](https://www.alibabacloud.com/help/doc-detail/65398.htm).
 
     2.  Turn on the **Retain the connection address of the classic network** switch.
     3.  Select a period for **Expiration Time \(Days\)**.
