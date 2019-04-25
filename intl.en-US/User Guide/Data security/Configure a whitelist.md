@@ -16,12 +16,12 @@ After creating an ApsaraDB for MongoDB instance, you need to configure a whiteli
 5.  In the left-side navigation pane, choose **Data Security** \> **Whitelist Setting**.
 6.  Select **Manually Modify** or **Import ECS Intranet IP** to configure the IP address whitelist.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/18639/155617513545451_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/18639/155617520345451_en-US.png)
 
     -   Select **Manually Modify**. On the page that appears, enter IP addresses or CIDR blocks and click **OK**.
     -   Select **Import ECS Intranet IP**. The system displays all ECS intranet IP addresses under your account. You can select ECS intranet IP addresses, add them to the whitelist, and click **OK**.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/18639/155617513545452_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/18639/155617520345452_en-US.png)
 
     **Note:** 
 
@@ -37,6 +37,6 @@ You can delete whitelist groups other than the default group.
 3.  In the left-side navigation pane, click **Replica Set Instances** or **Sharding Instances** based on the architecture of the target instance.
 4.  Locate the target instance and click its instance ID.
 5.  In the left-side navigation pane, choose **Data Security** \> **Whitelist Setting**.
-6.  Locate the whitelist group to be deleted. Choose **![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/18639/155617513510249_en-US.png)** \> **Delete Whitelist Group** in the **Operation** column.
+6.  Locate the whitelist group to be deleted. Choose **![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/18639/155617520310249_en-US.png)** \> **Delete Whitelist Group** in the **Operation** column.
 7.  In the Delete Whitelist Group dialog box that appears, click **OK** to delete the whitelist group.
 
