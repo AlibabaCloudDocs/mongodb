@@ -2,7 +2,7 @@
 
 云数据库MongoDB设置了sslAllowConnectionsWithoutCertificates，使用SSL连接客户端时不需要证书 ，但需要配置Ca验证服务器证书，同时忽略域名检测。
 
-设置SSL加密请参见[SSL加密](intl.zh-CN/用户指南/安全/SSL加密.md#)。
+设置SSL加密请参见[SSL加密](intl.zh-CN/用户指南/数据安全性/设置 SSL 加密.md#)。
 
 ## Node.js SSL连接示例 {#section_sbw_lhw_y2b .section}
 
@@ -98,7 +98,7 @@ System.setProperty("javax.net.ssl.trustStorePassword","StorePass");
 
 **示例代码**
 
-设置ssl=True启用ssl连接，ssl\_ca\_certs参数用来指向ca文件路径，ssl\_match\_hostnames设置为False，忽略域名检测。
+设置ssl=True启用ssl连接，ssl\_ca\_certs参数用来指向ca文件路径，ssl\_match\_hostname设置为False，忽略域名检测。
 
 ```
 import ssl
@@ -108,7 +108,7 @@ uri = "mongodb://host01:27017,host02:27017,host03:27017/?replicaSet=myreplset"
 client = MongoClient(uri,
                      ssl=True,
                      ssl_ca_certs='ca.pem',
-                     ssl_match_hostnames=False)
+                     ssl_match_hostname=False)
 ```
 
 ## C SSL连接示例 {#section_x1q_r3w_y2b .section}
