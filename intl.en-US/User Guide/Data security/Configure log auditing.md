@@ -20,9 +20,9 @@ ApsaraDB for MongoDB provides log auditing to record all database operations tha
 5.  In the left-side navigation pane, choose **Data Security** \> **Audit Log**.
 6.  Click **Enable Audit Log**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6736/155617573210389_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6736/155617915010389_en-US.png)
 
-    **Note:** When you enable log auditing, the CloudDBA index optimization feature is also enabled. For more information about CloudDBA index optimization, see Optimize indexes.
+    **Note:** When you enable log auditing, the CloudDBA index optimization feature is also enabled. For more information about CloudDBA index optimization, see[Optimize indexes](intl.en-US/User Guide/CloudDBA/Optimize indexes.md#).
 
 7.  Click **OK**.
 
@@ -88,7 +88,7 @@ After log auditing is enabled for a replica set instance, you can specify the ty
 6.  Click **Audit Log Filter Setting**.
 7.  In the Audit Log Filter Setting dialog box that appears, select the types of database operations to be audited.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6736/155617573237323_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6736/155617915137323_en-US.png)
 
     You can select the following database operations:
 
