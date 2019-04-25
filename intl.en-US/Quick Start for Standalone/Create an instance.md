@@ -16,7 +16,7 @@ You can log on to the Alibaba Cloud [ApsaraDB for MongoDB console](https://mongo
 
  Supported regions: China \(Hangzhou\), China \(Shanghai\), China \(Qingdao\), China \(Beijing\), and China \(Shenzhen\).
 
- Instances in the same region \(such as an [ECS](https://www.alibabacloud.com/help/zh/doc-detail/25367.htm) instance and an ApsaraDB for MongoDB instance\) can be interconnected through an intranet.
+ Instances in the same region \(such as an [ECS](https://www.alibabacloud.com/help/doc-detail/25367.htm) instance and an ApsaraDB for MongoDB instance\) can be interconnected through an intranet.
 
  |
     |**Zone**| The physical area with its power supply and network isolated from other counterparts in the same region.
