@@ -4,7 +4,7 @@ You can set a backup policy to adjust the default backup settings of ApsaraDB fo
 
 ## Notes {#section_cbl_mbp_dgb .section}
 
--   ApsaraDB for MongoDB stores its generated backup files in [OSS](https://www.alibabacloud.com/help/zh/doc-detail/31817.htm) to free up the storage space of ApsaraDB for MongoDB instances.
+-   ApsaraDB for MongoDB stores its generated backup files in [OSS](https://www.alibabacloud.com/help/doc-detail/31817.htm) to free up the storage space of ApsaraDB for MongoDB instances.
 -   The backup method for standalone instances is fixed to snapshot backup, which affects their I/O performance in the backup process.
 -   Replica set and sharded cluster instances support physical backup and logical backup.
 -   A physical backup or logical backup is carried out on the hidden secondary node of an ApsaraDB for MongoDB instance. Therefore, it does not affect the I/O performance of the primary and secondary nodes. It may take a long time to back up a large amount of data. You need to wait patiently.
@@ -24,7 +24,7 @@ You can set a backup policy to adjust the default backup settings of ApsaraDB fo
 5.  In the left-side navigation pane, click Backup and Recovery. In the upper-right corner of the page that appears, click **Backup Instance**.
 6.  In the Backup Instance dialog box that appears, select a backup method for **Backup Method**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6722/15561796677041_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6722/15561798597041_en-US.png)
 
 7.  Click **OK**.
 
