@@ -45,18 +45,25 @@
 4.  找到目标实例，单击实例ID。
 5.  在左侧导航栏，单击**数据库连接**，获取到 Mongos 的内网连接地址。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6694/154996358134556_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6694/155643674234556_zh-CN.png)
 
 6.  单击页面右上角的**登录数据库**，选择要登录的 mongos 节点，跳转到数据管理控制台页面。
 7.  在数据管理控制台页面，填写相应信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/23695/154996358113740_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/23695/155643674213740_zh-CN.png)
 
     -   网络地址及端口：填入任一 Mongos 节点的内网连接地址。
     -   数据库用户名：默认为 root 。
     -   数据库：鉴权数据库，默认为 admin 。
     -   密码：数据库登录密码，如忘记密码可[重置密码](cn.zh-CN/分片集群快速入门/设置密码.md#)。
 8.  单击**登录**。
+
+## 连接MongoDB数据库的常见场景 {#section_eii_nos_pkx .section}
+
+-   [如何通过公网连接MongoDB实例](../cn.zh-CN/用户指南/连接实例/如何通过公网连接MongoDB实例.md#)
+-   [ECS实例与MongoDB实例网络类型不同时如何连接](../cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例网络类型不同时如何连接.md#)
+-   [ECS实例与MongoDB实例地域不同如何连接](../cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例地域不同如何连接.md#)
+-   [ECS实例与MongoDB实例不在同一阿里云账号时如何连接](../cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例不在同一阿里云账号时如何连接.md#)
 
 ## 更多信息 {#section_zsr_lf2_qgb .section}
 
