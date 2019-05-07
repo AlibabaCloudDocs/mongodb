@@ -142,7 +142,7 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeAuditFiles
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
 |404|InvalidDBInstanceClass.NotFound|Specified DB instance class is not found.|该实例规格不存在，请您检查输入的参数是否正确。|
-|403|IncorrectDBInstanceType|Current DB instance type does not support this operation.|当前的实例类型不支持次操作。|
+|403|IncorrectDBInstanceType|Current DB instance type does not support this operation.|当前的实例类型不支持此操作。|
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
 
