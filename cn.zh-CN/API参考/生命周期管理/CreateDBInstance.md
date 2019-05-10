@@ -2,11 +2,13 @@
 
 该接口用于创建MongoDB副本集实例，同时也可用于克隆MongoDB副本集实例。
 
- **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing)。** 
+ **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.aliyun.com/price/product#/mongodb/detail)。** 
 
 关于云数据库MongoDB实例的规格，请参见[实例规格表](~~57141~~)。
 
 如需创建分片集群实例，可通过调用[CreateShardingDBInstance](~~61884~~)接口创建。
+
+**说明：** 除下列参数外，您还需要调用[DescribeRegions](61933)查询可用的RegionId，并在请求中传入RegionId参数以指定MongoDB实例创建到的地域。
 
 ## 调试 {#apiExplorer .section}
 
@@ -16,9 +18,6 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|CreateDBInstance|要执行的操作，取值：**CreateDBInstance**。
-
- |
 |ClientToken|String|是|ETnLKlblzczshOTUbOCzxxxxxxxxxx|用于保证请求的幂等性，防止重复提交请求。由客户端生成该参数值，要保证在不同请求间唯一，最大值不超过64个ASCII字符，且该参数值中不能包含非ASCII字符。
 
  |
@@ -39,6 +38,9 @@
 -   每10GB递增。
 
  **说明：** 具体取值受实例规格约束，详情请参考[实例规格表](~~57141~~)。
+
+ |
+|Action|String|否|CreateDBInstance|要执行的操作，取值：**CreateDBInstance**。
 
  |
 |ZoneId|String|否|cn-hangzhou-b|可用区ID，您可以通过[DescribeRegions](~~61933~~)查看可用的可用区。
