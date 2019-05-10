@@ -8,7 +8,7 @@
 
 如需创建分片集群实例，可通过调用[CreateShardingDBInstance](~~61884~~)接口创建。
 
-**说明：** 除下列参数外，您还需要调用[DescribeRegions](61933)查询可用的RegionId，并在请求中传入RegionId参数以指定MongoDB实例创建到的地域。
+**说明：** 除下列参数外，您还需要调用[DescribeRegions](~~61933~~)查询可用的RegionId，并在请求中传入RegionId参数以指定MongoDB实例创建到的地域。
 
 ## 调试 {#apiExplorer .section}
 
