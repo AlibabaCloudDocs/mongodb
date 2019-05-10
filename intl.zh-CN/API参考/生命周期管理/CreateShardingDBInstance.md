@@ -8,6 +8,8 @@
 
 如需创建副本集实例，可通过调用[CreateDBInstance](~~61763~~)接口创建。
 
+**说明：** 除下列参数外，您还需要调用[DescribeRegions](~~61933~~)查询可用的RegionId，并在请求中传入RegionId参数以指定MongoDB实例创建到的地域。
+
 ## 调试 {#apiExplorer .section}
 
 前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=CreateShardingDBInstance)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
