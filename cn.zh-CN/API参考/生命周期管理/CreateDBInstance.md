@@ -2,7 +2,7 @@
 
 该接口用于创建MongoDB副本集实例，同时也可用于克隆MongoDB副本集实例。
 
- **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.aliyun.com/price/product#/mongodb/detail)。** 
+ **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing)。** 
 
 关于云数据库MongoDB实例的规格，请参见[实例规格表](~~57141~~)。
 
@@ -101,7 +101,7 @@
  |
 |BackupId|String|否|32994xxxx|具体的备份集ID，只有调用本接口用于克隆实例时才能传入该参数，且必须和**SrcDBInstanceId**参数一同传入。
 
- **说明：** 您可以通过调用[DescribeBackups](62172)接口查询备份集ID。
+ **说明：** 您可以通过调用[DescribeBackups](~~62172~~)接口查询备份集ID。
 
  |
 |RestoreTime|String|否|2019-03-13T12:11:14Z|克隆实例时所恢复的时间点，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
