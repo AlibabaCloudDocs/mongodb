@@ -16,12 +16,10 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DescribeIndexRecommendation|要执行的操作，取值：**DescribeIndexRecommendation**。
-
- |
 |InstanceId|String|是|dds-bpxxxxxxxx|实例ID。
 
- **说明：** 当本参数传入的是分片集群实例ID时，还需要传入**NodeId**参数。
+ |
+|Action|String|否|DescribeIndexRecommendation|要执行的操作，取值： **DescribeAuditPolicy**。
 
  |
 |TaskId|String|否|3223069|任务ID，您可以通过调用[DescribeAvailableTimeRange](~~95534~~)接口查询。
@@ -38,18 +36,18 @@
 |Collection|String|否|customer|集合名。
 
  |
-|StartTime|String|否|2019-01-01T12Z|查询开始时间，格式为*yyyy-MM-dd*T*HH*Z。
+|StartTime|String|否|2019-01-01T12Z|查询开始时间，格式为*HH:mm*Z-*HH*Z（UTC时间）。
 
  **说明：** **StartTime**取值必须晚于审计日志的开启时间。
 
  |
-|EndTime|String|否|2019-01-02T13Z|查询结束时间，必须晚于查询开始时间，格式为*yyyy-MM-dd*T*HH*Z。
+|EndTime|String|否|2019-01-02T13Z|查询结束时间，必须晚于查询开始时间，格式为*HH:mm*Z-*HH*Z（UTC时间）。
 
  |
 |OperationType|String|否|query|操作类型，例如**query**、**delete**、**update**等。
 
  |
-|PageSize|Integer|否|30|每页记录数，取值： **30、50、100**，默认值为**30**。
+|PageSize|Integer|否|30|每页记录数，取值： **30**、**50**、**100**，默认值为**30**。
 
  |
 |PageNumber|Integer|否|1|页码，取值为大于0且不超过Integer数据类型的的最大值，默认值为**1**。
@@ -69,7 +67,7 @@
 |└AverageDocsExaminedCount|Long|1000000|平均文档扫描次数。
 
  |
-|└AverageExecutionTime|Long|526|平均执行时间（毫秒）。
+|└AverageExecutionTime|Long|523|平均执行时间（毫秒）。
 
  |
 |└AverageKeysExaminedCount|Long|0|平均索引扫描次数。
@@ -81,13 +79,13 @@
 |└Count|Long|364|执行次数。
 
  |
-|└Database|String|mongodbtest|​数据库名。
+|└Database|String|mongodbtest|数据库名。
 
  |
 |└ExecutionPlan|String|\{\\"stage\\":\\"COLLSCAN\\"\}|查询的执行计划。
 
  |
-|└InMemorySort|String|false|是否使用内存查询。
+|└InMemorySort|String|false|是否使用内存排序。
 
  |
 |└IndexCombines| |\{"IndexCombine": \["db.customer.createIndex\(\{\\"name\\": 1\}, \{background: true\}\)"\]\}|合并后的索引列表。
@@ -107,7 +105,7 @@
 -   **NoRecommendation**：没有建议。
 
  |
-|└LastExecutionTime|String|2019-03-22T05:52:31Z|最近一次执行时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
+|└LastExecutionTime|String|2019-03-22T05:52:31Z|最近一次执行时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  |
 |└Namespace|String|mongodbtest.customer|命名空间。
@@ -128,6 +126,15 @@
 
  |
 |RequestId|String|553CCFB2-C013-4A9D-86A9-F440BA7E365F|请求ID。
+
+ |
+|PageNumber|Integer|1|页码。
+
+ |
+|PageRecordCount|Integer|1|每页的记录数。
+
+ |
+|TotalRecordCount|Integer|1|总记录数。
 
  |
 
@@ -221,8 +228,8 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeIndexRecommendation
 			}
 		]
 	},
-	"TotalRecordCount":1,
 	"PageNumber":1,
+	"TotalRecordCount":1,
 	"RequestId":"553CCFB2-C013-4A9D-86A9-F440BA7E365F",
 	"PageRecordCount":1
 }
