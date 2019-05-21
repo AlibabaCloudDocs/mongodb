@@ -104,11 +104,11 @@
  **说明：** 您可以通过调用[DescribeBackups](~~62172~~)接口查询备份集ID。
 
  |
-|RestoreTime|String|否|2019-03-13T12:11:14Z|克隆实例时所恢复的时间点，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
+|RestoreTime|String|否|2019-03-13T12:11:14Z|克隆实例时所恢复的时间点，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  **说明：** 
 
- -   只有调用本接口用于克隆实例时才能传入该参数，且必须和**SrcDBInstanceId**、**BackupId**参数一同传入。
+-   只有调用本接口用于克隆实例时才能传入该参数，且必须和**SrcDBInstanceId**、**BackupId**参数一同传入。
 -   支持选择7天内的任一时间点进行克隆。
 
  |
