@@ -16,10 +16,13 @@
 |DBInstanceId|String|是|dds-bpxxxxxxxx|实例ID。
 
  |
-|AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
+|Engine|String|否|MongoDB|数据库引擎，取值：**MongoDB**。
 
  |
-|Engine|String|否|MongoDB|数据库引擎，取值：**MongoDB**。
+|RegionId|String|否|cn-hangzhou|地域ID，可调用[DescribeRegions](~~61933~~)查询。
+
+ |
+|AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
 
  |
 
@@ -39,7 +42,7 @@
 -   **PostPaid**：后付费，按量付费。
 
  |
-|└CreationTime|String|2018-11-21T05:10:00Z|实例创建的时间，格式为*yyyy-MM-dd*T*HH:mm*Z。
+|└CreationTime|String|2018-11-21T05:10:00Z|实例创建的时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  |
 |└CurrentKernelVersion|String|mongodb\_20180914\_1.1.5|实例当前数据库的小版本号。
@@ -72,7 +75,7 @@
 |└EngineVersion|String|3.4|数据库版本。
 
  |
-|└ExpireTime|String|2019-04-08T16:00Z|包年包月实例的到期时间。
+|└ExpireTime|String|2019-04-08T16:00Z|包年包月实例的到期时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  **说明：** 当实例的付费类型为包年包月时返回该参数。
 
@@ -90,10 +93,10 @@
 -   **Released**：实例已释放。此时实例无法进行解锁，只能使用备份数据重新创建新实例，重建时间较长，请耐心等待。
 
  |
-|└MaintainEndTime|String|03:00Z|实例可维护时间段的结束时间。
+|└MaintainEndTime|String|03:00Z|实例可维护时间段的结束时间，格式为*HH:mm*Z（UTC时间）。
 
  |
-|└MaintainStartTime|String|02:00Z|实例可维护时间段的开始时间。
+|└MaintainStartTime|String|02:00Z|实例可维护时间段的开始时间，格式为*HH:mm*Z（UTC时间）。
 
  |
 |└MaxConnections|Integer|500|实例最大连接数。
