@@ -5,9 +5,9 @@
 ## 分析MongoDB数据库正在执行的请求 {#section_gdv_ltv_1gb .section}
 
 1.  通过Mongo Shell连接实例。
-    -   [Mongo Shell连接单节点实例](../../../../../intl.zh-CN/单节点快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)
-    -   [Mongo Shell连接副本集实例](../../../../../intl.zh-CN/副本集快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)
-    -   [Mongo Shell连接分片集群实例](../../../../../intl.zh-CN/分片集群快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)
+    -   [Mongo Shell连接单节点实例](../../../../cn.zh-CN/单节点快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)
+    -   [Mongo Shell连接副本集实例](../../../../cn.zh-CN/副本集快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)
+    -   [Mongo Shell连接分片集群实例](../../../../cn.zh-CN/分片集群快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)
 2.  执行`db.currentOp()`命令，查看数据库当前正在执行的操作。
 
     该命令的输出示例如下。
@@ -43,16 +43,16 @@
 |字段|返回值说明|
 |:-|:----|
 |client|该请求是由哪个客户端发起的。|
-|opid|操作的唯一标识符。**说明：** 如果有需要，可以通过`db.killOp(opid)`直接终止该操作。
+|opid|操作的唯一标识符。 **说明：** 如果有需要，可以通过`db.killOp(opid)`直接终止该操作。
 
-|
+ |
 |secs\_running|表示该操作已经执行的时间，单位为秒。如果该字段返回的值特别大，需要查看请求是否合理。|
 |microsecs\_running|表示该操作已经执行的时间，单位为毫秒。如果该字段返回的值特别大，需要查看请求是否合理。|
 |ns|该操作目标集合。|
 |op|表示操作的类型。通常是查询、插入、更新、删除中的一种。|
-|locks|跟锁相关的参数，请参考官方文档，本文不做详细介绍。**说明：** db.currentOp 文档请参见[db.currentOp](https://docs.mongodb.com/manual/reference/method/db.currentOp/?spm=5176.100239.blogcont73389.12.K1pNOi)。
+|locks|跟锁相关的参数，请参考官方文档，本文不做详细介绍。 **说明：** db.currentOp 文档请参见[db.currentOp](https://docs.mongodb.com/manual/reference/method/db.currentOp/?spm=5176.100239.blogcont73389.12.K1pNOi)。
 
-|
+ |
 
 通过`db.currentOp()`查看正在执行的操作，分析是否有不正常耗时的请求正在执行。比如您的业务平时 CPU 使用率不高，运维管理人员连到MongoDB数据库执行了一些需要全表扫描的操作导致 CPU 使用率非常高，业务响应缓慢，此时需要重点关注执行时间非常耗时的操作。
 
@@ -66,7 +66,7 @@
 
 1.  通过 Mongo Shell 连接实例。
 
-    详情请参考[Mongo Shell连接单节点实例](../../../../../intl.zh-CN/单节点快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)、[Mongo Shell连接副本集实例](../../../../../intl.zh-CN/副本集快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)、[Mongo Shell连接分片集群实例](../../../../../intl.zh-CN/分片集群快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)。
+    详情请参考[Mongo Shell连接单节点实例](../../../../cn.zh-CN/单节点快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)、[Mongo Shell连接副本集实例](../../../../cn.zh-CN/副本集快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)、[Mongo Shell连接分片集群实例](../../../../cn.zh-CN/分片集群快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)。
 
 2.  通过`use <database>`命令进入指定数据库。
 
@@ -198,11 +198,13 @@
 
 其他还有诸如建立索引、aggregation（遍历、查询、更新、排序等动作的组合） 等操作也可能非常耗CPU资源，但本质上也是上述几种场景。更多 profiling 的设置请参考[profiling官方文档](https://docs.mongodb.com/manual/tutorial/manage-the-database-profiler/)。
 
+您也可以将MongoDB实例接入至混合云数据库管理HDM（Hybrid Cloud Database Management）。在HDM控制台中，您可以对MongoDB实例的实时性能、实时会话、慢日志、磁盘空间等信息进行监控和管理，详情请参见[HDM操作流程](https://help.aliyun.com/document_detail/64900.html#h2-u64CDu4F5Cu6D41u7A0B3)。
+
 ## 服务能力评估 {#section_ytj_4tv_1gb .section}
 
 经过上述分析数据库正在执行的请求和分析数据库慢请求两轮优化之后，整个数据库的查询相对合理，所有的请求都高效地使用了索引。
 
-此时在业务环境使用中还经常遇到CPU资源被占满，那么可能是实例的服务能力已经达到上限了。这种情况下您应当[查看监控信息](../../../../../intl.zh-CN/用户指南/监控与报警/查看监控信息.md#)以分析实例资源使用状态；同时对MongoDB数据库进行测试，以便了解在您的业务场景下，当前实例是否满足所需要的设备性能和服务能力。
+此时在业务环境使用中还经常遇到CPU资源被占满，那么可能是实例的服务能力已经达到上限了。这种情况下您应当[查看监控信息](../../../../cn.zh-CN/用户指南/监控与报警/查看监控信息.md#)以分析实例资源使用状态；同时对MongoDB数据库进行测试，以便了解在您的业务场景下，当前实例是否满足所需要的设备性能和服务能力。
 
-如您需要升级实例，可以参考[变更配置](../../../../../intl.zh-CN/用户指南/实例管理/变更配置.md#)或[变更副本集实例节点数](../../../../../intl.zh-CN/用户指南/实例管理/变更副本集实例节点数.md#)进行操作。
+如您需要升级实例，可以参考[变更配置](../../../../cn.zh-CN/用户指南/实例管理/变更配置.md#)或[变更副本集实例节点数](../../../../cn.zh-CN/用户指南/实例管理/变更副本集实例节点数.md#)进行操作。
 
