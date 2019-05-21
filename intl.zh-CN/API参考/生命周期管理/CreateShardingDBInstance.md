@@ -8,8 +8,6 @@
 
 如需创建副本集实例，可通过调用[CreateDBInstance](~~61763~~)接口创建。
 
-**说明：** 除下列参数外，您还需要调用[DescribeRegions](~~61933~~)查询可用的RegionId，并在请求中传入RegionId参数以指定MongoDB实例创建到的地域。
-
 ## 调试 {#apiExplorer .section}
 
 前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=CreateShardingDBInstance)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
@@ -21,7 +19,7 @@
 |Action|String|是|CreateShardingDBInstance|要执行的操作，取值： **CreateShardingDBInstance**。
 
  |
-|Engine|String|是|MongoDB|数据库引擎，取值：**MongoDB**。
+|RegionId|String|是|cn-hangzhou|地域ID，可调用[DescribeRegions](~~61933~~)查询，使用此参数指定要创建实例的地域。
 
  |
 |EngineVersion|String|是|4.0|数据库版本号，取值：**3.4**或**4.0**。
@@ -36,6 +34,9 @@
 
  -   密码由大写字母、小写字母、数字、特殊字符中的至少三种组成，特殊字符为!\#$%^&\*\(\)\_+-=
 -   密码长度为8-32位
+
+ |
+|Engine|String|是|MongoDB|数据库引擎，取值：**MongoDB**。
 
  |
 |ZoneId|String|否|cn-hangzhou-b|可用区ID，您可以通过[DescribeRegions](~~61933~~)查看可用的可用区。
@@ -129,7 +130,7 @@
 |SrcDBInstanceId|String|否|dds-bpxxxxxxxx|源实例ID，只有调用本接口用于克隆实例时才能传入该参数，且必须和**RestoreTime**参数一同传入。
 
  |
-|RestoreTime|String|否|2019-03-08T02:30:25Z|克隆实例时所恢复的时间点，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
+|RestoreTime|String|否|2019-03-08T02:30:25Z|克隆实例时所恢复的时间点，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  只有调用本接口用于克隆实例时才能传入该参数，且必须和**SrcDBInstanceId**参数一同传入。
 

@@ -2,13 +2,11 @@
 
 调用CreateShardingDBInstance接口创建或者克隆MongoDB分片集群实例。
 
- **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.aliyun.com/price/product#/mongodb/detail)。** 
+ **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing)。** 
 
 关于云数据库MongoDB实例的规格，请参见[实例规格表](~~57141~~)。
 
 如需创建副本集实例，可通过调用[CreateDBInstance](~~61763~~)接口创建。
-
-**说明：** 除下列参数外，您还需要调用[DescribeRegions](~~61933~~)查询可用的RegionId，并在请求中传入RegionId参数以指定MongoDB实例创建到的地域。
 
 ## 调试 {#apiExplorer .section}
 
@@ -21,7 +19,7 @@
 |Action|String|是|CreateShardingDBInstance|要执行的操作，取值： **CreateShardingDBInstance**。
 
  |
-|Engine|String|是|MongoDB|数据库引擎，取值：**MongoDB**。
+|RegionId|String|是|cn-hangzhou|地域ID，可调用[DescribeRegions](~~61933~~)查询，使用此参数指定要创建实例的地域。
 
  |
 |EngineVersion|String|是|4.0|数据库版本号，取值：**3.4**或**4.0**。
@@ -36,6 +34,9 @@
 
  -   密码由大写字母、小写字母、数字、特殊字符中的至少三种组成，特殊字符为!\#$%^&\*\(\)\_+-=
 -   密码长度为8-32位
+
+ |
+|Engine|String|是|MongoDB|数据库引擎，取值：**MongoDB**。
 
  |
 |ZoneId|String|否|cn-hangzhou-b|可用区ID，您可以通过[DescribeRegions](~~61933~~)查看可用的可用区。
@@ -129,7 +130,7 @@
 |SrcDBInstanceId|String|否|dds-bpxxxxxxxx|源实例ID，只有调用本接口用于克隆实例时才能传入该参数，且必须和**RestoreTime**参数一同传入。
 
  |
-|RestoreTime|String|否|2019-03-08T02:30:25Z|克隆实例时所恢复的时间点，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
+|RestoreTime|String|否|2019-03-08T02:30:25Z|克隆实例时所恢复的时间点，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  只有调用本接口用于克隆实例时才能传入该参数，且必须和**SrcDBInstanceId**参数一同传入。
 
