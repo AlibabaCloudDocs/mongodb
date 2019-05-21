@@ -104,7 +104,7 @@
  **说明：** 您可以通过调用[DescribeBackups](~~62172~~)接口查询备份集ID。
 
  |
-|RestoreTime|String|否|2019-03-13T12:11:14Z|克隆实例时所恢复的时间点，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
+|RestoreTime|String|否|2019-03-13T12:11:14Z|克隆实例时所恢复的时间点，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
 
  **说明：** 
 
