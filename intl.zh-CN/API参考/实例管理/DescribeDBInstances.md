@@ -70,6 +70,9 @@
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
 
  |
+|RegionId|String|否|cn-hangzhou|地域ID，可调用[DescribeRegions](~~61933~~)接口进行查询。
+
+ |
 |Tag.N.Key|String|否|testdatabase|实例的标签键。N的取值范围：**1**~**20**。最多支持64个字符，不能以 aliyun、acs:、http:// 或者 https:// 开头。
 
  **说明：** 一旦传入该值，则不允许为空字符串。
@@ -106,7 +109,7 @@
 -   **PostPaid**：按量付费。
 
  |
-|└CreationTime|String|2018-09-25T06:33:07Z|实例创建的时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
+|└CreationTime|String|2018-09-25T06:33:07Z|实例创建的时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  |
 |└DBInstanceClass|String|dds.mongo.mid|实例规格。
@@ -130,7 +133,7 @@
 -   **replicate**：副本集实例。
 
  |
-|└DestroyTime|String|2019-03-05T11:26:02Z|实例数据销毁时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
+|└DestroyTime|String|2019-03-05T11:26:02Z|实例数据销毁时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  **说明：** 
 
@@ -144,7 +147,7 @@
 |└EngineVersion|String|4.0|实例数据库版本。
 
  |
-|└ExpireTime|String|2019-11-25T16:00Z|实例到期时间。
+|└ExpireTime|String|2019-11-25T16:00Z|实例到期时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  |
 |└LastDowngradeTime|String|2019-03-08|实例最后一次降配时间。
