@@ -13,10 +13,10 @@
 |Action|String|是|DescribeParameterModificationHistory|要执行的操作，取值：**DescribeParameterModificationHistroy**。
 
  |
-|StartTime|String|是|2019-01-01T12:10Z|查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z。
+|StartTime|String|是|2019-01-01T12:10Z|查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  |
-|EndTime|String|是|2019-01-02T12:10Z|查询结束时间，必须晚于查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z。
+|EndTime|String|是|2019-01-02T12:10Z|查询结束时间，必须晚于查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  |
 |DBInstanceId|String|是|dds-bpxxxxxxxx|实例ID。
@@ -40,7 +40,7 @@
 |HistoricalParameters| | |参数的修改记录列表。
 
  |
-|└ModifyTime|String|2019-03-12T07:58:24Z|参数修改的时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
+|└ModifyTime|String|2019-03-12T07:58:24Z|参数修改的时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  |
 |└NewParameterValue|String|200|修改后的参数值。
