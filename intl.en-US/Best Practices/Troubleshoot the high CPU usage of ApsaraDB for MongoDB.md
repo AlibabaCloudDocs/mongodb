@@ -47,7 +47,7 @@ The following table describes the fields that you need to focus on.
 
  |
 |secs\_running|The duration that the operation has been running, in units of seconds. If this field returns a value that exceeds the defined threshold, check whether the request is appropriate.|
-|microsecs\_running|The duration that the operation has been running, in units of milliseconds. If this field returns a value that exceeds the defined threshold, check whether the request is appropriate.|
+|microsecs\_running|The duration that the operation has been running, in units of microseconds. If this field returns a value that exceeds the defined threshold, check whether the request is appropriate.|
 |ns|The target collection of the operation.|
 |op|The operation type, which is usually query, insert, update, or delete.|
 |locks|The lock-related fields. For more information, see the official MongoDB manual. **Note:** For more information about the db.currentOp\(\) command, see [db.currentOp\(\)](https://docs.mongodb.com/manual/reference/method/db.currentOp/?spm=5176.100239.blogcont73389.12.K1pNOi).
