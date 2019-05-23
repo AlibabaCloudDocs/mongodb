@@ -5,9 +5,9 @@
 ## 分析MongoDB数据库正在执行的请求 {#section_gdv_ltv_1gb .section}
 
 1.  通过Mongo Shell连接实例。
-    -   [Mongo Shell连接单节点实例](../../../../cn.zh-CN/单节点快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)
-    -   [Mongo Shell连接副本集实例](../../../../cn.zh-CN/副本集快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)
-    -   [Mongo Shell连接分片集群实例](../../../../cn.zh-CN/分片集群快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)
+    -   [Mongo Shell连接单节点实例](../../../../intl.zh-CN/单节点快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)
+    -   [Mongo Shell连接副本集实例](../../../../intl.zh-CN/副本集快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)
+    -   [Mongo Shell连接分片集群实例](../../../../intl.zh-CN/分片集群快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)
 2.  执行`db.currentOp()`命令，查看数据库当前正在执行的操作。
 
     该命令的输出示例如下。
@@ -47,7 +47,7 @@
 
  |
 |secs\_running|表示该操作已经执行的时间，单位为秒。如果该字段返回的值特别大，需要查看请求是否合理。|
-|microsecs\_running|表示该操作已经执行的时间，单位为毫秒。如果该字段返回的值特别大，需要查看请求是否合理。|
+|microsecs\_running|表示该操作已经执行的时间，单位为微秒。如果该字段返回的值特别大，需要查看请求是否合理。|
 |ns|该操作目标集合。|
 |op|表示操作的类型。通常是查询、插入、更新、删除中的一种。|
 |locks|跟锁相关的参数，请参考官方文档，本文不做详细介绍。 **说明：** db.currentOp 文档请参见[db.currentOp](https://docs.mongodb.com/manual/reference/method/db.currentOp/?spm=5176.100239.blogcont73389.12.K1pNOi)。
@@ -66,7 +66,7 @@
 
 1.  通过 Mongo Shell 连接实例。
 
-    详情请参考[Mongo Shell连接单节点实例](../../../../cn.zh-CN/单节点快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)、[Mongo Shell连接副本集实例](../../../../cn.zh-CN/副本集快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)、[Mongo Shell连接分片集群实例](../../../../cn.zh-CN/分片集群快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)。
+    详情请参考[Mongo Shell连接单节点实例](../../../../intl.zh-CN/单节点快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)、[Mongo Shell连接副本集实例](../../../../intl.zh-CN/副本集快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)、[Mongo Shell连接分片集群实例](../../../../intl.zh-CN/分片集群快速入门/连接实例/通过 Mongo Shell 登录MongoDB数据库.md#)。
 
 2.  通过`use <database>`命令进入指定数据库。
 
@@ -204,7 +204,7 @@
 
 经过上述分析数据库正在执行的请求和分析数据库慢请求两轮优化之后，整个数据库的查询相对合理，所有的请求都高效地使用了索引。
 
-此时在业务环境使用中还经常遇到CPU资源被占满，那么可能是实例的服务能力已经达到上限了。这种情况下您应当[查看监控信息](../../../../cn.zh-CN/用户指南/监控与报警/查看监控信息.md#)以分析实例资源使用状态；同时对MongoDB数据库进行测试，以便了解在您的业务场景下，当前实例是否满足所需要的设备性能和服务能力。
+此时在业务环境使用中还经常遇到CPU资源被占满，那么可能是实例的服务能力已经达到上限了。这种情况下您应当[查看监控信息](../../../../intl.zh-CN/用户指南/监控与报警/查看监控信息.md#)以分析实例资源使用状态；同时对MongoDB数据库进行测试，以便了解在您的业务场景下，当前实例是否满足所需要的设备性能和服务能力。
 
-如您需要升级实例，可以参考[变更配置](../../../../cn.zh-CN/用户指南/实例管理/变更配置.md#)或[变更副本集实例节点数](../../../../cn.zh-CN/用户指南/实例管理/变更副本集实例节点数.md#)进行操作。
+如您需要升级实例，可以参考[变更配置](../../../../intl.zh-CN/用户指南/实例管理/变更配置.md#)或[变更副本集实例节点数](../../../../intl.zh-CN/用户指南/实例管理/变更副本集实例节点数.md#)进行操作。
 
