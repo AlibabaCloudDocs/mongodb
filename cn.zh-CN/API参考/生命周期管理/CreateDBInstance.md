@@ -8,8 +8,6 @@
 
 如需创建分片集群实例，可通过调用[CreateShardingDBInstance](~~61884~~)接口创建。
 
-**说明：** 除下列参数外，您还需要调用[DescribeRegions](~~61933~~)查询可用的RegionId，并在请求中传入RegionId参数以指定MongoDB实例创建到的地域。
-
 ## 调试 {#apiExplorer .section}
 
 前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=CreateDBInstance)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
@@ -18,6 +16,9 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
+|Action|String|是|CreateDBInstance|要执行的操作，取值：**CreateDBInstance**。
+
+ |
 |ClientToken|String|是|ETnLKlblzczshOTUbOCzxxxxxxxxxx|用于保证请求的幂等性，防止重复提交请求。由客户端生成该参数值，要保证在不同请求间唯一，最大值不超过64个ASCII字符，且该参数值中不能包含非ASCII字符。
 
  |
@@ -40,10 +41,10 @@
  **说明：** 具体取值受实例规格约束，详情请参考[实例规格表](~~57141~~)。
 
  |
-|Action|String|否|CreateDBInstance|要执行的操作，取值：**CreateDBInstance**。
+|RegionId|String|是|cn-hangzhou|地域ID，您可以可调用[DescribeRegions](~~61933~~)查询可用的地域，使用此参数指定实例创建的地域。
 
  |
-|ZoneId|String|否|cn-hangzhou-b|可用区ID，您可以通过[DescribeRegions](~~61933~~)查看可用的可用区。
+|ZoneId|String|否|cn-hangzhou-b|可用区ID，您可以通过[DescribeRegions](~~61933~~)查看可用的可用区，使用此参数指定实例创建的可用区。
 
  |
 |DBInstanceDescription|String|否|测试数据库1|实例名称，长度为2~256个字符。以中文、英文字母开头，可以包含数字、中文、英文、下划线（\_）、短横线（-）。
@@ -104,7 +105,7 @@
  **说明：** 您可以通过调用[DescribeBackups](~~62172~~)接口查询备份集ID。
 
  |
-|RestoreTime|String|否|2019-03-13T12:11:14Z|克隆实例时所恢复的时间点，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
+|RestoreTime|String|否|2019-03-13T12:11:14Z|克隆实例时所恢复的时间点，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  **说明：** 
 
