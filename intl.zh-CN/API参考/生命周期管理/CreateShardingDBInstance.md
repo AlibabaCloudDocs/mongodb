@@ -19,7 +19,7 @@
 |Action|String|是|CreateShardingDBInstance|要执行的操作，取值： **CreateShardingDBInstance**。
 
  |
-|RegionId|String|是|cn-hangzhou|地域ID，可调用[DescribeRegions](~~61933~~)查询，使用此参数指定要创建实例的地域。
+|Engine|String|是|MongoDB|数据库引擎，取值：**MongoDB**。
 
  |
 |EngineVersion|String|是|4.0|数据库版本号，取值：**3.4**或**4.0**。
@@ -36,10 +36,10 @@
 -   密码长度为8-32位
 
  |
-|Engine|String|是|MongoDB|数据库引擎，取值：**MongoDB**。
+|RegionId|String|是|cn-hangzhou|地域ID，您可以可调用[DescribeRegions](~~61933~~)查询可用的地域，使用此参数指定实例创建的地域。
 
  |
-|ZoneId|String|否|cn-hangzhou-b|可用区ID，您可以通过[DescribeRegions](~~61933~~)查看可用的可用区。
+|ZoneId|String|否|cn-hangzhou-b|可用区ID，您可以通过[DescribeRegions](~~61933~~)查询可用的可用区，使用此参数指定实例创建的可用区。
 
  |
 |DBInstanceDescription|String|否|测试数据库1|实例名称，长度为2~256个字符。以中文、英文字母开头，可以包含数字、中文、英文、下划线（\_）、短横线（-）。
