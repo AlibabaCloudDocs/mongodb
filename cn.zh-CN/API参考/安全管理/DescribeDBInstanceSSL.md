@@ -22,6 +22,9 @@
 |DBInstanceId|String|是|dds-bpxxxxxxxx|实例ID。
 
  |
+|RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。
+
+ |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
 
  |
@@ -30,7 +33,7 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|SSLExpiredTime|String|2020-03-11T02:28:25Z|SSL证书的过期时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
+|SSLExpiredTime|String|2020-03-11T02:28:25Z|SSL证书的过期时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  |
 |RequestId|String|36BB1BC2-789C-4BBA-A519-C5B388E4B0D4|请求ID。
