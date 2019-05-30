@@ -15,10 +15,10 @@
 |Action|String|是|DescribeRunningLogRecords|要执行的操作，取值：**DescribeRunningLogRecords**。
 
  |
-|StartTime|String|是|2019-01-01T12:10Z|查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z。
+|StartTime|String|是|2019-01-01T12:10Z|查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  |
-|EndTime|String|是|2019-01-02T12:10Z|查询结束时间，必须晚于查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z。
+|EndTime|String|是|2019-01-02T12:10Z|查询结束时间，必须晚于查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  |
 |DBInstanceId|String|是|dds-bpxxxxxxxx|实例ID。
@@ -48,6 +48,9 @@
 |PageNumber|Integer|否|1|页码，取值为大于0且不超过Integer数据类型的的最大值，默认值为**1**。
 
  |
+|RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。
+
+ |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
 
  |
@@ -68,7 +71,7 @@
 |└Content|String|end connection 11.xxx.xxx.xx:3xxxx \(0 connections now open\)\\n|日志信息。
 
  |
-|└CreateTime|String|2019-02-26T12:09:34Z|日志生成时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
+|└CreateTime|String|2019-02-26T12:09:34Z|日志生成时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  |
 |PageNumber|Integer|1|页码。
