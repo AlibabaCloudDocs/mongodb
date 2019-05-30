@@ -10,10 +10,7 @@
 
 **说明：** 
 
- 
-
 -   调用本接口创建索引分析任务后，可以通过调用[DescribeAvailableTimeRange](~~95534~~)查询对应的任务及状态。
-
 -   每个实例每日最多可执行10次。
 
 ## 调试 {#apiExplorer .section}
@@ -27,12 +24,12 @@
 |Action|String|是|CreateRecommendationTask|要执行的操作，取值：**CreateRecommendationTask**。
 
  |
-|StartTime|String|是|2019-01-01T12Z|查询开始时间，格式为*yyyy-MM-dd*T*HH*Z。
+|StartTime|String|是|2019-01-01T12Z|查询开始时间，格式为*yyyy-MM-dd*T*HH*Z（UTC时间）。
 
  **说明：** **StartTime**参数取值必须晚于审计日志的开启时间。
 
  |
-|EndTime|String|是|2019-01-01T18Z|查询结束时间，必须晚于查询开始时间，格式为*yyyy-MM-dd*T*HH*Z。
+|EndTime|String|是|2019-01-01T18Z|查询结束时间，必须晚于查询开始时间，格式为*yyyy-MM-dd*T*HH*Z（UTC时间）。
 
  **说明：** 查询的时间范围为7天内。
 
@@ -45,6 +42,9 @@
 |NodeId|String|否|d-bpxxxxxxxx|分片集群实例中Shard节点ID。
 
  **说明：** 当**DBInstanceId**参数传入的是分片集群实例ID时，本参数才可用。
+
+ |
+|RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。
 
  |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
