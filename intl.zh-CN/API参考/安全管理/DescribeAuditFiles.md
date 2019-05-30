@@ -29,6 +29,9 @@
 |PageNumber|Integer|否|1|页码，取值为大于0且不超过Integer数据类型的的最大值，默认值为**1**。
 
  |
+|RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。
+
+ |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
 
  |
@@ -48,13 +51,13 @@
  **说明：** 若当前不可下载，则为空串。
 
  |
-|└LogEndTime|String|2019-03-12T09:23:15Z|审计日志结束时间。
+|└LogEndTime|String|2019-03-12T09:23:15Z|审计日志结束时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  |
 |└LogSize|Long|98|审计日志文件的大小，单位为Byte。
 
  |
-|└LogStartTime|String|2019-03-11T08:19:29Z|审计日志起始时间。
+|└LogStartTime|String|2019-03-11T08:19:29Z|审计日志起始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  |
 |└LogStatus|String|Success|审计日志文件状态。
