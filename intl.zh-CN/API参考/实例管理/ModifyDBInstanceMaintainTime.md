@@ -13,15 +13,18 @@
 |Action|String|是|ModifyDBInstanceMaintainTime|要执行的操作，取值：**ModifyDBInstanceMaintainTime**。
 
  |
-|MaintainStartTime|String|是|01:00Z|实例可运维时间段的开始时间，格式为*HH:mm*Z。
+|MaintainStartTime|String|是|01:00Z|实例可运维时间段的开始时间，格式为*HH:mm*Z（UTC时间）。
 
  |
-|MaintainEndTime|String|是|02:00Z|实例可运维时间段的结束时间，格式为*HH:mm*Z。
+|MaintainEndTime|String|是|02:00Z|实例可运维时间段的结束时间，格式为*HH:mm*Z（UTC时间）。
 
  **说明：** 开始时间至结束时间的范围须为1小时，例如**MaintainStartTime**为**01:00Z**，则**MaintainEndTime**必须为**02:00Z**。
 
  |
 |DBInstanceId|String|是|dds-bpxxxxxxxx|实例ID。
+
+ |
+|RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。
 
  |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
