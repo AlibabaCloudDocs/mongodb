@@ -16,6 +16,9 @@
 |DBInstanceId|String|是|dds-bpxxxxxxxx|实例ID。
 
  |
+|RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。
+
+ |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
 
  |
@@ -37,7 +40,7 @@
 -   **Sunday**：周日。
 
  |
-|PreferredBackupTime|String|20:00Z-21:00Z|备份时间，格式为*HH:mm*Z-*HH:mm*Z。
+|PreferredBackupTime|String|20:00Z-21:00Z|备份时间，格式为*HH:mm*Z-*HH:mm*Z（UTC时间）。
 
  |
 |RequestId|String|C2C283A1-1CC4-4DD9-B985-3811E0244A45|请求ID。
@@ -76,8 +79,8 @@ DBInstanceId=dds-bpxxxxxxxx
 {
 	"PreferredBackupPeriod":"Monday,Wednesday,Friday,Sunday",
 	"RequestId":"C2C283A1-1CC4-4DD9-B985-3811E0244A45",
-	"BackupRetentionPeriod":"7",
-	"PreferredBackupTime":"20:00Z-21:00Z"
+	"PreferredBackupTime":"20:00Z-21:00Z",
+	"BackupRetentionPeriod":"7"
 }
 ```
 
