@@ -31,6 +31,9 @@
  **说明：** 当**DBInstanceId**参数传入的是分片集群实例ID时，本参数才可用。
 
  |
+|RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。
+
+ |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
 
  |
@@ -42,7 +45,7 @@
 |TimeRange| | |可用的时间范围内，索引报告生成状态。
 
  |
-|└EndTime|String|2019-03-12T16Z|查询结束时间，格式为*yyyy-MM-dd*T*HH*Z。
+|└EndTime|String|2019-03-12T16Z|查询结束时间，格式为*yyyy-MM-dd*T*HH*Z（UTC时间）。
 
  |
 |└NodeId|String|d-bpxxxxxxxx|分片集群实例中Shard节点ID。
@@ -50,7 +53,7 @@
  **说明：** 当实例类型为分片集群实例时，返回本参数。
 
  |
-|└StartTime|String|2019-03-11T16Z|查询开始时间，格式为*yyyy-MM-dd*T*HH*Z。
+|└StartTime|String|2019-03-11T16Z|查询开始时间，格式为*yyyy-MM-dd*T*HH*Z（UTC时间）。
 
  |
 |└Status|String|Success|索引推荐报告的生成状态。
