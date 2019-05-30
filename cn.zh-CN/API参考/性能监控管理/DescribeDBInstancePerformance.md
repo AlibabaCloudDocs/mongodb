@@ -18,10 +18,10 @@
  **说明：** 如需传入多个指标使用英文逗号（,）分隔。
 
  |
-|StartTime|String|是|2019-03-11T12:30Z|查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z。
+|StartTime|String|是|2019-03-11T12:30Z|查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  |
-|EndTime|String|是|2019-03-11T12:30Z|查询结束时间，必须晚于查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z。
+|EndTime|String|是|2019-03-11T12:30Z|查询结束时间，必须晚于查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  |
 |DBInstanceId|String|是|dds-bpxxxxxxxx|实例ID。
@@ -47,6 +47,9 @@
  **说明：** 当**DBInstanceId**参数传入的是单节点实例ID或副本集实例ID时，本参数才可用。
 
  |
+|RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。
+
+ |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
 
  |
@@ -58,10 +61,10 @@
 |RequestId|String|267F98DC-367D-4F20-B137-8B5B664D1C5D|请求ID。
 
  |
-|StartTime|String|2019-03-11T12:20Z|查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z。
+|StartTime|String|2019-03-11T12:20Z|查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  |
-|EndTime|String|2019-03-11T12:30Z|查询结束时间，格式为*yyyy-MM-dd*T*HH:mm*Z。
+|EndTime|String|2019-03-11T12:30Z|查询结束时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  |
 |PerformanceKeys| | |性能指标信息列表。
