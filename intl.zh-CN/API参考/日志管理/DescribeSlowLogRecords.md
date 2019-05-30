@@ -15,10 +15,10 @@
 |Action|String|是|DescribeSlowLogRecords|要执行的操作，取值：**DescribeSlowLogRecords**。
 
  |
-|StartTime|String|是|2019-02-24T12:10Z|查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z。
+|StartTime|String|是|2019-02-24T12:10Z|查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  |
-|EndTime|String|是|2019-02-26T12:10Z|查询结束时间，必须晚于查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z。
+|EndTime|String|是|2019-02-26T12:10Z|查询结束时间，必须晚于查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  |
 |DBInstanceId|String|是|dds-bpxxxxxxxx|实例ID。
@@ -40,6 +40,9 @@
 |PageNumber|Integer|否|1|页码，取值为大于0且不超过Integer数据类型的的最大值，默认值为**1**。
 
  |
+|RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。
+
+ |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
 
  |
@@ -48,9 +51,6 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|Engine|String|MongoDB|数据库引擎。
-
- |
 |Items| | |慢操作日志明细列表。
 
  |
@@ -63,7 +63,7 @@
 |└DocsExamined|Long|1000000|该操作执行时扫描的文档数。
 
  |
-|└ExecutionStartTime|String|2019-02-25T01:41:28Z|操作执行的开始时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
+|└ExecutionStartTime|String|2019-02-25T01:41:28Z|操作执行的开始时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  |
 |└HostAddress|String|47.xxx.xxx.xx|连接数据库的主机地址。
