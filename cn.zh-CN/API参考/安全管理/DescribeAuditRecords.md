@@ -17,10 +17,10 @@
 |Action|String|是|DescribeAuditRecords|要执行的操作，取值：**DescribeAuditRecords**。
 
  |
-|StartTime|String|是|2019-03-13T12:11:14Z|查询开始时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
+|StartTime|String|是|2019-03-13T12:11:14Z|查询开始时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  |
-|EndTime|String|是|2019-03-13T13:11:14Z|查询结束时间，必须晚于查询开始时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
+|EndTime|String|是|2019-03-13T13:11:14Z|查询结束时间，必须晚于查询开始时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  |
 |DBInstanceId|String|是|dds-bpxxxxxxxx|实例ID。
@@ -56,6 +56,9 @@
 |PageNumber|Integer|否|1|页码，大于0，且不超过Integer的最大值，默认值为**1**。
 
  |
+|RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。
+
+ |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
 
  |
@@ -73,7 +76,7 @@
 |└DBName|String|test123|数据库名。
 
  |
-|└ExecuteTime|String|2019-03-11T03:30:27Z|该语句执行的时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
+|└ExecuteTime|String|2019-03-11T03:30:27Z|该语句执行的时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  |
 |└HostAddress|String|11.xxx.xxx.xxx|客户端IP地址。
