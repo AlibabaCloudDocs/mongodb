@@ -29,9 +29,12 @@
  **说明：** 如需传入多个值，多个值用英文逗号（,）隔开。
 
  |
-|PreferredBackupTime|String|是|03:00Z-04:00Z|执行备份的时间，格式为*HH:mm*Z-*HH:mm*Z。
+|PreferredBackupTime|String|是|03:00Z-04:00Z|执行备份的时间，格式为*HH:mm*Z-*HH:mm*Z（UTC时间）。
 
  **说明：** 时间范围限制为1小时。
+
+ |
+|RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。
 
  |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
