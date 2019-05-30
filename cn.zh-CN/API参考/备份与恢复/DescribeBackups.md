@@ -10,18 +10,18 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|StartTime|String|是|2019-03-12T12:00Z|查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z。
+|Action|String|是|DescribeBackups|要执行的操作，取值：**DescribeBackups**。
 
  |
-|EndTime|String|是|2019-03-13T12:00Z|查询结束时间，必须晚于查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z。
+|StartTime|String|是|2019-03-12T12:00Z|查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
+
+ |
+|EndTime|String|是|2019-03-13T12:00Z|查询结束时间，必须晚于查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  |
 |DBInstanceId|String|是|dds-bpxxxxxxxx|实例ID。
 
  **说明：** 当本参数传入的是分片集群实例ID时，还需要传入**NodeId**参数。
-
- |
-|Action|String|否|DescribeBackups|要执行的操作，取值：**DescribeBackups**。
 
  |
 |NodeId|String|否|d-bpxxxxxxxx|分片集群实例中Shard节点ID。
@@ -36,6 +36,9 @@
 
  |
 |PageSize|Integer|否|30|每页记录数，取值： **30、50、100**，默认值为**30**。
+
+ |
+|RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。
 
  |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
@@ -64,13 +67,18 @@
 |└BackupDBNames|String|mongodbtest,new,test|备份的数据库名。
 
  |
-|└BackupDownloadURL|String|http://xxxxx.oss-cn-hangzhou.aliyuncs.com/xxxxx/hinsxxxxx\_data\_xxxxx.tar.gz|备份文件的下载地址，若当前不可下载，则为空串。
+|└BackupDownloadURL|String|http://xxxxx.oss-cn-hangzhou.aliyuncs.com/xxxxx/hinsxxxxx\_data\_xxxxx.tar.gz|备份文件的外网下载地址，若当前不可下载，则为空字符串。
 
  |
-|└BackupEndTime|String|2019-03-13T04:34:57Z|本次备份结束时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
+|└BackupEndTime|String|2019-03-13T04:34:57Z|本次备份结束时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  |
 |└BackupId|Integer|11111111|备份ID。
+
+ |
+|└BackupIntranetDownloadURL|String|http://xxxxx.oss-cn-hangzhou-internal.aliyuncs.com/xxxxx/xxxxx.tar.gz|备份文件的内网下载地址。
+
+ **说明：** 您可以在和此MongoDB实例连通的ECS（二者需属于同地域的经典网络或者在同一VPC内）上使用该地址下载目标备份文件。
 
  |
 |└BackupMethod|String|Physical|备份方式。
@@ -89,7 +97,7 @@
 |└BackupSize|Long|335520510|备份文件大小，单位为Byte。
 
  |
-|└BackupStartTime|String|2019-03-13T04:32:42Z|本次备份开始时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z。
+|└BackupStartTime|String|2019-03-13T04:32:42Z|本次备份开始时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  |
 |└BackupStatus|String|Success|备份状态。
@@ -128,19 +136,20 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeBackups
   <PageNumber>1</PageNumber>
   <TotalCount>1</TotalCount>
   <PageSize>30</PageSize>
-  <RequestId>8925E66F-1971-4C8C-90A7-F93BF1867E25</RequestId>
+  <RequestId>09308D8E-136C-4053-89D8-51350248C31B</RequestId>
   <Backups>
     <Backup>
-      <BackupDownloadURL>http://xxxxx.oss-cn-hangzhou.aliyuncs.com/xxxxx/xxxxxx.tar.gz</BackupDownloadURL>
+      <BackupDownloadURL>http://xxxxx.oss-cn-hangzhou.aliyuncs.com/xxxxx/xxxxx.tar.gz</BackupDownloadURL>
+      <BackupIntranetDownloadURL>http://xxxxx.oss-cn-hangzhou-internal.aliyuncs.com/xxxxx/xxxxx.tar.gz</BackupIntranetDownloadURL>
       <BackupType>FullBackup</BackupType>
-      <BackupDBNames>mongodbtest,new,test</BackupDBNames>
-      <BackupEndTime>2019-03-13T04:34:57Z</BackupEndTime>
+      <BackupDBNames>mongousertest</BackupDBNames>
+      <BackupEndTime>2019-05-27T14:27:11Z</BackupEndTime>
       <BackupMethod>Physical</BackupMethod>
       <BackupMode>Automated</BackupMode>
-      <BackupSize>204595200</BackupSize>
+      <BackupSize>25849856</BackupSize>
       <BackupStatus>Success</BackupStatus>
-      <BackupStartTime>2019-03-13T04:32:42Z</BackupStartTime>
-      <BackupId>11111111</BackupId>
+      <BackupStartTime>2019-05-27T14:24:55Z</BackupStartTime>
+      <BackupId>11111</BackupId>
     </Backup>
   </Backups>
 </DescribeBackupsResponse>
@@ -154,20 +163,21 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeBackups
 	"PageNumber":1,
 	"TotalCount":1,
 	"PageSize":30,
-	"RequestId":"8925E66F-1971-4C8C-90A7-F93BF1867E25",
+	"RequestId":"09308D8E-136C-4053-89D8-51350248C31B",
 	"Backups":{
 		"Backup":[
 			{
-				"BackupDownloadURL":"http://xxxxx.oss-cn-hangzhou.aliyuncs.com/xxxxx/xxxxxx.tar.gz",
+				"BackupDownloadURL":"http://xxxxx.oss-cn-hangzhou.aliyuncs.com/xxxxx/xxxxx.tar.gz",
+				"BackupIntranetDownloadURL":"http://xxxxx.oss-cn-hangzhou-internal.aliyuncs.com/xxxxx/xxxxx.tar.gz",
 				"BackupType":"FullBackup",
-				"BackupDBNames":"mongodbtest,new,test",
-				"BackupEndTime":"2019-03-13T04:34:57Z",
+				"BackupDBNames":"mongousertest",
+				"BackupEndTime":"2019-05-27T14:27:11Z",
 				"BackupMode":"Automated",
 				"BackupMethod":"Physical",
 				"BackupStatus":"Success",
-				"BackupSize":204595200,
-				"BackupId":11111111,
-				"BackupStartTime":"2019-03-13T04:32:42Z"
+				"BackupSize":25849856,
+				"BackupId":11111,
+				"BackupStartTime":"2019-05-27T14:24:55Z"
 			}
 		]
 	}
