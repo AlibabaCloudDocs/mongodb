@@ -14,7 +14,7 @@ The console homepage displays the same information for all MongoDB sharded clust
 
 Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/) and go to the Instances page, as shown in the following figure. This figure is only to be used for reference. The actual page may be different.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6687/155927160313822_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6687/155927171113822_en-US.png)
 
 UI element description
 
@@ -38,12 +38,13 @@ Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/
 |Page name|Area|Description|Link of common operation|
 |:--------|:---|:----------|:-----------------------|
 |Operation area in the window|-|You can back up and restart instances.| -   Back up an instance
--   
+-   [Restart an instance](../../../../intl.en-US/User Guide/Instance management/Restart an instance.md#)
+
  |
 |Basic Information|Basic Information|You can view the basic information of an instance, such as its ID, region, network type, and storage engine.|-|
 |Specifications|You can view instance specifications such as the database version, maintenance period, billing method, creation time, and expiration time.|[Specify a maintenance period](../../../../intl.en-US/User Guide/Instance management/Specify a maintenance period.md#)|
-|Mongos Nodes or Shard Nodes| -   In the mongos list, you can locate a mongos ID and click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6687/155927160348346_en-US.png) icon to change its configurations, and log on to or restart the mongos.
--   In the shard list, you can locate a shard ID and click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6687/155927160348346_en-US.png) icon to log on to a shard, restart the shard, trigger a failover, or change the shard configurations.
+|Mongos Nodes or Shard Nodes| -   In the mongos list, you can locate a mongos ID and click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6687/155927171248346_en-US.png) icon to change its configurations, and log on to or restart the mongos.
+-   In the shard list, you can locate a shard ID and click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6687/155927171248346_en-US.png) icon to log on to a shard, restart the shard, trigger a failover, or change the shard configurations.
 -   Database read and write operations may fail when you restart nodes. We recommend that you do not perform the Create, Retrieve, Update, and Delete \(CRUD\) operations on databases when you restart nodes.
 
  | -   [Trigger a failover](../../../../intl.en-US/User Guide/Primary__Secondary failover/Trigger a primary__secondary failover for a shard of a sharded cluster instance.md#ul_bl4_fkh_kfb)
