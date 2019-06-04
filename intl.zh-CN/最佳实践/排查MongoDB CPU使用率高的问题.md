@@ -12,7 +12,7 @@
 
     该命令的输出示例如下。
 
-    ```
+    ``` {#codeblock_xkm_g99_vn3}
     {
             "desc" : "conn632530",
             "threadId" : "140298196924160",
@@ -70,13 +70,13 @@
 
 2.  通过`use <database>`命令进入指定数据库。
 
-    ```
+    ``` {#codeblock_3sj_5rv_ubj}
     use mongodbtest
     ```
 
 3.  执行如下命令，查看该数据下的慢请求日志。
 
-    ```
+    ``` {#codeblock_1xy_iti_9b2}
     db.system.profile.find().pretty()
     ```
 
@@ -84,7 +84,7 @@
 
     以下为某个慢请求日志示例，可查看到该请求进行了全表扫描，扫描了11000000个文档，没有通过索引进行查询。
 
-    ```
+    ``` {#codeblock_yp1_61t_ia6}
     {
             "op" : "query",
             "ns" : "123.testCollection",
@@ -165,7 +165,7 @@
 
     如下所示，假设某个集合的数据，x字段的取值很少（假设只有1、2），而y字段的取值很丰富。
 
-    ```
+    ``` {#codeblock_kzi_0q0_18d}
     { x: 1, y: 1 }
     { x: 1, y: 2 }
     { x: 1, y: 3 }
@@ -180,7 +180,7 @@
 
     要实现 \{x: 1, y: 2\} 这样的查询。
 
-    ```
+    ``` {#codeblock_qdv_fjw_pbq}
     db.createIndex( {x: 1} )         效果不好，因为x相同取值太多
     db.createIndex( {x: 1, y: 1} )   效果不好，因为x相同取值太多
     db.createIndex( {y: 1 } )        效果好，因为y相同取值很少
@@ -197,8 +197,6 @@
 
 
 其他还有诸如建立索引、aggregation（遍历、查询、更新、排序等动作的组合） 等操作也可能非常耗CPU资源，但本质上也是上述几种场景。更多 profiling 的设置请参考[profiling官方文档](https://docs.mongodb.com/manual/tutorial/manage-the-database-profiler/)。
-
-您也可以将MongoDB实例接入至混合云数据库管理HDM（Hybrid Cloud Database Management）。在HDM控制台中，您可以对MongoDB实例的实时性能、实时会话、慢日志、磁盘空间等信息进行监控和管理，详情请参见[HDM操作流程](https://help.aliyun.com/document_detail/64900.html#h2-u64CDu4F5Cu6D41u7A0B3)。
 
 ## 服务能力评估 {#section_ytj_4tv_1gb .section}
 
