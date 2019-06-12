@@ -41,7 +41,7 @@ To create sharded cluster instances, you can call[CreateShardingDBInstance](~~61
  **Note:** The values that can be specified for this parameter are dependent on the instance specification. For more information, see[Instance specifications](~~57141~~).
 
  |
-|RegionId|String|Yes|cn-hangzhou| The ID of the region. You can call the[DescribeRegions](~~61933~~)operation to query zones.
+|RegionId|String|Yes|cn-hangzhou| The ID of the region. You can call the[DescribeRegions](~~61933~~)operation to query regions.
 
  |
 |ZoneId|String|No|cn-hangzhou-b| The ID of the zone. You can call the[DescribeRegions](~~61933~~)operation to query zones.
