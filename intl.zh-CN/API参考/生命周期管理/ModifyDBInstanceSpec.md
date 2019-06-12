@@ -1,10 +1,10 @@
 # ModifyDBInstanceSpec {#doc_api_Dds_ModifyDBInstanceSpec .reference}
 
-调用ModifyDBInstanceSpec接口变更MongoDB副本集实例的规格或存储空间。
+调用ModifyDBInstanceSpec接口变更MongoDB单节点或副本集实例的规格或存储空间。
 
  **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing)。** 
 
-该接口仅适用于副本集实例，分片集群实例如需变更配置，您可以根据需求通过调用[ModifyNodeSpec](~~61923~~)、[CreateNode](~~61911~~)或[DeleteNode](~~61922~~)接口来实现。
+该接口仅适用于单节点实例和副本集实例。分片集群实例如需变更配置，您可以根据需求通过调用[ModifyNodeSpec](~~61923~~)、[CreateNode](~~61911~~)或[DeleteNode](~~61922~~)接口来实现。
 
 ## 调试 {#apiExplorer .section}
 
@@ -32,10 +32,7 @@
 
  **说明：** 
 
- 
-
 -   本参数和**DBInstanceClass**参数两者中必须传入一项。
-
 -   仅按量付费的副本集实例支持降配存储空间，且存储空间必须大于当前已使用的存储空间。
 
  |
@@ -58,7 +55,10 @@
 |BusinessInfo|String|否|\{“ActivityId":"000000000"\}|业务信息。
 
  |
-|ReplicationFactor|String|否|3|副本集实例的节点个数，取值**3，5，7**，默认值为**3**。
+|ReplicationFactor|String|否|3|设置实例的节点个数。
+
+ -   副本集实例取值为**3，5，7**。
+-   单节点实例取值固定为**1**。
 
  |
 |CouponNo|String|否|youhuiquan\_promotion\_option\_id\_for\_blank|优惠码，默认为：**youhuiquan\_promotion\_option\_id\_for\_blank**。
@@ -70,6 +70,9 @@
 -   **MaintainTime**：在实例的可运维时间段内生效。
 
  默认为**Immediately**。
+
+ |
+|RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。
 
  |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
