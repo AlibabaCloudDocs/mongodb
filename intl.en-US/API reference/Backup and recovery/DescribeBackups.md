@@ -1,53 +1,180 @@
-# DescribeBackups {#reference_e3p_2yw_kfb .reference}
+# DescribeBackups {#doc_api_Dds_DescribeBackups .reference}
 
-You can call this operation to view the backup list. This operation supports both replica set instances and sharded cluster instances.
+You can call this operation to query the backups of a MongoDB instance.
 
-## Request parameters {#section_rr1_5yw_kfb .section}
+## Debugging {#apiExplorer .section}
 
-|Parameter|Type|Required|Description|
-|:--------|:---|:-------|:----------|
-|Action|String|Yes|The operation that you want to perform. Set the value toDescribeBackups.|
-|DBInstanceId|String|Yes|The ID of the instance.|
-|StartTime|String|Yes|The start time of the time frame specified for querying backups. Format: 2011-06-11T15:00Z.|
-|EndTime|String|Yes|The end time of the time frame specified for querying backups. It must be later than the start time. Format: 2011-06-11T16:00Z.|
-|BackupId|Integer|No|The ID of the backup.|
-|NodeId|String|No|This parameter is required when the instance type is cluster. It specifies the ID of the shard that you want to query.|
-|PageSize|Integer|No|The number of records on each page. Valid values: 30, 50, and 100. Default value: 30.|
-|PageNumberds|Integer|No|The page number. It must be greater than 0 and smaller than or equal to the maximum value of Integer. Default value: 1.|
+[OpenAPI Explorer](https://api.aliyun.com/#product=Dds&api=DescribeBackups) simplifies API usage. You can use OpenAPI Explorer to perform debugging operations, such as retrieve APIs, call APIs, and dynamically generate SDK example code.
 
-## Response parameters {#section_ckh_xzw_kfb .section}
+## Request parameters {#parameters .section}
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|Common response parameters|-|For more information, see [Common response parameters](https://www.alibabacloud.com/help/doc-detail/61711.htm).|
-|Items|List<Backup\>|Array composed of backups.|
-|PageNumber|Integer|The number of the page.|
-|TotalCount|Integer|The total number of backups.|
-|PageSize|Integer  |The number of records on each page.|
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|StartTime|String|Yes|2019-03-12T12:00Z|The start time of the query. It must be in the *yyyy-MM-dd*T*HH:mm:*Z format.
 
-## Backup data structure {#section_lsv_21x_kfb .section}
+ |
+|EndTime|String|Yes|2019-03-13T12:00Z|The end time of the query. It must be later than the start time. The format is *yyyy-MM-dd*T*HH: mm*Z.
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|BackupId|Integer|The ID of the backup.|
-|BackupStatus|String|The status of the backup:-   Success: The backup process is complete.
--   Failed: The backup process has failed.
+ |
+|DBInstanceId|String|Yes|dds-bpxxxxxxxx|The ID of the instance.
 
-|
-|BackupStartTime|String|The start time of the backup process. Format: YYYY-MM-DD’T’hh:mm:ssZ.|
-|BackupEndTime|String|The end time of the backup process. Format: YYYYMM-DD’T’hh:mm:ssZ.|
-|BackupType|String|The following backup types are available:-   FullBackup: Full backup.
--   IncrementalBackup: Incremental backup.
+ **Note:** If you set this parameter to the ID of a sharded cluster instance, you must also specify **the NodeId** parameter at the same time.
 
-|
-|BackupMode|String|The following backup modes are available:-   Automated: Automatic backup.
--   Manual: Manual backup.
+ |
+|Action|String|No|DescribeBackups|The operation that you want to perform. Set the value to **DescribeBackups**.
 
-|
-|BackupMethod|String|The following backup methods are available:-   Snapshot: Create a snapshot.
--   Physical: Create a physical backup.
+ |
+|NodeId|String|No|d-bpxxxxxxxx|The ID of the shard in the sharded cluster instance.
 
-|
-|BackupDownloadURL|String|The download URL of the backup. If the backup cannot be downloaded, this parameter is set to an empty string.|
-|BackupSize|Long|The size of the backup file. Unit: Bytes.|
+ **Note:** This parameter can be used only when **DBInstanceId**is the ID of the sharded cluster instance.
+
+ |
+|BackupId|String|No|5664xxxx|The ID of the backup.
+
+ |
+|PageNumber|Integer|No|1|The number of the page. This value must be a non-zero positive integer. Default value: **1**.
+
+ |
+|PageSize|Integer|No|30|The number of records on each page. Valid values: **30, 50, and 100.**Default value: **30**.
+
+ |
+|AccessKeyId|String|No|LTAIgbTGpxxxxxx|The AccessKey ID provided to you by Alibaba Cloud.
+
+ |
+
+## Response parameters {#resultMapping .section}
+
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|PageNumber|Integer|1|The number of the page.
+
+ |
+|PageSize|Integer|30|The number of records on each page.
+
+ |
+|RequestId|String|8925E66F-1971-4C8C-90A7-F93BF1867E25|The ID of the request.
+
+ |
+|TotalCount|Integer|1|The total number of backups.
+
+ |
+|Backups| | |The detailed list of all returned backups.
+
+ |
+|└BackupDBNames|String|mongodbtest, new, test|The name of the backup database.
+
+ |
+|└BackupDownloadURL|String|http://xxxxx.oss-cn-hangzhou.aliyuncs.com/xxxxx/hinsxxxxx\_data\_xxxxx.tar.gz|The download URL of the backup file. If the download URL is unavailable, this parameter is an empty string.
+
+ |
+|└BackupEndTime|String|2019-03-13T04:34:57Z|The end time of the backup. The format is *yyyy-MM-dd*T*HH: mm:ss*Z.
+
+ |
+|└BackupId|Integer|11111111|The ID of the backup.
+
+ |
+|└BackupMethod|String|Physical|The backup method.
+
+ -   **Snapshot**
+-   **Physical**
+-   **Logical**
+
+ |
+|└BackupMode|String|Automated|The backup mode.
+
+ -   **Automated**
+-   **Manual**
+
+ |
+|└BackupSize|Long|335520510|The size of the backup file. Unit: Bytes.
+
+ |
+|└BackupStartTime|String|2019-03-13T04:32:42Z|The start time of the backup. The format is *yyyy-MM-dd*T*HH:mm:ss*Z.
+
+ |
+|└BackupStatus|String|Success|The state of the backup.
+
+ -   **Success**: The backup is successful.
+-   **Failed**: The backup has failed.
+
+ |
+|└BackupType|String|FullBackup|The backup type.
+
+ -   **FullBackup**
+-   **IncrementalBackup**
+
+ |
+
+## Examples {#demo .section}
+
+Sample requests
+
+``` {#request_demo}
+
+http(s)://mongodb.aliyuncs.com/? &Action= DescribeBackups
+&StartTime=2019-03-12T12:00Z 
+&EndTime=2019-03-13T12:00Z 
+&DBInstanceId=dds-bpxxxxxxxx
+&<Common request parameters>
+
+```
+
+Successful response examples
+
+`XML` format
+
+``` {#xml_return_success_demo}
+<DescribeBackupsResponse>
+  <PageNumber>1</PageNumber>
+  <TotalCount>1</TotalCount>
+  <PageSize>30</PageSize>
+  <RequestId>8925E66F-1971-4C8C-90A7-F93BF1867E25</RequestId> 
+  <Backups>
+    <Backup>
+      <BackupDownloadURL>http://xxxxx.oss-cn-hangzhou.aliyuncs.com/xxxxx/xxxxxx.tar.gz</BackupDownloadURL>
+      <BackupType>FullBackup</BackupType>
+      <BackupDBNames>mongodbtest,new,test</BackupDBNames>
+      <BackupEndTime>2019-03-13T04:34:57Z</BackupEndTime>
+      <BackupMethod>Physical</BackupMethod> 
+      <BackupMode>Automated</BackupMode>
+      <BackupSize>204595200</BackupSize> 
+      <BackupStatus>Success</BackupStatus> 
+      <BackupStartTime>2019-03-13T04:32:42Z</BackupStartTime> 
+      <BackupId>11111111</BackupId>
+    </Backup> 
+  </Backups> 
+</DescribeBackupsResponse> 
+
+```
+
+`JSON` format
+
+``` {#json_return_success_demo}
+{
+	"PageNumber":1,
+	"TotalCount":1,
+	"PageSize":30,
+	"RequestId":"8925E66F-1971-4C8C-90A7-F93BF1867E25",
+	"Backups":{
+		"Backup":[
+			{
+				"BackupDownloadURL":"http://xxxxx.oss-cn-hangzhou.aliyuncs.com/xxxxx/xxxxxx.tar.gz",
+				"BackupType":"FullBackup",
+				"BackupDBNames":"mongodbtest,new,test",
+				"BackupEndTime":"2019-03-13T04:34:57Z",
+				"BackupMode":"Automated",
+				"BackupMethod":"Physical",
+				"BackupStatus":"Success",
+				"BackupSize":204595200,
+				"BackupId":11111111,
+				"BackupStartTime":"2019-03-13T04:32:42Z"
+			}
+		]
+	}
+}
+```
+
+## Error codes { .section}
+
+[View error codes](https://error-center.aliyun.com/status/product/Dds)
 
