@@ -2,7 +2,7 @@
 
 该接口用于创建MongoDB副本集实例，同时也可用于克隆MongoDB副本集实例。
 
- **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing)。** 
+ **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.aliyun.com/price/product#/mongodb/detail)。** 
 
 关于云数据库MongoDB实例的规格，请参见[实例规格表](~~57141~~)。
 
