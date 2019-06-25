@@ -1,6 +1,6 @@
 # 使用DMS管理MongoDB数据库用户 {#concept_cgg_qxh_1gb .concept}
 
-通过数据管理服务（Data Management Service，简称DMS），您可以更加便捷地对MongoDB数据库用户进行创建、修改、删除等操作。
+通过数据管理服务DMS（Data Management Service），您可以更加便捷地对MongoDB数据库用户进行创建、修改、删除等操作。
 
 ## 创建用户 {#section_ivv_n4h_1gb .section}
 
@@ -10,31 +10,31 @@
 
 2.  在顶部导航栏，单击**创建** \> **用户**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/77122/156143948233756_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/77122/156143961933756_zh-CN.png)
 
 3.  在创建用户页面，首先设置新用户的账户信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/77122/156143948233757_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/77122/156143961933757_zh-CN.png)
 
     |配置项目|说明|
     |:---|:-|
-    |目标库|下拉选择该用户保存的目标数据库。**说明：** 
+    |目标库|下拉选择该用户保存的目标数据库。 **说明：** 
 
     -   目标库选择为非admin库时，创建的用户为普通用户。
     -   目标库选择为**admin**库时，创建的用户为高权限用户。
-|
-    |用户名|设置用户的名称。    -   不支持中文
+ |
+    |用户名|设置用户的名称。     -   不支持中文
     -   支持英文、数字和特殊字符
     -   特殊字符为!\#$%^&\*\(\)\_+-=
-|
-    |密码|设置用户的密码。为保障数据安全性，建议设置的密码至少包含大写、小写、数字、特殊字符中的三种，长度为8-32位；特殊字符为!\#$%^&\*\(\)\_+-=
+ |
+    |密码|设置用户的密码。 为保障数据安全性，建议设置的密码至少包含大写、小写、数字、特殊字符中的三种，长度为8-32位；特殊字符为!\#$%^&\*\(\)\_+-=
 
-|
+ |
     |确认密码|设置用户的密码，和前面设置的密码保持一致。|
 
 4.  在创建用户页面，设置新用户的权限信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/77122/156143948233758_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/77122/156143961933758_zh-CN.png)
 
     **说明：** 
 
@@ -61,7 +61,7 @@
 2.  在左侧**对象列表**栏目中，展开要进行编辑的用户所在的**数据库**节点。
 3.  展开**用户**节点，右键单击该用户。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/77122/156143948233778_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/77122/156143961933778_zh-CN.png)
 
 4.  编辑用户对话框，可设置该用户的密码或权限信息。
 5.  单击**确认**。
