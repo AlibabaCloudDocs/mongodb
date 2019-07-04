@@ -20,7 +20,7 @@ Certain fees occur when you create a VPN gateway. For more information, see [Pri
 
 ## Example of environment preparation {#section_yf2_jdr_ggb .section}
 
-![Environment preparation of the SSL connection ](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/159808/156223046144679_en-US.png)
+![Environment preparation of the SSL connection ](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/159808/156223066544679_en-US.png)
 
 ## Step 1 Create a VPN gateway {#section_xxd_vwq_ggb .section}
 
@@ -117,13 +117,13 @@ This topic uses Windows as an example. For more information about other operatin
 6.  Decompress the client certificate that you downloaded in the preceding step and copy it to the config folder of the OpenVPN installation directory.
 7.  Click **Connect** to initiate a connection.
 
-    ![Initiate an SSL connection](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/159808/156223046144665_en-US.png)
+    ![Initiate an SSL connection](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/159808/156223066544665_en-US.png)
 
 8.  Add the IP address of the VPC to which the ApsaraDB for MongoDB instance belongs to the whitelist of the ApsaraDB for MongoDB instance. The IP address **172.16.1.0/24** is added to the whitelist of the ApsaraDB for MongoDB instance.
 9.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
 10. Obtain the private IP address of the ApsaraDB for MongoDB instance. For more information, see [Connect to a replica set instance through the mongo shell](../../../../intl.en-US/Quick Start for Replica Set/Connect to an instance/Connect to an replica set instance through the mongo shell.md#).
 
-    ![Private IP address of ApsaraDB for MongoDB instances](images/44701_en-US.png)
+    ![Private IP address of ApsaraDB for MongoDB instances](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/159808/156223066644701_en-US.png)
 
 11. Use the [mongo shell](../../../../intl.en-US/Quick Start for Replica Set/Connect to an instance/Log on to the MongoDB instance through the mongo shell.md#) or other management tools to log on to the ApsaraDB for MongoDB database.
 
