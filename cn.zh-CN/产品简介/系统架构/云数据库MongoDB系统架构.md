@@ -2,7 +2,7 @@
 
 ## 系统架构图 {#section_akh_kc5_xgb .section}
 
-![MongoDB系统架构](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/132916/155125922939713_zh-CN.png)
+![MongoDB系统架构](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/132916/156222392739713_zh-CN.png)
 
 ## 主要组件说明 {#section_lzk_jc5_xgb .section}
 
