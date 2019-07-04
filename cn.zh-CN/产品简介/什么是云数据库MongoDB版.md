@@ -75,4 +75,6 @@
 -   [ECS](https://help.aliyun.com/document_detail/25367.html)：云服务器ECS（Elastic Compute Service）通过内网访问同一地域的MongoDB实例时，可实现最佳性能。ECS搭配MongoDB实例是典型的业务访问架构。
 -   [DTS](https://help.aliyun.com/document_detail/26592.html)：您可以使用数据传输服务DTS（Data Transmission Service）将本地MongoDB数据库迁移上云。
 -   [OSS](https://help.aliyun.com/document_detail/31817.html)：对象存储服务OSS（Object Storage Service）是阿里云提供的海量、安全、低成本、高可靠的云存储服务。
+-   [HDM](https://help.aliyun.com/product/63907.html)：混合云数据库管理HDM（Hybrid Cloud Database Management）帮助企业打通混合云数据库架构，提供多环境统一管理、快速弹性、容灾切换的能力，您可以通过HDM查询云数据库MongoDB的实时性能和实时操作，分析慢日志、管理存储空间等操作。
+-   [云HBase](https://help.aliyun.com/document_detail/49501.html)：云HBase是基于Apache HBase和HBase生态构建的低成本一站式数据处理平台，又称HBase X-Pack。云Spark分析引擎支持对接云数据库MongoDB版，提供分析MongoDB数据库的能力。
 
