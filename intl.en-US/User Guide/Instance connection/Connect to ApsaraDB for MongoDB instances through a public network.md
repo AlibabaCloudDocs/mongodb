@@ -41,7 +41,7 @@ In a case you have added the public IP address of the local server to the whitel
 
     Output examples
 
-    ![Query the IP address of the client](images/44647_en-US.png)
+    ![Query the IP address of the client](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/157550/156222982344647_en-US.png)
 
     **Note:** If you log on to the ApsaraDB for MongoDB instance using other methods, you can run the following command to query information about all the clients:
 
