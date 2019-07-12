@@ -1,6 +1,6 @@
 # 通过DMS登录MongoDB数据库 {#concept_xdd_13v_cgb .concept}
 
-您可以通过 [数据管理服务DMS](https://www.alibabacloud.com/help/zh/doc-detail/47550.htm)登录MongoDB数据库。使用DMS您可以更便捷地对MongoDB数据库进行管理。
+您可以通过[数据管理服务DMS](https://www.alibabacloud.com/help/zh/doc-detail/47550.htm)登录MongoDB数据库。使用DMS您可以更便捷地对MongoDB数据库进行管理。
 
 ## 注意事项 {#section_tqx_53v_cgb .section}
 
@@ -46,21 +46,28 @@
 4.  找到目标实例，单击实例ID。
 5.  在左侧导航栏，单击**数据库连接**，获取 Primary 节点的内网连接地址。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6674/156152998534552_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6674/156289581334552_zh-CN.png)
 
 6.  单击页面右上角的**登录数据库**，选择要登录的数据库节点为 **Primary** 或 **Secondary** ，跳转到数据管理控制台页面。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6674/156152998513329_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6674/156289581313329_zh-CN.png)
 
 7.  在数据管理控制台页面，填写相应信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/23695/156152998513740_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/23695/156289581313740_zh-CN.png)
 
     -   网络地址及端口：填入 Primary 节点的内网连接地址。
     -   数据库用户名：默认为root。
     -   数据库：鉴权数据库，默认为admin。
     -   密码：数据库登录密码，如忘记密码可[重置密码](intl.zh-CN/副本集快速入门/设置密码.md#)。
 8.  单击**登录**。
+
+## 相关问题 {#section_svc_7i5_7od .section}
+
+-   [排查 Mongo Shell 登录问题](../intl.zh-CN/常见问题/热点问题/排查 Mongo Shell 登录问题.md#)
+-   [排查因连接数耗尽导致的数据库连接问题](../intl.zh-CN/常见问题/热点问题/排查因连接数耗尽导致的数据库连接问题.md#)
+-   [排查 MongoDB CPU使用率高的问题](../intl.zh-CN/最佳实践/排查MongoDB CPU使用率高的问题.md#)
+-   [如何查询及限制连接数](../intl.zh-CN/常见问题/热点问题/如何查询及限制连接数.md#)
 
 ## 更多信息 {#section_af7_wmy_yvo .section}
 

@@ -1,6 +1,6 @@
 # 通过DMS登录MongoDB数据库 {#concept_xdd_13v_cgb .concept}
 
-您可以通过阿里云的[数据管理服务DMS](https://help.aliyun.com/document_detail/47550.html)登录MongoDB数据库。使用DMS您可以更便捷地对MongoDB数据库进行管理。
+您可以通过[数据管理服务DMS](https://www.alibabacloud.com/help/zh/doc-detail/47550.htm)登录MongoDB数据库。使用DMS您可以更便捷地对MongoDB数据库进行管理。
 
 ## 注意事项 {#section_tqx_53v_cgb .section}
 
@@ -9,7 +9,7 @@
 
 ## 准备工作 {#section_nlw_mz4_tgb .section}
 
-根据MongoDB实例的网络类型，将DMS服务器的IP地址加入至MongoDB实例的白名单中，详情请参见[设置白名单](cn.zh-CN/副本集快速入门/设置白名单.md#)。
+根据MongoDB实例的网络类型，将DMS服务器的IP地址加入至MongoDB实例的白名单中，详情请参见[设置白名单](intl.zh-CN/副本集快速入门/设置白名单.md#)。
 
 **说明：** 如您已经将DMS服务器的IP地址加入至MongoDB实例的白名单中，可跳过此步骤。
 
@@ -46,39 +46,30 @@
 4.  找到目标实例，单击实例ID。
 5.  在左侧导航栏，单击**数据库连接**，获取 Primary 节点的内网连接地址。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6674/155842509634552_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6674/156289581334552_zh-CN.png)
 
 6.  单击页面右上角的**登录数据库**，选择要登录的数据库节点为 **Primary** 或 **Secondary** ，跳转到数据管理控制台页面。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6674/155842509613329_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6674/156289581313329_zh-CN.png)
 
 7.  在数据管理控制台页面，填写相应信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/23695/155842509613740_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/23695/156289581313740_zh-CN.png)
 
     -   网络地址及端口：填入 Primary 节点的内网连接地址。
     -   数据库用户名：默认为root。
     -   数据库：鉴权数据库，默认为admin。
-    -   密码：数据库登录密码，如忘记密码可[重置密码](cn.zh-CN/副本集快速入门/设置密码.md#)。
+    -   密码：数据库登录密码，如忘记密码可[重置密码](intl.zh-CN/副本集快速入门/设置密码.md#)。
 8.  单击**登录**。
 
-## 连接MongoDB数据库的常见场景 {#section_eii_nos_pkx .section}
+## 相关问题 {#section_svc_7i5_7od .section}
 
--   [如何通过公网连接MongoDB实例](../cn.zh-CN/用户指南/连接实例/如何通过公网连接MongoDB实例.md#)
--   [ECS实例与MongoDB实例网络类型不同时如何连接](../cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例网络类型不同时如何连接.md#)
--   [ECS实例与MongoDB实例地域不同如何连接](../cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例地域不同如何连接.md#)
--   [ECS实例与MongoDB实例不在同一阿里云账号时如何连接](../cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例不在同一阿里云账号时如何连接.md#)
+-   [排查 Mongo Shell 登录问题](../intl.zh-CN/常见问题/热点问题/排查 Mongo Shell 登录问题.md#)
+-   [排查因连接数耗尽导致的数据库连接问题](../intl.zh-CN/常见问题/热点问题/排查因连接数耗尽导致的数据库连接问题.md#)
+-   [排查 MongoDB CPU使用率高的问题](../intl.zh-CN/最佳实践/排查MongoDB CPU使用率高的问题.md#)
+-   [如何查询及限制连接数](../intl.zh-CN/常见问题/热点问题/如何查询及限制连接数.md#)
 
 ## 更多信息 {#section_af7_wmy_yvo .section}
 
--   建议在生产环境中不要直接使用 root 用户登录数据库。您可以根据业务需求，创建用户并分配权限，详情请参见[使用DMS管理MongoDB数据库用户](../cn.zh-CN/用户指南/账号管理/使用DMS管理MongoDB数据库用户.md#)。
-
-    **说明：** 关于DMS中MongoDB数据库的更多相关操作介绍请参见[DMS for MongoDB](https://help.aliyun.com/document_detail/47683.html)。
-
--   在DMS控制台的顶部导航栏中，您可以通过单击**性能**菜单下的选项，进入混合云数据库管理HDM（Hybrid Cloud Database Management）控制台。
-
-    **说明：** 在HDM控制台中，您可以对MongoDB实例的实时性能、实时会话、慢日志、磁盘空间等信息进行监控和管理，详情请参见[混合云数据库管理帮助文档](https://help.aliyun.com/product/63907.html)中用户指南的相关文档。
-
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/23695/155842509647679_zh-CN.png)
-
+建议在生产环境中不要直接使用 root 用户登录数据库。您可以根据业务需求，创建用户并分配权限，详情请参见[使用DMS管理MongoDB数据库用户](../intl.zh-CN/用户指南/账号管理/使用DMS管理MongoDB数据库用户.md#)。
 
