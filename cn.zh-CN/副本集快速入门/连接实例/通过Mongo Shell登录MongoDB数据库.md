@@ -1,6 +1,6 @@
 # 通过Mongo Shell登录MongoDB数据库 {#concept_qgf_hv4_dgb .concept}
 
-您可以在本地服务器上或 [ECS](https://www.alibabacloud.com/help/zh/doc-detail/25367.htm)上安装 Mongo Shell 工具，通过 Mongo Shell 的方式登录MongoDB数据库。
+您可以在本地服务器上或[ECS](https://www.alibabacloud.com/help/zh/doc-detail/25367.htm)上安装 Mongo Shell 工具，通过 Mongo Shell 的方式登录MongoDB数据库。
 
 ## 前提条件 {#section_psj_jv4_dgb .section}
 
@@ -20,7 +20,7 @@
 
         日常测试时，可直接连接 Primary 节点。需要注意的是一旦发生[主备切换](../../../../intl.zh-CN/用户指南/主备切换/副本集实例设置主备切换.md#)，连接节点的角色将发生变化，从而会对读写操作造成影响。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6675/156144189031535_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6675/156289587331535_zh-CN.png)
 
         在安装有 Mongo Shell 的本地服务器或ECS上进行连接。
 
@@ -48,7 +48,7 @@
 
     -   高可用连接方式（推荐）：使用ConnectionStringURI连接数据库，可实现高可用性。确保连接的节点始终为 Primary 节点，不会因为主备切换而影响应用的读写操作。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6675/156144189034449_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6675/156289587334449_zh-CN.png)
 
         在安装有 Mongo Shell 的本地服务器或ECS上进行连接。
 
@@ -61,14 +61,15 @@
         -   双引号须为英文双引号（""）。
         -   <ConnectionStringURI\>：实例的**ConnectionStringURI**地址。
 
-             **ConnectionStringURI**地址中`****`替换为数据库密码。数据库密码设置请参见[设置密码](intl.zh-CN/副本集快速入门/设置密码.md#)。
+            **ConnectionStringURI**地址中`****`替换为数据库密码。数据库密码设置请参见[设置密码](intl.zh-CN/副本集快速入门/设置密码.md#)。
 
 
-## 相关问题 {#section_why_5w4_dgb .section}
+## 相关问题 {#section_q6i_1hj_vms .section}
 
--    [排查 Mongo Shell 登录问题](../../../../intl.zh-CN/常见问题/热点问题/排查 Mongo Shell 登录问题.md#) 
--    [排查 MongoDB CPU使用率高的问题](../../../../intl.zh-CN/最佳实践/排查MongoDB CPU使用率高的问题.md#) 
--    [如何查询及限制连接数](../../../../intl.zh-CN/常见问题/热点问题/如何查询及限制连接数.md#) 
+-   [排查 Mongo Shell 登录问题](../../../../intl.zh-CN/常见问题/热点问题/排查 Mongo Shell 登录问题.md#)
+-   [排查因连接数耗尽导致的数据库连接问题](../../../../intl.zh-CN/常见问题/热点问题/排查因连接数耗尽导致的数据库连接问题.md#)
+-   [排查 MongoDB CPU使用率高的问题](../../../../intl.zh-CN/最佳实践/排查MongoDB CPU使用率高的问题.md#)
+-   [如何查询及限制连接数](../../../../intl.zh-CN/常见问题/热点问题/如何查询及限制连接数.md#)
 
 ## 更多信息 {#section_zsr_lf2_qgb .section}
 
