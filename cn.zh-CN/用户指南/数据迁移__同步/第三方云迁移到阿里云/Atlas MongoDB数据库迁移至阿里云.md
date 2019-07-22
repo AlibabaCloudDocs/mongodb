@@ -12,10 +12,10 @@
 
 ## 数据库账号权限要求 {#section_oyv_j2l_5fb .section}
 
-|迁移对象|账号权限|
-|:---|:---|
-|Atlas MongoDB实例|read|
-|阿里云MongoDB实例|readWrite|
+|迁移数据源|账号权限|
+|:----|:---|
+|Atlas MongoDB实例|待迁移库的read权限|
+|阿里云MongoDB实例|目标库的readWrite权限|
 
 ## 迁移前准备工作一 {#section_y4p_ztk_5fb .section}
 
@@ -44,15 +44,15 @@
 1.  登录Atlas MongoDB数据库控制台。
 2.  将用于数据迁移的本地设备的公网IP地址，加入至Atlas MongoDB实例的白名单中。
 
-    ![Atlas MongoDB白名单配置](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156376477236508_zh-CN.png)
+    ![Atlas MongoDB白名单配置](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156376518636508_zh-CN.png)
 
 3.  在Clusters页面，单击 Clusters 的名称。
 
-    ![Clusters名称](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156376477336523_zh-CN.png)
+    ![Clusters名称](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156376518636523_zh-CN.png)
 
 4.  在Command Line Tools页签，单击 mongodump 命令后的**COPY**，复制包含Atlas MongoDB数据库连接信息的 mongodump 命令。
 
-    ![复制包含连接信息的mongodump命令](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156376477336524_zh-CN.png)
+    ![复制包含连接信息的mongodump命令](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156376518636524_zh-CN.png)
 
 5.  在本地设备上，备份Atlas MongoDB数据库。
 
@@ -61,7 +61,7 @@
     3.  执行该命令，等待数据备份完毕。
     示例：
 
-    ![mongodump操作示例](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156376477336534_zh-CN.png)
+    ![mongodump操作示例](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156376518636534_zh-CN.png)
 
 6.  登录[阿里云MongoDB控制台](https://mongodb.console.aliyun.com)，获取阿里云MongoDB实例的公网连接地址。
 
