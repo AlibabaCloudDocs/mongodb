@@ -4,15 +4,15 @@
 
 ## RAM用户授权操作步骤 {#section_fn6_6td_7oj .section}
 
-1.  登录[RAM 控制台](https://ram.console.aliyun.com/)，创建RAM用户。详情请参见[创建RAM用户](https://help.aliyun.com/document_detail/28637.html)。
+1.  登录[RAM管理控制台](https://ram.console.aliyun.com/)，创建RAM用户。详情请参见[创建RAM用户](https://help.aliyun.com/document_detail/28637.html)。
 2.  在RAM控制台的左侧导航栏，单击**人员管理** \> **用户**。
 3.  定位至创建的RAM用户，在**操作**列单击**添加权限**。
 
-    ![添加授权](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6833/155980290448650_zh-CN.png)
+    ![添加授权](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6833/156410461248650_zh-CN.png)
 
 4.  在添加权限对话框中，配置授权信息。
 
-    ![配置授权信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6833/155980290448651_zh-CN.png)
+    ![配置授权信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6833/156410461248651_zh-CN.png)
 
     1.  在搜索框中输入**mongodb**，展现相关的系统权限策略。
 
