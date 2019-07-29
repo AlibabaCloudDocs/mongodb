@@ -4,9 +4,9 @@
 
 本接口适用于副本集实例和分片集群实例，暂不支持单节点实例。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=DescribeAuditFiles)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=DescribeAuditFiles&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
@@ -36,31 +36,31 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |Items| | |审计文件信息列表。
 
  |
-|└FileID|Integer|406505|文件ID。
+|FileID|Integer|406505|文件ID。
 
  |
-|└LogDownloadURL|String|http://xxxxxxxx.oss-cn-hangzhou.aliyuncs.com/custinsxxxxxx/custinsxxxxxx\_xxxxxx.csv|审计日志文件的下载链接。
+|LogDownloadURL|String|http://xxxxxxxx.oss-cn-hangzhou.aliyuncs.com/custinsxxxxxx/custinsxxxxxx\_xxxxxx.csv|审计日志文件的下载链接。
 
  **说明：** 若当前不可下载，则为空串。
 
  |
-|└LogEndTime|String|2019-03-12T09:23:15Z|审计日志结束时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
+|LogEndTime|String|2019-03-12T09:23:15Z|审计日志结束时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  |
-|└LogSize|Long|98|审计日志文件的大小，单位为Byte。
+|LogSize|Long|98|审计日志文件的大小，单位为Byte。
 
  |
-|└LogStartTime|String|2019-03-11T08:19:29Z|审计日志起始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
+|LogStartTime|String|2019-03-11T08:19:29Z|审计日志起始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
 
  |
-|└LogStatus|String|Success|审计日志文件状态。
+|LogStatus|String|Success|审计日志文件状态。
 
  -   **Success**：归档完成。
 -   **Failed**：归档失败。
@@ -99,22 +99,21 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeAuditFiles
 
 ``` {#xml_return_success_demo}
 <DescribeAuditFilesResponse>
-  <Items>
-    <LogFile>
-      <LogStartTime>2019-03-11T08:19:29Z</LogStartTime>
-      <LogEndTime>2019-03-12T09:23:15Z</LogEndTime>
-      <LogStatus>Success</LogStatus>
-      <FileID>406505</FileID>
-      <LogDownloadURL>http://xxxxxxxx.oss-cn-hangzhou.aliyuncs.com/custinsxxxxxx/custinsxxxxxx_xxxxxx.csv</LogDownloadURL>
-      <LogSize>98</LogSize>
-    </LogFile>
-  </Items>
-  <PageNumber>1</PageNumber>
-  <TotalRecordCount>1</TotalRecordCount>
-  <RequestId>F8CA8312-530A-413A-9129-F2BB32A8D404</RequestId>
-  <PageRecordCount>1</PageRecordCount>
+	  <Items>
+		    <LogFile>
+			      <LogStartTime>2019-03-11T08:19:29Z</LogStartTime>
+			      <LogEndTime>2019-03-12T09:23:15Z</LogEndTime>
+			      <LogStatus>Success</LogStatus>
+			      <FileID>406505</FileID>
+			      <LogDownloadURL>http://xxxxxxxx.oss-cn-hangzhou.aliyuncs.com/custinsxxxxxx/custinsxxxxxx_xxxxxx.csv</LogDownloadURL>
+			      <LogSize>98</LogSize>
+		    </LogFile>
+	  </Items>
+	  <PageNumber>1</PageNumber>
+	  <TotalRecordCount>1</TotalRecordCount>
+	  <RequestId>F8CA8312-530A-413A-9129-F2BB32A8D404</RequestId>
+	  <PageRecordCount>1</PageRecordCount>
 </DescribeAuditFilesResponse>
-
 ```
 
 `JSON` 格式
@@ -147,5 +146,5 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeAuditFiles
 |404|InvalidDBInstanceClass.NotFound|Specified DB instance class is not found.|该实例规格不存在，请您检查输入的参数是否正确。|
 |403|IncorrectDBInstanceType|Current DB instance type does not support this operation.|当前的实例类型不支持此操作。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 
