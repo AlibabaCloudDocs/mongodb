@@ -13,9 +13,9 @@
 -   调用本接口创建索引分析任务后，可以通过调用[DescribeAvailableTimeRange](~~95534~~)查询对应的任务及状态。
 -   每个实例每日最多可执行10次。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=CreateRecommendationTask)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=CreateRecommendationTask&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
@@ -51,7 +51,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -79,9 +79,8 @@ http(s)://mongodb.aliyuncs.com/?Action=CreateRecommendationTask
 
 ``` {#xml_return_success_demo}
 <CreateRecommendationTaskResponse>
-  <RequestId>009D2572-6839-43C0-8D89-44DB46CBA2EA</RequestId>
+	  <RequestId>009D2572-6839-43C0-8D89-44DB46CBA2EA</RequestId>
 </CreateRecommendationTaskResponse>
-
 ```
 
 `JSON` 格式
@@ -98,5 +97,5 @@ http(s)://mongodb.aliyuncs.com/?Action=CreateRecommendationTask
 |--------|---|----|--|
 |400|InvalidEndTime.Format|Specified end time is not valid.|输入的结束时间无效，请您检查输入的时间格式是否正确。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 
