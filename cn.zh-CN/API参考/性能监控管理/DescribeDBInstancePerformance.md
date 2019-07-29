@@ -2,9 +2,9 @@
 
 调用DescribeDBInstancePerformance接口查询MongoDB实例性能数据。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=DescribeDBInstancePerformance)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=DescribeDBInstancePerformance&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
@@ -54,7 +54,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -70,22 +70,22 @@
 |PerformanceKeys| | |性能指标信息列表。
 
  |
-|└Key|String|MongoDB\_DetailedSpaceUsage|性能指标。
+|Key|String|MongoDB\_DetailedSpaceUsage|性能指标。
 
  |
-|└PerformanceValues| | |性能指标值列表。
+|PerformanceValues| | |性能指标值列表。
 
  |
-|└Date|String|2019-03-11T12:21:51Z|性能指标值产生的日期。
+|Date|String|2019-03-11T12:21:51Z|性能指标值产生的日期。
 
  |
-|└Value|String|0.6|性能指标值。
+|Value|String|0.6|性能指标值。
 
  |
-|└Unit|String|MB|展示单位。
+|Unit|String|MB|展示单位。
 
  |
-|└ValueFormat|String|cpu\_usage|性能指标值的格式。如果该性能指标包含多个字段，通常以**&**分隔。
+|ValueFormat|String|cpu\_usage|性能指标值的格式。如果该性能指标包含多个字段，通常以**&**分隔。
 
  例如查询磁盘空间使用量，返回的ValueFormat即为**ins\_size&data\_size&log\_size**。
 
@@ -112,28 +112,27 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeDBInstancePerformance
 
 ``` {#xml_return_success_demo}
 <DescribeDBInstancePerformanceResponse>
-  <RequestId>267F98DC-367D-4F20-B137-8B5B664D1C5D</RequestId>
-  <PerformanceKeys>
-    <PerformanceKey>
-      <Key>MongoDB_DetailedSpaceUsage</Key>
-      <PerformanceValues>
-        <PerformanceValue>
-          <Value>1768&amp;1282&amp;486</Value>
-          <Date>2019-03-11T12:21:51Z</Date>
-        </PerformanceValue>
-        <PerformanceValue>
-          <Value>1768&amp;1282&amp;486</Value>
-          <Date>2019-03-11T12:26:52Z</Date>
-        </PerformanceValue>
-      </PerformanceValues>
-      <Unit>MB</Unit>
-      <ValueFormat>ins_size&amp;data_size&amp;log_size</ValueFormat>
-    </PerformanceKey>
-  </PerformanceKeys>
-  <EndTime>2019-03-11T12:30Z</EndTime>
-  <StartTime>2019-03-11T12:20Z</StartTime>
+	  <RequestId>267F98DC-367D-4F20-B137-8B5B664D1C5D</RequestId>
+	  <PerformanceKeys>
+		    <PerformanceKey>
+			      <Key>MongoDB_DetailedSpaceUsage</Key>
+			      <PerformanceValues>
+				        <PerformanceValue>
+					          <Value>1768&amp;1282&amp;486</Value>
+					          <Date>2019-03-11T12:21:51Z</Date>
+				        </PerformanceValue>
+				        <PerformanceValue>
+					          <Value>1768&amp;1282&amp;486</Value>
+					          <Date>2019-03-11T12:26:52Z</Date>
+				        </PerformanceValue>
+			      </PerformanceValues>
+			      <Unit>MB</Unit>
+			      <ValueFormat>ins_size&amp;data_size&amp;log_size</ValueFormat>
+		    </PerformanceKey>
+	  </PerformanceKeys>
+	  <EndTime>2019-03-11T12:30Z</EndTime>
+	  <StartTime>2019-03-11T12:20Z</StartTime>
 </DescribeDBInstancePerformanceResponse>
-
 ```
 
 `JSON` 格式
@@ -169,5 +168,5 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeDBInstancePerformance
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 
