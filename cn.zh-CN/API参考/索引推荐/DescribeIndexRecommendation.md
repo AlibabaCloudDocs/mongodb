@@ -8,9 +8,9 @@
 -   实例类型为副本集实例或分片集群实例。
 -   实例已开通审计日志功能。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=DescribeIndexRecommendation)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=DescribeIndexRecommendation&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
@@ -60,47 +60,47 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |Analyzations| | |索引推荐详情列表。
 
  |
-|└AverageDocsExaminedCount|Long|1000000|平均文档扫描次数。
+|AverageDocsExaminedCount|Long|1000000|平均文档扫描次数。
 
  |
-|└AverageExecutionTime|Long|523|平均执行时间（毫秒）。
+|AverageExecutionTime|Long|523|平均执行时间（毫秒）。
 
  |
-|└AverageKeysExaminedCount|Long|0|平均索引扫描次数。
+|AverageKeysExaminedCount|Long|0|平均索引扫描次数。
 
  |
-|└AverageReturnRowCount|Long|1|平均返回行数。
+|AverageReturnRowCount|Long|1|平均返回行数。
 
  |
-|└Count|Long|364|执行次数。
+|Count|Long|364|执行次数。
 
  |
-|└Database|String|mongodbtest|数据库名。
+|Database|String|mongodbtest|数据库名。
 
  |
-|└ExecutionPlan|String|\{\\"stage\\":\\"COLLSCAN\\"\}|查询的执行计划。
+|ExecutionPlan|String|\{\\"stage\\":\\"COLLSCAN\\"\}|查询的执行计划。
 
  |
-|└InMemorySort|String|false|是否使用内存排序。
+|InMemorySort|String|false|是否使用内存排序。
 
  |
-|└IndexCombines| |\{"IndexCombine": \["db.customer.createIndex\(\{\\"name\\": 1\}, \{background: true\}\)"\]\}|合并后的索引列表。
+|IndexCombines| |\{"IndexCombine": \["db.customer.createIndex\(\{\\"name\\": 1\}, \{background: true\}\)"\]\}|合并后的索引列表。
 
  |
-|└IndexRecommendations| | |索引建议列表。
+|IndexRecommendations| | |索引建议列表。
 
  |
-|└Content|String|db.customer.createIndex\(\{\\"name\\": 1\}, \{background: true\}\)|建议的内容。
+|Content|String|db.customer.createIndex\(\{\\"name\\": 1\}, \{background: true\}\)|建议的内容。
 
  |
-|└RecmdType|String|Index|建议的类型。
+|RecmdType|String|Index|建议的类型。
 
  -   **Index**：建议从索引方向进行优化。
 -   **Refactor**：询命令没有使用索引，需要对查询命令进行改写。
@@ -108,24 +108,24 @@
 -   **NoRecommendation**：没有建议。
 
  |
-|└LastExecutionTime|String|2019-03-22T05:52:31Z|最近一次执行时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
+|LastExecutionTime|String|2019-03-22T05:52:31Z|最近一次执行时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  |
-|└Namespace|String|mongodbtest.customer|命名空间。
+|Namespace|String|mongodbtest.customer|命名空间。
 
  **说明：** 命名空间一般是数据库名和集合名的组合。
 
  |
-|└Operation|String|query|操作类型。
+|Operation|String|query|操作类型。
 
  |
-|└Query|String|\{\\"name\\":\\"<val\>\\"\}|查询命令。
+|Query|String|\{\\"name\\":\\"<val\>\\"\}|查询命令。
 
  |
-|└Sort|String|\{\}|排序命令。
+|Sort|String|\{\}|排序命令。
 
  |
-|└TotalExecutionTime|Long|191569|总执行时间（毫秒）。
+|TotalExecutionTime|Long|191569|总执行时间（毫秒）。
 
  |
 |RequestId|String|553CCFB2-C013-4A9D-86A9-F440BA7E365F|请求ID。
@@ -151,39 +151,38 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeIndexRecommendation
 
 ``` {#xml_return_success_demo}
 <DescribeIndexRecommendationResponse>
-  <Analyzations>
-    <Analyzation>
-      <InMemorySort>false</InMemorySort>
-      <Sort>{}</Sort>
-      <Operation>query</Operation>
-      <Count>364</Count>
-      <AverageKeysExaminedCount>0</AverageKeysExaminedCount>
-      <Database>mongodbtest</Database>
-      <Query>{"name":"&lt;val&gt;"}</Query>
-      <AverageExecutionTime>526</AverageExecutionTime>
-      <AverageReturnRowCount>0</AverageReturnRowCount>
-      <IndexRecommendations>
-        <Recommendation>
-          <RecmdType>Index</RecmdType>
-          <Content>db.customer.createIndex({"name": 1}, {background: true})</Content>
-        </Recommendation>
-      </IndexRecommendations>
-      <TotalExecutionTime>191569</TotalExecutionTime>
-      <LastExecutionTime>2019-03-22T05:52:31Z</LastExecutionTime>
-      <ExecutionPlan>{"stage":"COLLSCAN"}</ExecutionPlan>
-      <Namespace>mongodbtest.customer</Namespace>
-      <AverageDocsExaminedCount>1000000</AverageDocsExaminedCount>
-      <IndexCombines>
-        <IndexCombine>db.customer.createIndex({"name": 1}, {background: true})</IndexCombine>
-      </IndexCombines>
-    </Analyzation>
-  </Analyzations>
-  <PageNumber>1</PageNumber>
-  <TotalRecordCount>1</TotalRecordCount>
-  <RequestId>553CCFB2-C013-4A9D-86A9-F440BA7E365F</RequestId>
-  <PageRecordCount>1</PageRecordCount>
+    <Analyzations>
+        <Analyzation>
+            <InMemorySort>false</InMemorySort>
+            <Sort>{}</Sort>
+            <Operation>query</Operation>
+            <Count>364</Count>
+            <AverageKeysExaminedCount>0</AverageKeysExaminedCount>
+            <Database>mongodbtest</Database>
+            <Query>{"name":"&lt;val&gt;"}</Query>
+            <AverageExecutionTime>526</AverageExecutionTime>
+            <AverageReturnRowCount>0</AverageReturnRowCount>
+            <IndexRecommendations>
+                <Recommendation>
+                    <RecmdType>Index</RecmdType>
+                    <Content>db.customer.createIndex({"name": 1}, {background: true})</Content>
+                </Recommendation>
+            </IndexRecommendations>
+            <TotalExecutionTime>191569</TotalExecutionTime>
+            <LastExecutionTime>2019-03-22T05:52:31Z</LastExecutionTime>
+            <ExecutionPlan>{"stage":"COLLSCAN"}</ExecutionPlan>
+            <Namespace>mongodbtest.customer</Namespace>
+            <AverageDocsExaminedCount>1000000</AverageDocsExaminedCount>
+            <IndexCombines>
+                <IndexCombine>db.customer.createIndex({"name": 1}, {background: true})</IndexCombine>
+            </IndexCombines>
+        </Analyzation>
+    </Analyzations>
+    <PageNumber>1</PageNumber>
+    <TotalRecordCount>1</TotalRecordCount>
+    <RequestId>553CCFB2-C013-4A9D-86A9-F440BA7E365F</RequestId>
+    <PageRecordCount>1</PageRecordCount>
 </DescribeIndexRecommendationResponse>
-
 ```
 
 `JSON` 格式
@@ -236,5 +235,5 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeIndexRecommendation
 |--------|---|----|--|
 |400|InvalidEndTime.Format|Specified end time is not valid.|输入的结束时间无效，请您检查输入的时间格式是否正确。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 
