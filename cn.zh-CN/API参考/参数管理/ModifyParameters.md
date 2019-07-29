@@ -4,11 +4,11 @@
 
 调用本接口时，要求实例状态为运行中。
 
-**警告：** 如果提交的修改参数中包含需要重启才能生效的参数，则提交后将实例将自动重启。您可以通过调用[DescribeParameterTemplates](intl.zh-CN/API参考/参数管理/DescribeParameterTemplates.md#)接口查询哪些是修改后需要重启才能生效的参数。
+**警告：** 如果提交的修改参数中包含需要重启才能生效的参数，则提交后将实例将自动重启。您可以通过调用[DescribeParameterTemplates](cn.zh-CN/API参考/参数管理/DescribeParameterTemplates.md#)接口查询哪些是修改后需要重启才能生效的参数。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=ModifyParameters)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=ModifyParameters&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
@@ -36,7 +36,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -63,9 +63,8 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyParameters
 
 ``` {#xml_return_success_demo}
 <ModifyParametersResponse>
-  <RequestId>36923CC2-DDAB-4B48-A144-DA92C1E19537</RequestId>
+	  <RequestId>36923CC2-DDAB-4B48-A144-DA92C1E19537</RequestId>
 </ModifyParametersResponse>
-
 ```
 
 `JSON` 格式
@@ -78,5 +77,5 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyParameters
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 
