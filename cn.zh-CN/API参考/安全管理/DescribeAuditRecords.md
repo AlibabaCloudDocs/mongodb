@@ -6,9 +6,9 @@
 
 **说明：** 本接口适用于副本集实例和分片集群实例，暂不支持单节点实例。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=DescribeAuditRecords)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=DescribeAuditRecords&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
@@ -63,35 +63,35 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |Items| | |审计日志详情列表。
 
  |
-|└AccountName|String|root|数据库账号名。
+|AccountName|String|root|数据库账号名。
 
  |
-|└DBName|String|test123|数据库名。
+|DBName|String|test123|数据库名。
 
  |
-|└ExecuteTime|String|2019-03-11T03:30:27Z|该语句执行的时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
+|ExecuteTime|String|2019-03-11T03:30:27Z|该语句执行的时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  |
-|└HostAddress|String|11.xxx.xxx.xxx|客户端IP地址。
+|HostAddress|String|11.xxx.xxx.xxx|客户端IP地址。
 
  |
-|└ReturnRowCounts|Long|2|返回记录数。
+|ReturnRowCounts|Long|2|返回记录数。
 
  |
-|└Syntax|String|\{ \\"atype\\" : \\"createCollection\\", \\"param\\" : \{ \\"ns\\" : \\"123.test1\\" \}, \\"result\\": \\"OK\\" \}|执行语句。
+|Syntax|String|\{ \\"atype\\" : \\"createCollection\\", \\"param\\" : \{ \\"ns\\" : \\"123.test1\\" \}, \\"result\\": \\"OK\\" \}|执行语句。
 
  |
-|└ThreadID|String|140682188297984|线程ID。
+|ThreadID|String|140682188297984|线程ID。
 
  |
-|└TotalExecutionTimes|Long|700|消耗时间，单位为微秒。
+|TotalExecutionTimes|Long|700|消耗时间，单位为微秒。
 
  |
 |PageNumber|Integer|1|页码。
@@ -127,32 +127,31 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeAuditRecords
 
 ``` {#xml_return_success_demo}
 <DescribeAuditRecordsResponse>
-  <Items>
-    <SQLRecord>
-      <TotalExecutionTimes>703</TotalExecutionTimes>
-      <Syntax>{ "atype" : "command", "param" : { "command" : "find", "ns" : "123.test1", "args" : { "find" : "test1", "filter" : { "x" : 1, "y" : 2 }, "shardVersion" : [ { "$timestamp" : { "t" : 0, "i" : 0 } }, { "$oid" : "000000000000000000000000" } ], "$clusterTime" : { "clusterTime" : { "$timestamp" : { "t" : 1552275017, "i" : 2 } }, "signature" : { "hash" : { "$binary" : "9qfygDs61fKCvdXJqjq+f0zML0E=", "$type" : "00" }, "keyId" : { "$numberLong" : "6666955498811555841" } } }, "$client" : { "application" : { "name" : "MongoDB Shell" }, "driver" : { "name" : "MongoDB Internal Client", "version" : "3.4.10" }, "os" : { "type" : "Linux", "name" : "Ubuntu", "architecture" : "x86_64", "version" : "16.04" }, "mongos" : { "host" : "rxxxxxx.cloud.cm10:3074", "client" : "47.xxx.xxx.xx:53854", "version" : "4.0.0" } }, "$configServerState" : { "opTime" : { "ts" : { "$timestamp" : { "t" : 1552275017, "i" : 2 } }, "t" : { "$numberLong" : "3" } } }, "$db" : "123" } }, "result": "OK" }</Syntax>
-      <HostAddress>11.xxx.xxx.xx</HostAddress>
-      <ExecuteTime>2019-03-11T03:30:27Z</ExecuteTime>
-      <ThreadID>139xxxxxxxx</ThreadID>
-      <AccountName>__system;</AccountName>
-      <DBName>local;</DBName>
-    </SQLRecord>
-    <SQLRecord>
-      <TotalExecutionTimes>0</TotalExecutionTimes>
-      <Syntax>{ "atype" : "createIndex", "param" : { "ns" : "123.test1", "indexName" : "y_1", "indexSpec" : { "v" : 2, "key" : { "y" : 1 }, "name" : "y_1", "ns" : "123.test1" } }, "result": "OK" }</Syntax>
-      <HostAddress/>
-      <ExecuteTime>2019-03-11T03:30:06Z</ExecuteTime>
-      <ThreadID>140xxxxxxxx</ThreadID>
-      <AccountName>__system;</AccountName>
-      <DBName>local;</DBName>
-    </SQLRecord>
-  </Items>
-  <PageNumber>1</PageNumber>
-  <TotalRecordCount>2</TotalRecordCount>
-  <RequestId>3278BEB8-503B-4E46-8F7E-D26E040C9769</RequestId>
-  <PageRecordCount>30</PageRecordCount>
+	  <Items>
+		    <SQLRecord>
+			      <TotalExecutionTimes>703</TotalExecutionTimes>
+			      <Syntax>{ "atype" : "command", "param" : { "command" : "find", "ns" : "123.test1", "args" : { "find" : "test1", "filter" : { "x" : 1, "y" : 2 }, "shardVersion" : [ { "$timestamp" : { "t" : 0, "i" : 0 } }, { "$oid" : "000000000000000000000000" } ], "$clusterTime" : { "clusterTime" : { "$timestamp" : { "t" : 1552275017, "i" : 2 } }, "signature" : { "hash" : { "$binary" : "9qfygDs61fKCvdXJqjq+f0zML0E=", "$type" : "00" }, "keyId" : { "$numberLong" : "6666955498811555841" } } }, "$client" : { "application" : { "name" : "MongoDB Shell" }, "driver" : { "name" : "MongoDB Internal Client", "version" : "3.4.10" }, "os" : { "type" : "Linux", "name" : "Ubuntu", "architecture" : "x86_64", "version" : "16.04" }, "mongos" : { "host" : "rxxxxxx.cloud.cm10:3074", "client" : "47.xxx.xxx.xx:53854", "version" : "4.0.0" } }, "$configServerState" : { "opTime" : { "ts" : { "$timestamp" : { "t" : 1552275017, "i" : 2 } }, "t" : { "$numberLong" : "3" } } }, "$db" : "123" } }, "result": "OK" }</Syntax>
+			      <HostAddress>11.xxx.xxx.xx</HostAddress>
+			      <ExecuteTime>2019-03-11T03:30:27Z</ExecuteTime>
+			      <ThreadID>139xxxxxxxx</ThreadID>
+			      <AccountName>__system;</AccountName>
+			      <DBName>local;</DBName>
+		    </SQLRecord>
+		    <SQLRecord>
+			      <TotalExecutionTimes>0</TotalExecutionTimes>
+			      <Syntax>{ "atype" : "createIndex", "param" : { "ns" : "123.test1", "indexName" : "y_1", "indexSpec" : { "v" : 2, "key" : { "y" : 1 }, "name" : "y_1", "ns" : "123.test1" } }, "result": "OK" }</Syntax>
+			      <HostAddress></HostAddress>
+			      <ExecuteTime>2019-03-11T03:30:06Z</ExecuteTime>
+			      <ThreadID>140xxxxxxxx</ThreadID>
+			      <AccountName>__system;</AccountName>
+			      <DBName>local;</DBName>
+		    </SQLRecord>
+	  </Items>
+	  <PageNumber>1</PageNumber>
+	  <TotalRecordCount>2</TotalRecordCount>
+	  <RequestId>3278BEB8-503B-4E46-8F7E-D26E040C9769</RequestId>
+	  <PageRecordCount>30</PageRecordCount>
 </DescribeAuditRecordsResponse>
-
 ```
 
 `JSON` 格式
@@ -194,5 +193,5 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeAuditRecords
 |--------|---|----|--|
 |400|InvalidEndTime.Format|Specified end time is not valid.|输入的结束时间无效，请您检查输入的时间格式是否正确。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 
