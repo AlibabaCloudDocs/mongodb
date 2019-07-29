@@ -2,15 +2,15 @@
 
 调用CreateShardingDBInstance接口创建或者克隆MongoDB分片集群实例。
 
- **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing)。** 
+ **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.aliyun.com/price/product#/mongodb/detail)。** 
 
 关于云数据库MongoDB实例的规格，请参见[实例规格表](~~57141~~)。
 
 如需创建副本集实例，可通过调用[CreateDBInstance](~~61763~~)接口创建。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=CreateShardingDBInstance)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=CreateShardingDBInstance&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
@@ -159,7 +159,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -195,11 +195,10 @@ http(s)://mongodb.aliyuncs.com/?Action=CreateShardingDBInstance
 
 ``` {#xml_return_success_demo}
 <CreateDBInstanceResponse>
-  <DBInstanceId>dds-bpxxxxxxxx</DBInstanceId>
-  <OrderId>2033xxxxxxxxxxxx</OrderId>
-  <RequestId>D8F1D721-6439-4257-A89C-F1E8E9C9623D</RequestId>
+	  <DBInstanceId>dds-bpxxxxxxxx</DBInstanceId>
+	  <OrderId>2033xxxxxxxxxxxx</OrderId>
+	  <RequestId>D8F1D721-6439-4257-A89C-F1E8E9C9623D</RequestId>
 </CreateDBInstanceResponse>
-
 ```
 
 `JSON` 格式
@@ -214,5 +213,5 @@ http(s)://mongodb.aliyuncs.com/?Action=CreateShardingDBInstance
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 
