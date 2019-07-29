@@ -2,9 +2,9 @@
 
 调用DescribeBackups接口查询MongoDB实例的备份列表。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=DescribeBackups)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=DescribeBackups&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
@@ -45,7 +45,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -64,49 +64,49 @@
 |Backups| | |备份文件详情列表。
 
  |
-|└BackupDBNames|String|mongodbtest,new,test|备份的数据库名。
+|BackupDBNames|String|mongodbtest,new,test|备份的数据库名。
 
  |
-|└BackupDownloadURL|String|http://xxxxx.oss-cn-hangzhou.aliyuncs.com/xxxxx/hinsxxxxx\_data\_xxxxx.tar.gz|备份文件的外网下载地址，若当前不可下载，则为空字符串。
+|BackupDownloadURL|String|http://xxxxx.oss-cn-hangzhou.aliyuncs.com/xxxxx/hinsxxxxx\_data\_xxxxx.tar.gz|备份文件的外网下载地址，若当前不可下载，则为空字符串。
 
  |
-|└BackupEndTime|String|2019-03-13T04:34:57Z|本次备份结束时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
+|BackupEndTime|String|2019-03-13T04:34:57Z|本次备份结束时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  |
-|└BackupId|Integer|11111111|备份ID。
+|BackupId|Integer|11111111|备份ID。
 
  |
-|└BackupIntranetDownloadURL|String|http://xxxxx.oss-cn-hangzhou-internal.aliyuncs.com/xxxxx/xxxxx.tar.gz|备份文件的内网下载地址。
+|BackupIntranetDownloadURL|String|http://xxxxx.oss-cn-hangzhou-internal.aliyuncs.com/xxxxx/xxxxx.tar.gz|备份文件的内网下载地址。
 
  **说明：** 您可以在和此MongoDB实例连通的ECS（二者需属于同地域的经典网络或者在同一VPC内）上使用该地址下载目标备份文件。
 
  |
-|└BackupMethod|String|Physical|备份方式。
+|BackupMethod|String|Physical|备份方式。
 
  -   **Snapshot**：快照备份。
 -   **Physical**：物理备份。
 -   **Logical**：逻辑备份。
 
  |
-|└BackupMode|String|Automated|备份模式。
+|BackupMode|String|Automated|备份模式。
 
  -   **Automated**：系统自动备份。
 -   **Manual**：手动备份。
 
  |
-|└BackupSize|Long|335520510|备份文件大小，单位为Byte。
+|BackupSize|Long|335520510|备份文件大小，单位为Byte。
 
  |
-|└BackupStartTime|String|2019-03-13T04:32:42Z|本次备份开始时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
+|BackupStartTime|String|2019-03-13T04:32:42Z|本次备份开始时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  |
-|└BackupStatus|String|Success|备份状态。
+|BackupStatus|String|Success|备份状态。
 
  -   **Success**：备份成功。
 -   **Failed**：备份失败。
 
  |
-|└BackupType|String|FullBackup|备份类型。
+|BackupType|String|FullBackup|备份类型。
 
  -   **FullBackup**：全量备份。
 -   **IncrementalBackup**：增量备份。
@@ -133,27 +133,26 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeBackups
 
 ``` {#xml_return_success_demo}
 <DescribeBackupsResponse>
-  <PageNumber>1</PageNumber>
-  <TotalCount>1</TotalCount>
-  <PageSize>30</PageSize>
-  <RequestId>09308D8E-136C-4053-89D8-51350248C31B</RequestId>
-  <Backups>
-    <Backup>
-      <BackupDownloadURL>http://xxxxx.oss-cn-hangzhou.aliyuncs.com/xxxxx/xxxxx.tar.gz</BackupDownloadURL>
-      <BackupIntranetDownloadURL>http://xxxxx.oss-cn-hangzhou-internal.aliyuncs.com/xxxxx/xxxxx.tar.gz</BackupIntranetDownloadURL>
-      <BackupType>FullBackup</BackupType>
-      <BackupDBNames>mongousertest</BackupDBNames>
-      <BackupEndTime>2019-05-27T14:27:11Z</BackupEndTime>
-      <BackupMethod>Physical</BackupMethod>
-      <BackupMode>Automated</BackupMode>
-      <BackupSize>25849856</BackupSize>
-      <BackupStatus>Success</BackupStatus>
-      <BackupStartTime>2019-05-27T14:24:55Z</BackupStartTime>
-      <BackupId>11111</BackupId>
-    </Backup>
-  </Backups>
+	  <PageNumber>1</PageNumber>
+	  <TotalCount>1</TotalCount>
+	  <PageSize>30</PageSize>
+	  <RequestId>09308D8E-136C-4053-89D8-51350248C31B</RequestId>
+	  <Backups>
+		    <Backup>
+			      <BackupDownloadURL>http://xxxxx.oss-cn-hangzhou.aliyuncs.com/xxxxx/xxxxx.tar.gz</BackupDownloadURL>
+			      <BackupIntranetDownloadURL>http://xxxxx.oss-cn-hangzhou-internal.aliyuncs.com/xxxxx/xxxxx.tar.gz</BackupIntranetDownloadURL>
+			      <BackupType>FullBackup</BackupType>
+			      <BackupDBNames>mongousertest</BackupDBNames>
+			      <BackupEndTime>2019-05-27T14:27:11Z</BackupEndTime>
+			      <BackupMethod>Physical</BackupMethod>
+			      <BackupMode>Automated</BackupMode>
+			      <BackupSize>25849856</BackupSize>
+			      <BackupStatus>Success</BackupStatus>
+			      <BackupStartTime>2019-05-27T14:24:55Z</BackupStartTime>
+			      <BackupId>11111</BackupId>
+		    </Backup>
+	  </Backups>
 </DescribeBackupsResponse>
-
 ```
 
 `JSON` 格式
@@ -186,5 +185,5 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeBackups
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 
