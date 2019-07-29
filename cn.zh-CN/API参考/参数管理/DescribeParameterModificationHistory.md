@@ -2,9 +2,9 @@
 
 调用DescribeParameterModificationHistory接口查询MongoDB实例参数的修改记录。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=DescribeParameterModificationHistory)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=DescribeParameterModificationHistory&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
@@ -33,23 +33,23 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |HistoricalParameters| | |参数的修改记录列表。
 
  |
-|└ModifyTime|String|2019-03-12T07:58:24Z|参数修改的时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
+|ModifyTime|String|2019-03-12T07:58:24Z|参数修改的时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。
 
  |
-|└NewParameterValue|String|200|修改后的参数值。
+|NewParameterValue|String|200|修改后的参数值。
 
  |
-|└OldParameterValue|String|100|修改前的参数值。
+|OldParameterValue|String|100|修改前的参数值。
 
  |
-|└ParameterName|String|operationProfiling.slowOpThresholdMs|被修改参数的名称。
+|ParameterName|String|operationProfiling.slowOpThresholdMs|被修改参数的名称。
 
  |
 |RequestId|String|B1BB6E0E-B4EF-4145-81FA-A07719860248|请求ID。
@@ -76,17 +76,16 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeParameterModificationHistory
 
 ``` {#xml_return_success_demo}
 <DescribeParameterModificationHistoryResponse>
-  <HistoricalParameters>
-    <HistoricalParameter>
-      <OldParameterValue>100</OldParameterValue>
-      <ModifyTime>2019-03-12T07:58:24Z</ModifyTime>
-      <NewParameterValue>200</NewParameterValue>
-      <ParameterName>operationProfiling.slowOpThresholdMs</ParameterName>
-    </HistoricalParameter>
-  </HistoricalParameters>
-  <RequestId>B1BB6E0E-B4EF-4145-81FA-A07719860248</RequestId>
+	  <HistoricalParameters>
+		    <HistoricalParameter>
+			      <OldParameterValue>100</OldParameterValue>
+			      <ModifyTime>2019-03-12T07:58:24Z</ModifyTime>
+			      <NewParameterValue>200</NewParameterValue>
+			      <ParameterName>operationProfiling.slowOpThresholdMs</ParameterName>
+		    </HistoricalParameter>
+	  </HistoricalParameters>
+	  <RequestId>B1BB6E0E-B4EF-4145-81FA-A07719860248</RequestId>
 </DescribeParameterModificationHistoryResponse>
-
 ```
 
 `JSON` 格式
@@ -109,5 +108,5 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeParameterModificationHistory
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 
