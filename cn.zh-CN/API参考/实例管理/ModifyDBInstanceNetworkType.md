@@ -4,9 +4,9 @@
 
 该接口适用于副本集实例和分片集群实例，暂不支持单节点实例。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=ModifyDBInstanceNetworkType)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=ModifyDBInstanceNetworkType&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
@@ -41,10 +41,7 @@
 
  **说明：** 
 
- 
-
 -   当**NetworkType**参数取值为**VPC**时，才可以传入本参数。
-
 -   当本参数取值为**True**时，还需要传入**ClassicExpiredDays**参数。
 
  |
@@ -52,18 +49,18 @@
 
  **说明：** 
 
- 
-
 -   当**NetworkType**参数取值为**VPC**时，才可以传入本参数。
-
 -   当**RetainClassic**参数取值为**True**时，本参数必须传入。
+
+ |
+|RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。
 
  |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -94,9 +91,8 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyDBInstanceNetworkType
 
 ``` {#xml_return_success_demo}
 <ModifyDBInstanceNetworkTypeResponse>
-  <RequestId>7A9807F0-1301-4154-9849-6497E94A04DB</RequestId>
+	  <RequestId>7A9807F0-1301-4154-9849-6497E94A04DB</RequestId>
 </ModifyDBInstanceNetworkTypeResponse>
-
 ```
 
 `JSON` 格式
@@ -109,5 +105,5 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyDBInstanceNetworkType
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 
