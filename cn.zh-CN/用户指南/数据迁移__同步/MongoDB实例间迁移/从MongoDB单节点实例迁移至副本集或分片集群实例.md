@@ -41,7 +41,7 @@
 3.  单击右上角的**创建迁移任务**。
 4.  配置迁移任务的源库及目标库信息。
 
-    ![配置源库及目标库信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/75938/156447818633658_zh-CN.png)
+    ![配置源库及目标库信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/75938/156454439633658_zh-CN.png)
 
     |类别|配置|说明|
     |:-|:-|:-|
@@ -71,14 +71,14 @@
 
 6.  选择迁移对象及迁移类型。
 
-    ![配置迁移类型和迁移对象](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156447818735725_zh-CN.png)
+    ![配置迁移类型和迁移对象](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156454439635725_zh-CN.png)
 
     |配置选项|配置说明|
     |:---|:---|
     |迁移类型|迁移类型选择**全量数据迁移**。 **说明：** 迁移的数据源为单节点时，仅支持**全量数据迁移**。为保障数据一致性，全量数据迁移期间请勿在源库中写入新的数据。
 
  |
-    |迁移对象|     -   在**迁移对象**框中单击待迁移的对象，然后单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156447818737966_zh-CN.png)将其移动到**已选择对象**框。
+    |迁移对象|     -   在**迁移对象**框中单击待迁移的对象，然后单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156454439637966_zh-CN.png)将其移动到**已选择对象**框。
 
 **说明：** 不支持迁移admin数据库，即使您将admin数据库选择为迁移对象，该库中的数据也不会被迁移。
 
@@ -91,7 +91,7 @@
     **说明：** 
 
     -   在迁移任务正式启动之前，会先进行预检查。只有预检查通过后，才能成功启动迁移任务。
-    -   如果预检查失败，单击具体检查项后的![提示](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/140110/156447818750068_zh-CN.png)，查看失败详情。根据失败原因修复后，重新进行预检查。
+    -   如果预检查失败，单击具体检查项后的![提示](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/140110/156454439650068_zh-CN.png)，查看失败详情。根据失败原因修复后，重新进行预检查。
 8.  预检查通过后，单击**下一步**。
 9.  在**购买配置确认**页面，选择**链路规格**并勾选**数据传输（按量付费）服务条款**。
 10. 单击**购买并启动**，迁移任务正式开始。
@@ -100,7 +100,7 @@
 
 11. 迁移任务完成后，可将业务切换至目标MongoDB实例。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156447818751339_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156454439751339_zh-CN.png)
 
 
 ## 更多信息 {#section_ogw_hmz_ngb .section}
