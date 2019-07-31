@@ -25,7 +25,7 @@ The data in the admin database cannot be migrated even if it is selected as a mi
 |Migration type|Configuration fee|Public network traffic fee|
 |:-------------|:----------------|:-------------------------|
 |Full data migration|Not billed|Not billed|
-|Incremental data migration|Billed. For more information, see [数据传输服务DTS定价](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing).|Not billed|
+|Incremental data migration|Billed. For more information, see [Data Transmission Service pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing).|Not billed|
 
 ## Migration type description {#section_zjf_5fs_zfb .section}
 
@@ -77,7 +77,7 @@ If you migrate data to a sharded cluster instance, we recommend that you shard t
 3.  In the upper-right corner of the Data Migration page, click **Create Migration Task**.
 4.  Configure **Source and Destination Databases** of the migration task.
 
-    ![Configure the source and destination databases of different accounts](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156455420738564_en-US.png)
+    ![Configure the source and destination databases of different accounts](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156455428338564_en-US.png)
 
     |Parameter|Description|
     |:--------|:----------|
@@ -106,7 +106,7 @@ If you migrate data to a sharded cluster instance, we recommend that you shard t
 
 6.  Configure the migration objects and migration types.
 
-    ![Configure the migration types and objects](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156455420738566_en-US.png)
+    ![Configure the migration types and objects](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156455428438566_en-US.png)
 
     |Parameter|Description|
     |:--------|:----------|
@@ -116,7 +116,7 @@ If you migrate data to a sharded cluster instance, we recommend that you shard t
 
     -   If you need to migrate the data without stopping businesses, select **Full Data Migration** and **Incremental Data Migration** for Migration Types.
  |
-    |Migration Objects|     -   Select the database to be migrated from the **Available** area and click the ![Rightwards arrow](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156455420837966_en-US.png) icon to add the database to the **Selected** area.
+    |Migration Objects|     -   Select the database to be migrated from the **Available** area and click the ![Rightwards arrow](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156455428437966_en-US.png) icon to add the database to the **Selected** area.
 
 **Note:** The data in the admin database cannot be migrated even if it is selected as a migration object.
 
@@ -144,7 +144,7 @@ If you migrate data to a sharded cluster instance, we recommend that you shard t
 
         The migration task does not stop automatically. To stop the migration task, wait until the task is in the **Incremental Migration without Delay** state, and stop writing to the source database. After a few minutes, the task enters the **Incremental Migration without Delay** state again, and you can stop the task.
 
-        ![Incremental migration without delay](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156455420838567_en-US.png)
+        ![Incremental migration without delay](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156455428438567_en-US.png)
 
 
 Switch your businesses to the ApsaraDB for MongoDB instance during off-peak hours to avoid negatively affecting your businesses.
