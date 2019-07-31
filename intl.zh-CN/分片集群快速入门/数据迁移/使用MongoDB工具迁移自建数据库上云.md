@@ -2,7 +2,9 @@
 
 MongoDB程序自带有 mongodump 和 mongorestore 工具。通过对这两个工具的使用，您可以将自建的MongoDB数据库，迁移至阿里云MongoDB分片集群实例。
 
-更多数据迁移/同步场景的解决方案，请参见[MongoDB数据迁移/同步方案概览](../../../../intl.zh-CN/用户指南/数据迁移__同步/MongoDB数据迁移方案概览.md#)。
+推荐[使用DTS迁移分片集群架构的自建MongoDB数据库上云](intl.zh-CN/分片集群快速入门/数据迁移/使用DTS迁移分片集群架构的自建MongoDB数据库上云.md#)，可实现不停机迁移上云。
+
+更多数据迁移/同步场景的解决方案，请参见[MongoDB数据迁移/同步方案概览](../../../../intl.zh-CN/用户指南/数据迁移__同步/MongoDB数据迁移__同步方案概览.md#)。
 
 ## 注意事项 {#section_rh3_lgd_5fb .section}
 
