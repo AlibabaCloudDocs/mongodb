@@ -10,7 +10,7 @@ This topic describes how to use DTS to migrate a MongoDB database in a standalon
 
 ## Precautions {#section_dww_lmr_zfb .section}
 
--   DTS does not support [incremental migration of data](https://help.aliyun.com/knowledge_detail/39252.html) in standalone instances.
+-   DTS does not support incremental migration of data in standalone instances.
 
     **Note:** Stop services related to standalone instances before the migration starts. To ensure data consistency, do not write new data into the database of the standalone instance during migration.
 
@@ -58,7 +58,7 @@ The following steps provide an example about how to migrate the full data of the
 3.  In the upper-right corner of the Data Migration page, click **Create Migration Task**.
 4.  Configure **Source and Destination Databases** of the migration task.
 
-    ![Configure source and destination databases](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/75938/156455190733658_en-US.png)
+    ![Configure source and destination databases](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/75938/156455198733658_en-US.png)
 
     |Parameters for source and destination databases|
     |:----------------------------------------------|
@@ -86,14 +86,14 @@ The following steps provide an example about how to migrate the full data of the
 
 6.  Set **Available** and **Migration Types**.
 
-    ![Configure the migration object and migration type](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156455190735725_en-US.png)
+    ![Configure the migration object and migration type](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156455198735725_en-US.png)
 
     |Parameter|Description|
     |:--------|:----------|
     |Migration Types|Migration type: Select **Full Data Migration**. **Note:** To ensure data consistency, do not write new data into the source database during full data migration.
 
  |
-    |Available|     -   Select the database to be migrated from the **Available** area and click the ![Rightwards arrow](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156455190737966_en-US.png) icon to add the database to the **Selected** area.
+    |Available|     -   Select the database to be migrated from the **Available** area and click the ![Rightwards arrow](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156455198837966_en-US.png) icon to add the database to the **Selected** area.
 
 **Note:** The data in the admin database cannot be migrated even if it is selected as a migration object.
 
@@ -109,7 +109,7 @@ The following steps provide an example about how to migrate the full data of the
     **Note:** 
 
     -   A precheck is performed before the migration task starts. The migration starts only after the precheck succeeds.
-    -   If the precheck fails, click the ![Notes](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/86903/156455190835996_en-US.png) icon corresponding to the check items to view their details. Perform a precheck again after the problems are rectified.
+    -   If the precheck fails, click the ![Notes](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/86903/156455198835996_en-US.png) icon corresponding to the check items to view their details. Perform a precheck again after the problems are rectified.
 8.  After the precheck succeeds, click **Next**.
 9.  On the **Confirm Settings** page, set **Channel Specification** and select **Data Transmission Service \(Pay-As-You-Go\) Service Terms**.
 10. Click **Buy and Start** to start the migration.
