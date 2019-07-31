@@ -8,7 +8,7 @@ DTS通过迁移分片集群中的每个Shard节点来实现分片集群数据库
 
 **说明：** 数据在目标MongoDB实例中的分布取决于您设置的片键，详情请参见[设置数据分片以充分利用Shard性能](../intl.zh-CN/最佳实践/设置数据分片以充分利用Shard性能.md#)。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156376374950227_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156455456450227_zh-CN.png)
 
 ## 前提条件 {#section_jx1_5wy_ngb .section}
 
@@ -60,34 +60,54 @@ DTS通过迁移分片集群中的每个Shard节点来实现分片集群数据库
 
 ## 迁移前准备工作 {#section_pcx_yhs_zfb .section}
 
-1.  关闭本地MongoDB数据库的均衡器，详情请参见[关闭Mongodb分片集群均衡器](../intl.zh-CN/最佳实践/管理MongoDB均衡器Balancer.md#section_k3j_4wl_2gb) 。
-2.  清除本地MongoDB数据库中，因块迁移失败产生的孤立文档。
+1.  关闭自建MongoDB数据库的均衡器，详情请参见[关闭Mongodb分片集群均衡器](../intl.zh-CN/最佳实践/管理MongoDB均衡器Balancer.md#section_k3j_4wl_2gb) 。
+2.  清除自建MongoDB数据库中，因块迁移失败而产生的孤立文档。
 
-    示例：
+    **说明：** 如果未清除孤立文档，将影响迁移性能，而且可能在迁移过程会遇到`_id`冲突的文档，导致迁移错误的数据。
 
-    在某个shard节点中执行下述命令，清除test数据库中user集合的所有孤立文档。
+    1.  下载[cleanupOrphaned.js](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/120562/cn_zh/1564451237979/cleanupOrphaned.js)脚本文件。
 
-    ``` {#codeblock_6lk_28q_7j0 .language-javascript}
-    var nextKey = { };
-    var result;
-    
-    while ( nextKey != null ) {
-      result = db.adminCommand( { cleanupOrphaned: "test.user", startingFromKey: nextKey } );
-    
-      if (result.ok != 1)
-         print("Unable to complete at this time: failure or timeout.")
-    
-      printjson(result);
-    
-      nextKey = result.stoppedAtKey;
-    }
-    ```
+        ``` {#codeblock_vds_za3_9wr .lanuage-shell}
+        wget "http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/120562/cn_zh/1564451237979/cleanupOrphaned.js"
+        ```
 
-    **说明：** 
+    2.  修改cleanupOrphaned.js脚本文件，将`test`替换为待清理孤立文档的数据库名。
 
-    -   您需要将示例中`test.user`的替换为真实的数据库名和集合名。
-    -   该操作需要在每个Shard节点中执行。
-    -   如果未清除孤立文档，可能在迁移过程会遇到\_id冲突的文档，导致迁移错误的数据，并且影响迁移的性能。
+        **说明：** 如果您有多个数据库，您需要重复执行本步骤和和步骤iii。
+
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156455456453814_zh-CN.png)
+
+    3.  执行如下命令，清理Shard节点中指定数据库下所有集合的孤立文档。
+
+        **说明：** 您需要重复执行本步骤，为每个Shard节点清理孤立文档。
+
+        ``` {#codeblock_ui8_nan_me7 .lanuage-shell}
+        mongo --host <Shardhost> --port <Primaryport>  --authenticationDatabase <database> -u <username> -p <passowrd> cleanupOrphaned.js
+        ```
+
+        **说明：** 
+
+        -   <Shardhost\>：Shard节点的IP地址。
+        -   <Primaryport\>：Shard节点中的Primary节点的服务端口。
+        -   <database\>：对登录数据库的账号和密码进行认证的数据库。
+        -   <username\>：登录数据库的账号。
+        -   <passowrd\>：登录数据库的密码。
+        示例：
+
+        本案例的自建MongoDB数据库有三个Shard节点，所以需要分别为这三个节点清除孤立文档。
+
+        ``` {#codeblock_y5t_3gh_mmv .lanuage-shell}
+        mongo --host 172.16.1.10 --port 27018  --authenticationDatabase admin -u root -p 'Test123456' cleanupOrphaned.js
+        ```
+
+        ``` {#codeblock_6ze_gis_zmv .lanuage-shell}
+        mongo --host 172.16.1.11 --port 27021 --authenticationDatabase admin -u root -p 'Test123456' cleanupOrphaned.js
+        ```
+
+        ``` {#codeblock_918_14s_d4z .lanuage-shell}
+        mongo --host 172.16.1.12 --port 27024  --authenticationDatabase admin -u root -p 'Test123456' cleanupOrphaned.js
+        ```
+
 3.  根据业务需要，在目标MongoDB实例中创建需要分片的数据库和集合，并配置数据分片，详情请参见[设置数据分片以充分利用Shard性能](../intl.zh-CN/最佳实践/设置数据分片以充分利用Shard性能.md#)。
 
     **说明：** 在配置数据迁移前配置数据分片，可避免数据被迁移至同一Shard中，导致单个Shard使用的存储空间超出预期规划。
@@ -99,12 +119,12 @@ DTS通过迁移分片集群中的每个Shard节点来实现分片集群数据库
 2.  在左侧导航栏，单击**数据迁移**。
 3.  在迁移任务列表页面顶部，选择目标MongoDB实例所属地域。
 
-    ![选择地域](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6682/156376374950190_zh-CN.png)
+    ![选择地域](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6682/156455456550190_zh-CN.png)
 
 4.  单击右上角的**创建迁移任务**。
 5.  配置迁移任务的源库及目标库信息。
 
-    ![配置源库和目标库信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6682/156376375034129_zh-CN.png)
+    ![配置源库和目标库信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6682/156455456534129_zh-CN.png)
 
     |类别|配置|说明|
     |:-|:-|:-|
@@ -140,7 +160,7 @@ DTS通过迁移分片集群中的每个Shard节点来实现分片集群数据库
 
 7.  选择**迁移对象**和**迁移类型**。
 
-    ![选择迁移对象和迁移类型](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156376375034699_zh-CN.png)
+    ![选择迁移对象和迁移类型](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156455456534699_zh-CN.png)
 
     |配置|说明|
     |:-|:-|
@@ -150,7 +170,7 @@ DTS通过迁移分片集群中的每个Shard节点来实现分片集群数据库
 
     -   如果需要进行不停机迁移，则同时勾选**全量数据迁移**和**增量数据迁移**。
  |
-    |迁移对象|     -   在**迁移对象**框中单击待迁移的对象，然后单击![向右箭头](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/79929/156376375040698_zh-CN.png)移动到**已选择对象**框。
+    |迁移对象|     -   在**迁移对象**框中单击待迁移的对象，然后单击![向右箭头](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/79929/156455456540698_zh-CN.png)移动到**已选择对象**框。
 
 **说明：** 
 
@@ -165,7 +185,7 @@ DTS通过迁移分片集群中的每个Shard节点来实现分片集群数据库
     **说明：** 
 
     -   在迁移任务正式启动之前，会先进行预检查。只有预检查通过后，才能成功启动迁移任务。
-    -   如果预检查失败，单击具体检查项后的![提示](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/140110/156376375050068_zh-CN.png)，查看失败详情。根据失败原因修复后，重新进行预检查。
+    -   如果预检查失败，单击具体检查项后的![提示](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/140110/156455456550068_zh-CN.png)，查看失败详情。根据失败原因修复后，重新进行预检查。
 9.  预检查通过后，单击**下一步**。
 10. 在**购买配置确认**页面，选择**链路规格**并勾选**数据传输（按量付费）服务条款**。
 11. 单击**购买并启动**，迁移任务正式开始。
@@ -184,7 +204,7 @@ DTS通过迁移分片集群中的每个Shard节点来实现分片集群数据库
         1.  等待所有Shard节点的迁移任务的进度变更为**增量迁移**，并显示为**无延迟**状态时，将源库停写几分钟，此时**增量迁移**的状态可能会显示延迟的时间。
         2.  等待所有Shard节点迁移任务的**增量迁移**再次进入**无延迟**状态后，手动结束迁移任务。
 
-            ![结束迁移任务](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156376375034689_zh-CN.png)
+            ![结束迁移任务](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156455456634689_zh-CN.png)
 
 14. 将业务切换至阿里云MongoDB实例。
 
