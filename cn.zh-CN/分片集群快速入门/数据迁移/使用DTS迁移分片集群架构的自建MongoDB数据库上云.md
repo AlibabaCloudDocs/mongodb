@@ -2,13 +2,17 @@
 
 本文介绍如何使用数据传输服务DTS（Data Transmission Service），依次将本地MongoDB分片集群数据库中的各个Shard节点，迁移至阿里云MongoDB分片集群实例来实现迁移上云。通过DTS的增量迁移功能，可以实现在本地应用不停服的情况下，平滑完成数据库的迁移上云。
 
+推荐使用DTS迁移数据库，可实现不停机迁移上云，您也可以[使用MongoDB工具迁移自建数据库上云](intl.zh-CN/分片集群快速入门/数据迁移/使用MongoDB工具迁移自建数据库上云.md#)。
+
+更多数据迁移/同步场景的解决方案，请参见[MongoDB数据迁移/同步方案概览](../intl.zh-CN/用户指南/数据迁移__同步/MongoDB数据迁移__同步方案概览.md#)。
+
 ## 迁移原理介绍 {#section_egp_cs5_23b .section}
 
 DTS通过迁移分片集群中的每个Shard节点来实现分片集群数据库的整体迁移，您需要为每个Shard节点创建一个对应的数据迁移任务。
 
 **说明：** 数据在目标MongoDB实例中的分布取决于您设置的片键，详情请参见[设置数据分片以充分利用Shard性能](../intl.zh-CN/最佳实践/设置数据分片以充分利用Shard性能.md#)。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156455456450227_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156472951150227_zh-CN.png)
 
 ## 前提条件 {#section_jx1_5wy_ngb .section}
 
@@ -75,7 +79,7 @@ DTS通过迁移分片集群中的每个Shard节点来实现分片集群数据库
 
         **说明：** 如果您有多个数据库，您需要重复执行本步骤和和步骤iii。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156455456453814_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156472951153814_zh-CN.png)
 
     3.  执行如下命令，清理Shard节点中指定数据库下所有集合的孤立文档。
 
@@ -119,12 +123,12 @@ DTS通过迁移分片集群中的每个Shard节点来实现分片集群数据库
 2.  在左侧导航栏，单击**数据迁移**。
 3.  在迁移任务列表页面顶部，选择目标MongoDB实例所属地域。
 
-    ![选择地域](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6682/156455456550190_zh-CN.png)
+    ![选择地域](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6682/156472951150190_zh-CN.png)
 
 4.  单击右上角的**创建迁移任务**。
 5.  配置迁移任务的源库及目标库信息。
 
-    ![配置源库和目标库信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6682/156455456534129_zh-CN.png)
+    ![配置源库和目标库信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6682/156472951134129_zh-CN.png)
 
     |类别|配置|说明|
     |:-|:-|:-|
@@ -139,7 +143,7 @@ DTS通过迁移分片集群中的每个Shard节点来实现分片集群数据库
     |主机名或IP地址|填入自建MongoDB数据库中，单个Shard节点的域名或IP地址，本案例填入公网IP地址。 **说明：** DTS通过依次迁移分片集群中的每个Shard节点来实现整体迁移，此处先填入第一个Shard节点的域名或IP地址，稍后创建第二个迁移任务时，此处填入第二个Shard节点的域名或IP地址。以此类推，直至迁移所有Shard节点。
 
  |
-    |端口|填入自建MongoDB数据库的服务端口。|
+    |端口|填入对应Shard节点的服务端口。|
     |数据库名称|填入鉴权数据库名称。|
     |数据库账号|填入自建MongoDB数据库的连接账号，权限要求请参见[数据库账号的权限要求](#section_kvw_kb1_kfb)。|
     |数据库密码|填入自建MongoDB数据库账号对应的密码。 **说明：** 源库信息填写完毕后，您可以单击**数据库密码**后的**测试连接**来验证填入的源库信息是否正确。源库信息填写正确则提示**测试通过**，如提示**测试失败**，单击**测试失败**后的**诊断**，根据提示调整填写的源库信息。
@@ -160,7 +164,7 @@ DTS通过迁移分片集群中的每个Shard节点来实现分片集群数据库
 
 7.  选择**迁移对象**和**迁移类型**。
 
-    ![选择迁移对象和迁移类型](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156455456534699_zh-CN.png)
+    ![选择迁移对象和迁移类型](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156472951134699_zh-CN.png)
 
     |配置|说明|
     |:-|:-|
@@ -170,7 +174,7 @@ DTS通过迁移分片集群中的每个Shard节点来实现分片集群数据库
 
     -   如果需要进行不停机迁移，则同时勾选**全量数据迁移**和**增量数据迁移**。
  |
-    |迁移对象|     -   在**迁移对象**框中单击待迁移的对象，然后单击![向右箭头](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/79929/156455456540698_zh-CN.png)移动到**已选择对象**框。
+    |迁移对象|     -   在**迁移对象**框中单击待迁移的对象，然后单击![向右箭头](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/79929/156472951140698_zh-CN.png)移动到**已选择对象**框。
 
 **说明：** 
 
@@ -185,7 +189,7 @@ DTS通过迁移分片集群中的每个Shard节点来实现分片集群数据库
     **说明：** 
 
     -   在迁移任务正式启动之前，会先进行预检查。只有预检查通过后，才能成功启动迁移任务。
-    -   如果预检查失败，单击具体检查项后的![提示](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/140110/156455456550068_zh-CN.png)，查看失败详情。根据失败原因修复后，重新进行预检查。
+    -   如果预检查失败，单击具体检查项后的![提示](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/140110/156472951150068_zh-CN.png)，查看失败详情。根据失败原因修复后，重新进行预检查。
 9.  预检查通过后，单击**下一步**。
 10. 在**购买配置确认**页面，选择**链路规格**并勾选**数据传输（按量付费）服务条款**。
 11. 单击**购买并启动**，迁移任务正式开始。
@@ -204,7 +208,7 @@ DTS通过迁移分片集群中的每个Shard节点来实现分片集群数据库
         1.  等待所有Shard节点的迁移任务的进度变更为**增量迁移**，并显示为**无延迟**状态时，将源库停写几分钟，此时**增量迁移**的状态可能会显示延迟的时间。
         2.  等待所有Shard节点迁移任务的**增量迁移**再次进入**无延迟**状态后，手动结束迁移任务。
 
-            ![结束迁移任务](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156455456634689_zh-CN.png)
+            ![结束迁移任务](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156472951134689_zh-CN.png)
 
 14. 将业务切换至阿里云MongoDB实例。
 
