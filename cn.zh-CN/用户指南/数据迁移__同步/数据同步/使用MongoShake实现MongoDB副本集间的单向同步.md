@@ -32,7 +32,8 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
 
 ## 注意事项 {#section_miw_yxe_g61 .section}
 
-在全量数据同步完成之前请勿对源库进行DDL操作，否则可能导致数据不一致。
+-   在全量数据同步完成之前，请勿对源库进行DDL操作，否则可能导致数据不一致。
+-   不支持同步admin和local数据库。
 
 ## 数据库用户的权限要求 {#section_xyh_iy0_v2p .section}
 
@@ -122,7 +123,7 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
 
 监控输出示例：
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/614897/156375803149777_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/614897/156496828249777_zh-CN.png)
 
 |参数|说明|
 |--|--|
