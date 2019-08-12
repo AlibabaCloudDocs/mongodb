@@ -102,7 +102,7 @@ To create sharded cluster instances, you can call[CreateShardingDBInstance](~~61
  |
 |BackupId|String|No|32994xxxx| The ID of the specific backup set. This parameter can only be specified when this operation is called to clone instances. You must also specify the**SrcDBInstanceId** parameter.
 
- **Note:** You can call the [DescribeBackups](62172) operation to query the ID of the backup set.
+ **Note:** You can call the [DescribeBackups](~~62172~~) operation to query the ID of the backup set.
 
  |
 |RestoreTime|String|No|2019-03-13T12:11:14Z| The time to restore the cloned instance to. The format is *yyyy-MM-dd*T*HH:mm:ss*Z.
