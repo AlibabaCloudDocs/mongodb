@@ -39,12 +39,12 @@
  **说明：** 当**DBInstanceId**参数传入的是单节点实例ID或副本集实例ID时，本参数才可用。
 
  |
-|ReplicaSetRole|String|否|Primary|副本集实例的节点角色，取值：
+|ReplicaSetRole|String|否|Primary|节点角色，取值：
 
  -   Primary：主节点。
 -   Secondary：从节点。
 
- **说明：** 当**DBInstanceId**参数传入的是单节点实例ID或副本集实例ID时，本参数才可用。
+ **说明：** 当**DBInstanceId**参数传入的是单节点实例，本参数的取值仅支持**Primary**。
 
  |
 |RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。
@@ -168,5 +168,5 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeDBInstancePerformance
 
 ## 错误码 { .section}
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Dds)查看更多错误码。
 
