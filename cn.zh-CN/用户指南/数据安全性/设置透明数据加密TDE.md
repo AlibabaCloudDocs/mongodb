@@ -20,12 +20,12 @@
 ## 注意事项 {#section_mtu_6ny_osd .section}
 
 -   TDE功能开通后无法关闭。
+-   当前TDE的开启粒度为实例，可支持集合粒度的控制。
 
     **说明：** 如果业务上有特殊需求，您可以在创建集合时，指定该集合不被加密，详情请参见[设置指定的集合不被加密](#section_1ip_yvb_vv4)。
 
+-   TDE功能开启后，仅加密新创建的集合，已有的集合不会被加密。
 -   TDE所使用的密钥，由[密钥管理服务KMS](https://help.aliyun.com/document_detail/28935.html)（Key Management Service）统一生成和管理，云数据库MongoDB不提供加密所需的密钥和证书。
--   当前TDE的开启粒度为实例，暂不支持库粒度。
--   TDE功能开启后，仅加密新创建的集合，存量的集合不会被加密。
 
 ## 操作步骤 {#section_e71_rel_z50 .section}
 
@@ -35,7 +35,7 @@
 4.  在左侧导航栏，选择**数据安全性** \> **TDE** 。
 5.  单击**TDE状态**右侧的滑块，开启TDE加密。 
 
-    ![TDE加密](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1422772/156637789756526_zh-CN.png)
+    ![TDE加密](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1422772/156643740656526_zh-CN.png)
 
 6.  在弹出的重启实例对话框中，单击**确定**。 实例进入**TDE修改中**状态，当转变为**运行中**状态即代表操作完成。
 
