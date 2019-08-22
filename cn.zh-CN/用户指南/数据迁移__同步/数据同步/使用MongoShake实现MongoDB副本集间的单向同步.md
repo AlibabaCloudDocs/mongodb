@@ -65,8 +65,10 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
 2.  执行下述命令，下载MongoShake程序。
 
     ``` {#codeblock_6rv_7hr_gjb}
-    wget https://github.com/alibaba/MongoShake/releases/download/release-v2.0.0-20190619/mongoshake-2.0.tar.gz
+    wget https://github.com/alibaba/MongoShake/releases/download/release-v2.0.7-20190817/mongo-shake-2.0.7.tar.gz
     ```
+
+    **说明：** 建议下载最新版本的MongoShake程序，详情请参见[releases页面](https://github.com/alibaba/MongoShake/releases)。
 
 3.  解压MongoShake程序。
 
@@ -123,7 +125,7 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
 
 监控输出示例：
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/614897/156496828249777_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/614897/156645092349777_zh-CN.png)
 
 |参数|说明|
 |--|--|
