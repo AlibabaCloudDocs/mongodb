@@ -21,7 +21,7 @@
 |Restoring|Recovering data from a back up|
 |Running|Running|
 |SSLModifying|Changing SSL|
-|TempDBInstanceCreating|Recovering data from a back up|
+|TempDBInstanceCreating|Creating Temporary instances|
 |Transing|Migrating|
 |TransingToOthers|Migrating a database|
 
