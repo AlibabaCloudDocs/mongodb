@@ -8,16 +8,13 @@
 
 **说明：** 
 
- 
-
 -   实例的存储引擎对数据库版本的选择有约束性，详情请参考[版本与存储引擎](~~61906~~)。
-
 -   升级数据库版本后不支持降级数据库版本。
 -   升级过程中会自动对实例进行2-3次重启，请确保在业务低峰执行。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=UpgradeDBInstanceEngineVersion)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=UpgradeDBInstanceEngineVersion&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
@@ -38,7 +35,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -65,9 +62,8 @@ http(s)://mongodb.aliyuncs.com/?Action=UpgradeDBInstanceEngineVersion
 
 ``` {#xml_return_success_demo}
 <UpgradeDBInstanceEngineVersionResponse>
-  <RequestId>C4907B00-A208-4E0C-A636-AA85140E406C</RequestId>
+	  <RequestId>C4907B00-A208-4E0C-A636-AA85140E406C</RequestId>
 </UpgradeDBInstanceEngineVersionResponse>
-
 ```
 
 `JSON` 格式
@@ -80,5 +76,5 @@ http(s)://mongodb.aliyuncs.com/?Action=UpgradeDBInstanceEngineVersion
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 
