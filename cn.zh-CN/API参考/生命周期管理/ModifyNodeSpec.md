@@ -2,27 +2,27 @@
 
 调用ModifyNodeSpec接口变更MongoDB分片集群实例中节点的规格和存储空间。
 
- **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing)。** 
+ **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.aliyun.com/price/product#/mongodb/detail)。** 
 
 该接口仅适用于分片集群实例。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=ModifyNodeSpec)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=ModifyNodeSpec&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|ModifyNodeSpec|要执行的操作，取值：**ModifyNodeSpec**。
-
- |
 |NodeId|String|是|d-bpxxxxxxxx|分片集群实例中Shard节点ID或Mongos节点ID，您可以通过调用[DescribeDBInstanceAttribute](~~61923~~)接口进行查询。
 
  **说明：** 当传入的值为Shard节点ID时，还需要传入**NodeStorage**参数。
 
  |
 |DBInstanceId|String|是|dds-bpxxxxxxxx|实例ID。
+
+ |
+|Action|String|否|ModifyNodeSpec|要执行的操作，取值：**ModifyNodeSpec**。
 
  |
 |NodeClass|String|否|dds.shard.standard|Shard节点或Mongos节点的规格，规格详情请参考[实例规格表](~~57141~~)。
@@ -60,11 +60,17 @@
  默认值为**Immediately**。
 
  |
+|FromApp|String|否|OpenApi|请求来源，取值：
+
+ -   **OpenApi**：请求来源为OpenApi。
+-   **mongo\_buy**：请求来源为控制台。
+
+ |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -96,10 +102,9 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyNodeSpec
 
 ``` {#xml_return_success_demo}
 <ModifyNodeSpecResponse>
-  <OrderId>2033xxxxxxxxx</OrderId>
-  <RequestId>EFFC5788-8BB5-41B5-9F15-9CFC5A0E8FCC</RequestId>
+	  <OrderId>2033xxxxxxxxx</OrderId>
+	  <RequestId>EFFC5788-8BB5-41B5-9F15-9CFC5A0E8FCC</RequestId>
 </ModifyNodeSpecResponse>
-
 ```
 
 `JSON` 格式
@@ -113,5 +118,5 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyNodeSpec
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 
