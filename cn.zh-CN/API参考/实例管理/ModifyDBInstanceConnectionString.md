@@ -2,17 +2,14 @@
 
 调用ModifyDBInstanceConnectionString接口修改MongoDB实例的连接地址。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=ModifyDBInstanceConnectionString)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=ModifyDBInstanceConnectionString&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|ModifyDBInstanceConnectionString|要执行的操作，取值： **ModifyDBInstanceConnectionString**。
-
- |
 |CurrentConnectionString|String|是|s-bpxxxxxxxx.mongodb.rds.aliyuncs.com|当前连接地址，即待修改的连接地址。
 
  |
@@ -26,6 +23,9 @@
  **说明：** 当本参数传入的是分片集群实例ID时，还需要传入**NodeId**参数。
 
  |
+|Action|String|否|ModifyDBInstanceConnectionString|要执行的操作，取值： **ModifyDBInstanceConnectionString**。
+
+ |
 |NodeId|String|否|s-bpxxxxxxxx|分片集群实例中的Mongos节点ID，每次调用仅能传入一个Mongos节点ID。
 
  **说明：** 当**DBInstanceId**参数传入的是分片集群实例ID时，本参数才可用。
@@ -35,7 +35,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -63,9 +63,8 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyDBInstanceConnectionString
 
 ``` {#xml_return_success_demo}
 <ModifyDBInstanceConnectionStringResponse>
-  <RequestId>FF36A84C-0694-42D0-861D-C383E8E4FAAF</RequestId>
+	  <RequestId>FF36A84C-0694-42D0-861D-C383E8E4FAAF</RequestId>
 </ModifyDBInstanceConnectionStringResponse>
-
 ```
 
 `JSON` 格式
@@ -78,5 +77,5 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyDBInstanceConnectionString
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 
