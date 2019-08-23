@@ -2,21 +2,18 @@
 
 调用CreateNode接口为MongoDB分片集群实例增加Shard节点或Mongos节点。
 
- **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing)。** 
+ **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.aliyun.com/price/product#/mongodb/detail)。** 
 
 该接口仅适用于分片集群实例。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=CreateNode)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=CreateNode&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|CreateNode|要执行的操作，取值：**CreateNode**。
-
- |
 |NodeClass|String|是|dds.shard.mid|Shard节点或Mongos节点的规格，规格详情请参见[实例规格表](~~57141~~)。
 
  |
@@ -29,10 +26,19 @@
 |DBInstanceId|String|是|dds-bpxxxxxxxx|分片集群实例ID。
 
  |
+|Action|String|否|CreateNode|要执行的操作，取值：**CreateNode**。
+
+ |
 |NodeStorage|Integer|否|10|Node的磁盘空间，当**NodeType**参数取值为**Shard**时该参数可用，且该参数必须传入。
 
  -   取值范围：**10**~**2000**，单位为GB。
 -   每10GB进行递增。
+
+ |
+|FromApp|String|否|OpenApi|请求来源，取值：
+
+ -   **OpenApi**：请求来源为OpenApi。
+-   **mongo\_buy**：请求来源为控制台。
 
  |
 |AutoPay|Boolean|否|true|是否自动付费。取值：
@@ -52,7 +58,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -83,10 +89,9 @@ http(s)://mongodb.aliyuncs.com/?Action=CreateNode
 
 ``` {#xml_return_success_demo}
 <CreateNodeResponse>
-  <OrderId>2034xxxxxxxx</OrderId>
-  <RequestId>7D48FB19-20CA-4725-A870-3D8F5CE69F14</RequestId>
+	  <OrderId>2034xxxxxxxx</OrderId>
+	  <RequestId>7D48FB19-20CA-4725-A870-3D8F5CE69F14</RequestId>
 </CreateNodeResponse>
-
 ```
 
 `JSON` 格式
@@ -100,5 +105,5 @@ http(s)://mongodb.aliyuncs.com/?Action=CreateNode
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 
