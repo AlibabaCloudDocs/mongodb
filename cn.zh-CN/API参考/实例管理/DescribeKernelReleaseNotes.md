@@ -2,15 +2,15 @@
 
 调用DescribeKernelReleaseNotes接口查询MongoDB实例的小版本发布日志。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=DescribeKernelReleaseNotes)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=DescribeKernelReleaseNotes&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DescribeKernelReleaseNotes|要执行的操作，取值： **DescribeKernelReleaseNotes**。
+|Action|String|否|DescribeKernelReleaseNotes|要执行的操作，取值： **DescribeKernelReleaseNotes**。
 
  |
 |KernelVersion|String|否|mongodb\_20180522\_0.4.8|数据库小版本号，例如：**mongodb\_20180522\_0.4.8**。
@@ -23,17 +23,17 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |ReleaseNotes| | |版本发布日志信息列表。
 
  |
-|└KernelVersion|String|mongodb\_20180619\_0.4.9|版本号。
+|KernelVersion|String|mongodb\_20180619\_0.4.9|版本号。
 
  |
-|└ReleaseNote|String|放开sharding某集合开关balancer的限制|发布日志。
+|ReleaseNote|String|放开sharding某集合开关balancer的限制|发布日志。
 
  |
 |RequestId|String|F01D4DDA-CB72-4083-B399-AF4642294FE6|请求ID。
@@ -57,15 +57,14 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeKernelReleaseNotes
 
 ``` {#xml_return_success_demo}
 <DescribeKernelReleaseNotesResponse>
-  <RequestId>F01D4DDA-CB72-4083-B399-AF4642294FE6</RequestId>
-  <ReleaseNotes>
-    <ReleaseNote>
-      <KernelVersion>mongodb_20180619_0.4.9</KernelVersion>
-      <ReleaseNote>放开sharding某集合开关balancer的限制</ReleaseNote>
-    </ReleaseNote>
-  </ReleaseNotes>
+	  <RequestId>F01D4DDA-CB72-4083-B399-AF4642294FE6</RequestId>
+	  <ReleaseNotes>
+		    <ReleaseNote>
+			      <KernelVersion>mongodb_20180619_0.4.9</KernelVersion>
+			      <ReleaseNote>放开sharding某集合开关balancer的限制</ReleaseNote>
+		    </ReleaseNote>
+	  </ReleaseNotes>
 </DescribeKernelReleaseNotesResponse>
-
 ```
 
 `JSON` 格式
@@ -86,5 +85,5 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeKernelReleaseNotes
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 
