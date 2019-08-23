@@ -8,17 +8,14 @@
 
 如需创建分片集群实例，可通过调用[CreateShardingDBInstance](~~61884~~)接口创建。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=CreateDBInstance)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=CreateDBInstance&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|CreateDBInstance|要执行的操作，取值：**CreateDBInstance**。
-
- |
 |ClientToken|String|是|ETnLKlblzczshOTUbOCzxxxxxxxxxx|用于保证请求的幂等性，防止重复提交请求。由客户端生成该参数值，要保证在不同请求间唯一，最大值不超过64个ASCII字符，且该参数值中不能包含非ASCII字符。
 
  |
@@ -41,7 +38,7 @@
  **说明：** 具体取值受实例规格约束，详情请参考[实例规格表](~~57141~~)。
 
  |
-|RegionId|String|是|cn-hangzhou|地域ID，您可以可调用[DescribeRegions](~~61933~~)查询可用的地域，使用此参数指定实例创建的地域。
+|Action|String|否|CreateDBInstance|要执行的操作，取值：**CreateDBInstance**。
 
  |
 |ZoneId|String|否|cn-hangzhou-b|可用区ID，您可以通过[DescribeRegions](~~61933~~)查看可用的可用区，使用此参数指定实例创建的可用区。
@@ -142,6 +139,11 @@
 |ReplicationFactor|String|否|3|副本集节点个数，取值：**3**，**5**，**7**。默认值为**3**。
 
  |
+|ReadonlyReplicas|String|否|1|创建只读节点的个数，取值范围为**1**-**5**。
+
+ **说明：** 默认不传入该参数，即默认不创建只读节点。
+
+ |
 |ResourceGroupId|String|否|rg-axxxxxxxx|资源组ID。
 
  |
@@ -149,7 +151,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -185,11 +187,10 @@ http(s)://mongodb.aliyuncs.com/?Action=CreateDBInstance
 
 ``` {#xml_return_success_demo}
 <CreateDBInstanceResponse>
-  <DBInstanceId>dds-bpxxxxxxxx</DBInstanceId>
-  <OrderId>2033xxxxxxxxxxxx</OrderId>
-  <RequestId>D8F1D721-6439-4257-A89C-F1E8E9C9624D</RequestId>
+	  <DBInstanceId>dds-bpxxxxxxxx</DBInstanceId>
+	  <OrderId>2033xxxxxxxxxxxx</OrderId>
+	  <RequestId>D8F1D721-6439-4257-A89C-F1E8E9C9624D</RequestId>
 </CreateDBInstanceResponse>
-
 ```
 
 `JSON` 格式
@@ -211,5 +212,5 @@ http(s)://mongodb.aliyuncs.com/?Action=CreateDBInstance
 |400|InvalidCapacity.NotFound|The Capacity provided does not exist in our records.|容量配置不合法，请您检查输入的参数是否正确。|
 |400|IdempotentParameterMismatch|Request uses a client token in a previous request but is not identical to that request.|用了一个已经使用过的 ClientToken，但此次请求内容却又与上一次使用该 Token 的 request 不一样。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 
