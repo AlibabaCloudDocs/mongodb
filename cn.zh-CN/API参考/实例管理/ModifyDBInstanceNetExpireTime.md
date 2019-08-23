@@ -9,21 +9,21 @@
 
 **说明：** 本接口适用于副本集实例和分片集群实例，暂不支持单节点实例。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=ModifyDBInstanceNetExpireTime)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=ModifyDBInstanceNetExpireTime&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|ModifyDBInstanceNetExpireTime|要执行的操作，取值：**ModifyDBInstanceNetExpireTime**。
-
- |
 |ClassicExpendExpiredDays|Integer|是|30|设置保留原经典网络地址的时长，取值：**14**、**30**、**60**、**120**，单位为天。
 
  |
 |DBInstanceId|String|是|dds-bpxxxxxxxx|实例ID。
+
+ |
+|Action|String|否|ModifyDBInstanceNetExpireTime|要执行的操作，取值：**ModifyDBInstanceNetExpireTime**。
 
  |
 |ConnectionString|String|否|dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com|实例的连接地址。
@@ -33,7 +33,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -60,9 +60,8 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyDBInstanceNetExpireTime
 
 ``` {#xml_return_success_demo}
 <ModifyDBInstanceNetExpireTimeResponse>
-  <RequestId>459E7D5C-38DA-4E14-9C82-5B5AF693DBAB</RequestId>
+	  <RequestId>459E7D5C-38DA-4E14-9C82-5B5AF693DBAB</RequestId>
 </ModifyDBInstanceNetExpireTimeResponse>
-
 ```
 
 `JSON` 格式
@@ -75,5 +74,5 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyDBInstanceNetExpireTime
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 
