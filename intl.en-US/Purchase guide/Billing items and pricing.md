@@ -12,7 +12,7 @@ The following table describes the billing items and billing standards of ApsaraD
 -   Specifications
 -   Disk space
 
- | -   For more information about the billing standards, see [https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb?spm=a3c0i.7919406.709265.dzproductc2.2ceccbbfexTlIi\#pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb?spm=a3c0i.7919406.709265.dzproductc2.2ceccbbfexTlIi#pricing).
+ | For more information about the billing standards, see [ApsaraDB for MongoDB Pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb#pricing).
 
  |
 |Sharded cluster instance| -   Mongos node specifications
