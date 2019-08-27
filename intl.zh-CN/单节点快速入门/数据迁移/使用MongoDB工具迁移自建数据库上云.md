@@ -2,7 +2,9 @@
 
 MongoDB数据库自带有 Mongodump 和 Mongorestore 工具。通过对这两个工具的使用，您可以将自建MongoDB数据库迁移至阿里云MongoDB单节点实例的数据库中。
 
-更多数据迁移/同步场景的解决方案，请参见[MongoDB数据迁移/同步方案概览](../../../../intl.zh-CN/用户指南/数据迁移__同步/MongoDB数据迁移方案概览.md#)。
+推荐[使用DTS迁移单节点架构的自建MongoDB数据库上云](intl.zh-CN/单节点快速入门/数据迁移/使用DTS迁移单节点架构的自建MongoDB数据库上云.md#)，可实现不停机迁移上云。
+
+更多数据迁移/同步场景的解决方案，请参见[MongoDB数据迁移/同步方案概览](../../../../intl.zh-CN/用户指南/数据迁移__同步/MongoDB数据迁移__同步方案概览.md#)。
 
 ## 前提条件 {#section_yvn_5hk_pgb .section}
 
@@ -51,7 +53,7 @@ MongoDB数据库自带有 Mongodump 和 Mongorestore 工具。通过对这两个
     4.  单击目标实例ID。
     5.  在左侧导航栏，单击**数据库连接**，查看数据库连接信息。
 
-        ![MongoDB单节点查看连接信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/82882/156393138235103_zh-CN.png)
+        ![MongoDB单节点查看连接信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/82882/156456694935103_zh-CN.png)
 
     **说明：** 
 

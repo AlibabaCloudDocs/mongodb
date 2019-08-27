@@ -2,7 +2,7 @@
 
 调用CreateNode接口为MongoDB分片集群实例增加Shard节点或Mongos节点。
 
- **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing)。** 
+ **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.aliyun.com/price/product#/mongodb/detail)。** 
 
 该接口仅适用于分片集群实例。
 

@@ -11,5 +11,4 @@ You can migrate data from a user-created MongoDB instance to an ApsaraDB for Mon
 
  |
 |Select the region|Standalone instances are supported in China \(Hangzhou\), China \(Shanghai\), China \(Qingdao\), China \(Beijing\), and China \(Shenzhen\).|
-|Select the network type|Standalone instances support only VPCs.|
 

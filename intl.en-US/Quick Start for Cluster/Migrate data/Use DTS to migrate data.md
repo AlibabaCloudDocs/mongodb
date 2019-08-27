@@ -59,7 +59,7 @@ To avoid adverse impacts on your business, try to perform data migration during 
 
     For some shard, clean up all orphaned files from the user collection of the test database.
 
-    ```
+    ``` {#codeblock_dkb_lkl_3um}
     var nextKey = { };
     var result;
     
@@ -91,7 +91,7 @@ To avoid adverse impacts on your business, try to perform data migration during 
 3.  In the upper-right corner of the Data Migration page, click **Create Migration Task**.
 4.  Configure the parameters of **Source Database and Destination Database**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/155926963234677_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156455452334677_en-US.png)
 
     |Parameters of source and destination databases|
     |:---------------------------------------------|
@@ -125,7 +125,7 @@ To avoid adverse impacts on your business, try to perform data migration during 
 
 6.  Select **Migration Objects** and **Migration Types**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/155926963234699_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156455452334699_en-US.png)
 
     |Configure the migration object and migration type|
     |:------------------------------------------------|
@@ -135,7 +135,7 @@ To avoid adverse impacts on your business, try to perform data migration during 
 
     -   If live migration is required, select both **Full Data Migration** and **Incremental Data Migration**.
  |
-    |Migration object|     -   Select the database to be migrated from the **Available** list and click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/155926963248344_en-US.png) to move it to the **Selected** list.
+    |Migration object|     -   Select the database to be migrated from the **Available** list and click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156455452348344_en-US.png) to move it to the **Selected** list.
 
 **Note:** 
 
@@ -155,7 +155,7 @@ To avoid adverse impacts on your business, try to perform data migration during 
     **Note:** 
 
     -   A pre-check is performed before a migration task is formally started. Migration can be started only after a successful pre-check.
-    -   If the pre-check fails, click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/155926963248342_en-US.png) icon after each check item to view the failure details. Perform the pre-check again after you have rectified the failed items.
+    -   If the pre-check fails, click the ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156455452448342_en-US.png) icon after each check item to view the failure details. Perform the pre-check again after you have rectified the failed items.
 8.  After the pre-check is successful, click **Next**.
 9.  On the **Confirm Purchase Configuration** page, select **Link Type** and **Data Transmission \(Pay-As-You-Go\) Service Terms**.
 10. Click **Buy and Start** to start the migration task.
@@ -167,7 +167,7 @@ To avoid adverse impacts on your business, try to perform data migration during 
 
         When the status of the migration task becomes **Incremental migration without delay**, it indicates that the data has been synchronized.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/155926963234686_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156455452434686_en-US.png)
 
 11. Repeat Steps 1 through 10 to create migration tasks for other shards and wait until all migration tasks are complete.
 
@@ -175,7 +175,7 @@ To avoid adverse impacts on your business, try to perform data migration during 
 
     1.  The incremental migration task does not end automatically. You can click **Refresh** to view the latest status of the migration task. When the migration tasks of all shards are **Incremental migration without delay**, stop the source database for several minutes.
     2.  When the migration tasks of all shards become **Incremental migration without delay** again, stop the migration task.
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/155926963234689_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/80861/156455452434689_en-US.png)
 
 
 Check whether the data is correct. If yes, you can switch your business from the user-created database to the ApsaraDB for MongoDB instance.

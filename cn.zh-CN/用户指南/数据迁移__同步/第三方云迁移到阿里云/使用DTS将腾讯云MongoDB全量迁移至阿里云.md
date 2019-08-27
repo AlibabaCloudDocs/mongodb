@@ -55,11 +55,11 @@
 
 2.  进入腾讯云服务器控制台，查看腾讯云服务器的内网IP地址与公网IP地址。
 
-    ![查看云服务器的内外网IP地址](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/84333/156376621135509_zh-CN.png)
+    ![查看云服务器的内外网IP地址](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/84333/156447897435509_zh-CN.png)
 
 3.  进入腾讯云MongoDB控制台，查看腾讯云MongoDB副本集实例的内网IP地址。
 
-    ![查看MongoDB实例的内网IP地址](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/84333/156376621135670_zh-CN.png)
+    ![查看MongoDB实例的内网IP地址](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/84333/156447897435670_zh-CN.png)
 
 4.  登录腾讯云服务器，使用如下命令开启腾讯云服务器的iptables服务。如果已开启，可跳过本步骤。
 
@@ -94,16 +94,16 @@
 7.  返回腾讯云服务器控制台，在左侧导航栏，单击**安全组**。
 8.  在入站规则页签，单击**添加规则**，放通MongoDB数据库端口27017，允许外网访问该端口。
 
-    ![安全组配置](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/84333/156376621135723_zh-CN.png)
+    ![安全组配置](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/84333/156447897435723_zh-CN.png)
 
 9.  进入腾讯云MongoDB控制台，单击目标MongoDB实例名。
 10. 单击安全组页签，并单击**配置安全组**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/519067/156376621149246_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/519067/156447897449246_zh-CN.png)
 
 11. 在弹出的配置安全组对话框，选择已放通27017端口的安全组，并单击**确定**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/519067/156376621149247_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/519067/156447897449247_zh-CN.png)
 
 
 ## 数据迁移操作步骤 {#section_2ef_9ho_8w8 .section}
@@ -112,12 +112,12 @@
 2.  在左侧导航栏，单击**数据迁移**。
 3.  在迁移任务列表页面顶部，选择目标MongoDB实例所属地域。
 
-    ![选择地域](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6682/156376621250190_zh-CN.png)
+    ![选择地域](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6682/156447897450190_zh-CN.png)
 
 4.  单击右上角的**创建迁移任务**。
 5.  配置迁移任务的源库及目标库信息。
 
-    ![源库及目标库配置](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/84333/156376621236005_zh-CN.png)
+    ![源库及目标库配置](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/84333/156447897536005_zh-CN.png)
 
     |类别|配置|说明|
     |:-|:-|:-|
@@ -151,7 +151,7 @@
 
 7.  选择迁移对象和迁移类型。
 
-    ![迁移对象和迁移类型配置](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156376621235725_zh-CN.png)
+    ![迁移对象和迁移类型配置](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156447897535725_zh-CN.png)
 
     |配置|说明|
     |--|--|
@@ -160,7 +160,7 @@
  **说明：** 为保障数据一致性，全量数据迁移期间请勿在腾讯云MongoDB数据库中写入新的数据。
 
  |
-    |迁移对象|     -   在**迁移对象**框中单击待迁移的对象，然后单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156376621237966_zh-CN.png)将其移动到**已选择对象**框。
+    |迁移对象|     -   在**迁移对象**框中单击待迁移的对象，然后单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156447897537966_zh-CN.png)将其移动到**已选择对象**框。
 
 **说明：** 不支持迁移admin数据库，即使被选择为迁移对象，该库中的数据也不会被迁移。
 
@@ -173,7 +173,7 @@
     **说明：** 
 
     -   在迁移任务正式启动之前，会先进行预检查。只有预检查通过后，才能成功启动迁移任务。
-    -   如果预检查失败，单击具体检查项后的![提示](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/140110/156376621250068_zh-CN.png)，查看失败详情。根据失败原因修复后，重新进行预检查。
+    -   如果预检查失败，单击具体检查项后的![提示](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/140110/156447897550068_zh-CN.png)，查看失败详情。根据失败原因修复后，重新进行预检查。
 9.  预检查通过后，单击**下一步**。
 10. 在**购买配置确认**页面，选择**链路规格**并勾选**数据传输（按量付费）服务条款**。
 11. 单击**购买并启动**，迁移任务正式开始。

@@ -4,15 +4,17 @@
 
 ## RAM用户授权操作步骤 {#section_fn6_6td_7oj .section}
 
-1.  登录[RAM管理控制台](https://ram.console.aliyun.com/)，创建RAM用户。详情请参见[创建RAM用户](https://help.aliyun.com/document_detail/28637.html)。
-2.  在RAM控制台的左侧导航栏，单击**人员管理** \> **用户**。
-3.  定位至创建的RAM用户，在**操作**列单击**添加权限**。
+1.  云账号登录[RAM控制台](https://ram.console.aliyun.com/)。
+2.  [创建RAM用户](../../cn.zh-CN/用户指南/用户/创建 RAM 用户.md#)。
+3.  在左侧导航栏的**人员管理**菜单下，单击**用户**。
+4.  在**用户登录名称/显示名称**列表下，找到目标RAM用户。
+5.  单击**添加权限**。
 
-    ![添加授权](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6833/156410461248650_zh-CN.png)
+    ![添加授权](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6833/156456019348650_zh-CN.png)
 
-4.  在添加权限对话框中，配置授权信息。
+6.  在添加权限对话框中，配置授权信息。
 
-    ![配置授权信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6833/156410461248651_zh-CN.png)
+    ![配置授权信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6833/156456019348651_zh-CN.png)
 
     1.  在搜索框中输入**mongodb**，展现相关的系统权限策略。
 
@@ -21,7 +23,8 @@
         -   **AliyunMongoDBFullAccess**：为RAM用户授予MongoDB的完全管理权限。
         -   **AliyunMongoDBReadOnlyAccess**：为RAM用户授予MongoDB的只读访问权限。
     2.  根据业务需求，单击要授权的权限策略添加到已选择区域框中。
-5.  单击**确定**并在授权结果对话框中单击**完成**。
+7.  单击**确定**。
+8.  单击**完成**。
 
 ## 自定义RAM授权策略 {#section_57r_45m_8n1 .section}
 

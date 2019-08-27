@@ -6,18 +6,18 @@
 
 该接口仅适用于单节点实例和副本集实例。分片集群实例如需变更配置，您可以根据需求通过调用[ModifyNodeSpec](~~61923~~)、[CreateNode](~~61911~~)或[DeleteNode](~~61922~~)接口来实现。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=ModifyDBInstanceSpec)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=ModifyDBInstanceSpec&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|ModifyDBInstanceSpec|系统规定参数，取值：**ModifyDBInstanceSpec**。
+|DBInstanceId|String|是|dds-bpxxxxxxxx|实例ID。
 
  |
-|DBInstanceId|String|是|dds-bpxxxxxxxx|实例ID。
+|Action|String|否|ModifyDBInstanceSpec|系统规定参数，取值：**ModifyDBInstanceSpec**。
 
  |
 |DBInstanceClass|String|否|dds.mongo.standard|实例规格，详情请参考[实例规格表](~~57141~~)。
@@ -75,11 +75,14 @@
 |RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。
 
  |
+|ReadonlyReplicas|String|否|1|只读节点的个数，取值范围为**1**-**5**。
+
+ |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -108,11 +111,10 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyDBInstanceSpec
 `XML` 格式
 
 ``` {#xml_return_success_demo}
-<ModifyDBInstanceSpecResponse>
-  <OrderId>2033xxxxxxxx</OrderId>
-  <RequestId>C5662998-62BE-4C7F-961D-7DFE775DD813</RequestId>
+<ModifyDBInstanceSpecResponse>	
+	  <OrderId>2033xxxxxxxx</OrderId>
+	  <RequestId>C5662998-62BE-4C7F-961D-7DFE775DD813</RequestId>
 </ModifyDBInstanceSpecResponse>
-
 ```
 
 `JSON` 格式
@@ -126,5 +128,5 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyDBInstanceSpec
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
 

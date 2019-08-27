@@ -4,7 +4,7 @@
 
 调用本接口时，要求实例状态为运行中。
 
-**警告：** 如果提交的修改参数中包含需要重启才能生效的参数，则提交后将实例将自动重启。您可以通过调用[DescribeParameterTemplates](intl.zh-CN/API参考/参数管理/DescribeParameterTemplates.md#)接口查询哪些是修改后需要重启才能生效的参数。
+**警告：** 如果提交的修改参数中包含需要重启才能生效的参数，则提交后将实例将自动重启。您可以通过调用[DescribeParameterTemplates](cn.zh-CN/API参考/参数管理/DescribeParameterTemplates.md#)接口查询哪些是修改后需要重启才能生效的参数。
 
 ## 调试 {#apiExplorer .section}
 
