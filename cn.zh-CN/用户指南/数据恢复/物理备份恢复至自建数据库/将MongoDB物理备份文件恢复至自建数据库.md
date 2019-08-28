@@ -5,7 +5,6 @@
 ## 前提条件 {#section_kdp_sxp_5fb .section}
 
 -   实例架构为副本集实例。
--   实例未开启[TDE功能](intl.zh-CN/用户指南/数据安全性/设置透明数据加密TDE.md#)。
 -   实例的存储引擎为WiredTiger或RocksDB。
 
     **说明：** 如果实例的存储引擎为 TerarkDB ，请使用[逻辑备份恢复至自建数据库](intl.zh-CN/用户指南/数据恢复/逻辑备份恢复至自建数据库.md#)。
@@ -31,7 +30,7 @@
 
 ## 下载及解压物理备份文件 {#section_lxg_5xp_5fb .section}
 
-以下演示环境服务器的系统为Ubuntu 16.04。
+以下演示所用的服务器为阿里云ECS实例，镜像为Ubuntu 16.04（64位），更多详情请参见[创建ECS实例](https://www.alibabacloud.com/help/zh/doc-detail/25424.htm)。
 
 **说明：** 
 
