@@ -2,13 +2,13 @@
 
 ## 系统架构图 {#section_akh_kc5_xgb .section}
 
-![MongoDB系统架构](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/132916/156222392739713_zh-CN.png)
+![MongoDB系统架构](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/132916/156704221539713_zh-CN.png)
 
 ## 主要组件说明 {#section_lzk_jc5_xgb .section}
 
 -   HA控制系统
 
-    实例高可用探测模块，用于探测MongoDB实例的运行状况。如果判断主节点实例不可用，则进行主备节点的切换操作，保证MongoDB实例的高可用。
+    高可用探测模块，用于探测MongoDB实例的运行状况。如果判断主节点实例不可用，则切换主备节点操作并通知用户，保障MongoDB实例的高可用。
 
 -   日志收集系统
 
