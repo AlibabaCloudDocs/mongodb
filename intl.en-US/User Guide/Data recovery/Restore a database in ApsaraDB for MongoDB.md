@@ -20,7 +20,7 @@ Instances created after March 26, 2019 support database restoration. This functi
 -   You can only restore databases from physical backups. Restoring databases from logical backups is not supported.
 -   You can only restore databases to newly-created instances. Restoring databases to each original instance is not supported.
 
-    **Note:** An instance will be created during database restoration. For the billing method of the instance, see [Billing items and pricing](https://help.aliyun.com/document_detail/54285.html#concept-jww-bny-32b).
+    **Note:** An instance will be created during database restoration. For the billing method of the instance, see [Billing items and pricing](../../../../intl.en-US/Purchase guide/Billing items and pricing.md#).
 
 
 ## Procedure {#section_ghm_m5b_fhb .section}
@@ -33,13 +33,13 @@ Instances created after March 26, 2019 support database restoration. This functi
 6.  On the Backup and Recovery page, click **Create Instance By Time Point**.
 7.  In the dialog box that appears, set the parameters listed in the following table.
 
-    ![Restore a database in ApsaraDB for MongoDB](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/149680/156714562441591_en-US.png)
+    ![Restore a database in ApsaraDB for MongoDB](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/149680/156714578641591_en-US.png)
 
     |Parameter|Description|
     |:--------|:----------|
-    |Select recovery time point|Select a point in time that you want to restore the database to. You can restore the database to any point within the past seven days.**Note:** The time must be earlier than the current time, and must be later than the time when the database was created.
+    |Select recovery time point|Select a point in time that you want to restore the database to. You can restore the database to any point within the past seven days. **Note:** The time must be earlier than the current time, and must be later than the time when the database was created.
 
-|
+ |
     |Select recovery database|     -   All Databases
     -   Select Databases: Restore certain databases in the instance. You can select the databases that you want to restore or click **Enter Databases** to enter databases manually.
 
@@ -67,17 +67,17 @@ Instances created after March 26, 2019 support database restoration. This functi
     |**Specification Configuration**|**Specification**|     -   The CPU and memory occupied by the instance.
     -   The maximum number of connections and maximum IOPS vary depending on different specifications. The maximum IOPS is measured respectively under the read and write permissions, and can double under the mixed read/write permissions.
  |
-    |**Storage Space**|The storage space exclusive to each node in the replica set instance.**Note:** The storage space of a node stores your data, system, and log files.
+    |**Storage Space**|The storage space exclusive to each node in the replica set instance. **Note:** The storage space of a node stores your data, system, and log files.
 
-|
+ |
     |**Password Settings**|     -   **Set Now**
     -   **Set Later**
- |Set the password of the MongoDB database. You can [set the password](intl.en-US/Quick Start for Replica Set/Set a password.md#) when creating or running the instance.    -   The password must contain characters from at least three of the following categories: uppercase letters, lowercase letters, digits, and special characters. Special characters include !\#$%^&\*\(\)\_+-=
+ |Set the password of the MongoDB database. You can [set the password](intl.en-US/Quick Start for Replica Set/Set a password.md#) when creating or running the instance.     -   The password must contain characters from at least three of the following categories: uppercase letters, lowercase letters, digits, and special characters. Special characters include !\#$%^&\*\(\)\_+-=
     -   The password must be 8 to 32 characters in length.
-|
-    |**Quantity Purchased**|**Duration**|Subscription: Set the duration and quantity of the subscription instance. The subscription duration can be one to nine months or one to three years.**Note:** This parameter is required only for subscription instances.
+ |
+    |**Quantity Purchased**|**Duration**|Subscription: Set the duration and quantity of the subscription instance. The subscription duration can be one to nine months or one to three years. **Note:** This parameter is required only for subscription instances.
 
-|
+ |
     |**Quantity**|Set the number of instances with the same specifications. It can be set to an integer of 1 to 10.|
 
 10. Click **Buy Now**. The Confirm Order page appears.
