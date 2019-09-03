@@ -15,15 +15,7 @@
 
 |MongoDB实例的网络类型|DMS服务器的IP地址|
 |:-------------|:----------|
-|内网连接 - 专有网络| 100.104.175.0/24
-
- 100.104.72.0/24
-
- 100.104.5.0/24
-
- 100.104.205.0/24
-
- |
+|内网连接 - 专有网络|100.104.0.0/16|
 |内网连接 - 经典网络| 120.55.177.0/24
 
  121.43.18.0/24
@@ -46,15 +38,15 @@
 4.  找到目标实例，单击实例ID。
 5.  在左侧导航栏，单击**数据库连接**，获取 Primary 节点的内网连接地址。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6674/156289581334552_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6674/156747929434552_zh-CN.png)
 
 6.  单击页面右上角的**登录数据库**，选择要登录的数据库节点为 **Primary** 或 **Secondary** ，跳转到数据管理控制台页面。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6674/156289581313329_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6674/156747929413329_zh-CN.png)
 
 7.  在数据管理控制台页面，填写相应信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/23695/156289581313740_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/23695/156747929413740_zh-CN.png)
 
     -   网络地址及端口：填入 Primary 节点的内网连接地址。
     -   数据库用户名：默认为root。
