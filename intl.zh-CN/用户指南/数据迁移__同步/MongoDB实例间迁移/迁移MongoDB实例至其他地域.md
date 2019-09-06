@@ -13,7 +13,7 @@
 
 **说明：** 该操作仅迁移源实例的数据，源实例在迁移完成后如不再需要可执行释放操作。
 
-![迁移MongoDB实例至其他地域](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/155400/156455075843672_zh-CN.png)
+![迁移MongoDB实例至其他地域](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/155400/156775246843672_zh-CN.png)
 
 ## 前提条件 {#section_tql_qpw_pgb .section}
 
@@ -67,7 +67,7 @@
 3.  单击页面右上角的**创建迁移任务**。
 4.  配置迁移任务的源库及目标库信息。
 
-    ![MongoDB源目库配置](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/155400/156455075943677_zh-CN.png)
+    ![MongoDB源目库配置](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/155400/156775246843677_zh-CN.png)
 
     |类别|配置|说明|
     |:-|:-|:-|
@@ -97,7 +97,7 @@
 
 6.  选择迁移对象及迁移类型。
 
-    ![配置数据迁移对象和迁移类型](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/75938/156455075933662_zh-CN.png)
+    ![配置数据迁移对象和迁移类型](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/75938/156775246833662_zh-CN.png)
 
     |配置|说明|
     |:-|:-|
@@ -110,7 +110,7 @@
 **说明：** 使用DTS迁移单节点实例时，不支持增量数据迁移。
 
  |
-    |迁移对象|     -   在**迁移对象**框中单击待迁移的对象，然后单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156455075937966_zh-CN.png)移动到**已选择对象**框。
+    |迁移对象|     -   在**迁移对象**框中单击待迁移的对象，然后单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156775246837966_zh-CN.png)移动到**已选择对象**框。
 
 **说明：** 不支持迁移admin数据库，即使您将admin数据库选择为迁移对象，该库中的数据也不会被迁移。
 
@@ -123,7 +123,7 @@
     **说明：** 
 
     -   在迁移任务正式启动之前，会先进行预检查。只有预检查通过后，才能成功启动迁移任务。
-    -   如果预检查失败，单击具体检查项后的![提示](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/140110/156455075950068_zh-CN.png)，查看失败详情。根据失败原因修复后，重新进行预检查。
+    -   如果预检查失败，单击具体检查项后的![提示](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/140110/156775246950068_zh-CN.png)，查看失败详情。根据失败原因修复后，重新进行预检查。
 8.  预检查通过后，单击**下一步**。
 9.  在**购买配置确认**页面，选择**链路规格**并勾选**数据传输（按量付费）服务条款**。
 10. 单击**购买并启动**，迁移任务正式开始。
@@ -140,10 +140,10 @@
         1.  观察迁移任务的进度变更为**增量迁移**，并显示为**无延迟**状态时，将源库停写几分钟，此时**增量迁移**的状态可能会显示延迟的时间。
         2.  等待迁移任务的**增量迁移**再次进入**无延迟**状态，手动结束迁移任务。
 
-            ![增量迁移无延迟](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/75938/156455075933674_zh-CN.png)
+            ![增量迁移无延迟](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/75938/156775246933674_zh-CN.png)
 
 11. 将业务切换至目标MongoDB实例中。
 12. 根据业务需求确认是否需要释放源实例，如果无需释放可跳过本步骤。
     -   源实例付费类型为按量付费时，请参见[释放实例](intl.zh-CN/用户指南/实例管理/释放实例.md#)。
-    -   源实例付费类型为包年包月时，请参见[退款规则及退款流程](https://help.aliyun.com/knowledge_detail/37096.html)。
+    -   源实例付费类型为包年包月时，不支持释放。
 
