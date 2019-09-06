@@ -10,7 +10,7 @@
 
 ## 费用说明 {#section_vhc_dxq_ggb .section}
 
-操作步骤中创建VPN网关时将产生费用，详情请参见[计费说明](https://help.aliyun.com/document_detail/64984.html)。
+操作步骤中创建VPN网关时将产生费用，详情请参见[计费说明](https://www.alibabacloud.com/help/zh/doc-detail/72351.htm)。
 
 ## 前提条件 {#section_jg1_tvq_ggb .section}
 
@@ -20,7 +20,7 @@
 
 ## 案例环境介绍 {#section_yf2_jdr_ggb .section}
 
-![SSL连接环境介绍](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/159808/156223043844679_zh-CN.png)
+![SSL连接环境介绍](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/159808/156775144944679_zh-CN.png)
 
 ## 步骤一 创建VPN网关 {#section_xxd_vwq_ggb .section}
 
@@ -107,7 +107,7 @@
 
 ## 客户端通过SSL-VPN隧道登录MongoDB数据库 {#section_ds2_jhr_ggb .section}
 
-本文以Windows系统为例连接SSL-VPN，其他操作系统请参考：[在Linux系统中连接SSL-VPN](https://help.aliyun.com/document_detail/65075.html#h2-url-5)、[在Mac系统中连接SSL-VPN](https://help.aliyun.com/document_detail/65068.html#h2-url-5)。
+本文以Windows系统为例连接SSL-VPN，其他操作系统请参考：[在Linux系统中连接SSL-VPN](https://www.alibabacloud.com/help/zh/doc-detail/65075.htm#title-60o-ywt-7cz)、[在Mac系统中连接SSL-VPN](https://www.alibabacloud.com/help/zh/doc-detail/65068.htm#d7e230)。
 
 1.  登录[专有网络管理控制台](https://vpc.console.aliyun.com)。
 2.  在页面左上角选择地域。
@@ -117,13 +117,13 @@
 6.  将下载的客户端证书解压后复制到OpenVPN安装目录中的config文件夹中。
 7.  单击**Connect**发起连接。
 
-    ![发起SSL连接](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/159808/156223043844665_zh-CN.png)
+    ![发起SSL连接](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/159808/156775144944665_zh-CN.png)
 
 8.  将MongoDB实例所属的专有网络IP地址段添加至MongoDB实例的白名单中，本案例将**172.16.1.0/24**加入至MongoDB实例的白名单中。
 9.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
 10. 获取MongoDB实例的专有网络地址，详情请参考[实例连接说明](../../../../intl.zh-CN/副本集快速入门/连接实例/副本集实例连接说明.md#)。
 
-    ![MongoDB实例专有网络](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/159808/156223043944701_zh-CN.png)
+    ![MongoDB实例专有网络](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/159808/156775144944701_zh-CN.png)
 
 11. 使用[Mongo Shell](../../../../intl.zh-CN/副本集快速入门/连接实例/通过Mongo Shell登录MongoDB数据库.md#)或者其他管理工具登录MongoDB数据库。
 
