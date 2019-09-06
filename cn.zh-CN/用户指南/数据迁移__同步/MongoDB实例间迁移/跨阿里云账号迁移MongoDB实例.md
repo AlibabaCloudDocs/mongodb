@@ -53,7 +53,7 @@
 2.  为源实例申请公网连接地址，详情请参见[申请公网连接地址](intl.zh-CN/用户指南/管理网络连接/申请公网连接地址.md#)。
 3.  将DTS服务器的IP地址段加入至源实例的白名单中，详情请参见[设置白名单](intl.zh-CN/用户指南/数据安全性/设置白名单.md#)。
 
-    **说明：** 在[DTS IP段](https://help.aliyun.com/document_detail/84900.html)文档中，根据目标实例的地域信息，选择需要添加的IP地址段。例如，源实例的地域为杭州，目标实例的地域为深圳，那么需要将深圳地区的DTS IP地址段加入至源实例的白名单中。
+    **说明：** 在[DTS IP段](https://www.alibabacloud.com/help/zh/doc-detail/84900.htm)文档中，根据目标实例的地域信息，选择需要添加的IP地址段。例如，源实例的地域为杭州，目标实例的地域为深圳，那么需要将深圳地区的DTS IP地址段加入至源实例的白名单中。
 
 
 ## 操作步骤 {#section_njl_2c1_kfb .section}
@@ -63,7 +63,7 @@
 3.  单击页面右上角的**创建迁移任务**。
 4.  配置迁移任务的源库及目标库信息。
 
-    ![跨阿里云账号MongoDB源目库配置](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156455080538564_zh-CN.png)
+    ![跨阿里云账号MongoDB源目库配置](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156775254738564_zh-CN.png)
 
     |类别|配置|说明|
     |:-|:-|:-|
@@ -95,7 +95,7 @@
 
 6.  选择迁移对象及迁移类型。
 
-    ![MongoDB迁移对象迁移类型选择](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156455080638566_zh-CN.png)
+    ![MongoDB迁移对象迁移类型选择](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156775254738566_zh-CN.png)
 
     |配置|说明|
     |:-|:-|
@@ -108,7 +108,7 @@
 **说明：** 使用DTS迁移单节点实例时，不支持增量数据迁移。
 
  |
-    |迁移对象|     -   在**迁移对象**框中单击待迁移的对象，然后单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156455080637966_zh-CN.png)移动到**已选择对象**框。
+    |迁移对象|     -   在**迁移对象**框中单击待迁移的对象，然后单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156775254737966_zh-CN.png)移动到**已选择对象**框。
 
 **说明：** 不支持迁移admin数据库，即使您将admin数据库选择为迁移对象，该库中的数据也不会被迁移。
 
@@ -121,7 +121,7 @@
     **说明：** 
 
     -   在迁移任务正式启动之前，会先进行预检查。只有预检查通过后，才能成功启动迁移任务。
-    -   如果预检查失败，单击具体检查项后的![提示](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/140110/156455080650068_zh-CN.png)，查看失败详情。根据失败原因修复后，重新进行预检查。
+    -   如果预检查失败，单击具体检查项后的![提示](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/140110/156775254750068_zh-CN.png)，查看失败详情。根据失败原因修复后，重新进行预检查。
 8.  预检查通过后，单击**下一步**。
 9.  在购买配置确认页面，选择**链路规格**并勾选**数据传输（按量付费）服务条款**。
 10. 单击**购买并启动**，迁移任务正式开始。
@@ -138,12 +138,12 @@
         1.  观察迁移任务的进度变更为**增量迁移**，并显示为**无延迟**状态时，将源库停写几分钟，此时**增量迁移**的状态可能会显示延迟的时间。
         2.  等待迁移任务的**增量迁移**再次进入**无延迟**状态，手动结束迁移任务。
 
-            ![增量迁移无延迟](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/75938/156455080633674_zh-CN.png)
+            ![增量迁移无延迟](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/75938/156775254733674_zh-CN.png)
 
 11. 将业务切换至目标MongoDB实例中。
 12. 根据业务需求确认是否需要释放源实例，如果无需释放可跳过本步骤。
     -   源实例付费类型为按量付费时，请参见[释放实例](intl.zh-CN/用户指南/实例管理/释放实例.md#)。
-    -   源实例付费类型为包年包月时，请参见[退款规则及退款流程](https://help.aliyun.com/knowledge_detail/37096.html)。
+    -   源实例付费类型为包年包月时，不支持释放。
 
 ## 更多信息 {#section_v5g_lrw_pgb .section}
 
