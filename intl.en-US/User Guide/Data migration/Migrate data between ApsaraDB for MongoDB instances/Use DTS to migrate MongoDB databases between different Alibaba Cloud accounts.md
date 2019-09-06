@@ -77,7 +77,7 @@ If you migrate data to a sharded cluster instance, we recommend that you shard t
 3.  In the upper-right corner of the Data Migration page, click **Create Migration Task**.
 4.  Configure **Source and Destination Databases** of the migration task.
 
-    ![Configure the source and destination databases of different accounts](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156775255438564_en-US.png)
+    ![Configure the source and destination databases of different accounts](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156775263738564_en-US.png)
 
     |Parameter|Description|
     |:--------|:----------|
@@ -106,7 +106,7 @@ If you migrate data to a sharded cluster instance, we recommend that you shard t
 
 6.  Configure the migration objects and migration types.
 
-    ![Configure the migration types and objects](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156775255438566_en-US.png)
+    ![Configure the migration types and objects](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156775263738566_en-US.png)
 
     |Parameter|Description|
     |:--------|:----------|
@@ -116,14 +116,14 @@ If you migrate data to a sharded cluster instance, we recommend that you shard t
 
     -   If you need to migrate the data without stopping businesses, select **Full Data Migration** and **Incremental Data Migration** for Migration Types.
  |
-    |Migration Objects|     -   Select the database to be migrated from the **Available** area and click the ![Rightwards arrow](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156775255437966_en-US.png) icon to add the database to the **Selected** area.
+    |Migration Objects|     -   Select the database to be migrated from the **Available** area and click the ![Rightwards arrow](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156775263837966_en-US.png) icon to add the database to the **Selected** area.
 
 **Note:** The data in the admin database cannot be migrated even if it is selected as a migration object.
 
     -   The migration object can be a database or a collection/function.
     -   After an object is migrated to ApsaraDB for MongoDB, the object name in ApsaraDB for MongoDB is the same as that in the source database.
 
-**Note:** If the migrated object has different names in the source instance and the destination instance, you can use the object name mapping function provided by DTS. For more information, see [Object name mapping](https://www.alibabacloud.com/help/zh/doc-detail/26628.htm).
+**Note:** If the migrated object has different names in the source instance and the destination instance, you can use the object name mapping function provided by DTS. For more information, see [Object name mapping](https://www.alibabacloud.com/help/doc-detail/26628.htm).
 
  |
 
@@ -144,7 +144,7 @@ If you migrate data to a sharded cluster instance, we recommend that you shard t
 
         The migration task does not stop automatically. To stop the migration task, wait until the task is in the **Incremental Migration without Delay** state, and stop writing to the source database. After a few minutes, the task enters the **Incremental Migration without Delay** state again, and you can stop the task.
 
-        ![Incremental migration without delay](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156775255438567_en-US.png)
+        ![Incremental migration without delay](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156775263838567_en-US.png)
 
 
 Switch your businesses to the ApsaraDB for MongoDB instance during off-peak hours to avoid negatively affecting your businesses.
