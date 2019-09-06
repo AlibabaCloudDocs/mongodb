@@ -9,7 +9,7 @@
 ## 注意事项 {#section_dww_lmr_zfb .section}
 
 -   为避免影响您的正常业务使用，请在业务低峰期进行数据迁移。
--   单节点实例不支持使用DTS进行[增量数据迁移](https://help.aliyun.com/knowledge_detail/39252.html)，为保障数据一致性，全量数据迁移期间请勿在源实例中写入新的数据。
+-   单节点实例不支持使用DTS进行增量数据迁移，为保障数据一致性，全量数据迁移期间请勿在源实例中写入新的数据。
 -   不支持迁移admin数据库，即使您将admin数据库选择为迁移对象，该库中的数据也不会被迁移。
 -   MongoDB实例支持的版本与存储引擎请参见[版本及存储引擎](../intl.zh-CN/产品简介/版本及存储引擎.md#)，如需跨版本或跨引擎迁移，请提前确认兼容性。
 
@@ -41,7 +41,7 @@
 3.  单击右上角的**创建迁移任务**。
 4.  配置迁移任务的源库及目标库信息。
 
-    ![配置源库及目标库信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/75938/156455070433658_zh-CN.png)
+    ![配置源库及目标库信息](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/75938/156775331933658_zh-CN.png)
 
     |类别|配置|说明|
     |:-|:-|:-|
@@ -71,19 +71,19 @@
 
 6.  选择迁移对象及迁移类型。
 
-    ![配置迁移类型和迁移对象](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156455070435725_zh-CN.png)
+    ![配置迁移类型和迁移对象](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156775331935725_zh-CN.png)
 
     |配置选项|配置说明|
     |:---|:---|
     |迁移类型|迁移类型选择**全量数据迁移**。 **说明：** 迁移的数据源为单节点时，仅支持**全量数据迁移**。为保障数据一致性，全量数据迁移期间请勿在源库中写入新的数据。
 
  |
-    |迁移对象|     -   在**迁移对象**框中单击待迁移的对象，然后单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156455070437966_zh-CN.png)将其移动到**已选择对象**框。
+    |迁移对象|     -   在**迁移对象**框中单击待迁移的对象，然后单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156775331937966_zh-CN.png)将其移动到**已选择对象**框。
 
 **说明：** 不支持迁移admin数据库，即使您将admin数据库选择为迁移对象，该库中的数据也不会被迁移。
 
     -   迁移对象选择的粒度为database、collection/function。
-    -   默认情况下，迁移完成后，迁移对象的名称保持不变。如果您需要迁移对象在目标数据库中的名称不同，那么需要使用DTS提供的对象名映射功能。使用方法请参见[库表列映射](https://help.aliyun.com/document_detail/26628.html)。
+    -   默认情况下，迁移完成后，迁移对象的名称保持不变。如果您需要迁移对象在目标数据库中的名称不同，那么需要使用DTS提供的对象名映射功能。使用方法请参见[库表列映射](https://www.alibabacloud.com/help/zh/doc-detail/26628.htm)。
  |
 
 7.  上述配置完成后，单击页面右下角的**预检查并启动**。
@@ -91,7 +91,7 @@
     **说明：** 
 
     -   在迁移任务正式启动之前，会先进行预检查。只有预检查通过后，才能成功启动迁移任务。
-    -   如果预检查失败，单击具体检查项后的![提示](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/140110/156455070450068_zh-CN.png)，查看失败详情。根据失败原因修复后，重新进行预检查。
+    -   如果预检查失败，单击具体检查项后的![提示](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/140110/156775332050068_zh-CN.png)，查看失败详情。根据失败原因修复后，重新进行预检查。
 8.  预检查通过后，单击**下一步**。
 9.  在**购买配置确认**页面，选择**链路规格**并勾选**数据传输（按量付费）服务条款**。
 10. 单击**购买并启动**，迁移任务正式开始。
@@ -100,7 +100,7 @@
 
 11. 迁移任务完成后，可将业务切换至目标MongoDB实例。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156455070451339_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156775332051339_zh-CN.png)
 
 
 ## 更多信息 {#section_ogw_hmz_ngb .section}
