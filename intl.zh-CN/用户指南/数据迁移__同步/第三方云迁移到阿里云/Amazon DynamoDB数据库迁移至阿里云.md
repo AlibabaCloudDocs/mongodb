@@ -8,7 +8,7 @@
 
 ## 注意事项 {#section_xj3_k3w_mhb .section}
 
--   该操作为全量数据迁移，暂不支持[增量数据迁移](https://help.aliyun.com/knowledge_detail/39252.html)。为避免迁移前后数据不一致，在迁移开始前请停止数据库写入。
+-   该操作为全量数据迁移，暂不支持增量数据迁移。为避免迁移前后数据不一致，在迁移开始前请停止数据库写入。
 -   请在安装有MongoDB服务的服务器上执行mongoimport命令，并非在mongo shell环境下执行。
 
 ## 术语/概念对应关系 {#section_ywn_0y5_3jb .section}
@@ -35,11 +35,11 @@
 2.  在左侧导航栏，单击**表**。
 3.  选择需要迁移的表，本案例选择**customer**表。
 
-    ![选择DynamoDB表](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161016/156455490645065_zh-CN.png)
+    ![选择DynamoDB表](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161016/156775140245065_zh-CN.png)
 
 4.  选择需要迁移的数据，导出为**.csv**格式。
 
-    ![选择DynamoDB待迁移数据](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161016/156455490645066_zh-CN.png)
+    ![选择DynamoDB待迁移数据](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161016/156775140245066_zh-CN.png)
 
     1.  单击项目页签。
     2.  选择需要迁移的数据。
