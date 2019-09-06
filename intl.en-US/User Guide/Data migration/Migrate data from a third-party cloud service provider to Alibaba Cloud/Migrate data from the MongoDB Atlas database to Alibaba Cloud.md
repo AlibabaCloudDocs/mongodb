@@ -6,7 +6,7 @@ You can use mongodump and mongorestore, the backup and restoration tools provide
 
 -   ApsaraDB for MongoDB supports migration of several database versions. \(ApsaraDB for MongoDB supports MongoDB versions 3.2, 3.4 and 4.0.\)
 -   The source database can be migrated to databases with different storage engines. \(ApsaraDB for MongoDB supports three storage engines: WiredTiger, RocksDB and TerarkDB.\)
--   This operation is full data migration. [Incremental data migration](https://help.aliyun.com/knowledge_detail/39252.html) is not supported. To avoid data inconsistency, stop writing data to the database before the migration starts.
+-   This operation is full data migration. Incremental data migration is not supported. To avoid data inconsistency, stop writing data to the database before the migration starts.
 -   The version of mongodump and mongorestore is the same as the version of the MongoDB Atlas database.
 -   If you have backed up databases with mongodump, move the backup files in the dump folder to other directories. Make sure that the default dump folder is empty before data migration. Otherwise, the backup files in this folder will be overwritten.
 -   Run the mongodump and mongorestore commands on servers that have MongoDB services. Do not run these commands in the mongo shell.
@@ -26,7 +26,7 @@ You can use mongodump and mongorestore, the backup and restoration tools provide
 
     -   The storage space of ApsaraDB for MongoDB instances must be greater than that of MongoDB Atlas.
     -   If you migrate data to a sharded cluster instance of ApsaraDB for MongoDB, we recommend that you shard the data. For more information, see [Configure sharding to maximize the performance of shards](../../../../intl.en-US/Best Practices/Configure sharding to maximize the performance of shards.md#).
-2.  Set the password for the ApsaraDB for MongoDB database. For more information, see [Set a password](https://help.aliyun.com/document_detail/54956.html#task-xxj-svb-kfb).
+2.  Set the password for the ApsaraDB for MongoDB database. For more information, see [Reset the password](intl.en-US/User Guide/Account management/Reset the password.md#).
 
 ## Premigration preparation 2 {#section_thc_nt5_jgb .section}
 
@@ -45,15 +45,15 @@ Install MongoDB on the local server. Ensure that the version number of the progr
 1.  Log on to the MongoDB Atlas console.
 2.  Add the public IP address of the local server that is used for data migration to the whitelist of the MongoDB Atlas instance.
 
-    ![Configuration of the MongoDB Atlas whitelist](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156455521936508_en-US.png)
+    ![Configuration of the MongoDB Atlas whitelist](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156775296036508_en-US.png)
 
 3.  On the Clusters page, click Clusters.
 
-    ![Clusters](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156455521936523_en-US.png)
+    ![Clusters](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156775296036523_en-US.png)
 
 4.  On the Command Line Tools tab, click **COPY** next to the mongodump command to copy the mongodump command that contains the connection information of the MongoDB Atlas database.
 
-    ![Copy the mongodump command that contains the connection information.](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156455521936524_en-US.png)
+    ![Copy the mongodump command that contains the connection information.](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156775296036524_en-US.png)
 
 5.  Back up the MongoDB Atlas database on the local server.
 
@@ -62,7 +62,7 @@ Install MongoDB on the local server. Ensure that the version number of the progr
     3.  Run this command and wait until the data is backed up.
     Example:
 
-    ![mongodump operation example](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156455522036534_en-US.png)
+    ![mongodump operation example](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156775296036534_en-US.png)
 
 6.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com) to obtain the public connection address of the ApsaraDB for MongoDB instance.
 

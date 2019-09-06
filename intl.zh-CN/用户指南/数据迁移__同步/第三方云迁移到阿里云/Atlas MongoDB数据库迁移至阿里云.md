@@ -5,7 +5,7 @@
 ## 注意事项 {#section_j3k_5sk_5fb .section}
 
 -   MongoDB实例支持的版本与存储引擎请参见[版本及存储引擎](../../../../intl.zh-CN/产品简介/版本及存储引擎.md#)，如需跨版本或跨引擎迁移，请提前确认兼容性。
--   该操作为全量数据迁移，暂不支持[增量数据迁移](https://help.aliyun.com/knowledge_detail/39252.html)。为避免迁移前后数据不一致，迁移开始前请停止数据库写入。
+-   该操作为全量数据迁移，暂不支持增量数据迁移。为避免迁移前后数据不一致，迁移开始前请停止数据库写入。
 -   请确保安装的 mongodump 和 mongorestore 软件版本，与Atlas MongoDB的数据库版本一致。
 -   如果您之前使用 mongodump 命令对数据库进行过备份操作，请将备份在dump文件夹下的文件移动至其他目录。确保默认的dump备份文件夹为空，否则将会覆盖该文件夹下之前备份的文件。
 -   请在安装有MongoDB服务的服务器上执行 mongodump 和 mongorestore 命令，并非在mongo shell环境下执行。
@@ -25,7 +25,7 @@
 
     -   阿里云MongoDB实例的存储空间要大于Atlas MongoDB的存储空间。
     -   如需迁移至阿里云MongoDB分片集群实例，建议对数据进行分片，详情请参考[设置数据分片](../../../../intl.zh-CN/最佳实践/设置数据分片以充分利用Shard性能.md#)。
-2.  设置阿里云MongoDB数据库的数据库密码，详情请参考[设置密码](https://help.aliyun.com/document_detail/54956.html#task-xxj-svb-kfb)。
+2.  设置阿里云MongoDB数据库的数据库密码，详情请参考[重置密码](intl.zh-CN/用户指南/账号管理/重置密码.md#)。
 
 ## 迁移前准备工作二 {#section_thc_nt5_jgb .section}
 
@@ -44,15 +44,15 @@
 1.  登录Atlas MongoDB数据库控制台。
 2.  将用于数据迁移的本地设备的公网IP地址，加入至Atlas MongoDB实例的白名单中。
 
-    ![Atlas MongoDB白名单配置](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156455520436508_zh-CN.png)
+    ![Atlas MongoDB白名单配置](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156775295136508_zh-CN.png)
 
 3.  在Clusters页面，单击 Clusters 的名称。
 
-    ![Clusters名称](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156455520536523_zh-CN.png)
+    ![Clusters名称](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156775295236523_zh-CN.png)
 
 4.  在Command Line Tools页签，单击 mongodump 命令后的**COPY**，复制包含Atlas MongoDB数据库连接信息的 mongodump 命令。
 
-    ![复制包含连接信息的mongodump命令](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156455520536524_zh-CN.png)
+    ![复制包含连接信息的mongodump命令](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156775295236524_zh-CN.png)
 
 5.  在本地设备上，备份Atlas MongoDB数据库。
 
@@ -61,7 +61,7 @@
     3.  执行该命令，等待数据备份完毕。
     示例：
 
-    ![mongodump操作示例](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156455520536534_zh-CN.png)
+    ![mongodump操作示例](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/91579/156775295236534_zh-CN.png)
 
 6.  登录[阿里云MongoDB控制台](https://mongodb.console.aliyun.com)，获取阿里云MongoDB实例的公网连接地址。
 
