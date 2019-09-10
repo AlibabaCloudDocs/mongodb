@@ -6,7 +6,7 @@
 
 现象：
 
-```
+``` {#codeblock_96v_h2q_a20}
 #mongo --host ali12345678.mongodb.rds.aliyuncs.com:3717 --authenticationDatabase admin -u root -p xxx
 MongoDB shell version: 3.2.3
 DB Prefix:
@@ -25,7 +25,7 @@ exception: connect failed
 
 辅助排查方法：可以通过telnet来确认到达MongoDB实例的网络是否通畅，例如`telnet dds-ali123456789.mongodb.rds.aliyuncs.com 3717`
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6847/154520085334454_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6847/156807961134454_zh-CN.png)
 
 图中示例表示可以正常解析该域名地址，且3717端口可正常通信。
 
@@ -33,7 +33,7 @@ exception: connect failed
 
 现象：
 
-```
+``` {#codeblock_3oq_t8o_ovk}
 #mongo --host ali12345678.mongodb.rds.aliyuncs.com:3717  --authenticationDatabase admin -u root -p xxx
 MongoDB shell version: 3.2.3
 connecting to: 10.1.2.8:3717/test
@@ -55,7 +55,7 @@ exception: login failed
 
 现象：
 
-```
+``` {#codeblock_5ie_och_7s2}
 #mongo --host ali12345678.mongodb.rds.aliyuncs.com:3717 --authenticationDatabase test -u root -p xxxxxx
 MongoDB shell version v3.4.10
 connecting to: mongodb:ali1234567878.mongodb.rds.aliyuncs.com:3717/
@@ -71,12 +71,12 @@ exception: connect failed
 
 ## 提示Timeout while receiving message信息 {#section_wgt_p3x_dgb .section}
 
-```
+``` {#codeblock_iuo_uin_189}
 org.springframework.data.mongodb.UncategorizedMongoDbException: Timeout while receiving message; nested exception is com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
 ```
 
 |可能的原因|解决方法|
 |:----|:---|
-|异常的慢查询占用实例资源，导致CPU使用率激增甚至到达峰值。|检查是否有慢查询，建议进行添加索引优化。具体方法请参考[分析数据库慢请求](../../../../intl.zh-CN/最佳实践/排查 MongoDB CPU使用率高的问题.md#)。|
-|应用端连接池的配置错误引起，如超时时间的设置等。|详情请参考如何[查询及限制连接数](intl.zh-CN/产品使用问题/如何查询及限制连接数.md#)。|
+|异常的慢查询占用实例资源，导致CPU使用率激增甚至到达峰值。|检查是否有慢查询，建议进行添加索引优化。具体方法请参考[分析数据库慢请求](../../../../intl.zh-CN/最佳实践/排查MongoDB CPU使用率高的问题.md#)。|
+|应用端连接池的配置错误引起，如超时时间的设置等。|详情请参考如何[查询及限制连接数](intl.zh-CN/常见问题/热点问题/如何查询及限制连接数.md#)。|
 
