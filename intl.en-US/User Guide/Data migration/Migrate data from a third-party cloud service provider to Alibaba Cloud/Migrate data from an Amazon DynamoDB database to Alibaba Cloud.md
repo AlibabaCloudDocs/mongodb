@@ -8,7 +8,7 @@ An ApsaraDB for MongoDB instance is created. For more information, see [Create a
 
 ## Precautions {#section_xj3_k3w_mhb .section}
 
--   This operation is full data migration. [Incremental data migration](https://help.aliyun.com/knowledge_detail/39252.html) is not supported. To avoid data inconsistency, stop writing data to the database before the migration starts.
+-   This operation is full data migration. Incremental data migration is not supported. To avoid data inconsistency, stop writing data to the database before the migration starts.
 -   Run mongoimport commands on the server on which the MongoDB service is installed. Do not run these commands in the mongo shell.
 
 ## Relation of terms in DynamoDB and ApsaraDB for MongoDB {#section_ywn_0y5_3jb .section}
@@ -35,11 +35,11 @@ Install the MongoDB program on the local server. Ensure that the version of the 
 2.  In the left-side navigation pane, click **Table**.
 3.  Select the **customer** table.
 
-    ![Choose an Amazon DynamoDB table](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161016/156455491645065_en-US.png)
+    ![Choose an Amazon DynamoDB table](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161016/156808399845065_en-US.png)
 
 4.  Select the data to be migrated and export it in the **.csv** format.
 
-    ![Select the data in Amazon DynamoDB for migration](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161016/156455491645066_en-US.png)
+    ![Select the data in Amazon DynamoDB for migration](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161016/156808399845066_en-US.png)
 
     1.  Click the Program tab.
     2.  Select the data to be migrated.
