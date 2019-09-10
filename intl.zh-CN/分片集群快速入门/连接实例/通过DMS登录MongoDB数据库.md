@@ -14,15 +14,7 @@
 
 |MongoDB实例的网络类型|DMS服务器的IP地址|
 |:-------------|:----------|
-|内网连接 - 专有网络| 100.104.175.0/24
-
- 100.104.72.0/24
-
- 100.104.5.0/24
-
- 100.104.205.0/24
-
- |
+|内网连接 - 专有网络|100.104.0.0/16|
 |内网连接 - 经典网络| 120.55.177.0/24
 
  121.43.18.0/24
@@ -45,17 +37,22 @@
 4.  找到目标实例，单击实例ID。
 5.  在左侧导航栏，单击**数据库连接**，获取到 Mongos 的内网连接地址。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6694/156289604034556_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6694/156808106034556_zh-CN.png)
 
 6.  单击页面右上角的**登录数据库**，选择要登录的 mongos 节点，跳转到数据管理控制台页面。
 7.  在数据管理控制台页面，填写相应信息。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/23695/156289604013740_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/23695/156808106013740_zh-CN.png)
 
-    -   网络地址及端口：填入任一 Mongos 节点的内网连接地址。
-    -   数据库用户名：默认为 root 。
-    -   数据库：鉴权数据库，默认为 admin 。
-    -   密码：数据库登录密码，如忘记密码可[重置密码](intl.zh-CN/分片集群快速入门/设置密码.md#)。
+    |参数|说明|
+    |--|--|
+    |**网络地址及端口**|填入任一Mongos节点的内网连接地址。 **说明：** 包含域名和端口号信息，例如**dds-xxxxxxxx.mongodb.rds.aliyuncs.com:3717**。
+
+ |
+    |**数据库用户名**|连接MongoDB实例的数据库用户名，初始用户为**root**。|
+    |**数据库名**|鉴权数据库名，默认为**admin**。|
+    |**密码**|数据库密码，如果忘记root用户的密码，您可以[重置密码](intl.zh-CN/单节点快速入门/设置密码.md#)。|
+
 8.  单击**登录**。
 
 ## 相关问题 {#section_855_x26_8wa .section}
