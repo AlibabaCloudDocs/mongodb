@@ -11,7 +11,7 @@ You may need to change the MongoDB database region in the following scenarios:
 
 This topic focuses on MongoDB database migration from China \(Qingdao\) to China \(Hangzhou\) as an example. It introduces how to migrate the MongoDB database to other regions by using the data migration function of DTS.
 
-![Migrate MongoDB instances to other regions](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/155400/156455366743672_en-US.png)
+![Migrate MongoDB instances to other regions](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/155400/156808407243672_en-US.png)
 
 ## Prerequisites {#section_tql_qpw_pgb .section}
 
@@ -67,7 +67,7 @@ If you use DTS to migrate MongoDB databases, you need different permissions when
 3.  In the upper-right corner of the Data Migration page, click **Create Migration Task**.
 4.  Configure **Source and Destination Databases** of the migration task.
 
-    ![Configure the MongoDB source and destination databases](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/155400/156455366743677_en-US.png)
+    ![Configure the MongoDB source and destination databases](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/155400/156808407243677_en-US.png)
 
     |Parameter|Description|
     |:--------|:----------|
@@ -95,7 +95,7 @@ If you use DTS to migrate MongoDB databases, you need different permissions when
 
 6.  Configure the migration objects and migration types.
 
-    ![Configure the migration object and migration type](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156455366738566_en-US.png)
+    ![Configure the migration object and migration type](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156808407238566_en-US.png)
 
     |Parameter|Description|
     |:--------|:----------|
@@ -108,14 +108,14 @@ If you use DTS to migrate MongoDB databases, you need different permissions when
 **Note:** **Incremental data migration** is not supported when the source instance is a standalone instance.
 
  |
-    |Available|     -   Select the database to be migrated from the **Available** section and click the ![Rightwards arrow](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156455366737966_en-US.png) icon to add the database to the **Selected** section.
+    |Available|     -   Select the database to be migrated from the **Available** section and click the ![Rightwards arrow](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/83046/156808407237966_en-US.png) icon to add the database to the **Selected** section.
 
 **Note:** The data in the admin database cannot be migrated even if it is selected as a migration object.
 
     -   The migration object can be a database or a collection/function.
     -   After an object is migrated to ApsaraDB for MongoDB, the object name in ApsaraDB for MongoDB is the same as that in the source database.
 
-**Note:** If the migrated object has different names in the source instance and the destination instance, you can use the object name mapping function provided by DTS. For more information, see [Object name mapping](https://help.aliyun.com/document_detail/26628.html).
+**Note:** If the migrated object has different names in the source instance and the destination instance, you can use the object name mapping function provided by DTS. For more information, see [Object name mapping](https://www.alibabacloud.com/help/doc-detail/26628.htm).
 
  |
 
@@ -136,7 +136,7 @@ If you use DTS to migrate MongoDB databases, you need different permissions when
 
         The migration task does not stop automatically. To stop the migration task, wait until the task is in the **Incremental Migration without Delay** state, and stop writing to the source database. After a few minutes, the task enters the **Incremental Migration without Delay** state again, and you can stop the task.
 
-        ![Incremental migration without delay](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156455366738567_en-US.png)
+        ![Incremental migration without delay](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/123029/156808407238567_en-US.png)
 
 11. Switch your businesses to the ApsaraDB for MongoDB instance during off-peak hours to avoid negatively affecting your businesses.
 
