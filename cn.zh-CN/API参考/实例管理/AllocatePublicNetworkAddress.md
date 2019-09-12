@@ -18,9 +18,12 @@
 |Action|String|否|AllocatePublicNetworkAddress|要执行的操作，取值：**AllocatePublicNetworkAddress**。
 
  |
-|NodeId|String|否|s-bpxxxxxxxx|分片集群实例中Mongos节点ID。
+|NodeId|String|否|s-bpxxxxxxxx|分片集群实例中Mongos节点ID、Shard节点ID或ConfigServer节点ID。
 
- **说明：** 当**DBInstanceId**传入的是分片集群实例ID时，本参数才可用。
+ **说明：** 
+
+-   当**DBInstanceId**传入的是分片集群实例ID时，本参数才可用。
+-   您可以调用[DescribeDBInstanceAttribute](~~62010~~)接口查询Mongos/Shard/ConfigServer节点ID。
 
  |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
@@ -67,5 +70,5 @@ http(s)://mongodb.aliyuncs.com/?Action=AllocatePublicNetworkAddress
 
 ## 错误码 { .section}
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Dds)查看更多错误码。
 
