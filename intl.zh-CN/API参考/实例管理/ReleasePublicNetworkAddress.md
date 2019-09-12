@@ -2,32 +2,35 @@
 
 调用ReleasePublicNetworkAddress接口释放MongoDB实例的公网连接地址。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=ReleasePublicNetworkAddress)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=ReleasePublicNetworkAddress&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|ReleasePublicNetworkAddress|要执行的操作，取值：**ReleasePublicNetworkAddress**。
-
- |
 |DBInstanceId|String|是|dds-bpxxxxxxxx|实例ID。
 
  **说明：** 当本参数传入的是分片集群实例ID时，还需要传入**NodeId**参数。
 
  |
-|NodeId|String|否|s-bpxxxxxxxx|分片集群实例中Mongos节点ID。
+|Action|String|否|ReleasePublicNetworkAddress|要执行的操作，取值：**ReleasePublicNetworkAddress**。
 
- **说明：** 当**DBInstanceId**传入的是分片集群实例ID时，本参数才可用。
+ |
+|NodeId|String|否|s-bpxxxxxxxx|分片集群实例中Mongos节点ID、Shard节点ID或ConfigServer节点ID。
+
+ **说明：** 
+
+-   当**DBInstanceId**传入的是分片集群实例ID时，本参数才可用。
+-   您可以调用[DescribeDBInstanceAttribute](~~62010~~)接口查询Mongos/Shard/ConfigServer节点ID。
 
  |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -54,9 +57,8 @@ http(s)://mongodb.aliyuncs.com/?Action=ReleasePublicNetworkAddress
 
 ``` {#xml_return_success_demo}
 <ReleasePublicNetworkAddressResponse>
-  <RequestId>B6D17591-B48B-4D31-9CD6-9B9796B2270A</RequestId>
+	  <RequestId>B6D17591-B48B-4D31-9CD6-9B9796B2270A</RequestId>
 </ReleasePublicNetworkAddressResponse>
-
 ```
 
 `JSON` 格式
@@ -69,5 +71,5 @@ http(s)://mongodb.aliyuncs.com/?Action=ReleasePublicNetworkAddress
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Dds)查看更多错误码。
 
