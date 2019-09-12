@@ -18,7 +18,9 @@
 |Action|String|否|DescribeShardingNetworkAddress|要执行的操作，取值：**DescribeShardingNetworkAddress**。
 
  |
-|NodeId|String|否|d-bpxxxxxxxx|分片集群实例中的Shard节点ID或Mongos节点ID。
+|NodeId|String|否|d-bpxxxxxxxx|分片集群实例中Mongos节点ID、Shard节点ID或ConfigServer节点ID。
+
+ **说明：** 您可以调用[DescribeDBInstanceAttribute](~~62010~~)接口查询Mongos/Shard/ConfigServer节点ID。
 
  |
 |AccessKeyId|String|否|LTAIgbTGpxxxxxx|阿里云颁发给用户的访问服务所用的密钥ID。
@@ -30,6 +32,9 @@
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |NetworkAddresses| | |实例连接地址信息列表。
+
+ |
+|NetworkAddress| | |实例连接地址信息列表。
 
  |
 |ExpiredTime|String|2591963|保留的经典网络地址剩余时长，单位为秒。
@@ -149,5 +154,5 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeShardingNetworkAddress
 
 ## 错误码 { .section}
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Dds)查看更多错误码。
 
