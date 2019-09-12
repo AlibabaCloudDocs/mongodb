@@ -2,7 +2,7 @@
 
 云数据库 MongoDB 版提供以下相关API接口。
 
-## 如何使用RAM授权 {#section_4kp_b2u_xgw .section}
+## 如何使用RAM授权 {#section_5ft_6gq_mry .section}
 
 |API|描述|
 |---|--|
@@ -11,20 +11,20 @@
 |[RAM中可对MongoDB资源进行授权的Action](intl.zh-CN/API参考/如何使用RAM授权/RAM中可对MongoDB资源进行授权的Action.md)|在RAM中，可以对一个MongoDB资源进行以下Action的授权。|
 |[MongoDB API的鉴权规则](intl.zh-CN/API参考/如何使用RAM授权/MongoDB API的鉴权规则.md)|当子用户通过MongoDB Open API进行资源访问时，MongoDB后台向RAM进行权限检查，以确保调用者拥有响应权限。|
 
-## 生命周期管理 {#section_5bd_vnf_tpe .section}
+## 生命周期管理 {#section_pvb_ifz_apj .section}
 
 |API|描述|
 |---|--|
 |[CreateDBInstance](intl.zh-CN/API参考/生命周期管理/CreateDBInstance.md)|该接口用于创建MongoDB副本集实例，同时也可用于克隆MongoDB副本集实例。|
 |[ModifyDBInstanceSpec](intl.zh-CN/API参考/生命周期管理/ModifyDBInstanceSpec.md)|调用ModifyDBInstanceSpec接口变更MongoDB单节点或副本集实例的规格或存储空间。|
 |[DeleteDBInstance](intl.zh-CN/API参考/生命周期管理/DeleteDBInstance.md)|调用DeleteDBInstance接口释放MongoDB实例。|
-|[RenewDBInstance](intl.zh-CN/API参考/生命周期管理/RenewDBInstance.md)|调用RenewDBInstance接口手动续费包年包月实例。|
+|[RenewDBInstance](intl.zh-CN/API参考/生命周期管理/RenewDBInstance.md)|调用RenewDBInstance接口手动续费包年包月的MongoDB实例。|
 |[CreateShardingDBInstance](intl.zh-CN/API参考/生命周期管理/CreateShardingDBInstance.md)|调用CreateShardingDBInstance接口创建或者克隆MongoDB分片集群实例。|
 |[CreateNode](intl.zh-CN/API参考/生命周期管理/CreateNode.md)|调用CreateNode接口为MongoDB分片集群实例增加Shard节点或Mongos节点。|
 |[DeleteNode](intl.zh-CN/API参考/生命周期管理/DeleteNode.md)|调用DeleteNode接口删除MongoDB分片集群实例中的Shard节点或Mongos节点。|
 |[ModifyNodeSpec](intl.zh-CN/API参考/生命周期管理/ModifyNodeSpec.md)|调用ModifyNodeSpec接口变更MongoDB分片集群实例中节点的规格和存储空间。|
 
-## 实例管理 {#section_fhf_yjx_6b1 .section}
+## 实例管理 {#section_sgi_9bu_wo2 .section}
 
 |API|描述|
 |---|--|
@@ -48,8 +48,9 @@
 |[DescribeDBInstanceAttribute](intl.zh-CN/API参考/实例管理/DescribeDBInstanceAttribute.md)|调用DescribeDBInstanceAttribute接口查询MongoDB实例详情。|
 |[MigrateAvailableZone](intl.zh-CN/API参考/实例管理/MigrateAvailableZone.md)|调用MigrateAvailableZone接口迁移MongoDB实例的可用区。|
 |[ModifyInstanceVpcAuthMode](intl.zh-CN/API参考/实例管理/ModifyInstanceVpcAuthMode.md)|调用ModifyInstanceVpcAuthMode接口开启或关闭MongoDB实例的专有网络免密访问功能。|
+|[DescribeRoleZoneInfo](intl.zh-CN/API参考/实例管理/DescribeRoleZoneInfo.md)|调用DescribeRoleZoneInfo接口查询MongoDB实例的各节点的角色和所属的可用区|
 
-## 账号管理 {#section_s3h_nvv_7la .section}
+## 账号管理 {#section_eea_fxb_yo9 .section}
 
 |API|描述|
 |---|--|
@@ -57,7 +58,7 @@
 |[ResetAccountPassword](intl.zh-CN/API参考/账号管理/ResetAccountPassword.md)|调用ResetAccountPassword接口重置MongoDB实例中root账号的密码。|
 |[ModifyAccountDescription](intl.zh-CN/API参考/账号管理/ModifyAccountDescription.md)|调用ModifyAccountDescription接口修改MongoDB实例中root账号的备注信息。|
 
-## 安全管理 {#section_jkc_fpl_qjk .section}
+## 安全管理 {#section_5r5_qw3_ug0 .section}
 
 |API|描述|
 |---|--|
@@ -70,8 +71,11 @@
 |[ModifySecurityIps](intl.zh-CN/API参考/安全管理/ModifySecurityIps.md)|调用ModifySecurityIps接口修改MongoDB实例的IP白名单。|
 |[ModifyDBInstanceSSL](intl.zh-CN/API参考/安全管理/ModifyDBInstanceSSL.md)|调用ModifyDBInstanceSSL接口修改MongoDB实例的SSL配置。|
 |[DescribeDBInstanceSSL](intl.zh-CN/API参考/安全管理/DescribeDBInstanceSSL.md)|调用DescribeDBInstanceSSL接口查询MongoDB实例的SSL设置详情。|
+|[DescribeDBInstanceTDEInfo](intl.zh-CN/API参考/安全管理/DescribeDBInstanceTDEInfo.md)|调用DescribeDBInstanceTDEInfo接口查询MongoDB实例的透明数据加密TDE（Transparent Data Encryption）是否开启。|
+|[ModifyDBInstanceTDE](intl.zh-CN/API参考/安全管理/ModifyDBInstanceTDE.md)|调用ModifyDBInstanceTDE接口修改MongoDB实例的透明数据加密TDE（Transparent Data Encryption）状态。|
+|[ModifyAuditPolicy](intl.zh-CN/API参考/安全管理/ModifyAuditPolicy.md)|调用ModifyAuditPolicy接口设置MongoDB实例的审计日志开关或日志存储时长。|
 
-## 日志管理 {#section_90h_4lw_ich .section}
+## 日志管理 {#section_it2_xrf_ijw .section}
 
 |API|描述|
 |---|--|
@@ -79,13 +83,13 @@
 |[DescribeRunningLogRecords](intl.zh-CN/API参考/日志管理/DescribeRunningLogRecords.md)|调用DescribeRunningLogRecords接口查询MongoDB实例的运行日志。|
 |[DescribeErrorLogRecords](intl.zh-CN/API参考/日志管理/DescribeErrorLogRecords.md)|调用DescribeErrorLogRecords接口查询MongoDB实例的错误日志。|
 
-## 性能监控管理 {#section_7tm_per_ow4 .section}
+## 性能监控管理 {#section_dut_ty7_ndi .section}
 
 |API|描述|
 |---|--|
 |[DescribeDBInstancePerformance](intl.zh-CN/API参考/性能监控管理/DescribeDBInstancePerformance.md)|调用DescribeDBInstancePerformance接口查询MongoDB实例性能数据。|
 
-## 参数管理 {#section_khs_swi_ix9 .section}
+## 参数管理 {#section_e3o_ik0_eaa .section}
 
 |API|描述|
 |---|--|
@@ -94,7 +98,7 @@
 |[DescribeParameterTemplates](intl.zh-CN/API参考/参数管理/DescribeParameterTemplates.md)|调用DescribeParameterTemplates接口查询MongoDB实例默认的参数模板列表。|
 |[ModifyParameters](intl.zh-CN/API参考/参数管理/ModifyParameters.md)|调用ModifyParameters接口修改MongoDB实例的参数。|
 
-## 索引推荐 {#section_jyg_kkc_fcw .section}
+## 索引推荐 {#section_h3m_wy6_onn .section}
 
 |API|描述|
 |---|--|
@@ -102,7 +106,7 @@
 |[DescribeAvailableTimeRange](intl.zh-CN/API参考/索引推荐/DescribeAvailableTimeRange.md)|调用DescribeAvailableTimeRange接口查询MongoDB实例索引分析报告的分析时间段和生成状态。|
 |[DescribeIndexRecommendation](intl.zh-CN/API参考/索引推荐/DescribeIndexRecommendation.md)|调用DescribeIndexRecommendation接口查询MongoDB实例的索引推荐详情。|
 
-## 备份与恢复 {#section_5mg_yfx_jwv .section}
+## 备份与恢复 {#section_cpg_pv5_0ok .section}
 
 |API|描述|
 |---|--|
@@ -111,8 +115,9 @@
 |[CreateBackup](intl.zh-CN/API参考/备份与恢复/CreateBackup.md)|调用CreateBackup接口手动备份MongoDB实例。|
 |[DescribeBackups](intl.zh-CN/API参考/备份与恢复/DescribeBackups.md)|调用DescribeBackups接口查询MongoDB实例的备份列表。|
 |[RestoreDBInstance](intl.zh-CN/API参考/备份与恢复/RestoreDBInstance.md)|调用RestoreDBInstance接口恢复数据至当前MongoDB实例。|
+|[DescribeBackupDBs](intl.zh-CN/API参考/备份与恢复/DescribeBackupDBs.md)|在为MongoDB实例执行单库恢复前，调用DescribeBackupDBs接口，查询指定的时间点或备份集内包含的数据库。|
 
-## 附表 {#section_zdl_jhc_sww .section}
+## 附表 {#section_d7w_82z_usk .section}
 
 |API|描述|
 |---|--|
