@@ -16,13 +16,11 @@
 
 通过公网连接至MongoDB实例存在一定的安全风险，建议通过ECS实例连接MongoDB实例。
 
-## 方法一 通过IP地址查询定位本地设备的公网地址并连接实例 {#section_jyp_fmc_rks .section}
-
-**操作步骤**
+## 方法一 通过IP查询定位公网地址并连接实例 {#section_jyp_fmc_rks .section}
 
 1.  访问[淘宝IP地址库](http://ip.taobao.com/ipSearch.html)查询您的公网地址。
 
-    ![IP地址查询](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/157550/156758214144638_zh-CN.png)
+    ![IP地址查询](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/157550/156879104644638_zh-CN.png)
 
 2.  将获取到的公网地址添加至MongoDB白名单中，详情请参考[设置白名单](cn.zh-CN/用户指南/数据安全性/设置白名单.md#)。
 3.  在本地设备上，通过Mongo Shell登录MongoDB实例，详情请参考[通过 Mongo Shell 登录MongoDB数据库](../../../../cn.zh-CN/副本集快速入门/连接实例/通过Mongo Shell登录MongoDB数据库.md#)。
@@ -33,8 +31,6 @@
 如果已经将本地设备的公网IP地址添加至MongoDB实例的白名单中，仍然无法连接MongoDB实例，而将MongoDB的白名单设置为0.0.0.0/0后可以连接。针对此情况，建议通过连接信息来定位公网地址，详情请参考[方法二 通过连接信息定位公网地址并连接实例](#section_6vm_is9_ani)。
 
 ## 方法二 通过连接信息定位公网地址并连接实例 {#section_6vm_is9_ani .section}
-
-**操作步骤**
 
 1.  将IP地址0.0.0.0/0添加到MongoDB实例的白名单中，详情请参考[设置白名单](cn.zh-CN/用户指南/数据安全性/设置白名单.md#)。
 
@@ -52,7 +48,7 @@
 
     输出示例
 
-    ![客户端IP查询](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/157550/156758214144647_zh-CN.png)
+    ![客户端IP查询](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/157550/156879104744647_zh-CN.png)
 
     **说明：** 如果通过其他方式登录MongoDB实例，您可通过下述命令查询所有客户端信息。
 
