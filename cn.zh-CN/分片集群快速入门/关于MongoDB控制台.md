@@ -1,6 +1,6 @@
 # 关于MongoDB控制台 {#concept_pp1_vyq_52b .concept}
 
-[MongoDB管理控制台](https://mongodb.console.aliyun.com/)是用于管理MongoDB实例的Web应用程序，您可以在MongoDB管理控制台上创建实例、设置IP白名单、设置连接数据库的密码、设置网络等操作。
+MongoDB管理控制台是用于管理MongoDB实例的Web应用程序，您可以在MongoDB管理控制台上执行创建实例、设置IP白名单、设置连接数据库的密码、设置网络类型等操作。
 
 MongoDB管理控制台是阿里云管理控制台的一部分，关于控制台的通用设置和基本操作请参见：[使用阿里云管理控制台](https://help.aliyun.com/document_detail/47605.html)。
 
@@ -14,7 +14,7 @@ MongoDB管理控制台是阿里云管理控制台的一部分，关于控制台�
 
 登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)，进入实例列表页面，如下图所示（仅为示例，请以实际界面为准）。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6687/154476951713822_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6687/156878563513822_zh-CN.png)
 
 参考说明
 
@@ -23,9 +23,9 @@ MongoDB管理控制台是阿里云管理控制台的一部分，关于控制台�
 |1|分片集群实例列表|MongoDB控制台的首页，显示同一账户中某个地区下的分片集群实例信息。|
 |2|地域|下拉选择某个地域，该地域下的所有实例就会显示在实例列表中。|
 |3|刷新|刷新实例信息页面。|
-|4|新建实例|[新建实例入口](https://help.aliyun.com/document_detail/55137.html)|
-|5|实例ID| -   单击进入该实例详情页面
--   单击实例ID后的铅笔图标可以修改实例的备注名
+|4|新建实例|[新建实例入口](https://help.aliyun.com/document_detail/55137.html)。|
+|5|实例ID| -   单击进入该实例详情页面。
+-   单击实例ID后的铅笔图标可以修改实例的备注名。
 
  |
 |6|运行状态|实例运行状态，根据实例的不同情况也会有不同的状态。|
@@ -37,24 +37,24 @@ MongoDB管理控制台是阿里云管理控制台的一部分，关于控制台�
 
 |控制台页面名称|区块名称|描述|常用操作链接|
 |:------|:---|:-|:-----|
-|界面上方操作区|-|可进行备份实例、重启实例操作。| -   备份实例
--   [重启实例](../../../../cn.zh-CN/用户指南/实例管理/重启实例.md#)
+|界面上方操作区|-|可进行备份实例、重启实例操作。| -   备份实例。
+-   [重启实例](../../../../cn.zh-CN/用户指南/实例管理/重启实例.md#)。
 
  |
 |基本信息|基本信息|查看实例的基本信息，如实例ID、地域、可用区、网络类型、存储引擎等。|-|
-|规格信息|查看MongoDB版本、可维护时间段、付费方式、创建时间、到期时间等|[设置可维护时间段](../../../../cn.zh-CN/用户指南/实例管理/设置可维护时间段.md#)。|
-|Mongos列表或者Shard列表| -   在Mongos列表中，选择目标ID，单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6689/154476951713802_zh-CN.png)可以变配、登录、重启。
--   在Shard列表中，选择目标ID，单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6689/154476951713802_zh-CN.png)可以主备切换、变更配置、登录、重启实例的Shard节点。
+|规格信息|查看MongoDB版本、可维护时间段、付费方式、创建时间、到期时间等。|[设置可维护时间段](../../../../cn.zh-CN/用户指南/实例管理/设置可维护时间段.md#)。|
+|Mongos列表或者Shard列表| -   在Mongos列表中，选择目标ID，单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6689/156878563513802_zh-CN.png)可以变配、登录、重启。
+-   在Shard列表中，选择目标ID，单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6689/156878563513802_zh-CN.png)可以主备切换、变更配置、登录、重启实例的Shard节点。
 -   重启节点时，可能会导致数据库的读写操作失败，所以不建议用户在重启数据库，或者是重启节点的时候进行数据库的增删改查等操作。
 
- | -   [主备切换](../../../../cn.zh-CN/用户指南/主备切换/MongoDB分片集群实例设置主备切换.md#ul_bl4_fkh_kfb)
--   [变更配置](../../../../cn.zh-CN/用户指南/实例管理/变更配置.md#section_lzh_wn4_1fb)
--   登录数据库
--   重启节点
+ | -   [主备切换](../../../../cn.zh-CN/用户指南/主备切换/分片集群实例设置主备切换.md#ul_bl4_fkh_kfb)。
+-   [变更配置](../../../../cn.zh-CN/用户指南/实例管理/变更配置方案概览.md#section_lzh_wn4_1fb)。
+-   [登录数据库](cn.zh-CN/分片集群快速入门/连接实例/通过DMS登录MongoDB数据库.md#)。
+-   重启节点。
 -   查看Mongos节点或者Shard节点的运行监控信息。
 
  |
-|备份与恢复|-|查看选定时间的数据备份列表、按照时间范围恢复数据、从备份点创建实例、按时间点新建实例等。| -   [下载备份数据](../../../../cn.zh-CN/.md#)。
+|备份与恢复|-|查看选定时间的数据备份列表、按照时间范围恢复数据、从备份点创建实例、按时间点新建实例等。| -   [下载备份数据](../../../../cn.zh-CN/用户指南/文档回收站/分片集群实例下载物理备份.md#)。
 -   按时间点新建实例。
 
  |
