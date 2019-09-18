@@ -5,11 +5,12 @@
 ## 前提条件 {#section_kdp_sxp_5fb .section}
 
 -   实例架构为副本集实例。
+-   实例未开启[TDE功能](cn.zh-CN/用户指南/数据安全性/设置透明数据加密TDE.md#)。
 -   实例的存储引擎为WiredTiger或RocksDB。
 
-    **说明：** 如果实例的存储引擎为 TerarkDB ，请使用[逻辑备份恢复至自建数据库](intl.zh-CN/用户指南/数据恢复/逻辑备份恢复至自建数据库.md#)。
+    **说明：** 如果实例的存储引擎为TerarkDB ，请使用[逻辑备份恢复至自建数据库](cn.zh-CN/用户指南/数据恢复/逻辑备份恢复至自建数据库.md#)。
 
--   实例的存储引擎为 RocksDB 时，您需要自行编译安装带有 RocksDB 存储引擎的 MongoDB 应用程序。
+-   实例的存储引擎为RocksDB 时，您需要自行编译安装带有RocksDB存储引擎的MongoDB应用程序。
 
 ## 数据库版本对照表 {#section_0k2_6za_e1q .section}
 
@@ -30,16 +31,14 @@
 
 ## 下载及解压物理备份文件 {#section_lxg_5xp_5fb .section}
 
-以下演示所用的服务器为阿里云ECS实例，镜像为Ubuntu 16.04（64位），更多详情请参见[创建ECS实例](https://www.alibabacloud.com/help/zh/doc-detail/25424.htm)。
+以下演示所用的服务器为阿里云ECS实例，镜像为Ubuntu 16.04（64位），更多详情请参见[创建ECS实例](https://help.aliyun.com/document_detail/25424.html)。
 
 **说明：** 
 
 -   该服务器已安装对应版本的 MongoDB 服务，安装方法请参见MongoDB官方文档。
 -   该服务器将/path/to/mongo/data作为MongoDB物理恢复操作的数据库所在目录（该目录是空的）。
 
-**操作步骤**
-
-1.  [下载MongoDB物理备份文件](intl.zh-CN/用户指南/数据恢复/物理备份恢复至自建数据库/副本集实例下载物理备份.md#)，您也可以通过`wget`命令下载。
+1.  [下载MongoDB物理备份文件](cn.zh-CN/用户指南/数据恢复/物理备份恢复至自建数据库/副本集实例下载物理备份.md#)，您也可以通过`wget`命令下载。
 2.  将下载的MongoDB物理备份文件复制至/path/to/mongo/data/目录中。
 3.  对物理备份文件执行解压操作。
     -   当下载的物理备份文件后缀为.tar.gz时，例如文件名为hins20190412.tar.gz，请使用下述方法解压。
