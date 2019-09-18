@@ -2,7 +2,7 @@
 
 调用ModifyDBInstanceSpec接口变更MongoDB单节点或副本集实例的规格或存储空间。
 
- **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.aliyun.com/price/product#/mongodb/detail)。** 
+ **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing)。** 
 
 该接口仅适用于单节点实例和副本集实例。分片集群实例如需变更配置，您可以根据需求通过调用[ModifyNodeSpec](~~61923~~)、[CreateNode](~~61911~~)或[DeleteNode](~~61922~~)接口来实现。
 
@@ -27,7 +27,7 @@
  |
 |DBInstanceStorage|String|否|50|实例的存储空间。
 
- -   取值范围：10~3000，单位为GB，具体取值受实例规格约束，详情请参考[实例规格表](~~57141~~)。
+ -   取值范围：**10**-**3000**，单位为GB，具体取值受实例规格约束，详情请参考[实例规格表](~~57141~~)。
 -   每10GB递增。
 
  **说明：** 
@@ -38,8 +38,8 @@
  |
 |OrderType|String|否|UPGRADE|变配类型，取值：
 
- -   UPGRADE：升级配置。
--   DOWNGRADE：降级配置，默认为降级配置。
+ -   **UPGRADE**：升级配置。
+-   **DOWNGRADE**：降级配置，默认为降级配置。
 
  **说明：** 当实例付费方式为包年包月时，本参数才可用。
 
@@ -128,5 +128,5 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyDBInstanceSpec
 
 ## 错误码 { .section}
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Dds)查看更多错误码。
 
