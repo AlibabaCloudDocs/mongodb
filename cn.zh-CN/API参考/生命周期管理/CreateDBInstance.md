@@ -2,7 +2,7 @@
 
 该接口用于创建MongoDB副本集实例，同时也可用于克隆MongoDB副本集实例。
 
- **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.aliyun.com/price/product#/mongodb/detail)。** 
+ **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing)。** 
 
 关于云数据库MongoDB实例的规格，请参见[实例规格表](~~57141~~)。
 
@@ -56,13 +56,13 @@
 |AccountPassword|String|否|Alitest!159|root账号的密码。
 
  -   密码由大写字母、小写字母、数字、特殊字符中的至少三种组成，特殊字符为!\#$%^&\*\(\)\_+-=
--   密码长度为8-32位
+-   密码长度为8-32位。
 
  |
 |ChargeType|String|否|PrePaid|实例的付费类型，取值：
 
- -   PostPaid：后付费（按量付费）。
--   PrePaid：预付费（包年包月）。
+ -   **PostPaid**：后付费（按量付费）。
+-   **PrePaid**：预付费（包年包月）。
 
  默认付费类型为按量付费。
 
@@ -131,7 +131,7 @@
 |CouponNo|String|否|youhuiquan\_promotion\_option\_id\_for\_blank|优惠码，默认为：**youhuiquan\_promotion\_option\_id\_for\_blank**。
 
  |
-|StorageEngine|String|否|WiredTiger|实例使用的存储引擎，取值为**WiredTiger**，**RocksDB**，**TerarkDB**，默认值为WiredTiger。关于存储引擎与版本的选择约束请参考[版本与存储引擎](~~61906~~)。
+|StorageEngine|String|否|WiredTiger|实例使用的存储引擎，取值为**WiredTiger**，**RocksDB**，**TerarkDB**，默认值为**WiredTiger**。关于存储引擎与版本的选择约束请参考[版本与存储引擎](~~61906~~)。
 
  **说明：** 调用本接口用于克隆实例时，该值必须与源实例保持一致。
 
@@ -212,5 +212,5 @@ http(s)://mongodb.aliyuncs.com/?Action=CreateDBInstance
 |400|InvalidCapacity.NotFound|The Capacity provided does not exist in our records.|容量配置不合法，请您检查输入的参数是否正确。|
 |400|IdempotentParameterMismatch|Request uses a client token in a previous request but is not identical to that request.|用了一个已经使用过的 ClientToken，但此次请求内容却又与上一次使用该 Token 的 request 不一样。|
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Dds)查看更多错误码。
 
