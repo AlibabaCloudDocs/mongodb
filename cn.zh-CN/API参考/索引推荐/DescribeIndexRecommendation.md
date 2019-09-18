@@ -67,6 +67,9 @@
 |Analyzations| | |索引推荐详情列表。
 
  |
+|Analyzation| | |索引推荐详情列表。
+
+ |
 |AverageDocsExaminedCount|Long|1000000|平均文档扫描次数。
 
  |
@@ -94,7 +97,13 @@
 |IndexCombines| |\{"IndexCombine": \["db.customer.createIndex\(\{\\"name\\": 1\}, \{background: true\}\)"\]\}|合并后的索引列表。
 
  |
+|IndexCombine| | |合并后的索引列表。
+
+ |
 |IndexRecommendations| | |索引建议列表。
+
+ |
+|Recommendation| | |索引建议列表。
 
  |
 |Content|String|db.customer.createIndex\(\{\\"name\\": 1\}, \{background: true\}\)|建议的内容。
@@ -103,7 +112,7 @@
 |RecmdType|String|Index|建议的类型。
 
  -   **Index**：建议从索引方向进行优化。
--   **Refactor**：询命令没有使用索引，需要对查询命令进行改写。
+-   **Refactor**：查询命令没有使用索引，需要调整查询命令。
 -   **WhereUse**：查询使用了where语法，而where语法无法使用索引，不建议使用。
 -   **NoRecommendation**：没有建议。
 
@@ -235,5 +244,5 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeIndexRecommendation
 |--------|---|----|--|
 |400|InvalidEndTime.Format|Specified end time is not valid.|输入的结束时间无效，请您检查输入的时间格式是否正确。|
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Dds)查看更多错误码。
 
