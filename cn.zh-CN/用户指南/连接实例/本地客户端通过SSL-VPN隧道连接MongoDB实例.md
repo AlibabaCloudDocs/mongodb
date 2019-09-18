@@ -10,17 +10,17 @@
 
 ## 费用说明 {#section_vhc_dxq_ggb .section}
 
-操作步骤中创建VPN网关时将产生费用，详情请参见[计费说明](https://www.alibabacloud.com/help/zh/doc-detail/72351.htm)。
+操作步骤中创建VPN网关时将产生费用，详情请参见[计费说明](https://help.aliyun.com/document_detail/64984.html)。
 
 ## 前提条件 {#section_jg1_tvq_ggb .section}
 
--   MongoDB实例的网络类型为专有网络，如果是经典网络请切换至专有网络，详情请参考[从经典网络切换为专有网络](intl.zh-CN/用户指南/管理网络连接/切换实例网络类型.md#section_tp1_1sl_2fb)。
+-   MongoDB实例的网络类型为专有网络，如果是经典网络请切换至专有网络，详情请参考[从经典网络切换为专有网络](cn.zh-CN/用户指南/管理网络连接/切换实例网络类型.md#section_tp1_1sl_2fb)。
 -   本地客户端的IP地址段和MongoDB实例所在的VPC网络的IP地址段不能相同，否则无法通信。
 -   本地客户端必须能访问外网。
 
 ## 案例环境介绍 {#section_yf2_jdr_ggb .section}
 
-![SSL连接环境介绍](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/159808/156775144944679_zh-CN.png)
+![SSL连接环境介绍](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/159808/156879106244679_zh-CN.png)
 
 ## 步骤一 创建VPN网关 {#section_xxd_vwq_ggb .section}
 
@@ -72,14 +72,14 @@
  |
     |本端网段| 本端网段是客户端通过SSL-VPN连接要访问的地址段。本端网段可以是VPC的网段、交换机的网段、通过专线和VPC互连的IDC的网段、云服务如RDS/OSS等网段。
 
- 本案例填写MongoDB实例所属专有网络中交换机的网段地址：**172.16.1.0/24**。
+ 本案例填写MongoDB实例所属专有网络中交换机的网段地址：172.16.1.0/24。
 
  **说明：** 本端网段的子网掩码的范围为16到29位。
 
  |
     |客户端网段| 客户端网段是给客户端虚拟网卡分配访问地址的的地址段，不是指客户端已有的内网网段。当客户端通过SSL-VPN连接访问本端时，VPN网关会从指定的客户端网段中分配一个IP地址给客户端使用。
 
- 此案例中填写**192.168.100.0/24**。
+ 此案例中填写192.168.100.0/24。
 
  **说明：** 确保客户端网段和**本端网段**不冲突。
 
@@ -107,7 +107,7 @@
 
 ## 客户端通过SSL-VPN隧道登录MongoDB数据库 {#section_ds2_jhr_ggb .section}
 
-本文以Windows系统为例连接SSL-VPN，其他操作系统请参考：[在Linux系统中连接SSL-VPN](https://www.alibabacloud.com/help/zh/doc-detail/65075.htm#title-60o-ywt-7cz)、[在Mac系统中连接SSL-VPN](https://www.alibabacloud.com/help/zh/doc-detail/65068.htm#d7e230)。
+本文以Windows系统为例连接SSL-VPN，其他操作系统请参考：[在Linux系统中连接SSL-VPN](https://help.aliyun.com/document_detail/65075.html#h2-url-5)、[在Mac系统中连接SSL-VPN](https://help.aliyun.com/document_detail/65068.html#h2-url-5)。
 
 1.  登录[专有网络管理控制台](https://vpc.console.aliyun.com)。
 2.  在页面左上角选择地域。
@@ -117,15 +117,15 @@
 6.  将下载的客户端证书解压后复制到OpenVPN安装目录中的config文件夹中。
 7.  单击**Connect**发起连接。
 
-    ![发起SSL连接](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/159808/156775144944665_zh-CN.png)
+    ![发起SSL连接](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/159808/156879106244665_zh-CN.png)
 
-8.  将MongoDB实例所属的专有网络IP地址段添加至MongoDB实例的白名单中，本案例将**172.16.1.0/24**加入至MongoDB实例的白名单中。
+8.  将MongoDB实例所属的专有网络IP地址段添加至MongoDB实例的白名单中，本案例将172.16.1.0/24加入至MongoDB实例的白名单中。
 9.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
-10. 获取MongoDB实例的专有网络地址，详情请参考[实例连接说明](../../../../intl.zh-CN/副本集快速入门/连接实例/副本集实例连接说明.md#)。
+10. 获取MongoDB实例的专有网络地址，详情请参考[实例连接说明](../../../../cn.zh-CN/副本集快速入门/连接实例/副本集实例连接说明.md#)。
 
-    ![MongoDB实例专有网络](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/159808/156775144944701_zh-CN.png)
+    ![MongoDB实例专有网络](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/159808/156879106244701_zh-CN.png)
 
-11. 使用[Mongo Shell](../../../../intl.zh-CN/副本集快速入门/连接实例/通过Mongo Shell登录MongoDB数据库.md#)或者其他管理工具登录MongoDB数据库。
+11. 使用[Mongo Shell](../../../../cn.zh-CN/副本集快速入门/连接实例/通过Mongo Shell登录MongoDB数据库.md#)或者其他管理工具登录MongoDB数据库。
 
     **说明：** 请使用MongoDB实例的专有网络地址登录。
 
