@@ -2,7 +2,7 @@
 
 调用CreateShardingDBInstance接口创建或者克隆MongoDB分片集群实例。
 
- **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.aliyun.com/price/product#/mongodb/detail)。** 
+ **请确保在使用该接口前，已充分了解云数据库MongoDB产品的收费方式和[价格](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing)。** 
 
 关于云数据库MongoDB实例的规格，请参见[实例规格表](~~57141~~)。
 
@@ -26,14 +26,14 @@
 
  **说明：** 
 
- -   关于存储引擎与版本的选择约束请参考[版本与存储引擎](~~61906~~)。
+-   关于存储引擎与版本的选择约束请参考[版本与存储引擎](~~61906~~)。
 -   调用本接口用于克隆实例时，该值必须与源实例保持一致。
 
  |
 |AccountPassword|String|是|Alitest!159|root账号的密码。
 
  -   密码由大写字母、小写字母、数字、特殊字符中的至少三种组成，特殊字符为!\#$%^&\*\(\)\_+-=
--   密码长度为8-32位
+-   密码长度为8-32位。
 
  |
 |RegionId|String|是|cn-hangzhou|地域ID，您可以可调用[DescribeRegions](~~61933~~)查询可用的地域，使用此参数指定实例创建的地域。
@@ -53,8 +53,8 @@
  |
 |ChargeType|String|否|PrePaid|实例的付费类型，取值：
 
- -   PostPaid：后付费（按量付费）。
--   PrePaid：预付费（包年包月）。
+ -   **PostPaid**：后付费（按量付费）。
+-   **PrePaid**：预付费（包年包月）。
 
  默认付费类型为按量付费。
 
@@ -137,7 +137,7 @@
  **说明：** 支持选择7天内的任一时间点进行克隆。
 
  |
-|StorageEngine|String|否|WiredTiger|实例使用的存储引擎，取值为**WiredTiger**，**RocksDB**，**TerarkDB**，默认值为WiredTiger。关于存储引擎与版本的选择约束请参考[版本与存储引擎](~~61906~~)。
+|StorageEngine|String|否|WiredTiger|实例使用的存储引擎，取值为**WiredTiger**，**RocksDB**，**TerarkDB**，默认值为**WiredTiger**。关于存储引擎与版本的选择约束请参考[版本与存储引擎](~~61906~~)。
 
  **说明：** 调用本接口用于克隆实例时，该值必须与源实例保持一致。
 
@@ -213,5 +213,5 @@ http(s)://mongodb.aliyuncs.com/?Action=CreateShardingDBInstance
 
 ## 错误码 { .section}
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Dds)查看更多错误码。
 
