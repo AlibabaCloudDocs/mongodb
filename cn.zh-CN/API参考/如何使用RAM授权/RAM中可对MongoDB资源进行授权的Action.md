@@ -20,5 +20,5 @@
 |RestoreDBInstance|DescribeDBInstancePerformance|
 |DescribeDBInstances|-|
 
-其中DescribeDBInstances，授权时必须对该用户全部实例授权。以下接口不需要鉴权：DescribeRegions。
+其中DescribeDBInstances，授权时必须对该用户全部实例授权。不需要鉴权的接口为[DescribeRegions](intl.zh-CN/API参考/实例管理/DescribeRegions.md#)。
 
