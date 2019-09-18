@@ -2,7 +2,7 @@
 
 通过阿里云自研的MongoShake工具，您可以实现MongoDB数据库间的数据同步，该功能可用于数据分析、灾备和多活等业务场景。本文介绍副本集实例间的单向数据同步的操作流程。
 
-**说明：** 如果您需要实现副本集实例间的双向数据同步，您可以[提交工单](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex)申请。
+**说明：** 如果您需要实现副本集实例间的双向数据同步，您可以[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)申请。
 
 ## MongoShake介绍 {#section_b2y_51c_5hb .section}
 
@@ -42,15 +42,15 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
 |源MongoDB实例|readAnyDatabase权限、local库的read权限和mongoshake库的readWrite权限。|
 |目标MongoDB实例|readWriteAnyDatabase权限或目标库的readWrite权限。|
 
-**说明：** 关于MongoDB数据库用户的创建及授权操作请参见[使用DMS管理MongoDB数据库用户](intl.zh-CN/用户指南/账号管理/使用DMS管理MongoDB数据库用户.md#)或[db.createUser命令介绍](https://docs.mongodb.com/manual/reference/method/db.createUser/index.html)。
+**说明：** 关于MongoDB数据库用户的创建及授权操作请参见[使用DMS管理MongoDB数据库用户](cn.zh-CN/用户指南/账号管理/使用DMS管理MongoDB数据库用户.md#)或[db.createUser命令介绍](https://docs.mongodb.com/manual/reference/method/db.createUser/index.html)。
 
 ## 准备工作 {#section_7k2_hmq_6u0 .section}
 
-1.  创建作为同步目标端的MongoDB副本集实例，详情请参见[创建副本集实例](../../../../intl.zh-CN/副本集快速入门/创建副本集实例.md#)。
+1.  创建作为同步目标端的MongoDB副本集实例，详情请参见[创建副本集实例](../../../../cn.zh-CN/副本集快速入门/创建副本集实例.md#)。
 
     **说明：** 选择与源端的MongoDB实例相同的专有网络，便于ECS通过专有网络进行连接。
 
-2.  创建用于运行MongoShake的ECS实例，详情请参见[创建ECS实例](https://www.alibabacloud.com/help/zh/doc-detail/25424.htm)。
+2.  创建用于运行MongoShake的ECS实例，详情请参见[创建ECS实例](https://help.aliyun.com/document_detail/25424.html)。
 
     **说明：** ECS的操作系统选择为Linux，并选择与MongoDB实例相同的专有网络。
 
@@ -61,7 +61,7 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
 
 ## 操作步骤 {#section_wqw_bcd_5hb .section}
 
-1.  [登录ECS实例](https://www.alibabacloud.com/help/zh/doc-detail/25434.htm)。
+1.  [登录ECS实例](https://help.aliyun.com/document_detail/25434.html)。
 2.  执行下述命令，下载MongoShake程序。
 
     ``` {#codeblock_6rv_7hr_gjb}
@@ -83,18 +83,18 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
     |mongo\_urls|源端MongoDB实例的ConnectionStringURI格式连接地址。 **说明：** 
 
     -   建议通过专有网络地址进行互连，以获取最低的网络延迟。
-    -   关于ConnectionStringURI格式详情请参见[副本集实例连接说明](../../../../intl.zh-CN/副本集快速入门/连接实例/副本集实例连接说明.md#)。
+    -   关于ConnectionStringURI格式详情请参见[副本集实例连接说明](../../../../cn.zh-CN/副本集快速入门/连接实例/副本集实例连接说明.md#)。
  |`mongo_urls = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717`|
     |tunnel.address|目标端MongoDB实例的ConnectionStringURI格式连接地址。|`tunnel.address = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717`|
-    |sync\_mode|数据同步的方式，取值：     -   **all**：执行全量数据同步和增量数据同步。
-    -   **document**：仅执行全量数据同步。
-    -   **oplog**：仅执行增量数据同步。
- **说明：** 默认取值为**opolog**。
+    |sync\_mode|数据同步的方式，取值：     -   all：执行全量数据同步和增量数据同步。
+    -   document：仅执行全量数据同步。
+    -   oplog：仅执行增量数据同步。
+ **说明：** 默认取值为oplog。
 
  |`sync_mode = all`|
-    |replayer.dml\_only|是否仅同步DML操作，取值：     -   **false**：同步DML操作和DDL操作。
-    -   **true**：仅同步DML操作。
- **说明：** 默认取值为**true**。
+    |replayer.dml\_only|是否仅同步DML操作，取值：     -   false：同步DML操作和DDL操作。
+    -   true：仅同步DML操作。
+ **说明：** 默认取值为true。
 
  |`replayer.dml_only = false`|
     |filter.namespace.black|指定数据同步的黑名单，这些指定的命名空间不会被同步至目标数据库，多个命名空间用英文分号（;）分隔。 **说明：** 命名空间是指MongoDB中集合或索引的规范名称，是由数据库名称和集合/索引名称的组合，例如`mongodbtest.customer`。
@@ -125,7 +125,7 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
 
 监控输出示例：
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/614897/156645092349777_zh-CN.png)
+![监控输出](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/614897/156879137149777_zh-CN.png)
 
 |参数|说明|
 |--|--|
