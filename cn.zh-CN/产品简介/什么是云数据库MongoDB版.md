@@ -48,7 +48,7 @@
 
 -   网络规划
 
-    阿里云推荐您使用[专有网络VPC](https://help.aliyun.com/document_detail/34217.html?spm=a2c4g.11186623.2.46.4b8550bf7ZVeSp#concept-kbk-cpz-ndb)，您可自行规划私网IP地址段。专有网络是一种隔离的网络环境，安全性和性能均高于传统的经典网络，专有网络需要事先创建，详情请参见[新建实例场景下配置专有网络](../../../../cn.zh-CN/用户指南/管理网络连接/新建实例场景下配置专有网络.md#)。
+    阿里云推荐您使用[专有网络VPC](https://help.aliyun.com/document_detail/34217.html)，您可自行规划私网IP地址段。专有网络是一种隔离的网络环境，安全性和性能均高于传统的经典网络，专有网络需要事先创建，详情请参见[新建实例场景下配置专有网络](../../../../cn.zh-CN/用户指南/管理网络连接/新建实例场景下配置专有网络.md#)。
 
 -   安全方案
 
@@ -62,7 +62,7 @@
 -   [控制台](https://mongodb.console.aliyun.com/)：提供图形化的Web界面，操作方便。
 -   [CLI](https://help.aliyun.com/product/29991.html)：控制台上所有的操作都可以通过CLI实现。
 -   [SDK](https://help.aliyun.com/document_detail/62676.html)：控制台上所有的操作都可以通过SDK实现。
--   [API](https://help.aliyun.com/document_detail/61715.html)：控制台上所有的操作都可以通过API实现。
+-   [API](../../../../cn.zh-CN/API参考/API概览.md#)：控制台上所有的操作都可以通过API实现。
 
 创建MongoDB实例后，您可以通过以下方式访问MongoDB实例：
 
