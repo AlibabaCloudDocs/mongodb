@@ -2,9 +2,9 @@
 
 本文介绍如何使用数据传输服务DTS（Data Transmission Service），将单节点架构的自建MongoDB数据库迁移至云数据库MongoDB中。DTS支持全量数据迁移和增量数据迁移，同时使用这两种迁移类型可以实现在不停服的情况下，平滑地完成数据库的迁移上云。
 
-推荐使用本方法迁移数据库，可实现不停机迁移上云。除本方法外，您也可以[使用MongoDB工具迁移自建数据库上云](intl.zh-CN/单节点快速入门/数据迁移/使用MongoDB工具迁移自建数据库上云.md#)。
+推荐使用本方法迁移数据库，可实现不停机迁移上云。除本方法外，您也可以[使用MongoDB工具迁移自建数据库上云](cn.zh-CN/单节点快速入门/数据迁移/使用MongoDB工具迁移自建数据库上云.md#)。
 
-更多数据迁移/同步场景的解决方案，请参见[MongoDB数据迁移/同步方案概览](../intl.zh-CN/用户指南/数据迁移__同步/MongoDB数据迁移__同步方案概览.md#)。
+更多数据迁移/同步场景的解决方案，请参见[MongoDB数据迁移/同步方案概览](../cn.zh-CN/用户指南/数据迁移__同步/MongoDB数据迁移__同步方案概览.md#)。
 
 ## 前提条件 {#section_tql_qpw_pgb .section}
 
@@ -24,7 +24,7 @@
 |迁移类型|链路配置费用|公网流量费用|
 |:---|:-----|:-----|
 |全量数据迁移|不收取|不收取|
-|增量数据迁移|收取，费用详情请参见[DTS产品定价](https://www.alibabacloud.com/product/data-transmission-service/pricing)。|不收取|
+|增量数据迁移|收取，费用详情请参见[DTS产品定价](https://cn.aliyun.com/price/product#/dts/detail)|不收取|
 
 ## 迁移类型说明 {#section_vax_ah2_vha .section}
 
@@ -46,9 +46,9 @@
 |自建MongoDB数据库|待迁移库的read权限|待迁移库、admin库和local库的read权限|
 |阿里云MongoDB数据库|目标库的readWrite权限|目标库的readWrite权限|
 
-**数据库账号创建及授权方法：**
+数据库账号创建及授权方法：
 
--   阿里云MongoDB实例请参见[使用DMS管理MongoDB数据库用户](../intl.zh-CN/用户指南/账号管理/使用DMS管理MongoDB数据库用户.md#)。
+-   阿里云MongoDB实例请参见[使用DMS管理MongoDB数据库用户](../cn.zh-CN/用户指南/账号管理/使用DMS管理MongoDB数据库用户.md#)。
 -   自建MongoDB数据库请参见[MongoDB Create User说明](https://docs.mongodb.com/manual/reference/method/db.createUser/)。
 
 ## 增量数据迁移前的准备工作 {#section_vqd_r51_dhb .section}
@@ -91,16 +91,16 @@
 
 ## 操作步骤 {#section_njl_2c1_kfb .section}
 
-1.  登录[数据传输控制台](https://dts-intl.console.aliyun.com/)。
+1.  登录[数据传输控制台](https://dts.console.aliyun.com/)。
 2.  在左侧导航栏，单击**数据迁移**。
 3.  在迁移任务列表页面顶部，选择目标MongoDB实例所属地域。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6682/156456693250190_zh-CN.png)
+    ![选择地域](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6682/156877791750190_zh-CN.png)
 
 4.  单击右上角的**创建迁移任务**。
 5.  配置迁移任务的**源库及目标库**信息。
 
-    ![MongoDB迁移源目数据库配置](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6682/156456693234129_zh-CN.png)
+    ![MongoDB迁移源目数据库配置](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6682/156877791734129_zh-CN.png)
 
     |类别|配置|说明|
     |:-|:-|:-|
@@ -130,11 +130,11 @@
 
 6.  配置完成后，单击页面右下角的**授权白名单并进入下一步**。
 
-    **说明：** 此步骤会将DTS服务器的IP地址自动添加到目标MongoDB实例的白名单中，用于保障DTS服务器能够正常连接目标MongoDB实例。迁移完成后如不再需要可手动删除，详情请参见[白名单设置](intl.zh-CN/副本集快速入门/设置白名单.md#)。
+    **说明：** 此步骤会将DTS服务器的IP地址自动添加到目标MongoDB实例的白名单中，用于保障DTS服务器能够正常连接目标MongoDB实例。迁移完成后如不再需要可手动删除，详情请参见[白名单设置](cn.zh-CN/副本集快速入门/设置白名单.md#)。
 
 7.  选择迁移对象及迁移类型。
 
-    ![MongoDB迁移对象迁移类型选择](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6682/156456693338327_zh-CN.png)
+    ![MongoDB迁移对象迁移类型选择](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6682/156877791738327_zh-CN.png)
 
     |配置|说明|
     |:-|:-|
@@ -147,14 +147,14 @@
 **说明：** 单节点架构的自建MongoDB数据库，须提前开启oplog才可以使用增量数据迁移功能，详情请参见[增量数据迁移前的准备工作](#section_vqd_r51_dhb)。
 
  |
-    |迁移对象|     -   在**迁移对象**框中单击待迁移的对象，然后单击![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/79929/156456693340698_zh-CN.png)将其移动到**已选择对象**框。
+    |迁移对象|     -   在**迁移对象**框中单击待迁移的对象，然后单击![向右箭头](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/79929/156877791840698_zh-CN.png)将其移动到**已选择对象**框。
 
 **说明：** 
 
         -   不支持迁移admin数据库，即使您将admin数据库选择为迁移对象，该库中的数据也不会被迁移。
         -   config数据库属于系统内部数据库，如无特殊需求，请勿迁移config数据库。
     -   迁移对象选择的粒度为database、collection/function。
-    -   默认情况下，迁移完成后，迁移对象的名称保持不变。如果您需要迁移对象在目标数据库中的名称不同，那么需要使用DTS提供的对象名映射功能。使用方法请参见[库表列映射](https://www.alibabacloud.com/help/doc-detail/26628.htm)。
+    -   默认情况下，迁移完成后，迁移对象的名称保持不变。如果您需要迁移对象在目标数据库中的名称不同，那么需要使用DTS提供的对象名映射功能。使用方法请参见[库表列映射](https://help.aliyun.com/document_detail/26628.html)。
  |
 
 8.  上述配置完成后，单击页面右下角的**预检查并启动**。
@@ -162,7 +162,7 @@
     **说明：** 
 
     -   在迁移任务正式启动之前，会先进行预检查。只有预检查通过后，才能成功启动迁移任务。
-    -   如果预检查失败，单击具体检查项后的![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/140110/156456693350068_zh-CN.png)，查看具体的失败详情。根据提示修复后，重新进行预检查。
+    -   如果预检查失败，单击具体检查项后的![提示](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/140110/156877791850068_zh-CN.png)，查看具体的失败详情。根据提示修复后，重新进行预检查。
 9.  预检查通过后，单击**下一步**。
 10. 在购买配置确认页面，选择**链路规格**并勾选**数据传输（按量付费）服务条款**。
 11. 单击**购买并启动**，迁移任务正式开始。
@@ -179,11 +179,11 @@
         1.  观察迁移任务的进度变更为**增量迁移**，并显示为**无延迟**状态时，将源库停写几分钟，此时**增量迁移**的状态可能会显示延迟的时间。
         2.  等待再次进入**无延迟**状态，手动停止迁移任务。
 
-            ![MongoDB增量迁移无延迟](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/75938/156456693333674_zh-CN.png)
+            ![MongoDB增量迁移无延迟](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/75938/156877791833674_zh-CN.png)
 
 12. 将业务切换至阿里云MongoDB实例。
 
 ## 更多信息 {#section_v5g_lrw_pgb .section}
 
-[通过Mongo Shell登录MongoDB单节点实例](intl.zh-CN/单节点快速入门/连接实例/通过Mongo Shell登录MongoDB数据库.md#)
+[通过Mongo Shell登录MongoDB单节点实例](cn.zh-CN/单节点快速入门/连接实例/通过Mongo Shell登录MongoDB数据库.md#)
 
