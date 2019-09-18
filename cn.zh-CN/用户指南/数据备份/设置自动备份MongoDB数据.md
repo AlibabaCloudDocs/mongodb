@@ -4,15 +4,18 @@
 
 ## 注意事项 {#section_5ly_bsb_enl .section}
 
-当实例的数据库版本为3.2或3.4时，实例中集合加索引的数量需控制在1万以内，否则可能造成物理备份失败。如果您的业务可能会超过此限制，建议[升级数据库版本](intl.zh-CN/用户指南/实例管理/升级数据库版本.md#)至4.0或在创建实例时选择数据库版本为4.0。
+当实例的数据库版本为3.2或3.4时，实例中集合加索引的数量需控制在1万以内，否则可能造成物理备份失败。如果您的业务可能会超过此限制，建议[升级数据库版本](cn.zh-CN/用户指南/实例管理/升级数据库版本.md#)至4.0或在创建实例时选择数据库版本为4.0。
 
 ## 自动备份说明 {#section_qzv_nsp_dgb .section}
 
--   云数据库MongoDB生成的备份文件存储在[阿里云对象存储服务](https://www.alibabacloud.com/help/zh/doc-detail/31817.htm)（Object Storage Service，简称 OSS）中，不会占用MongoDB实例的存储空间。
--   单节点实例的备份方式固定为[快照备份](intl.zh-CN/用户指南/数据备份/手动备份MongoDB数据.md#ul_iw5_lcp_dgb)，备份过程中将占用单节点实例的I/O性能。
--   副本集实例和分片集群实例的备份方式为[物理备份](intl.zh-CN/用户指南/数据备份/手动备份MongoDB数据.md#ul_iw5_lcp_dgb)。
+-   云数据库MongoDB生成的备份文件存储在[阿里云对象存储服务](https://help.aliyun.com/document_detail/31817.html)（Object Storage Service，简称 OSS）中，不会占用MongoDB实例的存储空间。
+-   单节点实例的备份方式固定为快照备份，备份过程中将占用单节点实例的I/O性能。
 
-    **说明：** 物理备份在MongoDB实例的隐藏节点进行，不影响主从节点的读写性能。若数据量较大，花费的时间可能较长，请耐心等待。
+    **说明：** 快照备份可以保留某一时间点的磁盘数据状态。
+
+-   副本集实例和分片集群实例的备份方式为物理备份。
+
+    **说明：** 物理备份是通过备份MongoDB实例中，数据库相关的实际物理文件实现备份操作。物理备份在MongoDB实例的隐藏节点进行，不影响主从节点的读写性能。若数据量较大，花费的时间可能较长，请耐心等待。
 
 
 ## 设置自动备份策略 {#section_msc_bsp_dgb .section}
@@ -24,11 +27,11 @@
 5.  在左侧导航栏，单击**备份与恢复**。
 6.  单击**备份设置**。
 
-    ![MongoDB备份与恢复列表](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6721/156292127137422_zh-CN.png)
+    ![MongoDB备份与恢复列表](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6721/156879195537422_zh-CN.png)
 
 7.  在备份设置对话框，按照页面提示进行设置参数。
 
-    ![MongoDB设置自动备份策略](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6721/156292127134383_zh-CN.png)
+    ![MongoDB设置自动备份策略](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6721/156879195534383_zh-CN.png)
 
     |配置|说明|
     |:-|:-|
@@ -37,4 +40,8 @@
     |**备份周期**|可以设置为一星期中的某一天或者某几天。|
 
 8.  完成上述参数配置后，单击**确定**。
+
+## 相关文档 {#section_tqb_k85_n0w .section}
+
+[MongoDB数据恢复方案概览](cn.zh-CN/用户指南/数据恢复/MongoDB数据恢复方案概览.md#)
 
