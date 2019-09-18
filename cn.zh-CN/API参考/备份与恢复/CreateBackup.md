@@ -4,18 +4,18 @@
 
 调用该接口时，要求实例状态为运行中。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=CreateBackup)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=CreateBackup&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|CreateBackup|要执行的操作，取值： **CreateBackup**。
+|DBInstanceId|String|是|d-bpxxxxxxxx|实例ID。
 
  |
-|DBInstanceId|String|是|d-bpxxxxxxxx|实例ID。
+|Action|String|否|CreateBackup|要执行的操作，取值： **CreateBackup**。
 
  |
 |BackupMethod|String|否|Logical|实例的备份方式，取值：
@@ -30,7 +30,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -59,10 +59,9 @@ DBInstanceId=dds-bpxxxxxxxx
 
 ``` {#xml_return_success_demo}
 <CreateBackupResponse>
-  <RequestId>7016B12F-7F64-40A4-BAFF-013F02AC82FC</RequestId>
-  <BackupId>5664xxxx</BackupId>
+	  <RequestId>7016B12F-7F64-40A4-BAFF-013F02AC82FC</RequestId>
+	  <BackupId>5664xxxx</BackupId>
 </CreateBackupResponse>
-
 ```
 
 `JSON` 格式
@@ -76,5 +75,5 @@ DBInstanceId=dds-bpxxxxxxxx
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Dds)查看更多错误码。
 
