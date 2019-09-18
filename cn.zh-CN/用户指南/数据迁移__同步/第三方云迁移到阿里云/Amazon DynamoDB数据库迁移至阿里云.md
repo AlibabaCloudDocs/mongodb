@@ -4,7 +4,7 @@
 
 ## 前提条件 {#section_pnm_tgw_mhb .section}
 
-已经创建阿里云MongoDB实例，详情请参考[创建副本集实例](../../../../intl.zh-CN/副本集快速入门/创建副本集实例.md#)或[创建分片集群实例](../../../../intl.zh-CN/分片集群快速入门/创建分片集群实例.md#)。
+已经创建阿里云MongoDB实例，详情请参考[创建副本集实例](../../../../cn.zh-CN/副本集快速入门/创建副本集实例.md#)或[创建分片集群实例](../../../../cn.zh-CN/分片集群快速入门/创建分片集群实例.md#)。
 
 ## 注意事项 {#section_xj3_k3w_mhb .section}
 
@@ -21,13 +21,13 @@
 
 ## 环境准备 {#section_u4c_ygw_mhb .section}
 
-在本地设备上安装MongoDB程序，程序版本与阿里云MongoDB数据库的版本一致。该设备将将作为数据迁移的中转。本案例将MongoDB程序安装在Ubuntu Linux上进行演示。
+在本地设备上安装MongoDB程序，程序版本与阿里云MongoDB数据库的版本一致。该设备将作为数据迁移的中转。本案例将MongoDB程序安装在Ubuntu Linux上进行演示。
 
 1.  在本地设备上安装MongoDB程序，详情请参考[安装MongoDB](https://docs.mongodb.com/manual/administration/install-community/)。
 
     **说明：** 该设备仅作为数据备份与恢复的临时中转平台，迁移操作完成后不再需要。
 
-2.  将本地设备的公网IP地址，加入至阿里云MongoDB实例的白名单中，详情请参考[设置白名单](intl.zh-CN/用户指南/数据安全性/设置白名单.md#)。
+2.  将本地设备的公网IP地址，加入至阿里云MongoDB实例的白名单中，详情请参考[设置白名单](cn.zh-CN/用户指南/数据安全性/设置白名单.md#)。
 
 ## 迁移操作步骤 {#section_p2d_rzv_mhb .section}
 
@@ -35,11 +35,11 @@
 2.  在左侧导航栏，单击**表**。
 3.  选择需要迁移的表，本案例选择**customer**表。
 
-    ![选择DynamoDB表](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161016/156775140245065_zh-CN.png)
+    ![选择DynamoDB表](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161016/156879129345065_zh-CN.png)
 
 4.  选择需要迁移的数据，导出为**.csv**格式。
 
-    ![选择DynamoDB待迁移数据](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161016/156775140245066_zh-CN.png)
+    ![选择DynamoDB待迁移数据](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/161016/156879129345066_zh-CN.png)
 
     1.  单击项目页签。
     2.  选择需要迁移的数据。
@@ -47,9 +47,9 @@
 5.  将导出的.csv文件复制至[环境准备](#section_u4c_ygw_mhb)中的本地设备。
 6.  登录[阿里云MongoDB控制台](https://mongodb.console.aliyun.com/)，获取阿里云MongoDB实例的公网连接地址。
 
-    -   如要迁移至阿里云MongoDB副本集实例，请获取Primary节点公网连接地址，详情请参考[副本集实例连接说明](../../../../intl.zh-CN/副本集快速入门/连接实例/副本集实例连接说明.md#)。
-    -   如要迁移至阿里云MongoDB分片集群实例，请获取任一Mongos节点的公网连接地址，详情请参考[分片集群实例连接说明](../../../../intl.zh-CN/分片集群快速入门/连接实例/分片集群实例连接说明.md#)。
-    **说明：** 公网连接地址需要手动申请，详情请参考[申请公网连接地址](intl.zh-CN/用户指南/管理网络连接/申请公网连接地址.md#)。
+    -   如要迁移至阿里云MongoDB副本集实例，请获取Primary节点公网连接地址，详情请参考[副本集实例连接说明](../../../../cn.zh-CN/副本集快速入门/连接实例/副本集实例连接说明.md#)。
+    -   如要迁移至阿里云MongoDB分片集群实例，请获取任一Mongos节点的公网连接地址，详情请参考[分片集群实例连接说明](../../../../cn.zh-CN/分片集群快速入门/连接实例/分片集群实例连接说明.md#)。
+    **说明：** 公网连接地址需要手动申请，详情请参考[申请公网连接地址](cn.zh-CN/用户指南/管理网络连接/申请公网连接地址.md#)。
 
 7.  在本地设备上，执行以下命令将数据库数据导入至阿里云MongoDB数据库。
 
