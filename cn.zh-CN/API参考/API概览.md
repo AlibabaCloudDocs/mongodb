@@ -1,17 +1,17 @@
 # API概览 {#doc_6758 .concept}
 
-云数据库 MongoDB 版提供以下相关API接口。
+云数据库MongoDB版提供以下相关API接口。
 
-## 如何使用RAM授权 {#section_5ft_6gq_mry .section}
+## 如何使用RAM授权 {#section_7j1_1ai_io7 .section}
 
 |API|描述|
 |---|--|
 |[使用RAM实现MongoDB资源授权](intl.zh-CN/API参考/如何使用RAM授权/使用RAM实现MongoDB资源授权.md)|使用阿里云的RAM（Resource Access Management）服务，您可以将您云账号下MongoDB资源的访问及管理权限授予RAM中子用户。|
-|[RAM中可授权的MongoDB资源类型](intl.zh-CN/API参考/如何使用RAM授权/RAM中可授权的MongoDB资源类型.md)|目前，可以在RAM中进行授权的资源类型仅一种：dbinstance。在通过RAM进行授权时，资源的描述方式如下：|
+|[RAM中可授权的MongoDB资源类型](intl.zh-CN/API参考/如何使用RAM授权/RAM中可授权的MongoDB资源类型.md)|目前，可以在RAM中进行授权的资源类型仅一种：dbinstance。|
 |[RAM中可对MongoDB资源进行授权的Action](intl.zh-CN/API参考/如何使用RAM授权/RAM中可对MongoDB资源进行授权的Action.md)|在RAM中，可以对一个MongoDB资源进行以下Action的授权。|
 |[MongoDB API的鉴权规则](intl.zh-CN/API参考/如何使用RAM授权/MongoDB API的鉴权规则.md)|当子用户通过MongoDB Open API进行资源访问时，MongoDB后台向RAM进行权限检查，以确保调用者拥有响应权限。|
 
-## 生命周期管理 {#section_pvb_ifz_apj .section}
+## 生命周期管理 {#section_y8d_ncb_ato .section}
 
 |API|描述|
 |---|--|
@@ -24,7 +24,7 @@
 |[DeleteNode](intl.zh-CN/API参考/生命周期管理/DeleteNode.md)|调用DeleteNode接口删除MongoDB分片集群实例中的Shard节点或Mongos节点。|
 |[ModifyNodeSpec](intl.zh-CN/API参考/生命周期管理/ModifyNodeSpec.md)|调用ModifyNodeSpec接口变更MongoDB分片集群实例中节点的规格和存储空间。|
 
-## 实例管理 {#section_sgi_9bu_wo2 .section}
+## 实例管理 {#section_vcw_xbp_4dt .section}
 
 |API|描述|
 |---|--|
@@ -50,7 +50,7 @@
 |[ModifyInstanceVpcAuthMode](intl.zh-CN/API参考/实例管理/ModifyInstanceVpcAuthMode.md)|调用ModifyInstanceVpcAuthMode接口开启或关闭MongoDB实例的专有网络免密访问功能。|
 |[DescribeRoleZoneInfo](intl.zh-CN/API参考/实例管理/DescribeRoleZoneInfo.md)|调用DescribeRoleZoneInfo接口查询MongoDB实例的各节点的角色和所属的可用区|
 
-## 账号管理 {#section_eea_fxb_yo9 .section}
+## 账号管理 {#section_ko8_kt6_7dw .section}
 
 |API|描述|
 |---|--|
@@ -58,7 +58,7 @@
 |[ResetAccountPassword](intl.zh-CN/API参考/账号管理/ResetAccountPassword.md)|调用ResetAccountPassword接口重置MongoDB实例中root账号的密码。|
 |[ModifyAccountDescription](intl.zh-CN/API参考/账号管理/ModifyAccountDescription.md)|调用ModifyAccountDescription接口修改MongoDB实例中root账号的备注信息。|
 
-## 安全管理 {#section_5r5_qw3_ug0 .section}
+## 安全管理 {#section_xhr_315_mik .section}
 
 |API|描述|
 |---|--|
@@ -75,7 +75,7 @@
 |[ModifyDBInstanceTDE](intl.zh-CN/API参考/安全管理/ModifyDBInstanceTDE.md)|调用ModifyDBInstanceTDE接口修改MongoDB实例的透明数据加密TDE（Transparent Data Encryption）状态。|
 |[ModifyAuditPolicy](intl.zh-CN/API参考/安全管理/ModifyAuditPolicy.md)|调用ModifyAuditPolicy接口设置MongoDB实例的审计日志开关或日志存储时长。|
 
-## 日志管理 {#section_it2_xrf_ijw .section}
+## 日志管理 {#section_ivr_oko_aix .section}
 
 |API|描述|
 |---|--|
@@ -83,13 +83,13 @@
 |[DescribeRunningLogRecords](intl.zh-CN/API参考/日志管理/DescribeRunningLogRecords.md)|调用DescribeRunningLogRecords接口查询MongoDB实例的运行日志。|
 |[DescribeErrorLogRecords](intl.zh-CN/API参考/日志管理/DescribeErrorLogRecords.md)|调用DescribeErrorLogRecords接口查询MongoDB实例的错误日志。|
 
-## 性能监控管理 {#section_dut_ty7_ndi .section}
+## 性能监控管理 {#section_sg6_po4_obm .section}
 
 |API|描述|
 |---|--|
 |[DescribeDBInstancePerformance](intl.zh-CN/API参考/性能监控管理/DescribeDBInstancePerformance.md)|调用DescribeDBInstancePerformance接口查询MongoDB实例性能数据。|
 
-## 参数管理 {#section_e3o_ik0_eaa .section}
+## 参数管理 {#section_oyl_ip2_avl .section}
 
 |API|描述|
 |---|--|
@@ -98,7 +98,7 @@
 |[DescribeParameterTemplates](intl.zh-CN/API参考/参数管理/DescribeParameterTemplates.md)|调用DescribeParameterTemplates接口查询MongoDB实例默认的参数模板列表。|
 |[ModifyParameters](intl.zh-CN/API参考/参数管理/ModifyParameters.md)|调用ModifyParameters接口修改MongoDB实例的参数。|
 
-## 索引推荐 {#section_h3m_wy6_onn .section}
+## 索引推荐 {#section_ft0_a93_olq .section}
 
 |API|描述|
 |---|--|
@@ -106,7 +106,7 @@
 |[DescribeAvailableTimeRange](intl.zh-CN/API参考/索引推荐/DescribeAvailableTimeRange.md)|调用DescribeAvailableTimeRange接口查询MongoDB实例索引分析报告的分析时间段和生成状态。|
 |[DescribeIndexRecommendation](intl.zh-CN/API参考/索引推荐/DescribeIndexRecommendation.md)|调用DescribeIndexRecommendation接口查询MongoDB实例的索引推荐详情。|
 
-## 备份与恢复 {#section_cpg_pv5_0ok .section}
+## 备份与恢复 {#section_zgl_dfk_ntn .section}
 
 |API|描述|
 |---|--|
@@ -117,12 +117,10 @@
 |[RestoreDBInstance](intl.zh-CN/API参考/备份与恢复/RestoreDBInstance.md)|调用RestoreDBInstance接口恢复数据至当前MongoDB实例。|
 |[DescribeBackupDBs](intl.zh-CN/API参考/备份与恢复/DescribeBackupDBs.md)|在为MongoDB实例执行单库恢复前，调用DescribeBackupDBs接口，查询指定的时间点或备份集内包含的数据库。|
 
-## 附表 {#section_d7w_82z_usk .section}
+## 附表 {#section_mte_yzt_rhn .section}
 
-|API|描述|
-|---|--|
-|[错误码表](intl.zh-CN/API参考/附表/错误码表.md)|错误码表|
-|[实例规格表](intl.zh-CN/API参考/附表/实例规格表.md)|参见：实例规格表。|
-|[实例状态表](intl.zh-CN/API参考/附表/实例状态表.md)|实例状态表|
-|[性能监控表](intl.zh-CN/API参考/附表/性能监控表.md)|性能监控表|
+-   [错误码表](intl.zh-CN/API参考/附表/错误码表.md)
+-   [实例规格表](intl.zh-CN/API参考/附表/实例规格表.md)
+-   [实例状态表](intl.zh-CN/API参考/附表/实例状态表.md)
+-   [性能监控表](intl.zh-CN/API参考/附表/性能监控表.md)
 
