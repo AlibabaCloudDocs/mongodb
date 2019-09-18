@@ -14,7 +14,7 @@
 
  **说明：** 
 
--   不能 http:// 或者 https:// 开头
+-   不能 http:// 或者 https:// 开头。
 -   以中文、英文字母开头。
 -   可以包含中文、英文字符、下划线（\_）、连接号（-）和数字，字符长度2~256个字符。
 
@@ -77,5 +77,5 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyDBInstanceDescription
 
 ## 错误码 { .section}
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Dds)查看更多错误码。
 

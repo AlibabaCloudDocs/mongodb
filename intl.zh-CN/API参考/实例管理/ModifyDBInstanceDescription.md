@@ -2,25 +2,19 @@
 
 调用ModifyDBInstanceDescription接口修改MongoDB实例名称。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Dds&api=ModifyDBInstanceDescription)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=ModifyDBInstanceDescription&type=RPC&version=2015-12-01)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|ModifyDBInstanceDescription|要执行的操作，取值：**ModifyDBInstanceDescription**。
-
- |
 |DBInstanceDescription|String|是|testdata|实例名称。
 
  **说明：** 
 
- 
-
--   不能 http:// 或者 https:// 开头
-
+-   不能 http:// 或者 https:// 开头。
 -   以中文、英文字母开头。
 -   可以包含中文、英文字符、下划线（\_）、连接号（-）和数字，字符长度2~256个字符。
 
@@ -28,6 +22,9 @@
 |DBInstanceId|String|是|dds-bpxxxxxxxx|实例ID。
 
  **说明：** 如需修改分片集群实例中的Shard节点或Mongos节点的名称，还需要传入**NodeId**参数。
+
+ |
+|Action|String|否|ModifyDBInstanceDescription|要执行的操作，取值：**ModifyDBInstanceDescription**。
 
  |
 |NodeId|String|否|d-bpxxxxxxxx|分片集群实例中Shard节点ID或Mongos节点ID。
@@ -39,7 +36,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -66,9 +63,8 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyDBInstanceDescription
 
 ``` {#xml_return_success_demo}
 <ModifyDBInstanceDescriptionResponse>
-  <RequestId>06F8F642-4009-4FFC-80C4-9D67DBF7B74E</RequestId>
+	  <RequestId>06F8F642-4009-4FFC-80C4-9D67DBF7B74E</RequestId>
 </ModifyDBInstanceDescriptionResponse>
-
 ```
 
 `JSON` 格式
@@ -81,5 +77,5 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyDBInstanceDescription
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Dds)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Dds)查看更多错误码。
 
