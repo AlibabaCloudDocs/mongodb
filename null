@@ -1,77 +1,68 @@
-# 使用DMS管理MongoDB数据库用户
+# Manage MongoDB users though DMS
 
-数据管理服务DMS（Data Management Service）是一种集数据管理、结构管理、用户授权、安全审计、数据趋势、数据追踪、BI图表、性能优化和服务器管理于一体的数据管理服务。通过DMS连接MongoDB实例，您可以更加便捷地对MongoDB数据库用户执行创建、修改、删除等操作。
+Data Management \(DMS\) is an integrated database solution that offers data management, structure management, user authorization, security auditing, data trend analysis, data tracking, BI charts, performance optimization, and server management. After you connect to an ApsaraDB for MongoDB instance through DMS, you can easily create, modify, and delete MongoDB users.
 
-## 创建用户
+## Create a user
 
-1.  登录DMS控制台。
+1.  Log on to the DMS console.
+2.  In the top navigation bar, choose **Create** \> **User**.
 
-    详情请参见[单节点实例登录DMS控制台](/intl.zh-CN/单节点快速入门/连接实例/通过DMS连接MongoDB单节点实例.md)、[副本集实例登录DMS控制台](/intl.zh-CN/副本集快速入门/连接实例/通过DMS连接MongoDB副本集实例.md)、[分片集群实例登录DMS控制台](/intl.zh-CN/分片集群快速入门/连接实例/通过DMS连接MongoDB分片集群实例.md)。
+    ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/4635298951/p33756.png)
 
-2.  在顶部导航栏，单击**创建** \> **用户**。
+3.  On the Create User page, configure user-related parameters.
 
-    ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/9246819951/p33756.png)
+    ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/5635298951/p33757.png)
 
-3.  在创建用户页面，设置新用户信息。
+    |Parameter|Description|
+    |:--------|:----------|
+    |Destination Database|Select the database that you want to save from the drop-down list. **Note:**
 
-    ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/9246819951/p33757.png)
+    -   If you select a destination database other than the admin database, you will create a common user.
+    -   If you select the **admin** database, you will create a privilege user. |
+    |Username|The name of the user.     -   The name cannot contain Chinese characters.
+    -   It can contains letters, digits, and special characters.
+    -   Special characters include ! \# $ % ^ & \* \( \) \_ + - = |
+    |Password|The password of the user. To ensure data security, the password must contain characters from at least three of the following categories: uppercase letters, lowercase letters, digits, and special characters. Special characters include ! \# $ % ^ & \* \( \) \_ + - = |
+    |Confirm Password|Enter the password again.|
 
-    |配置项目|说明|
-    |:---|:-|
-    |目标库|下拉选择该用户保存的目标数据库。 **说明：**
+4.  On the Create User page, configure permission-related parameters.
 
-    -   目标库选择为非admin库时，创建的用户为普通用户。
-    -   目标库选择为**admin**库时，创建的用户为高权限用户。 |
-    |用户名|设置用户的名称。     -   不支持中文
-    -   支持英文、数字和特殊字符
-    -   特殊字符为!\#$%^&\*\(\)\_+-= |
-    |密码|设置用户的密码。 为保障数据安全性，建议设置的密码由大写字母、小写字母、数字、特殊字符中的至少三种组成，长度为8-32位；特殊字符为!\#$%^&\*\(\)\_+-= |
-    |确认密码|再次输入密码。|
+    ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/5635298951/p33758.png)
 
-4.  在创建用户页面，设置新用户的权限信息。
+    **Note:**
 
-    ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/0346819951/p33758.png)
+    -   If you select a destination database other than the admin database,
 
-    **说明：**
+        On the Current Library Permissions tab, you can only set permissions for **Current Library ordinary operation role** and **Current Library administrator operation role**.
 
-    -   当目标库选择为非admin库时
+        No permissions can be set on the Other library Permissions tab.
 
-        在当前库权限页签，只能选择**当前库普通操作角色**和**当前库管理员操作角色**设置权限。
+    -   If you select the admin database,
 
-        在其他库权限页签没有设置权限。
+        On the Current Library Permissions tab, you can set permissions for more roles.
 
-    -   当目标库选择为admin库时
+        You can set permissions on the Other library Permissions tab. You can add a database name and set a role for the database on this tab.
 
-        在当前库权限页签，拥有更多角色权限选项以供设置。
+5.  Click **Confirm**.
 
-        在其他库权限页签拥有设置权限。可在该页签下，添加数据库名及设置对应数据库的角色。
+## Edit a user
 
-5.  单击**确认**。
+1.  Log on to the DMS console.
+2.  On the **Object List** item in the left-side navigation pane, expand the **database** for which you want to edit a user.
+3.  Expand the **user**. Right-click it and select Edit user.
 
-## 编辑用户
+    ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/5635298951/p33778.png)
 
-1.  登录DMS控制台。
+4.  In the Edit user dialog box that appears, set the password or permission information for the user.
+5.  Click **Confirm**.
 
-    详情请参见[单节点实例登录DMS控制台](/intl.zh-CN/单节点快速入门/连接实例/通过DMS连接MongoDB单节点实例.md)、[副本集实例登录DMS控制台](/intl.zh-CN/副本集快速入门/连接实例/通过DMS连接MongoDB副本集实例.md)、[分片集群实例登录DMS控制台](/intl.zh-CN/分片集群快速入门/连接实例/通过DMS连接MongoDB分片集群实例.md)。
+## Delete a user
 
-2.  在左侧**对象列表**栏目中，展开要进行编辑的用户所在的**数据库**节点。
-3.  展开**用户**节点，右键单击该用户。
+**Note:** To guarantee instance stability, you cannot delete the root user which is reserved by the system.
 
-    ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/0346819951/p33778.png)
-
-4.  编辑用户对话框，可设置该用户的密码或权限信息。
-5.  单击**确认**。
-
-## 删除用户
-
-**说明：** 为保障实例的稳定性，您无法删除系统保留的root用户。
-
-1.  登录DMS控制台。
-
-    详情请参见[单节点实例登录DMS控制台](/intl.zh-CN/单节点快速入门/连接实例/通过DMS连接MongoDB单节点实例.md)、[副本集实例登录DMS控制台](/intl.zh-CN/副本集快速入门/连接实例/通过DMS连接MongoDB副本集实例.md)、[分片集群实例登录DMS控制台](/intl.zh-CN/分片集群快速入门/连接实例/通过DMS连接MongoDB分片集群实例.md)。
-
-2.  在左侧**对象列表**栏目中，展开要进行编辑的用户所在的**数据库**节点。
-3.  展开**用户**节点，右键单击该用户。
-4.  单击**删除用户**。
-5.  在弹出的提示对话框中，单击**确定**，该用户信息被删除。
+1.  Log on to the DMS console.
+2.  On the **Object List** item in the left-side navigation pane, expand the **database** for which you want to delete a user.
+3.  Expand the **user** and right-click it.
+4.  Select **Delete user**.
+5.  In the message that appear, click **OK**. The user is deleted.
 
