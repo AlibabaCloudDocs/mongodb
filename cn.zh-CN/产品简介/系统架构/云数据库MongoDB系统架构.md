@@ -1,10 +1,12 @@
-# 云数据库MongoDB系统架构 {#concept_lyt_gc5_xgb .concept}
+# 云数据库MongoDB系统架构
 
-## 系统架构图 {#section_akh_kc5_xgb .section}
+本文详细介绍云数据库MongoDB的系统架构和组件。
 
-![MongoDB系统架构](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/132916/156825730039713_zh-CN.png)
+## 系统架构图
 
-## 主要组件说明 {#section_lzk_jc5_xgb .section}
+![MongoDB系统架构](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/0167958951/p39713.png)
+
+## 主要组件说明
 
 -   任务控制
 
@@ -12,22 +14,22 @@
 
 -   HA控制系统
 
-    高可用探测模块，用于探测MongoDB实例的运行状况。如果判断主节点实例不可用，则切换主备节点操作并通知用户，保障MongoDB实例的高可用。
+    高可用探测模块，用于探测MongoDB实例的运行状况。如果判断主节点实例不可用，则[切换主备节点并通知用户](/cn.zh-CN/常见问题/热点问题/为什么高可用系统会触发主备切换.md)，保障MongoDB实例的高可用。您也可以手动切换主备节点，详情请参见[切换节点角色](/cn.zh-CN/用户指南/实例管理/切换节点角色.md)。
 
 -   日志收集系统
 
-    收集MongoDB运行情况的日志信息，包括实例慢操作记录日志、审计日志等。
+    收集MongoDB运行情况的日志信息，包括实例慢操作记录日志、审计日志等。详情请参见[日志管理概览](/cn.zh-CN/用户指南/日志管理/日志管理概览.md)和[开通新版审计日志](/cn.zh-CN/用户指南/数据安全性/新版审计日志/开通新版审计日志.md)。
 
 -   监控系统
 
-    收集MongoDB实例的性能监控信息，包括基础指标、磁盘容量、网络请求以及操作次数等核心信息。
+    收集MongoDB实例的性能监控信息，包括基础指标、磁盘容量、网络请求以及操作次数等核心信息。详情请参见[查看监控信息](/cn.zh-CN/用户指南/监控与报警/查看监控信息.md)。
 
 -   备份系统
 
-    针对MongoDB实例进行备份处理，将生成的备份文件存储至OSS（Object Storage Service）中。目前MongoDB备份系统支持用户自定义备份策略的自动备份和手动备份，保存7天内的备份文件。
+    针对MongoDB实例进行备份处理，将生成的备份文件存储至OSS（Object Storage Service）中。目前MongoDB备份系统支持用户自定义备份策略的自动备份和手动备份，保存7天内的备份文件。详情请参见[设置自动备份MongoDB数据](/cn.zh-CN/用户指南/数据备份/设置自动备份MongoDB数据.md)和[手动备份MongoDB数据](/cn.zh-CN/用户指南/数据备份/手动备份MongoDB数据.md)。
 
 -   在线迁移系统
 
-    当实例所运行的物理机出现故障，在线迁移系统会根据备份系统中的备份文件重新搭建实例，保障业务不受影响。
+    当实例所运行的物理机出现故障，在线迁移系统会根据备份系统中的备份文件重新搭建实例，保障业务不受影响。[MongoDB数据迁移和同步方案概览](/cn.zh-CN/用户指南/数据迁移和同步/MongoDB数据迁移和同步方案概览.md)。
 
 
