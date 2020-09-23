@@ -1,6 +1,6 @@
 # Scenarios
 
-ApsaraDB for MongoDB supports replica set and sharded cluster deployment architectures and provides enterprise-class capabilities such as security audit and point-in-time backup. It has been widely used in Internet, IoT, games, and finance fields.
+ApsaraDB for MongoDB supports standalone, replica set and sharded cluster deployment architectures and provides enterprise-class capabilities such as security audit and point-in-time backup. It has been widely used in Internet, IoT, games, and finance fields.
 
 ## Read/write splitting
 
