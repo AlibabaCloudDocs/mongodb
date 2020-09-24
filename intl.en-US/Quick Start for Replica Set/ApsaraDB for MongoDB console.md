@@ -43,6 +43,8 @@ Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/
 |Basic Information|Basic Information|You can view the basic information about the instance, such as the instance ID, region, network type, specifications, and disk space. You can also change the configurations of the instance.|[Change the configurations of an instance](https://www.alibabacloud.com/help/zh/doc-detail/44655.htm)|
 |Accounts|You can view account information and reset passwords.|[Reset a password](https://www.alibabacloud.com/help/zh/doc-detail/54544.htm)|
 |Connection Info|You can view the endpoints and port numbers of the instance.|N/A|
+|Primary Instance Resources|You can view disk usage, IOPS usage, connections and CPU utilization of the instance.|N/A|
+|Instance Relationship|You can view the relationship between instance nodes.|N/A|
 |Backup and Recovery|Backups|You can view and download a list of data backups for a specified time period, restore data from the specified time period, or create an instance from a specified backup point.|-   [Download backup data](https://www.alibabacloud.com/help/zh/doc-detail/55011.htm)
 -   [Restore data to an instance](https://www.alibabacloud.com/help/zh/doc-detail/55015.htm) |
 |Backup Settings|You can set a backup policy to automatically and periodically back up data based on the specified backup time.|[Configure automatic backup for an instance](https://www.alibabacloud.com/help/zh/doc-detail/55008.htm)|
