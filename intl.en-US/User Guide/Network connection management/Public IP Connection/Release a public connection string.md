@@ -6,7 +6,7 @@ To ensure data security, you can release a public connection string that is no l
 
 -   You can release one or more public connection strings of the Mongos, shard, and Configserver nodes for a sharded cluster instance.
 -   After the public connection string is released for an instance or node, you cannot connect to the instance or node through the original public connection string.
--   After the public connection string is released, we recommend that you delete the corresponding public IP address from the whitelist to ensure data security. For more information, see [Configure a whitelist](/intl.en-US/Quick Start for Replica Set/Configure a whitelist for a replica set instance.md).
+-   After the public connection string is released, we recommend that you delete the corresponding public IP address from the whitelist to ensure data security. For more information, see [Configure a whitelist for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Data security/Configure a whitelist for an ApsaraDB for MongoDB instance.md).
 
 ## Standalone and replica set instances
 
