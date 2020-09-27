@@ -13,7 +13,7 @@ When you add an ECS security group, make sure that the ApsaraDB for MongoDB inst
 
 2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
 
-3.  In the left-side navigation pane, click **Replica Set Instances**, **Sharded Cluster Instances** or **Serverless Instances** based on the instance type.
+3.  In the left-side navigation pane, click **Replica Set Instances**, **Sharded Cluster Instances**, or **Serverless Instances** based on the instance type.
 
 4.  Find the target instance and click its ID.
 
@@ -60,7 +60,7 @@ An ECS security group relieves you from the tedious work of adding IP addresses 
 
 2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
 
-3.  In the left-side navigation pane, click **Replica Set Instances**, **Sharded Cluster Instances** or **Serverless Instances** based on the instance type.
+3.  In the left-side navigation pane, click **Replica Set Instances**, **Sharded Cluster Instances**, or **Serverless Instances** based on the instance type.
 
 4.  Find the target instance and click its ID.
 
@@ -83,7 +83,7 @@ An ECS security group relieves you from the tedious work of adding IP addresses 
 
 2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
 
-3.  In the left-side navigation pane, click **Replica Set Instances**, **Sharded Cluster Instances** or **Serverless Instances** based on the instance type.
+3.  In the left-side navigation pane, click **Replica Set Instances**, **Sharded Cluster Instances**, or **Serverless Instances** based on the instance type.
 
 4.  Find the target instance and click its ID.
 
