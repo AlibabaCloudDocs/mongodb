@@ -1,38 +1,38 @@
-# Set alert rules {#concept_fql_tfd_ggb .concept}
+# Set alert rules
 
-ApsaraDB for MongoDB provides an instance status monitoring and alerting feature. You can set alert rules for important metrics to help you detect abnormal data in a timely manner and quickly locate and handle faults.
+ApsaraDB for MongoDB provides the instance status monitoring and alerting feature. You can set alert rules for important metrics to help detect abnormal data in a timely manner and quickly locate and handle faults.
 
-## Procedure {#section_vlf_vfd_ggb .section}
+## Procedure
 
-1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/#/mongodb/list).
-2.  In the upper-left corner of the home page, select the region where the target instance is located.
-3.  Locate the target instance and click its instance ID.
-4.  In the left-side navigation pane, click **Alarm Rules**.
-5.  Click **Set Alarm Rule** to jump to the CloudMonitor console.
-6.  In the upper-right corner of the CloudMonitor console, click **Create Alarm Rule**.
-7.  On the Create Alarm Rule page that appears, specify related resources.
+1.  Log on to the [Cloud Monitor console](https://cloudmonitor.console.aliyun.com/#/cloud/alarmrules/mongodb//-----all-----/).
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/6733/155617701121142_en-US.png)
+    **Note:** On this tab, you can view existing alert rules.
+
+2.  On the Alarm Rules tab of the Cloud Monitor console, click **Create Alarm Rule** in the upper-right corner.
+3.  On the Create Alarm Rule page, configure related resource parameters.
+
+    ![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/6345298951/p21142.png)
 
     |Parameter|Description|
     |:--------|:----------|
-    |Products|The architecture of the instance.     -   ApsaraDB for MongoDB-Instance Copy
+    |Product|The architecture of the instance. Valid values:     -   ApsaraDB for MongoDB-Instance Copy
     -   ApsaraDB for MongoDB-Cluster Instance
-    -   ApsaraDB for MongoDB-Single node instance
- **Note:** If you select **ApsaraDB for MongoDB-Cluster Instance**, you need to select the mongos nodes and shards to be monitored for **Mongos** and **Shard**, respectively.
+    -   ApsaraDB for MongoDB-Single Node Instance
+**Note:** If you select **ApsaraDB for MongoDB-Cluster Instance**, you must specify the **mongos** and **shard** nodes to be monitored. |
+    |Resource Range|    -   **All Resources**: The alert rule is applicable to all ApsaraDB for MongoDB instances.
+    -   **Instances**: The alert rule is applicable to the specified ApsaraDB for MongoDB instances. |
+    |Region|The region where the instance is deployed.|
+    |Instances|The ID of the instance. You can select multiple instance IDs.|
 
- |
-    |Resource Range|     -   If you select **All Resources**, the alerting service sends an alert notification when any ApsaraDB for MongoDB instances match alert rules.
-    -   If you select **Instances**, the alerting service sends an alert notification when any selected ApsaraDB for MongoDB instances match alert rules.
- |
-    |Region|The region where the instance is located.|
-    |Instances|The ID of the instance to be monitored. You can select multiple instance IDs.|
+4.  Set alert rules and the notification method. For more information about the parameters, see [Manage alert rules](/intl.en-US/Alarm service/Alarm rules/Manage alarm rules.md).
 
-8.  Set alert rules and configure notification methods. For more information about parameters, see [Manage alert rules](https://www.alibabacloud.com/help/doc-detail/28610.htm).
+    **Note:** To create alert contacts in the Cloud Monitor console, see [Create an alert contact or alert group](/intl.en-US/Alarm service/Alert contacts/Create an alert contact or alert group.md).
 
-    **Note:** If you have not created alert contacts in CloudMonitor, see [Manage alert contacts and alert contact groups](https://www.alibabacloud.com/help/doc-detail/28609.htm).
+5.  Click **Confirm**. Alert rules automatically take effect.
 
-9.  Click **Confirm**. Alert rules automatically take effect.
+For more information about the metrics, see links below:
 
-For more information about metrics, see [ApsaraDB for MongoDB in Cloud service monitoring](https://www.alibabacloud.com/help/doc-detail/35259.htm).
+-   [ApsaraDB for MongoDB-Single Node Instance](/intl.en-US/Appendix 1: Metrics/Databases/NoSQL databases/ApsaraDB for MongoDB-Single Node Instance.md)
+-   [ApsaraDB for MongoDB-Instance Copy](/intl.en-US/Appendix 1: Metrics/Databases/NoSQL databases/ApsaraDB for MongoDB-Instance Copy.md)
+-   [ApsaraDB for MongoDB-Cluster Instance](/intl.en-US/Appendix 1: Metrics/Databases/NoSQL databases/ApsaraDB for MongoDB-Cluster Instance.md)
 
