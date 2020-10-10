@@ -83,6 +83,10 @@ You can call this operation to query the list of ApsaraDB for MongoDB instances.
 |Engine|String|MongoDB|The database engine. |
 |EngineVersion|String|4.0|The version of the database. |
 |ExpireTime|String|2019-11-25T16:00Z|The time when the instance expires. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. |
+|KindCode|String|1|The type of the instance. Valid values:-   **0**: a physical machine
+-   **1**: an Elastic Compute Service \(ECS\) instance
+-   **2**: a Docker cluster instance
+-   **18**: a Kubernetes cluster instance |
 |LastDowngradeTime|String|2019-03-08|The time when the instance was last downgraded. |
 |LockMode|String|Unlock|Indicates whether the instance is locked.
 
