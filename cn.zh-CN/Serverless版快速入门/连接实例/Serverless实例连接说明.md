@@ -53,8 +53,8 @@ mongodb://[username:password@]host[:port][/[database][?options]]
     -   鉴权数据库名，即数据库账号所属的数据库。如果使用系统提供的初始账号，则对应的数据库名为admin。
 2.  登录MongoDB数据库。
 
-    -   [通过Mongo Shell连接MongoDB Serverless版实例]()
-    -   [程序代码连接]()
+    -   [通过Mongo Shell连接MongoDB Serverless版实例](/cn.zh-CN/Serverless版快速入门/连接实例/通过Mongo Shell连接MongoDB Serverless版实例.md)
+    -   [程序代码连接](/cn.zh-CN/Serverless版快速入门/连接实例/程序代码连接.md)
 
 ## 常见的连接场景
 
