@@ -98,7 +98,7 @@
 
  **说明：** 默认不传入该参数，即默认不创建只读节点。 |
 |ResourceGroupId|String|否|rg-axxxxxxxx|资源组ID。 |
-|ClusterId|String|否|dhg-2x7\*\*\*\*\*\*\*\*\*\*\*\*\*|专属集群ID。如果您希望在专属集群中创建MongoDB实例，需要提前在[专属集群控制台](https://cddc.console.aliyun.com/)中创建数据库引擎为MongoDB的专属集群，并在该集群中创建3台主机。详情请参见[创建集群](~~141766~)。
+|ClusterId|String|否|dhg-2x7\*\*\*\*\*\*\*\*\*\*\*\*\*|专属集群ID。如果您希望在专属集群中创建MongoDB实例，需要提前在[专属集群控制台](https://cddc.console.aliyun.com/)中创建数据库引擎为MongoDB的专属集群，并在该集群中创建3台主机。详情请参见[创建集群](~~141766~~)。
 
  **说明：** 该参数目前仅支持中国站。 |
 
