@@ -155,6 +155,20 @@ How to create and authorize a database account:
 
     ![Select the migration types and objects to be migrated](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/0034948951/p34699.png)
 
+    |Parameter|Description|
+    |:--------|:----------|
+    |Migration Types|    -   To perform only full data migration, select **Full Data Migration**.
+    -   To migrate data with minimal downtime, select both **Full Data Migration** and **Incremental Data Migration**.
+ **Note:** If the **Incremental Data Migration** option is not selected, do not write new data to the user-created MongoDB database when full data migration is in progress. Otherwise, data inconsistency may occur. |
+    |Migration objects|    -   Select objects from the **Available** section and click the ![Right arrow](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/7535298951/p37966.png) icon to move the objects to the **Selected** section.
+
+**Note:**
+
+        -   Data in the admin and local databases cannot be migrated.
+        -   The config database is an internal database. We recommend that you do not migrate data in the config database.
+    -   A migration object can be a database, collection, or function.
+    -   By default, the name of an object remains unchanged after migration. You can change the names of the objects in the destination RDS instance by using the object name mapping feature. For more information, see [Object name mapping](https://www.alibabacloud.com/help/doc-detail/26628.htm). |
+
 8.  In the lower-right corner of the page, click **Precheck**.
 
     **Note:**
