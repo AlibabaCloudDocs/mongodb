@@ -27,10 +27,15 @@ keyword: [云数据库, 阿里云数据库, 云数据库mongodb]
 
 目前云数据库MongoDB版副本集实例支持了只读节点，用于扩展主节点的读请求能力，以缓解大量读请求给主节点造成的压力。详情请参见[MongoDB只读节点简介](/cn.zh-CN/副本集快速入门/MongoDB只读节点简介.md)。 |
 |[分片集群架构](/cn.zh-CN/产品简介/系统架构/分片集群架构.md)|基于多个副本集（每个副本集使用三节点模式）组成的分片集群实例。分片集群实例提供Mongos、Shard、ConfigServer三个组件。您可以自由地选择Mongos和Shard节点的个数和配置，组建服务能力不同的MongoDB集群。创建分片集群实例请参见[创建分片集群实例](/cn.zh-CN/分片集群快速入门/创建分片集群实例.md)。更多关于组件作用的详细介绍，请参见[分片集群架构](/cn.zh-CN/产品简介/系统架构/分片集群架构.md)。目前云数据库MongoDB版分片集群实例已兼容DynamoDB协议，您可以直接在控制台中创建兼容DynamoDB协议的MongoDB实例，详情请参见[创建兼容DynamoDB协议的MongoDB实例](/cn.zh-CN/DynamoDB协议兼容/创建兼容DynamoDB协议的MongoDB实例.md)。 |
+|[Serverless架构](/cn.zh-CN/产品简介/系统架构/Serverless架构.md)|Serverless形态是通过内核和代理层面实现命名空间及存储空间隔离的多租户MongoDB数据库服务，提供代理、网络资源、命名空间、存储空间的垂直资源隔离能力，同时提供计算资源按需计费能力，具有资源用量低、简单易用、弹性灵活、价格低廉等优点，完美解决了MongoDB使用门槛高的问题，帮助中小客户轻松上云。创建Serverless实例请参见[创建Serverless实例](/cn.zh-CN/Serverless版快速入门/创建Serverless实例.md)。|
 
 ## 产品定价
 
 详情请参见[收费项目及价格说明](/cn.zh-CN/产品定价/收费项目及价格说明.md)。
+
+## 专属集群
+
+当前专属集群MyBase已支持MongoDB引擎，您可以以MyBase的形态购买MongoDB实例。详情请参见[什么是云数据库专属集群MyBase]()。
 
 ## 部署建议
 
