@@ -1,3 +1,7 @@
+---
+keyword: [mongo 连接指定数据库, mongodb安全写入, mongo登录方法, mongodb如何连接, mongo密码登录连接数据库]
+---
+
 # 通过Mongo Shell连接MongoDB单节点实例
 
 Mongo Shell是MongoDB数据库自带的数据库管理工具，您可以在本地或ECS上安装Mongo Shell工具，然后通过Mongo Shell连接MongoDB单节点实例。
@@ -20,7 +24,7 @@ Mongo Shell是MongoDB数据库自带的数据库管理工具，您可以在本�
 
 5.  在左侧导航栏，单击**数据库连接**，获取连接Primary节点的连接地址。
 
-    ![获取连接地址](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4029615061/p13741.png)
+    ![获取连接地址](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4029615061/p13741.png)
 
     |项目|说明|
     |:-|:-|
