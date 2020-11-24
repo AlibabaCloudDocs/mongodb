@@ -1,6 +1,10 @@
-# 分片集群实例连接说明
+---
+keyword: [mongodb分片副本集, 云数据库mongodb版副本集]
+---
 
-MongoDB分片集群实例分别提供Mongos节点单独的连接地址，以及适用于应用程序连接的高可用Connection String URI地址。本文介绍这两种连接地址的获取方式和连接说明。
+# 副本集实例连接说明
+
+MongoDB副本集实例分别提供了主从节点单独的连接地址，以及适用于应用程序连接的高可用Connection String URI地址。本文介绍这两种连接地址的获取方式及连接说明。
 
 ## 获取数据库连接地址
 
@@ -8,13 +12,13 @@ MongoDB分片集群实例分别提供Mongos节点单独的连接地址，以及�
 
 2.  在页面左上角，选择实例所在的资源组和地域。
 
-3.  在左侧导航栏，单击**分片集群实例列表**。
+3.  在左侧导航栏，单击**副本集实例列表**。
 
 4.  找到目标实例，单击实例ID。
 
 5.  在左侧导航栏，单击**数据库连接**，查看数据库连接信息。
 
-    ![连接信息](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/3378317951/p13833.png)
+    ![Connection addresses](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8494087951/p13778.png)
 
 
 ## 连接地址说明
@@ -23,54 +27,59 @@ MongoDB分片集群实例分别提供Mongos节点单独的连接地址，以及�
 |:-|:-|
 |地址类型|-   经典网络连接地址：经典网络中的云服务在网络上不进行隔离，只能依靠云服务自身的安全组或白名单策略来阻挡非法访问。
 -   专有网络连接地址：专有网络是一种隔离的网络环境，安全性和性能均高于传统的经典网络。 MongoDB实例默认提供专有网络连接地址，通过专有网络连接MongoDB实例可以获取更高的安全性和性能。
--   公网连接地址：由于通过公网连接实例存在一定的安全风险，MongoDB实例默认未提供公网连接地址。如果您要使用阿里云以外的设备（例如本地设备）连接MongoDB实例，您可以手动[申请公网连接地址](/cn.zh-CN/分片集群快速入门/申请公网连接地址.md)。 |
-|Mongos节点ID|Mongos节点连接地址的格式如下。 ```
+-   公网连接地址：由于通过公网连接实例存在一定的安全风险，MongoDB实例默认未提供公网连接地址。如果您要使用阿里云以外的设备（例如本地设备）连接MongoDB实例，您可以手动[申请公网连接地址](/intl.zh-CN/单节点快速入门/申请公网连接地址.md)。 |
+|角色|-   Primary节点：副本集实例中的主节点，连接该节点可执行数据库的读写操作。
+-   Secondary节点：副本集实例中的从节点，连接该节点仅能执行数据库的读操作。
+
+**说明：** 实例可扩展从节点数量，详情请参见[变更副本集实例节点数](/intl.zh-CN/用户指南/实例管理/变更实例配置/变更副本集实例节点数.md)。
+
+-   ConnectionStringURI：使用ConnectionStringURI连接方式进行连接，可实现负载均衡及高可用。 |
+|Primary、Secondary节点连接地址|Primary、Secondary节点连接地址的格式如下：```
 <host>:<port>
 ```
 
 -   <host\>：登录MongoDB数据库的域名地址。
 -   <port\>：登录MongoDB数据库的端口。
 
-**说明：** 日常测试时，可直接连接任一Mongos节点。 |
-|ConnectionstringURI连接地址|ConnectionstringURI连接地址格式如下。 ```
+**说明：** 日常测试时，可直接连接Primary节点。需要注意的是一旦发生[主备切换](/intl.zh-CN/用户指南/主备切换/副本集实例设置主备切换.md)，连接节点的角色将发生变化，从而会对读写操作造成影响。 |
+|ConnectionstringURI连接地址|ConnectionstringURI连接地址格式如下：```
 mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
 ```
 
--   mongodb://：前缀，代表这是一个Connection String URI连接地址。
--   username:password@：连接MongoDB实例的用户名和密码，使用英文冒号（:）分隔。
--   hostX:portX：实例的连接地址和端口号。
--   /database：鉴权数据库名，即数据库账号所属的数据库。
--   ?options：指定额外的连接选项。
+-   `mongodb://`：前缀，代表这是一个Connection String URI连接地址。
+-   `username:password@`：连接MongoDB实例的用户名和密码，使用英文冒号（:）分隔。
+-   `hostX:portX`：实例的连接地址和端口号。
+-   `/database`：鉴权数据库名，即数据库账号所属的数据库。
+-   `?options`：指定额外的连接选项。
 
-**说明：** 推荐生产环境的应用程序通过Connection String URI连接数据库，客户端自动将请求分散到多个Mongos节点上，实现负载均衡。同时某个Mongos节点出现故障时，客户端能自动进行故障切换，将请求分散到状态正常的Mongos节点上。 |
+**说明：** 推荐生产环境的应用程序通过Connection StringURI连接实例。当实例中的某个节点出现故障时，不会因为主备切换而影响应用的读写操作。 |
 
 ## 登录MongoDB数据库
 
-1.  获取了上述的[数据库连接地址](#section_e2o_ajm_d6k)后，您还需要获取下述信息：
-
+1.  获取了上述的[数据库连接地址](#section_n3g_ma2_a24)后，您还需要获取下述信息：
     -   MongoDB实例的数据库账号，初始账号为root。
 
-        **说明：** 不建议在生产环境中直接使用root账号连接数据库。您可以根据业务需求创建用户并分配权限，详情请参见[使用DMS管理MongoDB数据库用户]()。
+        **说明：** 不建议在生产环境中直接使用root账号连接数据库。您可以根据业务需求创建用户并分配权限，详情请参见[使用DMS管理MongoDB实例的账号]()。
 
-    -   登录数据库的密码，如root账号的密码忘记可[重置密码](/cn.zh-CN/副本集快速入门/设置密码.md)。
+    -   登录数据库的密码，如果忘记root用户的密码可以[重置密码](/intl.zh-CN/副本集快速入门/设置密码.md)。
     -   鉴权数据库名，即数据库账号所属的数据库。当数据库账号为root时，对应的数据库为admin。
 2.  登录MongoDB数据库。
-
-    -   [通过DMS连接MongoDB分片集群实例](/cn.zh-CN/分片集群快速入门/连接实例/通过DMS连接MongoDB分片集群实例.md)
-    -   [通过Mongo Shell连接MongoDB分片集群实例](/cn.zh-CN/分片集群快速入门/连接实例/通过Mongo Shell连接MongoDB分片集群实例.md)
-    -   [程序代码连接](/cn.zh-CN/分片集群快速入门/连接实例/程序代码连接.md)
+    -   [通过DMS登录MongoDB数据库](/intl.zh-CN/副本集快速入门/连接实例/通过DMS连接MongoDB副本集实例.md)
+    -   [通过 Mongo Shell登录MongoDB数据库](/intl.zh-CN/副本集快速入门/连接实例/通过Mongo Shell连接MongoDB副本集实例.md)
+    -   [通过程序代码连接MongoDB数据库](/intl.zh-CN/副本集快速入门/连接实例/通过程序代码连接副本集实例.md)
 
 ## 常见的连接场景
 
--   [如何通过公网连接MongoDB实例](/cn.zh-CN/用户指南/连接实例/如何通过公网连接MongoDB实例.md)
--   [ECS实例与MongoDB实例网络类型不同时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例网络类型不同时如何连接.md)
--   [ECS实例与MongoDB实例地域不同时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例地域不同时如何连接.md)
--   [ECS实例与MongoDB实例不在同一阿里云账号时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例不在同一阿里云账号时如何连接.md)
+-   [如何通过公网连接MongoDB实例](/intl.zh-CN/用户指南/连接实例/如何通过公网连接MongoDB实例.md)
+-   [ECS实例与MongoDB实例网络类型不同时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例网络类型不同时如何连接.md)
+-   [ECS实例与MongoDB实例地域不同时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例地域不同时如何连接.md)
+-   [ECS实例与MongoDB实例不在同一阿里云账号时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例不在同一阿里云账号时如何连接.md)
+-   [如何连接副本集实例实现MongoDB数据库的读写分离](/intl.zh-CN/最佳实践/性能/如何连接副本集实例实现读写分离和高可用.md)
 
 ## 相关问题
 
--   [排查 Mongo Shell 登录问题](/cn.zh-CN/常见问题/热点问题/Linux实例使用Mongo Shell登录MongoDB数据库提示“Timeout while receiving message”错误.md)
--   [排查因连接数耗尽导致的数据库连接问题](/cn.zh-CN/常见问题/热点问题/MongoDB实例连接数耗尽导致数据库连接失败.md)
--   [排查 MongoDB CPU使用率高的问题](/cn.zh-CN/最佳实践/性能/排查MongoDB CPU使用率高的问题.md)
--   [如何查询及限制连接数](/cn.zh-CN/常见问题/热点问题/如何查询及限制MongoDB实例的连接数.md)
+-   [排查 Mongo Shell 登录问题](/intl.zh-CN/常见问题/热点问题/Linux实例使用Mongo Shell登录MongoDB数据库提示“Timeout while receiving message”错误.md)
+-   [排查因连接数耗尽导致的数据库连接问题](/intl.zh-CN/常见问题/热点问题/MongoDB实例连接数耗尽导致数据库连接失败.md)
+-   [排查 MongoDB CPU使用率高的问题](/intl.zh-CN/最佳实践/性能/排查MongoDB CPU使用率高的问题.md)
+-   [如何查询及限制连接数](/intl.zh-CN/常见问题/热点问题/如何查询及限制MongoDB实例的连接数.md)
 
