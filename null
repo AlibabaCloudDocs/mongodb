@@ -1,55 +1,53 @@
-# 关于MongoDB控制台
+# ApsaraDB for MongoDB console \(Standalone Instances\)
 
-MongoDB管理控制台是用于管理MongoDB实例的Web应用程序，您可以在MongoDB管理控制台上执行创建实例、设置IP白名单、设置连接数据库的密码、设置网络等操作。
+The ApsaraDB for MongoDB console is a web application for managing instances. In the ApsaraDB for MongoDB console, you can create and manage instances, configure the instance IP whitelists, passwords, and network types, and perform other operations.
 
-MongoDB管理控制台是阿里云管理控制台的一部分，关于控制台的通用设置和基本操作请参见[使用阿里云管理控制台](https://help.aliyun.com/document_detail/47605.html)[使用阿里云管理控制台](https://www.alibabacloud.com/help/zh/doc-detail/47605.htm)。
+The ApsaraDB for MongoDB console is a part of the Alibaba Cloud Management Console. For more information about general settings and basic operations in the console, see the [Alibaba Cloud Management Console](https://www.alibabacloud.com/help/zh/doc-detail/47605.htm).
 
-## 前提条件
+## Prerequisites
 
-使用阿里云账号登录MongoDB管理控制台。若没有阿里云账号，请单击[注册](https://account.aliyun.com/register/register.htm)[注册](https://account.alibabacloud.com/register/intl_register.htm)。
+An Alibaba Cloud account is used. To create an Alibaba Cloud account, go to the [Alibaba Cloud official website](https://account.alibabacloud.com/register/intl_register.htm).
 
-## 控制台首页
+## ApsaraDB for MongoDB console homepage
 
-对于MongoDB所有单节点类型的实例而言，控制台首页的界面信息都是相同的。
+The console homepage displays the same information for all standalone instances.
 
-登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)，进入实例列表页面，如下图所示（仅为示例，请以实际界面为准）。
+Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/) and go to the Instances page, as shown in the following figure. This figure is only to be used for reference. The actual page may be different.
 
-![控制台首页](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/3798106951/p13185.png)
+![ApsaraDB for MongoDB console homepage](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9698106951/p13185.png)
 
-参考说明
+UI element description
 
-|序号|名称|说明|
-|:-|:-|:-|
-|1|副本集实例列表|MongoDB控制台的副本集实例列表，显示同一账户中某个地域下的单节点或副本集实例信息。|
-|2|地域|选择某一个地域，该地域下的所有实例就会显示在实例列表中。|
-|3|新建实例|[创建单节点实例]()入口。|
-|4|刷新|刷新实例信息页面。|
-|5|导出|[导出实例列表](/intl.zh-CN/用户指南/实例管理/导出实例列表.md)。|
-|6|实例ID|单击进入该实例详情页面。|
-|7|运行状态|实例运行状态，根据实例的不同情况也会有不同的状态。|
-|8|管理|单击进入实例的管理详情页面，如查看基本信息、设置备份与恢复、[查看监控信息](/intl.zh-CN/用户指南/监控与报警/查看监控信息.md)、[设置白名单](/intl.zh-CN/单节点快速入门/设置白名单.md)等。|
-|9|重启|[重启实例](/intl.zh-CN/用户指南/实例管理/重启实例.md)。|
-|10|更多|一些操作的便捷按钮，如[变更配置](/intl.zh-CN/用户指南/实例管理/变更实例配置/变更配置方案概览.md)、续费。|
-|11|修改实例备注|单击铅笔图标可修改实例的备注名，若不修改，则与实例ID一致。|
+|No.|UI element|Description|
+|:--|:---------|:----------|
+|1|Replica Set Instances|The ApsaraDB for MongoDB console homepage, which displays all standalone o replica set instances in a region that belong to the current account.|
+|2|Region|You can click a region to display all instances that reside within the region.|
+|3|Create Instance|The button to [Create a standalone instance]().|
+|4|Refresh|The button to refresh the instance information page.|
+|5|Export|The button to [Export the list of instances](/intl.en-US/User Guide/Instance management/Export the list of instances.md).|
+|6|Instance ID|You can click an instance ID to go to the Basic Information page of the instance.|
+|7|Status|The status of the instance. Instances may be in different states.|
+|8|Manage|You can click this button to go to the Basic Information page of the instance. On this page, you can view the basic information about the instance, configure instance backup and recovery, [view monitoring information](/intl.en-US/User Guide/Monitoring and alerting/View monitoring information.md), and [configure a whitelist](/intl.en-US/Quick Start for Standalone/Configure a whitelist for a standalone ApsaraDB for MongoDB instance.md).|
+|9|Restart|The button to [restart an instance](/intl.en-US/User Guide/Instance management/Restart an ApsaraDB for MongoDB instance.md).|
+|10|More|Other buttons, such as [Change Configuration](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Configuration change overview.md) and Renew.|
+|11|Edit icon|You can click this icon to modify the instance name. By default, the instance name is identical to the instance ID.|
 
-## MongoDB实例控制台
+## ApsaraDB for MongoDB instance console
 
-登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)，单击**实例ID**操作栏下的**管理**，即可进入MongoDB实例的管理详情页面，详情如下表所示：
+Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/). Click an **Instance ID** or **Manage** in the Actions column corresponding to an instance. The Basic Information page is displayed. The following table lists the UI elements on the page.
 
-|控制台页面名称|区块名称|描述|常用操作链接|
-|:------|:---|:-|:-----|
-|界面上方操作区|-|自建MongoDB迁移、备份实例、重启实例操作。|-   [数据迁移](/intl.zh-CN/用户指南/数据迁移和同步/MongoDB数据迁移和同步方案概览.md)
--   [登录数据库](/intl.zh-CN/副本集快速入门/连接实例/通过DMS连接MongoDB单节点实例.md)
--   [备份实例](/intl.zh-CN/用户指南/数据备份/手动备份MongoDB数据.md)
--   [重启实例](/intl.zh-CN/用户指南/实例管理/重启实例.md) |
-|基本信息|基本信息|查看实例的基本信息，如实例ID、地域、网络类型、规格、磁盘空间，进行变更实例配置操作。|[变更实例配置](/intl.zh-CN/用户指南/实例管理/变更实例配置/变更配置方案概览.md)|
-|连接信息|查看实例的公网和内网地址。|无|
-|规格信息|查看实例的规格详情、磁盘空间使用率。|无|
-|账号管理|-|查看实例账号，重置密码操作。|[重置密码](/intl.zh-CN/用户指南/账号管理/重置密码.md)|
-|备份与恢复|备份列表|查看选定时间的数据备份列表、按照时间范围恢复数据、从备份点创建实例、按时间点新建实例。|-   [从备份点创建实例](/intl.zh-CN/用户指南/数据恢复/从备份点创建实例.md)
--   [数据恢复](https://help.aliyun.com/document_detail/55015.html?spm=a2c4g.11186623.2.30.6de5390a5zouDu)
--   [按时间点新建实例](/intl.zh-CN/用户指南/数据恢复/按时间点新建实例.md) |
-|备份设置|按照选定的时间点进行周期性的自动备份。|[自动备份实例](/intl.zh-CN/用户指南/数据备份/设置自动备份MongoDB数据.md)|
-|监控信息|-|根据选定的数据指标和查询时间查看Primary节点的监控信息。|[查看监控信息](/intl.zh-CN/用户指南/监控与报警/查看监控信息.md)|
-|数据安全性|白名单设置|进行IP白名单设置。|[设置IP白名单](/intl.zh-CN/单节点快速入门/设置白名单.md)|
+|UI element or page|Section|Description|Operation|
+|:-----------------|:------|:----------|:--------|
+|Top navigation bar|-|You can migrate, back up, and restart the instance.|-   [Migrate the data of an instance](/intl.en-US/User Guide/Data migration and synchronization/Overview.md)
+-   [Log on to a database](/intl.en-US/Quick Start for Replica Set/Connect to an instance/Connect to a standalone ApsaraDB for MongoDB instance through DMS.md)
+-   [Back up an instance](/intl.en-US/User Guide/Data backup/Manually back up an ApsaraDB for MongoDB instance.md)
+-   [Restart an instance](/intl.en-US/User Guide/Instance management/Restart an ApsaraDB for MongoDB instance.md) |
+|Basic Information|Basic Information|You can view the basic information about the instance, such as the instance ID, region, network type, specifications, and disk space. You can also change the configurations of the instance.|[Change the configurations of an instance](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Configuration change overview.md)|
+|Connection Info|You can view the public and internal IP addresses of the instance.|N/A|
+|Specification Information|You can view the specification details and disk space usage of the instance.|N/A|
+|Accounts|N/A|You can view account information and reset passwords.|[Reset a password](/intl.en-US/User Guide/Account management/Reset the password for an ApsaraDB for MongoDB instance.md)|
+|Backup and Recovery|Backups|You can view and download a list of data backups for a specified time period, restore data from the specified time period, or create an instance from a specified backup point.|-   [Create an instance from a backup](/intl.en-US/User Guide/Data recovery/Create an instance from a backup.md) |
+|Backup Settings|You can set a backup policy to automatically and periodically back up data based on the specified backup time.|[Configure automatic backup for an instance](/intl.en-US/User Guide/Data backup/Configure automatic backup for an ApsaraDB for MongoDB instance.md)|
+|Monitoring Info|N/A|You can view the monitoring information of the primary node based on the specified metrics and time range.|[View monitoring information](/intl.en-US/User Guide/Monitoring and alerting/View monitoring information.md)|
+|Data Security|Whitelist Settings|You can configure an IP whitelist.|[Configure an IP whitelist](/intl.en-US/Quick Start for Standalone/Configure a whitelist for a standalone ApsaraDB for MongoDB instance.md)|
 
