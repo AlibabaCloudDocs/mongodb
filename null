@@ -1,76 +1,76 @@
-# 分片集群实例连接说明
+# Overview of sharded cluster instance connections
 
-MongoDB分片集群实例分别提供Mongos节点单独的连接地址，以及适用于应用程序连接的高可用Connection String URI地址。本文介绍这两种连接地址的获取方式和连接说明。
+ApsaraDB for MongoDB supports both connection strings and connection string URIs. You can use a connection string to connect to one mongos, and use a connection string URI to connect to more mongos. For high availability, we recommend that you use connection string URIs to connect your application to more mongos. This topic provides an overview of sharded cluster instance connections.
 
-## 获取数据库连接地址
+## View connection strings
 
-1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
+1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
 
-2.  在页面左上角，选择实例所在的资源组和地域。
+2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
 
-3.  在左侧导航栏，单击**分片集群实例列表**。
+3.  In the left-side navigation pane, click **Sharded Cluster Instances**.
 
-4.  找到目标实例，单击实例ID。
+4.  Find the target instance and click its ID.
 
-5.  在左侧导航栏，单击**数据库连接**，查看数据库连接信息。
+5.  In the left-side navigation pane, click **Database Connection** to view connection strings.
 
-    ![连接信息](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/3378317951/p13833.png)
+    ![Connection strings](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/2378317951/p13833.png)
 
 
-## 连接地址说明
+## Description of connection strings
 
-|项目|说明|
-|:-|:-|
-|地址类型|-   经典网络连接地址：经典网络中的云服务在网络上不进行隔离，只能依靠云服务自身的安全组或白名单策略来阻挡非法访问。
--   专有网络连接地址：专有网络是一种隔离的网络环境，安全性和性能均高于传统的经典网络。 MongoDB实例默认提供专有网络连接地址，通过专有网络连接MongoDB实例可以获取更高的安全性和性能。
--   公网连接地址：由于通过公网连接实例存在一定的安全风险，MongoDB实例默认未提供公网连接地址。如果您要使用阿里云以外的设备（例如本地设备）连接MongoDB实例，您可以手动[申请公网连接地址](/intl.zh-CN/分片集群快速入门/申请公网连接地址.md)。 |
-|Mongos节点ID|Mongos节点连接地址的格式如下。 ```
+|Item|Description|
+|:---|:----------|
+|Type|-   Intranet Connection - Classic Network: Cloud services on a classic network are not isolated. Unauthorized access can only be blocked by using security groups or whitelists.
+-   Intranet Connection - VPC: A VPC is an isolated network with higher security and performance than a classic network. By default, an ApsaraDB for MongoDB instance provides VPC connection addresses.
+-   Public IP Connection: Connecting to a sharded cluster instance over the Internet is risky. Therefore, ApsaraDB for MongoDB does not provide public endpoints. If you want to connect to a sharded cluster instance from a device outside Alibaba Cloud \(for example, a local client\), you must apply for a public endpoint. For more information, see [Apply for a public endpoint for a sharded cluster instance](/intl.en-US/Quick Start for Cluster/Apply for a public endpoint for a sharded cluster instance.md). |
+|mongos ID|The connection string of a mongos is in the following format: ```
 <host>:<port>
 ```
 
--   <host\>：登录MongoDB数据库的域名地址。
--   <port\>：登录MongoDB数据库的端口。
+-   <host\>: the endpoint used to connect to the sharded cluster instance.
+-   <port\>: the port used to connect to the sharded cluster instance.
 
-**说明：** 日常测试时，可直接连接任一Mongos节点。 |
-|ConnectionstringURI连接地址|ConnectionstringURI连接地址格式如下。 ```
+**Note:** During regular tests, you can use a connection string to directly connect to a mongos. |
+|Connection string URI|A connection string URI is in the following format: ```
 mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
 ```
 
--   mongodb://：前缀，代表这是一个Connection String URI连接地址。
--   username:password@：连接MongoDB实例的用户名和密码，使用英文冒号（:）分隔。
--   hostX:portX：实例的连接地址和端口号。
--   /database：鉴权数据库名，即数据库账号所属的数据库。
--   ?options：指定额外的连接选项。
+-   mongodb://: the prefix, indicating a connection string URI.
+-   username:password@: the username and password used to log on to a database of the sharded cluster instance. You must separate the username and password with a colon \(:\).
+-   hostX:portX: the endpoint and port of a mongos in the sharded cluster instance.
+-   /database: the database corresponding to the username and password if authentication is enabled.
+-   ?options: additional connection options.
 
-**说明：** 推荐生产环境的应用程序通过Connection String URI连接数据库，客户端自动将请求分散到多个Mongos节点上，实现负载均衡。同时某个Mongos节点出现故障时，客户端能自动进行故障切换，将请求分散到状态正常的Mongos节点上。 |
+**Note:** If your application is in a production environment, we recommend that you use a connection string URI to connect to the instance. Then your client can automatically distribute your requests to multiple mongos to balance loads. When a mongos fails, your client automatically redirects requests to other mongos in the normal state. |
 
-## 登录MongoDB数据库
+## Log on to a database of the sharded cluster instance
 
-1.  获取了上述的[数据库连接地址](#section_e2o_ajm_d6k)后，您还需要获取下述信息：
+1.  Obtain the [connection strings](#section_e2o_ajm_d6k) and the following information:
 
-    -   MongoDB实例的数据库账号，初始账号为root。
+    -   The username used to log on to the database. The initial username is root.
 
-        **说明：** 不建议在生产环境中直接使用root账号连接数据库。您可以根据业务需求创建用户并分配权限，详情请参见[使用DMS管理MongoDB数据库用户]()。
+        **Note:** We recommend that you do not log on to a database as the root user in a production environment. You can create accounts and grant permissions to them based on your needs. For more information, see [Manage MongoDB users through DMS]().
 
-    -   登录数据库的密码，如root账号的密码忘记可[重置密码](/intl.zh-CN/副本集快速入门/设置密码.md)。
-    -   鉴权数据库名，即数据库账号所属的数据库。当数据库账号为root时，对应的数据库为admin。
-2.  登录MongoDB数据库。
+    -   The password of the database user. If you forget the password of the root user, you can reset it. For more information, see [Set a password for a sharded cluster instance](/intl.en-US/Quick Start for Replica Set/Set a password for a replica set instance.md).
+    -   The name of the database corresponding to the username if authentication is enabled. If the username is root, enter admin.
+2.  Log on to the database.
 
-    -   [通过DMS连接MongoDB分片集群实例](/intl.zh-CN/分片集群快速入门/连接实例/通过DMS连接MongoDB分片集群实例.md)
-    -   [通过Mongo Shell连接MongoDB分片集群实例](/intl.zh-CN/分片集群快速入门/连接实例/通过Mongo Shell连接MongoDB分片集群实例.md)
-    -   [程序代码连接](/intl.zh-CN/分片集群快速入门/连接实例/程序代码连接.md)
+    -   [Connect to a sharded cluster ApsaraDB for MongoDB instance through DMS](/intl.en-US/Quick Start for Cluster/Connect to an instance/Connect to a sharded cluster ApsaraDB for MongoDB instance through DMS.md)
+    -   [Connect to a sharded cluster instance by using the mongo shell](/intl.en-US/Quick Start for Cluster/Connect to an instance/Connect to a sharded cluster instance by using the mongo shell.md)
+    -   [Connect to an ApsaraDB for MongoDB instance through the program code](/intl.en-US/Quick Start for Cluster/Connect to an instance/Connect to an ApsaraDB for MongoDB instance through the program code.md)
 
-## 常见的连接场景
+## Common connection scenarios
 
--   [如何通过公网连接MongoDB实例](/intl.zh-CN/用户指南/连接实例/如何通过公网连接MongoDB实例.md)
--   [ECS实例与MongoDB实例网络类型不同时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例网络类型不同时如何连接.md)
--   [ECS实例与MongoDB实例地域不同时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例地域不同时如何连接.md)
--   [ECS实例与MongoDB实例不在同一阿里云账号时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例不在同一阿里云账号时如何连接.md)
+-   [Connect a local client to an ApsaraDB for MongoDB instance over the Internet](/intl.en-US/User Guide/Instance connection/Connect a local client to an ApsaraDB for MongoDB instance over the Internet.md)
+-   [How to connect an ECS instance to an ApsaraDB for MongoDB instance when their network types are different](/intl.en-US/User Guide/Instance connection/How to connect an ECS instance to an ApsaraDB for MongoDB instance when their network types are different.md)
+-   [How to connect an ECS instance to an ApsaraDB for MongoDB instance when they are in different regions](/intl.en-US/User Guide/Instance connection/How to connect an ECS instance to an ApsaraDB for MongoDB instance when they are in different regions.md)
+-   [How to connect an ECS instance to an ApsaraDB for MongoDB instance when they do not belong to the same Alibaba Cloud account](/intl.en-US/User Guide/Instance connection/How to connect an ECS instance to an ApsaraDB for MongoDB instance when they do not belong to the same Alibaba Cloud account.md)
 
-## 相关问题
+## FAQ
 
--   [排查 Mongo Shell 登录问题](/intl.zh-CN/常见问题/热点问题/Linux实例使用Mongo Shell登录MongoDB数据库提示“Timeout while receiving message”错误.md)
--   [排查因连接数耗尽导致的数据库连接问题](/intl.zh-CN/常见问题/热点问题/MongoDB实例连接数耗尽导致数据库连接失败.md)
--   [排查 MongoDB CPU使用率高的问题](/intl.zh-CN/最佳实践/性能/排查MongoDB CPU使用率高的问题.md)
--   [如何查询及限制连接数](/intl.zh-CN/常见问题/热点问题/如何查询及限制MongoDB实例的连接数.md)
+-   [How to troubleshoot logon issues for the mongo shell](/intl.en-US/Product Usage/Hot issues/The system prompts "Timeout while receiving message" when logging on to apsaradb for MongoDB through the Mongo Shell from a Linux instance.md)
+-   [How to troubleshoot database connection failures after the number of connections reaches the upper limit](/intl.en-US/Product Usage/Hot issues/Database connection failures caused by exhausted connections to apsaradb for MongoDB instances.md)
+-   [How to troubleshoot the high CPU utilization of ApsaraDB for MongoDB](/intl.en-US/Best Practices/Performance/Troubleshoot the high CPU usage of ApsaraDB for MongoDB.md)
+-   [How to query and limit the number of connections](/intl.en-US/Product Usage/Hot issues/How to query and limit the number of connections to an apsaradb for MongoDB instance.md)
 
