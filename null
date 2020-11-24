@@ -1,81 +1,88 @@
-# 创建Serverless实例
+# 关于MongoDB控制台
 
-您可以通过阿里云MongoDB管理控制台创建Serverless实例，本文将介绍具体的操作流程。
+MongoDB管理控制台是用于管理MongoDB实例的Web应用程序，您可以在MongoDB管理控制台上执行创建实例、设置IP白名单、设置连接数据库的密码、设置网络类型等操作。
 
-已注册阿里云账号，注册流程请参见[注册阿里云账号](https://help.aliyun.com/knowledge_detail/37195.html)。
+MongoDB管理控制台是阿里云管理控制台的一部分，关于控制台的通用设置和基本操作请参见：[使用阿里云管理控制台](https://help.aliyun.com/document_detail/47605.html)。
 
-## 费用说明
+MongoDB管理控制台是阿里云管理控制台的一部分，关于控制台的通用设置和基本操作请参见：[使用阿里云管理控制台](https://www.alibabacloud.com/help/zh/doc-detail/47605.html)。
 
-详情请参见[收费项目及价格说明](/cn.zh-CN/产品定价/收费项目及价格说明.md)。
+## 前提条件
 
-## 优惠活动
+使用阿里云账号登录MongoDB管理控制台。若没有阿里云账号，请单击[注册](https://account.aliyun.com/register/register.htm)。
 
-首购折扣价：首次购买云数据库MongoDB实例享受折扣价，详情请参见[云数据库优惠活动](https://promotion.aliyun.com/ntms/act/apsaradbfirstbuy.html)。
+## 控制台首页
 
-## 操作步骤
+对于MongoDB所有副本集实例而言，控制台首页的界面信息都是相同的。
 
-1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
+登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)，进入实例列表页面，如下图所示（仅为示例，请以实际界面为准）。
 
-2.  在页面左上角，选择实例所在的资源组和地域。
+![控制台首页](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4798026061/p13769.png)
 
-3.  在左侧导航栏，单击**Serverless实例列表**。
+参考说明
 
-4.  在**Serverless实例列表**页面，单击**创建实例**。
+|序号|名称|说明|
+|:-|:-|:-|
+|1|副本集实例列表|MongoDB控制台的首页，显示同一账户中某个地区下的副本集实例信息。|
+|2|地域|单击某一个地域名称，该地域下的所有实例就会显示在实例列表中。|
+|3|刷新|刷新实例信息页面。|
+|4|新建实例|[新建实例入口](https://help.aliyun.com/document_detail/26572.html)。|
+|5|实例ID|单击进入该实例详情页面。|
+|6|运行状态|实例运行状态，根据实例的不同情况也会有不同的状态。|
+|7|管理|单击进入实例的管理详情页面，如查看基本信息、设置备份与恢复、[查看监控信息](https://help.aliyun.com/document_detail/60518.html)、[设置报警规则](https://help.aliyun.com/document_detail/61585.html)、[设置白名单](https://help.aliyun.com/document_detail/54529.html)等。|
+|8|重启|[重启实例](https://help.aliyun.com/document_detail/44658.html)。|
+|9|更多|一些操作的便捷按钮，如[变更配置](https://help.aliyun.com/document_detail/44655.html?spm=a2c4g.11186623.2.22.7316390a06ETar)、[续费](https://help.aliyun.com/document_detail/54285.html?spm=a2c4g.11186623.2.23.7316390a06ETar)。|
+|10|修改实例备注|单击铅笔图标可修改实例的备注名，若不修改，则与实例ID一致。|
 
-5.  选择实例配置，参数说明如下表所示。
+|序号|名称|说明|
+|:-|:-|:-|
+|1|副本集实例列表|MongoDB控制台的首页，显示同一账户中某个地区下的副本集实例信息。|
+|2|地域|单击某一个地域名称，该地域下的所有实例就会显示在实例列表中。|
+|3|刷新|刷新实例信息页面。|
+|4|新建实例|[新建实例](https://www.alibabacloud.com/help/zh/doc-detail/26572.htm)入口|
+|5|实例ID|单击进入该实例详情页面。|
+|6|运行状态|实例运行状态，根据实例的不同情况也会有不同的状态。|
+|7|管理|单击进入实例的管理详情页面，如查看基本信息、设置备份与恢复、[查看监控信息](https://www.alibabacloud.com/help/zh/doc-detail/60518.htm)、[设置报警规则](https://www.alibabacloud.com/help/zh/doc-detail/61585.htm)、[设置白名单](https://www.alibabacloud.com/help/zh/doc-detail/54529.htm)等。|
+|8|重启|[重启实例](https://www.alibabacloud.com/help/zh/doc-detail/44658.htm)。|
+|9|更多|一些操作的便捷按钮，如[变更配置](https://www.alibabacloud.com/help/zh/doc-detail/44655.htm)、[续费](https://www.alibabacloud.com/help/zh/doc-detail/54285.htm)。|
+|10|修改实例备注|单击铅笔图标可修改实例的备注名，若不修改，则与实例ID一致。|
 
-    |参数项|说明|
-    |:--|:-|
-    |**商品类型**|固定为**Serverless（包年包月）**。|
-    |**地域**|实例所属的地理位置，不同地域内的实例内网不互通，实例创建成功后无法更换地域，请谨慎选择。
+## MongoDB实例控制台
 
-在同一地域内的实例（如[ECS](~~25367~~)与MongoDB之间）可以通过内网进行连接。 |
-    |**可用区**|[可用区](~~40654~~)是指在同一地域内，电力和网络互相独立的物理区域。同一可用区内ECS实例和MongoDB实例通过内网连接时，网络延时最小。
+登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)，单击**实例ID**操作栏下的**管理**，即可进入MongoDB实例的管理详情页面，详情如下表所示：
 
-**说明：** 您可以选择多可用区实现实例的同城容灾。 |
-    |**专有网络**|专有网络VPC（Virtual Private Cloud）是一种隔离的网络环境，安全性和性能均高于传统的经典网络。 **说明：** 专有网络需要事先创建，详情请参见[创建专有网络](/cn.zh-CN/专有网络和交换机/管理专有网络/创建专有网络.md)。 |
-    |**虚拟交换机**|虚拟交换机（VSwitch）是组成专有网络的基础网络模块。**说明：** 虚拟交换机需要事先创建，详情请参见[创建交换机](/cn.zh-CN/专有网络和交换机/管理交换机/创建交换机.md)。 |
-    |**性能规格**|MongoDB Serverless实例的服务能力，即读写吞吐量（CU）。当前仅支持100CU，未来会开放更多服务能力的选择。关于读写吞吐量的详情，请参见[读写吞吐量CU](/cn.zh-CN/MongoDB Serverless版/什么是MongoDB Serverless版.md)。|
-    |**存储容量**|MongoDB Serverless实例的存储容量，当前开放1~10GB容量的选择，每1GB递增。|
-    |**用户密码**|设置数据库账号的密码。
+|控制台页面名称|区块名称|描述|常用操作链接|
+|:------|:---|:-|:-----|
+|界面上方操作区|-|自建MongoDB迁移、备份实例、重启实例操作。|-   [自建MongoDB迁移](https://help.aliyun.com/document_detail/44660.html)
+-   备份实例
+-   [重启实例](https://help.aliyun.com/document_detail/44658.html) |
+|基本信息|基本信息|查看实例的基本信息，如实例ID、地域、网络类型、规格、磁盘空间，进行变更实例配置操作。|[变更实例配置](https://help.aliyun.com/document_detail/44655.html)|
+|账号管理|查看实例账号，重置密码操作。|[重置密码](https://help.aliyun.com/document_detail/54544.html)|
+|连接信息|查看节点的域名地址、端口号。|-|
+|主实例资源状况|查看实例的磁盘空间使用率、IOPS使用率、连接数和CPU使用率。|-|
+|实例关系|查看实例节点间的关系。|-|
+|备份与恢复|备份列表|查看选定时间的数据备份列表、按照时间范围恢复数据、从备份点创建实例、按时间点新建实例。|-   [下载备份数据](https://help.aliyun.com/document_detail/55011.html)
+-   [从备份点创建实例](https://help.aliyun.com/document_detail/55013.html)
+-   [数据恢复](https://help.aliyun.com/document_detail/55015.html)
+-   [按时间点新建实例](https://help.aliyun.com/document_detail/55014.html) |
+|备份设置|按照选定的时间点进行周期性的自动备份。|[设置备份周期](https://help.aliyun.com/document_detail/55008.html)|
+|监控信息|资源监控|根据选定的数据指标和查询时间查看Primary节点和Secondary节点的监控信息。|-|
+|报警规则|设置报警规则|设置报警规则操作。|[报警规则](https://help.aliyun.com/document_detail/61585.html)|
+|安全控制|安全控制|进行IP白名单设置。|[设置IP白名单](https://help.aliyun.com/document_detail/66111.html)|
 
-    -   密码由大写字母、小写字母、数字、特殊字符中的至少三种组成，特殊字符如下：
-
-!\#$%^&\*\(\)\_+-=
-
-    -   密码长度为8-32位。 |
-    |**实例名称**|自定义实例的名称。|
-    |**购买数量**|需要购买的实例个数，可选择购买1~99个实例。|
-    |**购买时长**|选择包年包月实例的时长，包月可选择1-9个月，包年可选择1年、2年、3年和5年。|
-
-6.  单击**立即购买**，进入确认订单页面。
-
-7.  在确认订单页面，阅读并勾选服务协议，根据提示完成支付流程。
-
-    **说明：** 您还可以根据需求选择订购[负载均衡](https://www.aliyun.com/product/slb)和[云解析DNS企业标准版](https://www.aliyun.com/product/pvtz)服务。
-
-
-## 查看已创建的实例
-
-1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
-
-2.  在页面左上角，选择实例所在的资源组和地域。
-
-3.  在左侧导航栏，单击**Serverless实例列表**。
-
-
-## 无法找到实例
-
-|可能原因|解决方法|
-|----|----|
-|选择了错误的地域|参照[查看已创建的实例](#section_wxx_ka2_pu1)操作，重新选择正确的地域。|
-|选择了错误的实例列表|参照[查看已创建的实例](#section_wxx_ka2_pu1)操作，选择**Serverless实例列表**。|
-|未刷新或过早刷新控制台|您可以等待一段时间（通常为几分钟）后刷新控制台，再查看实例列表中是否会出现实例。|
-|资源不足|新创建的实例可能因为资源不足而退款，您可以在[订单管理](https://expense.console.aliyun.com/#/order/list/)中查看到退款。
-
-在您确认退款后，您可以更换可用区尝试再次购买，您也可以[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)处理。 |
-
-创建实例后，您还需要[设置白名单](/cn.zh-CN/副本集快速入门/设置白名单.md)，如果您需要通过公网连接实例，您还需要[申请公网连接地址](/cn.zh-CN/副本集快速入门/申请公网连接地址.md)。
-
-关于连接实例的方法和场景，请参见[连接实例](/cn.zh-CN/用户指南/连接实例/连接实例.md)。
+|控制台页面名称|区块名称|描述|常用操作链接|
+|:------|:---|:-|:-----|
+|界面上方操作区|-|自建MongoDB迁移、备份实例、重启实例操作。|-   [自建MongoDB迁移](https://www.alibabacloud.com/help/zh/doc-detail/99995.htm)
+-   备份实例
+-   [重启实例](https://www.alibabacloud.com/help/zh/doc-detail/44658.htm) |
+|基本信息|基本信息|查看实例的基本信息，如实例ID、地域、网络类型、规格、磁盘空间，进行变更实例配置操作。|[变更实例配置](https://www.alibabacloud.com/help/zh/doc-detail/44655.htm)|
+|账号管理|查看实例账号，重置密码操作。|[重置密码](https://www.alibabacloud.com/help/zh/doc-detail/54544.htm)|
+|连接信息|查看两个节点的域名地址和端口号。|-|
+|主实例资源状况|查看实例的磁盘空间使用率、IOPS使用率、连接数和CPU使用率。|-|
+|实例关系|查看实例节点间的关系。|-|
+|备份与恢复|备份列表|查看选定时间的数据备份列表、按照时间范围恢复数据、从备份点创建实例、按时间点新建实例。|-   [下载备份数据](https://www.alibabacloud.com/help/zh/doc-detail/55011.htm)
+-   [数据恢复](https://www.alibabacloud.com/help/zh/doc-detail/55015.htm) |
+|备份设置|按照选定的时间点进行周期性的自动备份。|[设置备份周期](https://www.alibabacloud.com/help/zh/doc-detail/55008.htm)|
+|监控信息|资源监控|根据选定的数据指标和查询时间查看Primary节点和Secondary节点的监控信息。|-|
+|报警规则|设置报警规则|设置报警规则操作。|[报警规则](https://www.alibabacloud.com/help/zh/doc-detail/61585.htm)|
+|安全控制|安全控制|进行IP白名单设置。|[设置IP白名单](https://www.alibabacloud.com/help/zh/doc-detail/54529.htm)|
 
