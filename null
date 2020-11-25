@@ -1,32 +1,32 @@
-# 设置监控采集粒度
+# Set the monitoring granularity
 
-云数据库MongoDB版支持设置监控采集粒度（可选择为1秒或300秒），您可以根据业务需求自行选择。
+ApsaraDB for MongoDB allows you to set the monitoring granularity to 1 second or 300 seconds, that is, collecting monitoring data once every second or 300 seconds, based on your business needs.
 
-## 前提条件
+## Prerequisites
 
--   实例为副本集实例或分片集群实例。
--   实例的数据库版本为3.4、4.0或4.2版本，如果实例的数据库版本过低，您可以[升级数据库版本](/intl.zh-CN/用户指南/实例管理/数据库升级/升级数据库版本.md)。
+-   A replica set or sharded cluster instance is used.
+-   The database version of the ApsaraDB for MongoDB instance is MongoDB 3.4, 4.0, or 4.2. If the database version is earlier than MongoDB 3.4, you can upgrade the database version. For more information, see [Upgrade MongoDB versions](/intl.en-US/User Guide/Instance management/Upgrading Database Version/Upgrade the database version of an ApsaraDB for MongoDB instance.md).
 
-## 费用说明
+## Billing
 
-为普惠用户，最细粒度的秒级监控（每秒1次）采集频率暂免收服务费。
+Currently, ApsaraDB for MongoDB allows you to collect monitoring data at the finest granularity of 1 second free of charge.
 
-## 注意事项
+## Important notes
 
-秒级监控（每秒1次）依赖最新的云数据库MongoDB 3.4版的小版本（最新小版本均兼容之前的小版本）。
+The 1 second monitoring granularity is only available in the latest minor version of ApsaraDB for MongoDB version 3.4. The latest minor version of version 3.4 is compatible with all earlier minor versions.
 
--   2017年12月5日之前创建的实例（3.4版本），如果在12月5日之后重启过一次实例，系统会自动升级至最新小版本；若未进行过重启，请在业务低峰进行重启，所有监控项在重启后生效。
--   2017年12月5日之后创建的实例（3.4版本）可直接设置并使用秒级监控（每秒1次），监控项立即生效。
+-   An ApsaraDB for MongoDB 3.4 instance created before December 5, 2017 will be automatically upgraded to the latest minor version of version 3.4 available if you have restarted the instance after the specified date. We recommend that you restart your instances during off-peak periods. The monitoring granularity will take effect for all metrics after restart.
+-   You can set the monitoring granularity to 1 second for an ApsaraDB for MongoDB 3.4 instance created after December 5, 2017. The monitoring granularity takes effect for all metrics immediately.
 
-## 各监控项支持的采集粒度
+## Monitoring granularity available for each metric
 
-|监控项|每秒1次|每300秒1次|
-|:--|:---|:------|
-|磁盘空间使用率|不支持。|所有版本均支持。|
-|磁盘空间使用量|
-|CPU使用率|3.4（最新的小版本）、4.0、4.2版本均支持。|
-|内存使用率|
-|IOPS使用率|
+|Metric|Once every second|Once every 300 seconds|
+|:-----|:----------------|:---------------------|
+|Disk space usage|Not supported|Supported by all versions|
+|Used disk space|
+|CPU usage|Supported by version 4.2, version 4.0, and the latest minor version of version 3.4|
+|Memory usage|
+|IOPS usage|
 |opcounters|
 |connections|
 |cursors|
@@ -34,22 +34,22 @@
 |globalLock|
 |wiredTiger|
 
-## 操作步骤
+## Procedure
 
-1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
+1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
 
-2.  在页面左上角，选择实例所在的资源组和地域。
+2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
 
-3.  根据实例类型，在左侧导航栏单击**副本集实例列表**或**分片集群实例列表**。
+3.  In the left-side navigation pane, click **Replica Set Instances**, or **Sharded Cluster Instances** based on the instance type.
 
-4.  找到目标实例，单击实例ID。
+4.  Find the target instance and click its ID.
 
-5.  在左侧导航栏，单击**监控信息**。
+5.  In the left-side navigation pane, click **Monitoring Info**.
 
-6.  在**监控信息**页面，单击**监控粒度采集设置**。
+6.  On the **Monitoring Info** page that appears, click **Monitor Granularity Setting**.
 
-7.  在弹出的**监控粒度采集设置**对话框中，设置监控粒度。
+7.  In the **Monitor Granularity Setting** pane that appears on the right side, set the monitoring granularity.
 
-8.  单击**确定**。
+8.  Click **OK**.
 
 
