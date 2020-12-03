@@ -14,11 +14,11 @@ This operation is only applicable to standalone instances and replica set instan
 
 |Parameter|Type|Required|Example|Description|
 |---------|----|--------|-------|-----------|
-|Action|String|Yes|ModifyDBInstanceSpec|The operation that you want to perform. Set the value to**ModifyDBInstanceSpec**. |
+|Action|String|Yes|ModifyDBInstanceSpec|The operation that you want to perform. Set the value to **ModifyDBInstanceSpec**. |
 |DBInstanceId|String|Yes|dds-bpxxxxxxxx|The ID of an instance. |
 |DBInstanceClass|String|No|dds.mongo.standard|The type of the instance. For more information, see [Instance types](~~57141~~).
 
-**Note:** You must specify either this parameter or the**DBInstanceStorage**parameter. |
+**Note:** You must specify either this parameter or the **DBInstanceStorage** parameter. |
 |DBInstanceStorage|String|No|50|The storage space of the instance.
 
 -   Valid values: **10** to **3000**. Unit: GB. The values that can be specified for this parameter are dependent on the instance specifications. For more information, see [Instance types](~~57141~~).
@@ -26,7 +26,7 @@ This operation is only applicable to standalone instances and replica set instan
 
 **Note:**
 
--   You must specify either this parameter or the**DBInstanceStorage**parameter.
+-   You must specify either this parameter or the **DBInstanceStorage** parameter.
 -   Storage space can be scaled down only on replica set instances whose billing method is Subscription. The storage space you scale down must be greater than the used storage space. |
 |OrderType|String|No|UPGRADE|The type of configuration changes performed. Default value: DOWNGRADE. Valid values:
 
