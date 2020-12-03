@@ -19,7 +19,7 @@ You can call this operation to assign a public endpoint to an ApsaraDB for Mongo
 
 **Note:**
 
--   This parameter is valid only if you set the**DBInstanceId** parameter to the ID of a sharded cluster instance.
+-   This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
 -   You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the ID of the mongos, shard, or Configserver node. |
 
 ## Response parameters
