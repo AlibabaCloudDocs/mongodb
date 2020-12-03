@@ -1,10 +1,30 @@
 ---
-keyword: [云数据库, 阿里云数据库, 云数据库mongodb]
+keyword: [MongoDB JSON数据库, MongoDB高性能, MongoDB可靠性, MongoDB上云咨询架构方案运维, MongoDB数据库引擎, MongoDB存储结构]
 ---
 
 # 什么是云数据库MongoDB版
 
 云数据库MongoDB版（ApsaraDB for MongoDB）完全兼容MongoDB协议，基于飞天分布式系统和高可靠存储引擎，提供多节点高可用架构、弹性扩容、容灾、备份恢复、性能优化等功能。
+
+## MongoDB的数据结构
+
+MongoDB是面向文档的NoSQL（非关系型）数据库，它的数据结构由字段（Field）和值（Value）组成，类似于JSON对象，示例如下：
+
+```
+{
+    name:"张三",
+    sex:"男性",
+    age:30
+}
+```
+
+## MongoDB的存储结构
+
+MongoDB的存储结构区别于传统的关系型数据库，由如下三个单元组成：
+
+-   文档（Document）：MongoDB中最基本的单元，由BSON键值对（key-value）组成。相当于关系型数据库中的行（Column）。
+-   集合（Collection）：一个集合可以包含多个文档，相当于关系型数据库中的表格（Table）。
+-   数据库（Database）：等同于关系型数据库中的数据库概念，一个数据库中可以包含多个集合。您可以在MongoDB中创建多个数据库。
 
 ## 为什么选择云数据库MongoDB版
 
@@ -20,14 +40,14 @@ keyword: [云数据库, 阿里云数据库, 云数据库mongodb]
 
 |实例架构|说明|
 |:---|:-|
-|[单节点架构](/cn.zh-CN/产品简介/系统架构/单节点架构.md)|单节点实例适用于开发、测试及其他非企业核心数据存储的场景。让您能够以更低的入门价格享受云数据库MongoDB版在运维支持、内核级优化上的服务。创建单节点实例请参见[创建单节点实例](/cn.zh-CN/单节点快速入门/创建单节点实例.md)。|
-|[副本集架构](/cn.zh-CN/产品简介/系统架构/副本集架构.md)|副本集实例提供一个可供读写访问的Primary节点（主节点），一个或多个提供高可用的Secondary节点（从节点）、一个隐藏的Hidden节点（隐藏节点）和一个或多个可选的ReadOnly节点（只读节点）。各节点的详细说明和区别请参见[副本集架构](/cn.zh-CN/产品简介/系统架构/副本集架构.md)。创建副本集实例请参见[创建副本集实例](/cn.zh-CN/副本集快速入门/创建副本集实例.md)。
+|[单节点架构](/cn.zh-CN/产品简介/系统架构/单节点架构.md)|单节点实例适用于开发、测试及其他非企业核心数据存储的场景。让您能够以更低的入门价格享受云数据库MongoDB版在运维支持、内核级优化上的服务。创建单节点实例请参见[创建单节点实例](/cn.zh-CN/快速入门/创建实例/创建单节点实例.md)。|
+|[副本集架构](/cn.zh-CN/产品简介/系统架构/副本集架构.md)|副本集实例提供一个可供读写访问的Primary节点（主节点），一个或多个提供高可用的Secondary节点（从节点）、一个隐藏的Hidden节点（隐藏节点）和一个或多个可选的ReadOnly节点（只读节点）。各节点的详细说明和区别请参见[副本集架构](/cn.zh-CN/产品简介/系统架构/副本集架构.md)。创建副本集实例请参见[创建副本集实例](/cn.zh-CN/快速入门/创建实例/创建副本集实例.md)。
 
 您可以根据业务需要，例如阅读类网站、订单查询系统等读多写少场景或有临时活动的突发业务，按需增删Secondary节点，更好地实现读取性能扩展，详情请参见[变更副本集实例节点数](/cn.zh-CN/用户指南/实例管理/变更实例配置/变更副本集实例节点数.md)。
 
-目前云数据库MongoDB版副本集实例支持了只读节点，用于扩展主节点的读请求能力，以缓解大量读请求给主节点造成的压力。详情请参见[MongoDB只读节点简介](/cn.zh-CN/副本集快速入门/MongoDB只读节点简介.md)。 |
-|[分片集群架构](/cn.zh-CN/产品简介/系统架构/分片集群架构.md)|基于多个副本集（每个副本集使用三节点模式）组成的分片集群实例。分片集群实例提供Mongos、Shard、ConfigServer三个组件。您可以自由地选择Mongos和Shard节点的个数和配置，组建服务能力不同的MongoDB集群。创建分片集群实例请参见[创建分片集群实例](/cn.zh-CN/分片集群快速入门/创建分片集群实例.md)。更多关于组件作用的详细介绍，请参见[分片集群架构](/cn.zh-CN/产品简介/系统架构/分片集群架构.md)。目前云数据库MongoDB版分片集群实例已兼容DynamoDB协议，您可以直接在控制台中创建兼容DynamoDB协议的MongoDB实例，详情请参见[创建兼容DynamoDB协议的MongoDB实例](/cn.zh-CN/DynamoDB协议兼容/创建兼容DynamoDB协议的MongoDB实例.md)。 |
-|[Serverless架构](/cn.zh-CN/产品简介/系统架构/Serverless架构.md)|Serverless形态是通过内核和代理层面实现命名空间及存储空间隔离的多租户MongoDB数据库服务，提供代理、网络资源、命名空间、存储空间的垂直资源隔离能力，同时提供计算资源按需计费能力，具有资源用量低、简单易用、弹性灵活、价格低廉等优点，完美解决了MongoDB使用门槛高的问题，帮助中小客户轻松上云。创建Serverless实例请参见[创建Serverless实例](/cn.zh-CN/Serverless版快速入门/创建Serverless实例.md)。|
+目前云数据库MongoDB版副本集实例支持了只读节点，用于扩展主节点的读请求能力，以缓解大量读请求给主节点造成的压力。详情请参见[MongoDB只读节点简介](/cn.zh-CN/快速入门/MongoDB只读节点简介.md)。 |
+|[分片集群架构](/cn.zh-CN/产品简介/系统架构/分片集群架构.md)|基于多个副本集（每个副本集使用三节点模式）组成的分片集群实例。分片集群实例提供Mongos、Shard、ConfigServer三个组件。您可以自由地选择Mongos和Shard节点的个数和配置，组建服务能力不同的MongoDB集群。创建分片集群实例请参见[创建分片集群实例](/cn.zh-CN/快速入门/创建实例/创建分片集群实例.md)。更多关于组件作用的详细介绍，请参见[分片集群架构](/cn.zh-CN/产品简介/系统架构/分片集群架构.md)。目前云数据库MongoDB版分片集群实例已兼容DynamoDB协议，您可以直接在控制台中创建兼容DynamoDB协议的MongoDB实例，详情请参见[创建兼容DynamoDB协议的MongoDB实例](/cn.zh-CN/DynamoDB协议兼容/创建兼容DynamoDB协议的MongoDB实例.md)。 |
+|[Serverless架构](/cn.zh-CN/产品简介/系统架构/Serverless架构.md)|Serverless形态是通过内核和代理层面实现命名空间及存储空间隔离的多租户MongoDB数据库服务，提供代理、网络资源、命名空间、存储空间的垂直资源隔离能力，同时提供计算资源按需计费能力，具有资源用量低、简单易用、弹性灵活、价格低廉等优点，完美解决了MongoDB使用门槛高的问题，帮助中小客户轻松上云。创建Serverless实例请参见[创建Serverless实例](/cn.zh-CN/快速入门/创建实例/创建Serverless实例.md)。|
 
 ## 产品定价
 
@@ -69,8 +89,8 @@ keyword: [云数据库, 阿里云数据库, 云数据库mongodb]
 
 创建MongoDB实例后，您可以通过以下方式访问MongoDB实例：
 
--   DMS：您可以[通过DMS连接MongoDB副本集实例](/cn.zh-CN/副本集快速入门/连接实例/通过DMS连接MongoDB副本集实例.md)，在Web界面进行数据库开发工作。
--   Mongo Shell：MongoDB官方命令行工具，您可以[通过Mongo Shell连接MongoDB副本集实例](/cn.zh-CN/副本集快速入门/连接实例/通过Mongo Shell连接MongoDB副本集实例.md)，对数据库进行管理操作。
+-   DMS：您可以[通过DMS登录MongoDB副本集实例](/cn.zh-CN/快速入门/连接实例/通过DMS连接MongoDB副本集实例.md)，在Web界面进行数据库开发工作。
+-   Mongo Shell：MongoDB官方命令行工具，您可以[通过Mongo Shell连接MongoDB副本集实例](/cn.zh-CN/快速入门/连接实例/通过Mongo Shell连接MongoDB副本集实例.md)，对数据库进行管理操作。
 -   客户端：云数据库MongoDB版完全兼容MongoDB协议，您可以使用通用的数据库客户端工具访问MongoDB实例。例如Robo 3T、Studio 3T等。
 
 ## 相关服务
