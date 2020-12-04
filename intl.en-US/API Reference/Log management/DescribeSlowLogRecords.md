@@ -15,7 +15,9 @@ You can call this operation to query entries in the slow query log of an ApsaraD
 |---------|----|--------|-------|-----------|
 |Action|String|Yes|DescribeSlowLogRecords|The operation that you want to perform. Set the value to **DescribeSlowLogRecords**. |
 |StartTime|String|Yes|2019-02-24T12:10Z|The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. |
-|EndTime|String|Yes|2019-02-26T12:10Z|The end of the time range to query. The end time must be later than the start time. The time range cannot exceed one month. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. |
+|EndTime|String|Yes|2019-02-26T12:10Z|The end of the time range to query. The end time must be later than the start time. The time range cannot exceed one month. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+
+**Note:** The end time must be within 24 hours from the start time. Otherwise, the query fails. |
 |DBInstanceId|String|Yes|dds-bpxxxxxxxx|The ID of the instance.
 
 **Note:** If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter. |
