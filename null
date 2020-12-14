@@ -1,39 +1,34 @@
-# 程序代码连接
+# Connect to an ApsaraDB for MongoDB instance through the program code
 
-云数据库MongoDB版完全兼容MongoDB协议，本文介绍各类程序连接数据库的相关示例代码。
-
-## 相关链接
+## Related links
 
 -   [MongoDB Drivers](https://docs.mongodb.org/ecosystem/drivers/)
 -   [Connection String URI Format](https://docs.mongodb.org/manual/reference/connection-string/)
 
-    **说明：** 本文连接demo仅适用于阿里云提供的MongoDB内网连接地址。
+    **Note:** The connection sample code in this topic applies when you use internal IP addresses provided by Alibaba Cloud to connect to ApsaraDB for MongoDB.
 
--   获取分片集群实例的连接地址，无需手动拼接，详情请参见[分片集群实例连接说明]()。
+-   For more information about how to obtain connection strings of ApsaraDB for MongoDB, see [Connect to an ApsaraDB for MongoDB instance](https://www.alibabacloud.com/help/zh/doc-detail/55188.htm).
 
-    **说明：** 连接分片集群实例时，无需指定replicaSet参数。
+## Node.js
 
+Related links: [MongoDB Node.js Driver](https://docs.mongodb.org/getting-started/node/client/)
 
-## Node.js 连接示例
-
-相关链接：[MongoDB Node.js Driver](https://docs.mongodb.org/getting-started/node/client/)
-
-1.  项目初始化。
+1.  Initialize a project.
 
     ```
-    mkdir node-mongodb-demo
-    cd node-mongodb-demo
-    npm init
+        mkdir node-mongodb-demo
+        cd node-mongodb-demo
+        npm init
     ```
 
-2.  安装驱动包以及工具包。
+2.  Install the driver package and toolkit.
 
     ```
-    npm install mongodb node-uuid sprintf-js –save
+    npm install mongodb node-uuid sprintf-js -save
     ```
 
-3.  获取云数据库 MongoDB 连接信息。
-4.  Node.js Demo Code。
+3.  Obtain connection strings of ApsaraDB for MongoDB instances.
+4.  Use the following Node.js sample code.
 
     ```
         'use strict';
@@ -49,35 +44,35 @@
         var replSetName = "mgset-1441984991";
         var demoDb = "test";
         var demoColl = "testColl";
-        // 官方建议使用的方案
-        var url = sprintf("mongodb://%s:%d,%s:%d/%s?replicaSet=%s", host1, port1, host2, port2, demoDb, replSetName);
+        // The officially recommended solution.
+        var url = sprintf("mongodb://%s:%d,%s:%d/%s? replicaSet=%s", host1, port1, host2, port2, demoDb, replSetName);
         console.info("url:", url);
-        // 获取mongoClient
+        // Obtain the MongoClient.
         mongoClient.connect(url, function(err, db) {
             if(err) {
                 console.error("connect err:", err);
                 return 1;
             }
-            // 授权. 这里的username基于admin数据库授权
+            // Authenticate. Here, the username is for authentication of the admin database.
             var adminDb = db.admin();
             adminDb.authenticate(username, password, function(err, result) {
                 if(err) {
                     console.error("authenticate err:", err);
                     return 1;
                 }
-                // 取得Collecton句柄
+                // Obtain the collection handle.
                 var collection = db.collection(demoColl);
                 var demoName = "NODE:" + uuid.v1();
                 var doc = {"DEMO": demoName, "MESG": "Hello AliCoudDB For MongoDB"};
                 console.info("ready insert document: ", doc);
-                // 插入数据
+                // Insert data.
                 collection.insertOne(doc, function(err, data) {
                     if(err) {
                         console.error("insert err:", err);
                         return 1;
                     }
                     console.info("insert result:", data["result"]);
-                    // 读取数据
+                    // Read data.
                     var filter = {"DEMO": demoName};
                     collection.find(filter).toArray(function(err, items) {
                         if(err) {
@@ -85,7 +80,7 @@
                             return 1;
                         }
                         console.info("find document: ", items);
-                        //关闭Client，释放资源
+                        // Close the client and release resources.
                         db.close();
                     });
                 });
@@ -94,73 +89,73 @@
     ```
 
 
-## PHP 连接示例
+## PHP
 
-相关链接：
+Related links:
 
 [Mongodb php driver](https://docs.mongodb.org/ecosystem/drivers/php/)
 
-1.  安装驱动包以及工具包。
+1.  Install the driver package and toolkit.
 
     ```
         $ pecl install mongodb
-        $ echo "extension=mongodb.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+        $ echo "extension=mongodb.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"` 
         $ composer require "mongodb/mongodb=^1.0.0"
     ```
 
-2.  获取云数据库MongoDB的连接信息。
-3.  PHP Demo Code。
+2.  Obtain connection strings of ApsaraDB for MongoDB instances.
+3.  Use the following PHP sample code.
 
     ```
-        <?php
+        <? php
         require 'vendor/autoload.php'; // include Composer goodies
-            # 实例信息
+            # Instance information
             $demo_seed1 = 'demotest-1.mongodb.test.aliyun-inc.com:3717';
             $demo_seed2 = 'demotest-2.mongodb.test.aliyun-inc.com:3717';
             $demo_replname = "mgset-1441984463";
             $demo_user = 'root';
             $demo_password = '123456';
             $demo_db = 'admin';
-            # 根据实例信息构造mongodb connection string
-            # mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
+            # Construct the mongodb connection string based on the instance information.
+            # mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][? options]]
             $demo_uri = 'mongodb://' . $demo_user . ':' . $demo_password . '@' .
-              $demo_seed1 . ',' . $demo_seed2 . '/' . $demo_db . '?replicaSet=' . $demo_replname;
+              $demo_seed1 . ',' . $demo_seed2 . '/' . $demo_db . '? replicaSet=' . $demo_replname;
             $client = new MongoDB\Client($demo_uri);
             $collection = $client->testDb->testColl;
-            $result = $collection->insertOne( [ 'name' => 'ApsaraDB for Mongodb', 'desc' => 'Hello, Mongodb'  ]  );
+            $result = $collection->insertOne( [ 'name' => 'ApsaraDB for Mongodb', 'desc' => 'Hello, Mongodb'  ] );
             echo "Inserted with Object ID '{$result->getInsertedId()}'", "\n";
-            $result = $collection->find( [ 'name' => 'ApsaraDB for Mongodb']  );
+            $result = $collection->find( [ 'name' => 'ApsaraDB for Mongodb'] );
             foreach ($result as $entry)
             {
               echo $entry->_id, ': ', $entry->name, "\n";
             }
-        ?>
+        ? >
     ```
 
 
-## Java 连接示例
+## Java
 
-相关链接：
+Related links:
 
--   官方[Quick Start](http://mongodb.github.io/mongo-java-driver/3.0/driver/getting-started/)。
--   Jar包[下载](https://oss.sonatype.org/content/repositories/releases/org/mongodb/mongo-java-driver/3.0.4/)。
+-   Official [Quick Start](http://mongodb.github.io/mongo-java-driver/3.0/driver/getting-started/)
+-   JAR package [download](https://oss.sonatype.org/content/repositories/releases/org/mongodb/mongo-java-driver/3.0.4/)
 
-1.  获取云数据库 MongoDB 连接信息。
-2.  Java Demo Code。
+1.  Obtain connection strings of ApsaraDB for MongoDB instances.
+2.  Use the following Java sample code.
 
-    -   Maven配置。
+    -   Maven configuration
 
         ```
-            <dependencies>
-                <dependency>
+            <dependencies> 
+                <dependency> 
                     <groupId>org.mongodb</groupId>
                     <artifactId>mongo-java-driver</artifactId>
                     <version>3.0.4</version>
-                </dependency>
-            </dependencies>
+                </dependency> 
+            </dependencies> 
         ```
 
-    -   Java Code。
+    -   Java sample code
 
         ```
             import java.util.ArrayList;
@@ -187,27 +182,27 @@
                 public static String DEMO_DB = "test";
                 public static String DEMO_COLL = "testColl";
                 public static MongoClient createMongoDBClient() {
-                    // 构建Seed列表
+                    // Construct a seed list.
                     List<ServerAddress> seedList = new ArrayList<ServerAddress>();
                     seedList.add(seed1);
                     seedList.add(seed2);
-                    // 构建鉴权信息
+                    // Construct authentication information.
                     List<MongoCredential> credentials = new ArrayList<MongoCredential>();
                     credentials.add(MongoCredential.createScramSha1Credential(username,
                             DEFAULT_DB, password.toCharArray()));
-                    // 构建操作选项，requiredReplicaSetName属性外的选项根据自己的实际需求配置，默认参数满足大多数场景
+                    // Construct operation options. Configure options other than requiredReplicaSetName based on your actual requirements. The default parameter settings are sufficient for most scenarios.
                     MongoClientOptions options = MongoClientOptions.builder()
                             .requiredReplicaSetName(ReplSetName).socketTimeout(2000)
                             .connectionsPerHost(1).build();
                     return new MongoClient(seedList, credentials, options);
                 }
                 public static MongoClient createMongoDBClientWithURI() {
-                    //另一种通过URI初始化
-                    //mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
+                    // Use a URI to initialize the MongoClient.
+                    //mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][? options]]
                     MongoClientURI connectionString = new MongoClientURI("mongodb://" + username + ":" + password + "@" + 
                                                                          seed1 + "," + seed2 + "/" + 
                                                                          DEFAULT_DB + 
-                                                                         "?replicaSet=" + ReplSetName);
+                                                                         "? replicaSet=" + ReplSetName);
                     return new MongoClient(connectionString);
                 }
                 public static void main(String args[]) {
@@ -215,17 +210,17 @@
                     //or
                     //MongoClient client = createMongoDBClientWithURI();
                     try {
-                        // 取得Collecton句柄
+                        // Obtain the collection handle.
                         MongoDatabase database = client.getDatabase(DEMO_DB);
                         MongoCollection<Document> collection = database.getCollection(DEMO_COLL);
-                        // 插入数据
+                        // Insert data.
                         Document doc = new Document();
                         String demoname = "JAVA:" + UUID.randomUUID();
                         doc.append("DEMO", demoname);
                         doc.append("MESG", "Hello AliCoudDB For MongoDB");
                         collection.insertOne(doc);
                         System.out.println("insert document: " + doc);
-                        // 读取数据
+                        // Read data.
                         BsonDocument filter = new BsonDocument();
                         filter.append("DEMO", new BsonString(demoname));
                         MongoCursor<Document> cursor = collection.find(filter).iterator();
@@ -233,7 +228,7 @@
                             System.out.println("find document: " + cursor.next());
                         }       
                     } finally {
-                        //关闭Client，释放资源
+                        // Close the client and release resources.
                         client.close();
                     }
                     return ;
@@ -242,36 +237,36 @@
         ```
 
 
-## Python 连接示例
+## Python
 
-相关链接：
+Related links:
 
--   [pymongo下载地址](https://pypi.python.org/pypi/pymongo/)
--   [官方文档](http://api.mongodb.org/python/current/index.html)
+-   [Pymongo download](https://pypi.python.org/pypi/pymongo/)
+-   [Official documentation](http://api.mongodb.org/python/current/index.html)
 
-1.  安装pymongo。
+1.  Install PyMongo.
 
     ```
         pip install pymongo
     ```
 
-2.  获取云数据库MongoDB连接信息。
-3.  Python Demo Code。
+2.  Obtain the connection strings of ApsaraDB for MongoDB instances.
+3.  Use the following Python sample code.
 
     ```
         import uuid
             from pymongo import MongoClient
-            #两地址
+            # Specify two addresses used to connect to the primary and secondary nodes of the instance.
             CONN_ADDR1 = 'demotest-1.mongodb.tbc3.newtest.rdstest.aliyun-inc.com:27017'
             CONN_ADDR2 = 'demotest-2.mongodb.tbc3.newtest.rdstest.aliyun-inc.com:27017'
             REPLICAT_SET = 'mgset-1441984463'
             username = 'demouser'
             password = '123456'
-            #获取mongoclient
+            # Obtain the MongoClient.
             client = MongoClient([CONN_ADDR1, CONN_ADDR2], replicaSet=REPLICAT_SET)
-            #授权. 这里的user基于admin数据库授权
+            # Authenticate. Here, the username is for authentication of the admin database.
             client.admin.authenticate(username, password)
-            #使用test数据库的collection:testColl做例子, 插入doc, 然后根据DEMO名查找
+            # Use the collection:testColl of the test database as an example. Insert doc and search for documents based on the demo name.
             demo_name = 'python-' + str(uuid.uuid1())
             print 'demo_name:', demo_name
             doc = dict(DEMO=demo_name, MESG="Hello ApsaraDB For MongoDB")
