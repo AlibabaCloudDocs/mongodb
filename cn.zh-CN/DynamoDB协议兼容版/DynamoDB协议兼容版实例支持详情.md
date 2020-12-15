@@ -4,7 +4,7 @@
 
 ## 背景信息
 
-Amazon DynamoDB是一种完全托管的NoSQL数据库服务，提供快速而可预测的性能，能够实现无缝扩展。阿里云数据库MongoDB版现在兼容了DynamoDB协议，您可以在创建MongoDB实例时选择支持DynamoDB协议即可使用DynamoDB协议。如何创建DynamoDB协议兼容版实例，请参见[创建DynamoDB协议兼容版实例](/cn.zh-CN/DynamoDB协议兼容版/创建兼容DynamoDB协议的MongoDB实例.md)。
+Amazon DynamoDB是一种完全托管的NoSQL数据库服务，提供快速而可预测的性能，能够实现无缝扩展。阿里云数据库MongoDB版现在兼容了DynamoDB协议，您可以在创建MongoDB实例时选择支持DynamoDB协议即可使用DynamoDB协议。如何创建DynamoDB协议兼容版实例，请参见[创建DynamoDB协议兼容版实例](/cn.zh-CN/DynamoDB协议兼容版/创建DynamoDB协议兼容版实例.md)。
 
 ## 注意事项
 
@@ -259,6 +259,27 @@ Amazon DynamoDB是一种完全托管的NoSQL数据库服务，提供快速而可
         -   `SET path = if_not_exists (path, value)`语法中，在同时指定多个时不支持部分更新，即需要满足全部条件才能执行成功。
         -   `SET path = list_append(list1, list2)`语法中，`list1`和`list2`中必须有一个等于`path`，另外一个是表达式属性值。
     -   remove-action：用于移除`List`中某个元素时，用`null`代替被移除的元素，`List`大小不变，剩下的元素不会发生移位。
+
+## 数据类型映射说明
+
+DynamoDB提供的数据类型和MongoDB的不同，因此，阿里云会在DynamoDB协议兼容版以及MongoDB的数据类型之间做映射，使二者相互兼容彼此的数据类型。
+
+数据类型映射关系表：
+
+|DynamoDB数据类型|MongoDB数据类型|
+|------------|-----------|
+|B|Binary data|
+|BOOL|Boolean|
+|BS|\*|
+|L|Array|
+|M|Object|
+|N|Double|
+|NS|\*|
+|NULL|Null|
+|S|String|
+|SS|\*|
+
+**说明：** DynamoDB中的BS（binary set）、NS（number set）、SS（string set）数据类型不允许重复数据。例如，在NS中插入`1,2,2,3`，NS会对数据做去重操作，最终结果会变成`1,2,3`。而DynamoDB协议兼容版当前版本暂不支持对这三种数据类型进行去重，因此上面表格中标记为星号（\*）的部分都将作为数组（Array）进行处理。阿里云会在后续版本中对这三种数据类型进行优化以支持去重。
 
 ## 最佳实践
 
