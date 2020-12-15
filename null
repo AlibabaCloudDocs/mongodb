@@ -14,7 +14,7 @@
 
 ## 创建用户
 
-1.  登录[新版DMS控制台](https://dms.aliyun.com/)。
+1.  登录[新版DMS控制台](https://dms.alibabacloud.com/)。
 
 2.  在左上角的导航栏搜索框中输入目标数据库名称，在搜索栏下方的DMS对象列表中找到目标实例。
 
@@ -75,7 +75,7 @@
 
 ## 编辑用户
 
-1.  登录[新版DMS控制台](https://dms.aliyun.com/)。
+1.  登录[新版DMS控制台](https://dms.alibabacloud.com/)。
 
 2.  在左上角的导航栏搜索框中输入目标数据库名称，在搜索栏下方的DMS对象列表中找到目标实例。
 
@@ -90,7 +90,7 @@
 
 ## 删除用户
 
-1.  登录[新版DMS控制台](https://dms.aliyun.com/)。
+1.  登录[新版DMS控制台](https://dms.alibabacloud.com/)。
 
 2.  在左上角的导航栏搜索框中输入目标数据库名称，在搜索栏下方的DMS对象列表中找到目标实例。
 
