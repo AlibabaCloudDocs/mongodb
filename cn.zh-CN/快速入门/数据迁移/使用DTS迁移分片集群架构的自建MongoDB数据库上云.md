@@ -81,7 +81,7 @@ DTS通过迁移分片集群中的每个Shard节点来实现分片集群数据库
 
     3.  执行如下命令，清理Shard节点中指定数据库下所有集合的孤立文档。
 
-        **说明：** 您需要重复执行本步骤，为每个Shard节点清理孤立文档。
+        **说明：** 您需要重复执行本步骤，为每个Shard节点清理孤立文档。 关于如何获取Shard节点的名称和端口，请参见[查看已创建的实例](/cn.zh-CN/快速入门/创建实例/创建分片集群实例.md)。
 
         ```
         mongo --host <Shardhost> --port <Primaryport>  --authenticationDatabase <database> -u <username> -p <passowrd> cleanupOrphaned.js
