@@ -81,7 +81,7 @@ How to create and authorize a database account:
 
     3.  Run the following command on a shard to delete the orphaned documents from all collections in the specified database:
 
-        **Note:** You must repeat this step on each shard.
+        **Note:** You must repeat this step on each shard. To obtain shard ids and service ports, see [View the created instance](/intl.en-US/Quick Start/Create an instance/Create a sharded cluster instance.md).
 
         ```
         mongo --host <Shardhost> --port <Primaryport>  --authenticationDatabase <database> -u <username> -p <passowrd> cleanupOrphaned.js
