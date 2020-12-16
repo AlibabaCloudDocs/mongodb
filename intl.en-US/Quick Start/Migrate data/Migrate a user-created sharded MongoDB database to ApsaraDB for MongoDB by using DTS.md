@@ -131,9 +131,7 @@ How to create and authorize a database account:
     |Section|Parameter|Description|
     |:------|:--------|:----------|
     |N/A|Task Name|DTS automatically generates a task name. We recommend that you specify an informative name for easy identification. You do not need to use a unique task name.|
-    |Source Database|Instance Type|Select an instance type based on the location where the database is deployed. In this topic, a **User-Created Database with Public IP Address** is used as an example. **Note:** If you select other instance types, you must prepare the environment that is required for the source database. For more information, see [Preparation overview]().
-
-**Note:** If you select other instance types or other network types, you must prepare the environment that is required for the source database. For more information, see [Preparation overview](). |
+    |Source Database|Instance Type|Select an instance type based on the location where the database is deployed. In this topic, a **User-Created Database with Public IP Address** is used as an example. **Note:** If you select other instance types or other network types, you must prepare the environment that is required for the source database. For more information, see [Preparation overview](). |
     |Instance Region|If Instance Type is set to **User-Created Database with Public IP Address**, you do not need to specify the **Instance Region**. **Note:** If you have configured a whitelist for the user-created MongoDB database, you must add the CIDR blocks of DTS servers to the whitelist. You can click **Get IP Address Segment of DTS** next to **Instance Region** to obtain the CIDR blocks of DTS servers. |
     |Database Type|Select **MongoDB**.|
     |Hostname or IP Address|Enter the endpoint of a shard for the source database. In this example, enter the public IP address of the shard. **Note:** DTS migrates each shard of the source database in turn. In this example, enter the endpoint of the first shard. Then enter the endpoint of the second shard in the second migration task. Repeat this until all shards are migrated. |
