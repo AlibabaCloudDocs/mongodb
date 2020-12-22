@@ -79,20 +79,16 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
 
     -   建议通过专有网络地址进行互连，以获取最低的网络延迟。
     -   关于ConnectionStringURI格式详情请参见[副本集实例连接说明]()。
-|`mongo_urls = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717`|
-    |tunnel.address|目标端MongoDB实例的ConnectionStringURI格式连接地址。|`tunnel.address = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717`|
+|`mongo_urls = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717`**说明：** 密码中不得包含艾特（@）字符，否则会导致连接失败。 |
+    |tunnel.address|目标端MongoDB实例的ConnectionStringURI格式连接地址。|`tunnel.address = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717`**说明：** 密码中不得包含艾特（@）字符，否则会导致连接失败。 |
     |sync\_mode|数据同步的方式，取值：     -   all：执行全量数据同步和增量数据同步。
     -   full：仅执行全量数据同步。
     -   incr：仅执行增量数据同步。
 **说明：** 默认值为incr。
 
 |`sync_mode = all`|
-    |filter.namespace.black|指定数据同步的黑名单，这些指定的命名空间不会被同步至目标数据库，多个命名空间用英文分号（;）分隔。 **说明：** 命名空间是指MongoDB中集合或索引的规范名称，是由数据库名称和集合/索引名称的组合，例如`mongodbtest.customer`。
 
-|`filter.namespace.black = mongodbtest.customer;testdata.test123`|
-    |filter.namespace.white|指定数据同步的白名单，只有这些指定的命名空间会被同步至目标数据库，多个命名空间用英文分号（;）分隔。|`filter.namespace.white = mongodbtest.customer;test123`|
-
-    **说明：** 关于collector.conf全量参数说明，请参见[collector.conf全量参数说明](#section_uhl_7wp_94n)
+    **说明：** 关于collector.conf全量参数说明，请参见[附件](#section_uhl_7wp_94n)中的collector.conf全量参数说明。
 
 5.  执行下述命令启动同步任务，并打印日志信息。
 
@@ -115,7 +111,7 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
 ./mongoshake-stat --port=9100
 ```
 
-**说明：** `mongoshake-stat`是一个Python脚本，执行之前请先[安装Python](https://www.python.org/downloads/)
+**说明：** `mongoshake-stat`是一个Python脚本，执行之前请先安装Python 2.7版本，详情请参见[Python官网](https://www.python.org/downloads/)。
 
 监控输出示例。
 
@@ -132,7 +128,7 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
 |now.time|当前时间。|
 |replset|源数据库的副本集名称。|
 
-## collector.conf全量参数说明
+## 附件
 
 |参数目录|参数|说明|示例值|
 |----|:-|:-|:--|
