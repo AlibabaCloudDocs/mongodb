@@ -16,7 +16,6 @@ keyword: [备份恢复, 数据库恢复]
 
     -   您可以在控制台的**基本信息**页面中查看实例的存储引擎。
     -   实例的存储引擎为RocksDB时，您需要自行编译安装带有RocksDB存储引擎的MongoDB应用程序。
--   备份数据的数据库版本和需要恢复的自建数据库版本一致。
 
 ## 数据库版本要求
 
@@ -32,9 +31,9 @@ keyword: [备份恢复, 数据库恢复]
 |物理备份文件格式|文件后缀|说明|
 |--------|----|--|
 |tar压缩包|.tar.gz|2019年3月26日之前创建的实例，物理备份文件格式为tar压缩包。|
-|xbstream文件包|\_qp.xb|2019年3月26日及之后创建的实例，物理备份文件格式为xbstream文件包。|
+|xbstream文件包|\_qp.xb|2019年3月26日及之后创建的实例，物理备份文件格式为xbstream文件包。**说明：** 由于Windows暂未支持解压此文件所需的percona-xtrabackup工具，因此xbstream文件包仅限Linux系统中解压使用。 |
 
-**说明：** 上述两种格式的文件，对应的解压操作有所不同，详情请参见[下载及解压物理备份文件](#section_lxg_5xp_5fb)。
+**说明：** 上述两种格式的文件，对应的解压操作有所不同，详情请参见[步骤一：下载及解压物理备份文件](#section_lxg_5xp_5fb)。
 
 ## 演示环境说明
 
@@ -43,17 +42,48 @@ keyword: [备份恢复, 数据库恢复]
 **说明：**
 
 -   该服务器已安装对应版本的MongoDB，安装方法请参见[MongoDB官方文档](https://docs.mongodb.com/guides/server/install/)。
+-   该服务器已对MongoDB[配置环境变量](#section_qbj_vae_xyv)，执行命令时无需再输入可执行文件的路径。
 -   该服务器将/root/mongo/data作为MongoDB物理恢复操作的数据库所在目录（该目录是空的）。
 
-## 下载及解压物理备份文件
+## 配置环境变量
+
+对自建库环境中的MongoDB配置环境变量，避免执行命令时繁琐的路径输入步骤。
+
+1.  执行如下命令打开Linux系统的`profile`环境变量文件。
+
+    ```
+    vi /etc/profile
+    ```
+
+2.  键盘输入`i`进入编辑模式，在最后一行输入如下格式的内容：
+
+    ```
+    export PATH=$PATH:/<MongoDB服务端路径>/bin
+    ```
+
+    示例：
+
+    ![配置环境变量](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8717728061/p201717.png)
+
+    **说明：** 本示例中，MongoDB服务端的路径为/root/mongo/bin，请根据您的实际情况配置路径。
+
+3.  按Esc键退出编辑模式，键盘输入`:wq`保存并退出。
+4.  执行如下命令使新更改的环境变量文件生效：
+
+    ```
+    source /etc/profile
+    ```
+
+
+## 步骤一：下载及解压物理备份文件
 
 1.  [下载MongoDB物理备份文件](/intl.zh-CN/用户指南/数据恢复/物理备份恢复至自建数据库/副本集实例下载物理备份.md)，您可以通过如下命令进行下载。
 
     ```
-    wget "<物理备份文件链接>"
+    wget -c '<数据备份文件外网下载地址>' -O <自定义文件名>.<后缀>
     ```
 
-    **说明：** 通过`wget`下载的文件末尾可能会存在多余字符，请根据实际情况删除多余字符，确保文件后缀名为`.tar.gz`或`_qp.xb`
+    **说明：** 请根据下载文件的类型，确保文件后缀名为`.tar.gz`或`_qp.xb`。
 
 2.  将下载的MongoDB物理备份文件移动到/root/mongo/data/目录中。
 
@@ -99,7 +129,7 @@ keyword: [备份恢复, 数据库恢复]
             ![解压结果](../images/p70454.png "解压结果")
 
 
-## 以单节点模式恢复MongoDB物理备份的数据
+## 步骤二：以单节点模式恢复MongoDB物理备份的数据
 
 1.  在/root/mongo文件夹中新建配置文件mongod.conf。
 
@@ -107,7 +137,7 @@ keyword: [备份恢复, 数据库恢复]
     touch mongod.conf
     ```
 
-2.  修改mongod.conf配置文件，使得符合启动的配置要求。
+2.  在命令行中输入`vi /root/mongo/mongod.conf`打开mongod.conf文件，键盘输入`i`开启编辑模式。
 
     根据云数据库MongoDB版的存储引擎选择启动的配置模板，您可以将其复制到mongod.conf文件中。
 
@@ -157,13 +187,14 @@ keyword: [备份恢复, 数据库恢复]
             pidFilePath: /root/mongo/logs/mongod.pid
         ```
 
-3.  指定新建的配置文件mongod.conf来启动 MongoDB。
+3.  按Esc键退出编辑模式，键盘输入`:wq`保存并退出。
+4.  指定新建的配置文件mongod.conf来启动 MongoDB。
 
     ```
     mongod -f /root/mongo/mongod.conf
     ```
 
-4.  等待启动完成后，可通过服务器的mongo shell登录MongoDB数据库。
+5.  等待启动完成后，可通过服务器的Mongo Shelll登录MongoDB数据库。
 
     ```
     mongo --host 127.0.0.1 -u <username> -p <password> --authenticationDatabase admin
@@ -174,42 +205,179 @@ keyword: [备份恢复, 数据库恢复]
     -   <username\>：该MongoDB实例的数据库账号，默认为root。
     -   <password\>：该数据库账号对应的密码。
 
-## 副本集模式启动MongoDB数据库
+## 步骤三：副本集模式启动MongoDB数据库
 
 云数据库MongoDB的物理备份默认带有原实例的副本集配置。启动时需以单节点模式启动，否则可能无法访问。
 
 如需以副本集模式启动，需要先[以单节点模式恢复MongoDB数据](#section_pwz_yxp_5fb)，再按照以下步骤执行：
 
-1.  通过服务器的mongo shell登录MongoDB数据库。
-2.  移除原有副本集配置。
+1.  在命令行中通过服务器的Mongo Shelll使用root用户登录MongoDB数据库。
 
     ```
+    mongo --host 127.0.0.1 -u root -p <root用户密码> --authenticationDatabase admin
+    ```
+
+2.  登录完成后，通过如下代码在admin库中创建一个临时用户，赋予该用户临时的local库读写权限，并移除local库中原有副本集配置。
+
+    ```
+    use admin
+    db.runCommand({
+        createRole: "tmprole",
+        roles: [
+            {
+                role: "root",
+                db: "admin"
+            }
+        ],
+        privileges: [
+            {
+                resource: {
+                    db: 'local',
+                    collection: 'system.replset'
+                },
+                actions: [
+                    'remove'
+                ]
+            }
+        ]
+    })
+    db.runCommand({
+        createUser: "tmpuser",
+        pwd: "tmppwd",
+        roles: [
+            'tmprole'
+        ]
+    })
+    db.auth('tmpuser','tmppwd')
     use local
     db.system.replset.remove({})
     ```
 
-3.  关闭MongoDB服务。
+    **说明：** 对于local库的`system.replset`集合，root用户只有只读权限，且由于root用户无法更改自身的权限，因此只能通过其他用户进行删除。
+
+3.  关闭MongoDB服务并退出Mongo Shell。
 
     ```
     use admin
-    db.shutdownServer()                   
+    db.shutdownServer()      
+    exit             
     ```
 
-4.  修改/root/mongo/目录下的配置文件mongod.conf，添加replication相关配置。详细命令用法请参见MongoDB官方文档[部署副本集](https://docs.mongodb.com/manual/tutorial/deploy-replica-set/index.html)。
-5.  指定新建的配置文件mongod.conf来启动 MongoDB。
+4.  为副本集准备两个空的节点。
+    1.  为副本集的另外两个节点分别创建一份mongod.conf，配置方式请参见[步骤二：以单节点模式恢复MongoDB物理备份的数据](#section_pwz_yxp_5fb)。
+    2.  将各节点的mongod.conf中的如下内容分别修改为对应节点的路径：
+
+        -   systemLog.path
+        -   dbpath
+        -   pidFilePath
+        **说明：** 您可以另行创建上述路径，并确保这些路径为空。
+
+5.  创建副本集认证文件。
+
+    如需以副本集模式启动MongoDB，您需要创建一个key文件作为每个副本集节点之间的认证文件。
+
+    1.  执行如下命令创建一个key文件。
+
+        ```
+        touch /root/mongodb.key
+        ```
+
+    2.  执行`vi /root/mongodb.key`打开mongodb.key文件，按键盘上的`i`进入编辑模式，输入任意内容作为加密内容。例如：
+
+        ```
+        MongoDB Encrypting File
+        ```
+
+    3.  按Esc键退出编辑模式，输入`:wq`保存并退出文件。
+    **说明：** 所有副本集节点使用的认证文件内容必须一致。
+
+6.  分别在所有副本集节点的`mongod.conf`配置文件中的`Security:`下加入如下配置：
+
+    ```
+    keyFile: /root/mongodb.key
+    ```
+
+    示例：
+
+    ![keyFile示例](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1873268061/p204220.png)
+
+    **说明：** keyFile路径为第5步中创建的认证文件所在路径。
+
+7.  分别在所有节点的配置文件mongod.conf中加入副本集配置，示例如下：
+
+    ```
+    systemLog:
+        destination: file
+        path: /root/data/mongod.log
+        logAppend: true
+    security:
+        authorization: enabled
+        keyFile: /root/mongodb.key
+    storage:
+        dbPath: /root/data
+        directoryPerDB: true
+    net:
+        bindIp: 127.0.0.1
+        port: 27017
+        unixDomainSocket:
+            enabled: false
+    processManagement:
+        fork: true
+        pidFilePath: /root/data/mongod.pid
+    replication:
+        replSetName: "rs0"
+    ```
+
+    **说明：** 相比单节点启动配置，副本集的启动增加了如下几个参数：
+
+    -   replication：副本集配置。
+    -   replSetName：配置副本集的名称。
+    -   bindIp：该副本的IP地址。如果是在同一台服务器上部署副本集，此处可采用相同的IP地址。
+    -   port：该副本集节点的端口号。如果是在同一台服务器上部署副本集，所有节点均应采用不同的端口号。
+    -   keyFile：副本间认证文件的路径。
+    更多详细用法请参见MongoDB官方文档[部署副本集](https://docs.mongodb.com/manual/tutorial/deploy-replica-set/index.html)。
+
+8.  分别指定所有节点的配置文件mongod.conf来启动MongoDB。
 
     ```
     mongod -f /root/mongo/mongod.conf
+    mongod -f /root/mongo/mongod1.conf
+    mongod -f /root/mongo/mongod2.conf
     ```
 
-6.  将成员加入副本集并初始化副本集。
+9.  等待启动完成后，通过服务器的Mongo Shelll登录MongoDB数据库。
+
+    ```
+    mongo --host 127.0.0.1 -u <username> -p <password> --authenticationDatabase admin
+    ```
+
+    说明：
+
+    -   <username\>：该MongoDB实例的数据库账号，默认为root。
+    -   <password\>：该数据库账号对应的密码。
+10. 通过如下命令将上述步骤中创建的副本集成员节点加入副本集并初始化副本集。
+
+    ```
+    rs.initiate( {
+       _id : "rs0",
+       version : 1,
+       members: [
+          { _id: 0, host: "127.0.0.1:27017" , priority : 1},
+          { _id: 1, host: "127.0.0.1:27018" , priority : 0},
+          { _id: 2, host: "127.0.0.1:27019" , priority : 0}
+       ]
+    })
+    ```
 
     **说明：** 此步骤使用`rs.initiate()`命令进行操作，详细命令用法请参见MongoDB官方文档[rs.initiate\(\)命令介绍](https://docs.mongodb.com/manual/reference/method/rs.initiate/)。
+
+    执行成功后，新加入的两个节点将会与主节点进行数据同步，等待数据同步完成后，副本集模式启动完成。
 
 
 ## 常见问题
 
 Q：为什么我使用指定的`mongod.conf`配置文件启动自建数据库报错？
 
-A：您可能在指定`mongod.conf`配置文件之前已经启动过一次数据库，导致data目录下自动生成了`storage.bson`文件。只需要移走这个文件并重新指定`mongod.conf`配置文件启动数据库即可。
+-   您可能在指定`mongod.conf`配置文件之前已经启动过一次数据库，导致data目录下自动生成了`storage.bson`文件。只需要移走这个文件并重新指定`mongod.conf`配置文件启动数据库即可。
+-   当前系统中可能已经有正在执行中的mongod进程，您可以通过`ps -e | grep mongod`命令查询到mongod的进程ID，并通过`kill <进程ID>`命令关闭mongod进程并重新指定`mongod.conf`配置文件启动数据库即可。
 
