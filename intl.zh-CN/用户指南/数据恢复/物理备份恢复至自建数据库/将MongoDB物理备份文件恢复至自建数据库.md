@@ -265,7 +265,7 @@ keyword: [备份恢复, 数据库恢复]
 
 4.  为副本集准备两个空的节点。
     1.  为副本集的另外两个节点分别创建一份mongod.conf，配置方式请参见[步骤二：以单节点模式恢复MongoDB物理备份的数据](#section_pwz_yxp_5fb)。
-    2.  将各节点的mongod.conf中的如下内容分别修改为对应节点的路径：
+    2.  将各节点的mongod.conf中的如下参数的路径分别修改为对应节点的路径：
 
         -   systemLog.path
         -   dbpath
@@ -304,18 +304,19 @@ keyword: [备份恢复, 数据库恢复]
 
     **说明：** keyFile路径为第5步中创建的认证文件所在路径。
 
-8.  分别在所有节点的配置文件mongod.con f中加入副本集配置，示例如下：
+8.  分别在所有节点的配置文件mongod.conf中加入副本集配置，示例如下：
 
     ```
+    #节点1
     systemLog:
         destination: file
-        path: /root/data/mongod.log
+        path: /root/root/mongo/logs/mongod.log
         logAppend: true
     security:
         authorization: enabled
         keyFile: /root/mongodb.key
     storage:
-        dbPath: /root/data
+        dbPath: /root/mongo/data
         directoryPerDB: true
     net:
         bindIp: 127.0.0.1
@@ -324,9 +325,57 @@ keyword: [备份恢复, 数据库恢复]
             enabled: false
     processManagement:
         fork: true
-        pidFilePath: /root/data/mongod.pid
+        pidFilePath: /root/mongo/mongod.pid
     replication:
-        replSetName: "rs0"mongod -
+        replSetName: "rs0"
+    ```
+
+    ```
+    #节点2
+    systemLog:
+        destination: file
+        path: /root/root/mongo/logs/mongod1.log
+        logAppend: true
+    security:
+        authorization: enabled
+        keyFile: /root/mongodb.key
+    storage:
+        dbPath: /root/mongo/data1
+        directoryPerDB: true
+    net:
+        bindIp: 127.0.0.1
+        port: 27017
+        unixDomainSocket:
+            enabled: false
+    processManagement:
+        fork: true
+        pidFilePath: /root/mongo/mongod1.pid
+    replication:
+        replSetName: "rs0"
+    ```
+
+    ```
+    #节点3
+    systemLog:
+        destination: file
+        path: /root/root/mongo/logs/mongod2.log
+        logAppend: true
+    security:
+        authorization: enabled
+        keyFile: /root/mongodb.key
+    storage:
+        dbPath: /root/mongo/data2
+        directoryPerDB: true
+    net:
+        bindIp: 127.0.0.1
+        port: 27017
+        unixDomainSocket:
+            enabled: false
+    processManagement:
+        fork: true
+        pidFilePath: /root/mongo/mongod2.pid
+    replication:
+        replSetName: "rs0"
     ```
 
     **说明：** 相比单节点启动配置，副本集的启动增加了如下几个参数：
@@ -386,7 +435,9 @@ keyword: [备份恢复, 数据库恢复]
 
         -   <username\>：该MongoDB实例的数据库账号，默认为root。
         -   <password\>：该数据库账号对应的密码。
-    3.  观察Mongo Shell命令行，如果显示`<副本集名称>:PRIMARY>`则表示启动成功。
+    3.  观察Mongo Shell命令行左侧，各情况说明如下：
+        -   显示`<副本集名称>:PRIMARY>`：副本集模式启动成功。
+        -   显示`<副本集名称>:RECOVERYING>`：正在进行节点之间的数据同步操作。
 
 ## 常见问题
 
