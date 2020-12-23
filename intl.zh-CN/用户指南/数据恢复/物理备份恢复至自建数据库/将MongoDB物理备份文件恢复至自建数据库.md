@@ -47,7 +47,7 @@ keyword: [备份恢复, 数据库恢复]
 
 ## 配置环境变量
 
-对自建库环境中的MongoDB配置环境变量，避免执行命令时繁琐的路径输入步骤。
+对自建库环境中的MongoDB配置环境变量，避免执行命令时繁琐的路径输入步骤。在执行此步骤前，请确认您已[安装MongoDB](https://docs.mongodb.com/guides/server/install/)。
 
 1.  执行如下命令打开Linux系统的`profile`环境变量文件。
 
@@ -291,7 +291,8 @@ keyword: [备份恢复, 数据库恢复]
     3.  按Esc键退出编辑模式，输入`:wq`保存并退出文件。
     **说明：** 所有副本集节点使用的认证文件内容必须一致。
 
-6.  分别在所有副本集节点的`mongod.conf`配置文件中的`Security:`下加入如下配置：
+6.  在命令行中执行`sudo chmod 600 /root/mongodb.key`将认证文件的权限修改为`600`，否则在启动mongod进程的过程中会报错。
+7.  分别在所有副本集节点的`mongod.conf`配置文件中的`Security:`下加入如下配置：
 
     ```
     keyFile: /root/mongodb.key
@@ -303,7 +304,7 @@ keyword: [备份恢复, 数据库恢复]
 
     **说明：** keyFile路径为第5步中创建的认证文件所在路径。
 
-7.  分别在所有节点的配置文件mongod.conf中加入副本集配置，示例如下：
+8.  分别在所有节点的配置文件mongod.conf中加入副本集配置，示例如下：
 
     ```
     systemLog:
@@ -325,7 +326,7 @@ keyword: [备份恢复, 数据库恢复]
         fork: true
         pidFilePath: /root/data/mongod.pid
     replication:
-        replSetName: "rs0"
+        replSetName: "rs0"mongod -
     ```
 
     **说明：** 相比单节点启动配置，副本集的启动增加了如下几个参数：
@@ -337,15 +338,15 @@ keyword: [备份恢复, 数据库恢复]
     -   keyFile：副本间认证文件的路径。
     更多详细用法请参见MongoDB官方文档[部署副本集](https://docs.mongodb.com/manual/tutorial/deploy-replica-set/index.html)。
 
-8.  分别指定所有节点的配置文件mongod.conf来启动MongoDB。
+9.  分别指定所有节点的配置文件mongod.conf来启动MongoDB。
 
     ```
-    mongod -f /root/mongo/mongod.conf
+    mongod -f /root/mongo/mongod.conf：q
     mongod -f /root/mongo/mongod1.conf
     mongod -f /root/mongo/mongod2.conf
     ```
 
-9.  等待启动完成后，通过服务器的Mongo Shelll登录MongoDB数据库。
+10. 等待启动完成后，通过服务器的Mongo Shelll登录MongoDB数据库。
 
     ```
     mongo --host 127.0.0.1 -u <username> -p <password> --authenticationDatabase admin
@@ -355,7 +356,7 @@ keyword: [备份恢复, 数据库恢复]
 
     -   <username\>：该MongoDB实例的数据库账号，默认为root。
     -   <password\>：该数据库账号对应的密码。
-10. 通过如下命令将上述步骤中创建的副本集成员节点加入副本集并初始化副本集。
+11. 通过如下命令将上述步骤中创建的副本集成员节点加入副本集并初始化副本集。
 
     ```
     rs.initiate( {
