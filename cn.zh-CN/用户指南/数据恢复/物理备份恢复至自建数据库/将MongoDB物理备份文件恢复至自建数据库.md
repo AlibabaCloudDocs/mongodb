@@ -289,7 +289,7 @@ keyword: [备份恢复, 数据库恢复]
         ```
 
     3.  按Esc键退出编辑模式，输入`:wq`保存并退出文件。
-    **说明：** 所有副本集节点使用的认证文件内容必须一致。
+    **说明：** 此认证文件将应用于所有副本集节点。
 
 6.  在命令行中执行`sudo chmod 600 /root/mongodb.key`将认证文件的权限修改为`600`，否则在启动mongod进程的过程中会报错。
 7.  分别在所有副本集节点的`mongod.conf`配置文件中的`Security:`下加入如下配置：
@@ -304,7 +304,7 @@ keyword: [备份恢复, 数据库恢复]
 
     **说明：** keyFile路径为第5步中创建的认证文件所在路径。
 
-8.  分别在所有节点的配置文件mongod.conf中加入副本集配置，示例如下：
+8.  分别在所有节点的配置文件mongod.con f中加入副本集配置，示例如下：
 
     ```
     systemLog:
@@ -341,12 +341,12 @@ keyword: [备份恢复, 数据库恢复]
 9.  分别指定所有节点的配置文件mongod.conf来启动MongoDB。
 
     ```
-    mongod -f /root/mongo/mongod.conf：q
+    mongod -f /root/mongo/mongod.conf
     mongod -f /root/mongo/mongod1.conf
     mongod -f /root/mongo/mongod2.conf
     ```
 
-10. 等待启动完成后，通过服务器的Mongo Shelll登录MongoDB数据库。
+10. 等待启动完成后，通过服务器的Mongo Shell登录MongoDB数据库。
 
     ```
     mongo --host 127.0.0.1 -u <username> -p <password> --authenticationDatabase admin
@@ -372,8 +372,21 @@ keyword: [备份恢复, 数据库恢复]
 
     **说明：** 此步骤使用`rs.initiate()`命令进行操作，详细命令用法请参见MongoDB官方文档[rs.initiate\(\)命令介绍](https://docs.mongodb.com/manual/reference/method/rs.initiate/)。
 
-    执行成功后，新加入的两个节点将会与主节点进行数据同步，等待数据同步完成后，副本集模式启动完成。
+    执行成功后，新加入的两个节点将会与主节点进行数据同步，注意此过程的耗时根据备份文件的大小会有较大差异。等待数据同步完成后，副本集模式启动完成。
 
+12. 通过如下步骤验证是否启动成功。
+    1.  执行`exit`退出Mongo Shell。
+    2.  执行如下命令重新登录MongoDB数据库。
+
+        ```
+        mongo -u <username> -p <password> --authenticationDatabase admin
+        ```
+
+        说明：
+
+        -   <username\>：该MongoDB实例的数据库账号，默认为root。
+        -   <password\>：该数据库账号对应的密码。
+    3.  观察Mongo Shell命令行，如果显示`<副本集名称>:PRIMARY>`则表示启动成功。
 
 ## 常见问题
 
