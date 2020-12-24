@@ -1,86 +1,86 @@
 # DescribeIndexRecommendation
 
-调用DescribeIndexRecommendation接口查询MongoDB实例的索引推荐详情。
+You can call this operation to query the index recommendation details of an AsparaDB for MongoDB instance.
 
-实例须满足以下条件，否则该接口调用失败：
+Ensure that the instance meets the following conditions when you call this operation:
 
--   实例的地域为华东1、华东2、华南1、华北1或华北2。
--   实例类型为副本集实例或分片集群实例。
--   实例已开通审计日志功能。
+-   The region of the instance is China \(Hangzhou\), China \(Shanghai\), China \(Shenzhen\), China \(Qingdao\), or China \(Beijing\).
+-   The instance is a replica set instance or a sharded cluster instance.
+-   The audit log feature is enabled for the instance.
 
-## 调试
+## Debugging
 
-[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Dds&api=DescribeIndexRecommendation&type=RPC&version=2015-12-01)
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Dds&api=DescribeIndexRecommendation&type=RPC&version=2015-12-01)
 
-## 请求参数
+## Request parameters
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|Action|String|是|DescribeIndexRecommendation|要执行的操作，取值： **DescribeIndexRecommendation**。 |
-|InstanceId|String|是|dds-bpxxxxxxxx|实例ID。 |
-|RegionId|String|是|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。 |
-|TaskId|String|否|3223069|任务ID，您可以通过调用[DescribeAvailableTimeRange](~~95534~~)接口查询。 |
-|NodeId|String|否|d-bpxxxxxxxx|分片集群实例中Mongos节点ID或Shard节点ID。
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|DescribeIndexRecommendation|The operation that you want to perform. Set the value to**DescribeIndexRecommendation**. |
+|InstanceId|String|Yes|dds-bpxxxxxxxx|The ID of the instance. |
+|RegionId|String|Yes|cn-hangzhou|The ID of the region where the instance is deployed. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the region ID. |
+|TaskId|String|No|3223069|The ID of the task. You can call the[DescribeAvailableTimeRange](~~95534~~)operation to query task IDs. |
+|NodeId|String|No|d-bpxxxxxxxx|The ID of the mongos or shard in the specified sharded cluster instance.
 
- **说明：** 当**InstanceId**参数传入的是分片集群实例ID时，本参数才可用。 |
-|Database|String|否|mongodbtest|数据库名。 |
-|Collection|String|否|customer|集合名。 |
-|StartTime|String|否|2019-01-01T12Z|查询开始时间，格式为*YYYY-MM-DD*T-*HH*Z（UTC时间）。
+**Note:** This parameter is valid only if you set the**InstanceId**parameter to the ID of a sharded cluster instance. |
+|Database|String|No|mongodbtest|The name of the database. |
+|Collection|String|No|customer|The name of the collection. |
+|StartTime|String|No|2019-01-01T12Z|The beginning of the time range to query. Specify the time in the *YYYY-MM-DD*T*HH*Z format. The time must be in UTC.
 
- **说明：** **StartTime**取值必须晚于审计日志的开启时间。 |
-|EndTime|String|否|2019-01-02T13Z|查询结束时间，必须晚于查询开始时间，格式为*YYYY-MM-DD*T-*HH*Z（UTC时间）。 |
-|OperationType|String|否|query|操作类型，例如**query**、**delete**、**update**等。 |
-|PageSize|Integer|否|30|每页记录数，取值： **30**、**50**、**100**，默认值为**30**。 |
-|PageNumber|Integer|否|1|页码，取值为大于0且不超过Integer数据类型的最大值，默认值为**1**。 |
+**Note:** The value of the **StartTime**parameter must be later than the time when the audit log feature is enabled. |
+|EndTime|String|No|2019-01-02T13Z|The end of the time range to query. The end time must be later than the start time. Specify the time in the *YYYY-MM-DD*T*HH*Z format. The time must be in UTC. |
+|OperationType|String|No|query|The type of operation to perform, such as**query**,**delete**, and**update**. |
+|PageSize|Integer|No|30|The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**. |
+|PageNumber|Integer|No|1|The number of the page to return. The value must be a positive integer. Default value: **1**. |
 
-## 返回数据
+## Response parameters
 
-|名称|类型|示例值|描述|
-|--|--|---|--|
-|Analyzations|Array| |索引推荐详情列表。 |
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
+|Analyzations|Array| |Details about the index recommendation. |
 |Analyzation| | | |
-|AverageDocsExaminedCount|Long|1000000|平均文档扫描次数。 |
-|AverageExecutionTime|Long|523|平均执行时间（毫秒）。 |
-|AverageKeysExaminedCount|Long|0|平均索引扫描次数。 |
-|AverageReturnRowCount|Long|1|平均返回行数。 |
-|Count|Long|364|执行次数。 |
-|Database|String|mongodbtest|数据库名。 |
-|ExecutionPlan|String|\{\\"stage\\":\\"COLLSCAN\\"\}|查询的执行计划。 |
-|InMemorySort|String|false|是否使用内存排序。 |
-|IndexCombines|List|\{"IndexCombine": \["db.customer.createIndex\(\{\\"name\\": 1\}, \{background: true\}\)"\]\}|合并后的索引列表。 |
-|IndexRecommendations|Array| |索引建议列表。 |
+|AverageDocsExaminedCount|Long|1000000|The average number of times each document was scanned. |
+|AverageExecutionTime|Long|523|The average execution time. Unit: milliseconds. |
+|AverageKeysExaminedCount|Long|0|The average number of times the index was examined. |
+|AverageReturnRowCount|Long|1|The average number of entries returned. |
+|Count|Long|364|The number of times the query was performed. |
+|Database|String|mongodbtest|The name of the database. |
+|ExecutionPlan|String|\{\\"stage\\":\\"COLLSCAN\\"\}|The execution plan of the query. |
+|InMemorySort|String|false|Indicates whether in-memory sorting was performed. |
+|IndexCombines|List|\{"IndexCombine": \["db.customer.createIndex\(\{\\"name\\": 1\}, \{background: true\}\)"\]\}|The merged indexes. |
+|IndexRecommendations|Array| |The index recommendations. |
 |Recommendation| | | |
-|Content|String|db.customer.createIndex\(\{\\"name\\": 1\}, \{background: true\}\)|建议的内容。 |
-|RecmdType|String|Index|建议的类型。
+|Content|String|db.customer.createIndex\(\{\\"name\\": 1\}, \{background: true\}\)|The content of the recommendation. |
+|RecmdType|String|Index|The returned recommendation.
 
- -   **Index**：建议从索引方向进行优化。
--   **Refactor**：查询命令没有使用索引，需要调整查询命令。
--   **WhereUse**：查询使用了where语法，而where语法无法使用索引，不建议使用。
--   **NoRecommendation**：没有建议。 |
-|LastExecutionTime|String|2019-03-22T05:52:31Z|最近一次执行时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。 |
-|Namespace|String|mongodbtest.customer|命名空间。
+-   **Index**: Optimize the index direction.
+-   **Refactor**: No indexes are applied to the query. Rewrite the query.
+-   **WhereUse**: The query includes the WHERE clause, which cannot be used with indexes. Do not include the WHERE clause in index queries.
+-   **NoRecommendation**: No recommendations. |
+|LastExecutionTime|String|2019-03-22T05:52:31Z|The most recent execution time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC. |
+|Namespace|String|mongodbtest.customer|The namespace.
 
- **说明：** 命名空间一般是数据库名和集合名的组合。 |
-|Operation|String|query|操作类型。 |
-|Query|String|\{\\"name\\":\\"<val\>\\"\}|查询命令。 |
-|Sort|String|\{\}|排序命令。 |
-|TotalExecutionTime|Long|191569|总执行时间（毫秒）。 |
-|RequestId|String|553CCFB2-C013-4A9D-86A9-F440BA7E365F|请求ID。 |
+**Note:** The namespace is typically a combination of the database name and the collection name. |
+|Operation|String|query|The type of the operation performed. |
+|Query|String|\{\\"name\\":\\"<val\>\\"\}|The query command. |
+|Sort|String|\{\}|The sorting command. |
+|TotalExecutionTime|Long|191569|The amount of time taken to execute the operation, in milliseconds. |
+|RequestId|String|553CCFB2-C013-4A9D-86A9-F440BA7E365F|The ID of the request. |
 
-## 示例
+## Examples
 
-请求示例
+Sample requests
 
 ```
-http(s)://mongodb.aliyuncs.com/?Action=DescribeIndexRecommendation
+http(s)://mongodb.aliyuncs.com/? Action=DescribeIndexRecommendation
 &InstanceId=dds-bpxxxxxxxx
 &RegionId=cn-hangzhou
-&<公共请求参数>
+&<Common request parameters>
 ```
 
-正常返回示例
+Sample success responses
 
-`XML` 格式
+`XML` format
 
 ```
 <DescribeIndexRecommendationResponse>
@@ -118,55 +118,55 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeIndexRecommendation
 </DescribeIndexRecommendationResponse>
 ```
 
-`JSON` 格式
+`JSON` format
 
 ```
 {
-	"Analyzations":{
-		"Analyzation":[
-			{
-				"InMemorySort":false,
-				"Sort":"{}",
-				"Operation":"query",
-				"Count":364,
-				"AverageKeysExaminedCount":0,
-				"Database":"mongodbtest",
-				"Query":"{\"name\":\"<val>\"}",
-				"AverageExecutionTime":526,
-				"AverageReturnRowCount":0,
-				"IndexRecommendations":{
-					"Recommendation":[
-						{
-							"RecmdType":"Index",
-							"Content":"db.customer.createIndex({\"name\": 1}, {background: true})"
-						}
-					]
-				},
-				"TotalExecutionTime":191569,
-				"LastExecutionTime":"2019-03-22T05:52:31Z",
-				"ExecutionPlan":"{\"stage\":\"COLLSCAN\"}",
-				"Namespace":"mongodbtest.customer",
-				"AverageDocsExaminedCount":1000000,
-				"IndexCombines":{
-					"IndexCombine":[
-						"db.customer.createIndex({\"name\": 1}, {background: true})"
-					]
-				}
-			}
-		]
-	},
-	"TotalRecordCount":1,
-	"PageNumber":1,
-	"RequestId":"553CCFB2-C013-4A9D-86A9-F440BA7E365F",
-	"PageRecordCount":1
+    "Analyzations":{
+        "Analyzation":[
+            {
+                "InMemorySort":false,
+                "Sort":"{}",
+                "Operation":"query",
+                "Count":364,
+                "AverageKeysExaminedCount":0,
+                "Database":"mongodbtest",
+                "Query":"{\"name\":\"<val>\"}",
+                "AverageExecutionTime":526,
+                "AverageReturnRowCount":0,
+                "IndexRecommendations":{
+                    "Recommendation":[
+                        {
+                            "RecmdType":"Index",
+                            "Content":"db.customer.createIndex({\"name\": 1}, {background: true})"
+                        }
+                    ]
+                },
+                "TotalExecutionTime":191569,
+                "LastExecutionTime":"2019-03-22T05:52:31Z",
+                "ExecutionPlan":"{\"stage\":\"COLLSCAN\"}",
+                "Namespace":"mongodbtest.customer",
+                "AverageDocsExaminedCount":1000000,
+                "IndexCombines":{
+                    "IndexCombine":[
+                        "db.customer.createIndex({\"name\": 1}, {background: true})"
+                    ]
+                }
+            }
+        ]
+    },
+    "TotalRecordCount":1,
+    "PageNumber":1,
+    "RequestId":"553CCFB2-C013-4A9D-86A9-F440BA7E365F",
+    "PageRecordCount":1
 }
 ```
 
-## 错误码
+## Error codes
 
-|HttpCode|错误码|错误信息|描述|
-|--------|---|----|--|
-|400|InvalidEndTime.Format|Specified end time is not valid.|输入的结束时间无效，请您检查输入的时间格式是否正确。|
+|HttpCode|Error code|Error message|Description|
+|--------|----------|-------------|-----------|
+|400|InvalidEndTime.Format|Specified end time is not valid.|The error message returned because the end of the time range to query is invalid. Check the format of the specified time.|
 
-访问[错误中心](https://error-center.alibabacloud.com/status/product/Dds)查看更多错误码。
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Dds).
 
