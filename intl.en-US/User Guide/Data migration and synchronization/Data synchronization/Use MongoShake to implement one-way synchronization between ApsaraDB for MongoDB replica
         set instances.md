@@ -20,12 +20,12 @@ MongoShake also allows you to subscribe to and consume MongoDB logs. You can con
 
 |Source database|Destination database|
 |:--------------|:-------------------|
-|User-created MongoDB database hosted on Elastic Compute Service \(ECS\)|User-created MongoDB database hosted on ECS|
-|User-created MongoDB database hosted on local servers|User-created MongoDB database hosted on local servers|
+|Self-managed MongoDB database hosted on Elastic Compute Service \(ECS\)|Self-managed MongoDB database hosted on ECS|
+|Self-managed MongoDB database hosted on a local server|Self-managed MongoDB database hosted on a local server|
 |ApsaraDB for MongoDB instance|ApsaraDB for MongoDB instance|
 |MongoDB database on a third-party cloud|MongoDB database on a third-party cloud|
 
-## Usage notes
+## Precautions
 
 -   Do not perform data definition language \(DDL\) operations in the source database before full data synchronization is complete. Otherwise, data inconsistency may occur.
 -   You cannot use MongoShake to synchronize data in the admin and local databases.
@@ -37,11 +37,11 @@ MongoShake also allows you to subscribe to and consume MongoDB logs. You can con
 |Source ApsaraDB for MongoDB instance|readAnyDatabase permissions, read permissions on the local database, and read/write permissions on the mongoshake database**Note:** The mongoshake database is created by MongoShake at the source when the incremental migration task starts. |
 |Destination ApsaraDB for MongoDB instance|readWriteAnyDatabase or read/write permissions on the destination database|
 
-**Note:** For more information about how to create and authorize MongoDB users, see [Use DMS to manage MongoDB users]() or [db.createUser\(\)](https://docs.mongodb.com/manual/reference/method/db.createUser/index.html).
+**Note:** For more information about how to create and authorize MongoDB users, see [Use DMS to manage MongoDB users](/intl.en-US/User Guide/Account management/Manage user permissions on MongoDB databases.md) or [db.createUser\(\)](https://docs.mongodb.com/manual/reference/method/db.createUser/index.html).
 
-## Prerequisites
+## Preparations
 
-1.  Create an ApsaraDB for MongoDB replica set instance as the synchronization destination. For more information, see [Create a replica set instance](/intl.en-US/Quick Start for Replica Set/Create a replica set instance.md).
+1.  Create an ApsaraDB for MongoDB replica set instance as the synchronization destination. For more information, see [Create a replica set instance](/intl.en-US/Quick Start/Create an instance/Create a replica set instance.md).
 
     **Note:** Create the destination ApsaraDB for MongoDB instance in the same virtual private cloud \(VPC\) as the source ApsaraDB for MongoDB instance. In this way, you can connect the Elastic Compute Service \(ECS\) instance where MongoShake runs to the source and destination ApsaraDB for MongoDB instances over the VPC.
 
@@ -56,7 +56,7 @@ MongoShake also allows you to subscribe to and consume MongoDB logs. You can con
 
 ## Procedure
 
-1.  Log on to [the ECS instance](https://www.alibabacloud.com/help/zh/doc-detail/25434.htm).
+1.  Log on to the [ECS instance](https://www.alibabacloud.com/help/zh/doc-detail/25434.htm).
 2.  Run the following command to download the MongoShake package:
 
     ```
@@ -68,7 +68,7 @@ MongoShake also allows you to subscribe to and consume MongoDB logs. You can con
 3.  Run the following command to decompress the MongoShake package:
 
     ```
-    tar xvf Package name
+    tar xvf <Name of the MongoShake package>
     ```
 
 4.  Use Vim to modify the collector.conf file of MongoShake. The following table describes the parameters that you must modify for synchronizing data between ApsaraDB for MongoDB instances.``
@@ -98,7 +98,9 @@ MongoShake also allows you to subscribe to and consume MongoDB logs. You can con
 The default value is info.
 
 |`log.level = info`|
-    |log.dir|The directory where the log file and PID file are stored. If you do not specify a value, the log file and PID file are stored to the logs directory in the working directory.|`log.dir = ./logs/`|
+    |log.dir|The directory where the log file and PID file are stored. If you do not specify a value, the log file and PID file are stored to the logs directory in the working directory.**Note:** The path here must be an absolute path.
+
+|`log.dir = ./logs/`|
     |log.file|The name of the log file. You can specify the name as needed. **Note:** The default value is collector.log.
 
 |`log.file = collector.log`|
@@ -116,7 +118,7 @@ The default value is info.
     |mongo\_urls|The connection string URI of the source instance. **Note:**
 
     -   We recommend that you use a VPC endpoint to minimize network latency.
-    -   For more information about the format of a connection string URI, see [Overview of replica set instance connections](/intl.en-US/Quick Start for Replica Set/Connect to an instance/Overview of replica set instance connections.md) or [Overview of sharded cluster instance connections](/intl.en-US/Quick Start for Cluster/Connect to an instance/Overview of sharded cluster instance connections.md).
+    -   For more information about the format of a connection string URI, see [Overview of replica set instance connections]() or [Overview of sharded cluster instance connections]().
 |`mongo_urls = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717`|
     |mongo\_cs\_url|The endpoint of the ConfigServer node. Set this parameter if the source ApsaraDB for MongoDB instance is a sharded cluster instance. For more information about how to apply for an endpoint for the ConfigServer node, see [Apply for a connection string of a shard or Configserver node](/intl.en-US/User Guide/Network connection management/Connection String of a Shard or Configserver Node/Apply for a connection string of a shard or Configserver node.md).|`mongo_cs_url = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx-csxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx-csxxx.mongodb.rds.aliyuncs.com:3717/admin`|
     |mongo\_s\_url|The endpoint of the Mongos node. Set this parameter if the source ApsaraDB for MongoDB instance is a sharded cluster instance. You must specify the endpoint of at least one Mongos node. Separate the endpoints of multiple Mongos nodes with commas \(,\). For more information about how to apply for an endpoint for a Mongos node, see [Apply for a connection string of a shard or Configserver node](/intl.en-US/User Guide/Network connection management/Connection String of a Shard or Configserver Node/Apply for a connection string of a shard or Configserver node.md).|`mongos_s_url = mongodb://root:Ftxxxxxx@s-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,s-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717/admin`|
@@ -151,7 +153,7 @@ The default value is info.
     |filter.namespace.black|The namespace blacklist for data synchronization. The specified namespaces are not synchronized to the destination database. Separate multiple namespaces with semicolons \(;\). **Note:** A namespace is the standard name of a collection or index in ApsaraDB for MongoDB. It is the combination of a database name and a collection or index name. Example: `mongodbtest.customer`.
 
 |`filter.namespace.black = mongodbtest.customer;testdata.test123`|
-    |filter.namespace.white|The whitelist for data synchronization. Only the specified namespaces are synchronized to the target database. Separate multiple namespaces with semicolons \(;\).|`filter.namespace.white = mongodbtest.customer;test123`|
+    |filter.namespace.white|The whitelist for data synchronization. Only the specified namespaces are synchronized to the destination database. Separate multiple namespaces with semicolons \(;\).|`filter.namespace.white = mongodbtest.customer;test123`|
     |filter.pass.special.db|The special database from which you want to synchronize data to the destination database. You can specify multiple special databases. By default, the data in special databases, such as admin, local, mongoshake, config, and system.views, is not synchronized. You can set this parameter to synchronize data from special databases as needed. Separate multiple database names with semicolons \(;\).|`filter.pass.special.db = admin;mongoshake`|
     |filter.ddl\_enable|Specifies whether to synchronize DDL operations. Valid values:     -   true
     -   false
@@ -235,7 +237,7 @@ The default value is oplog.
 5.  Run the following command to start the data synchronization task and generate the log information:
 
     ```
-    ./collector -conf=collector.conf -verbose
+    ./collector.linux -conf=collector.conf -verbose
     ```
 
 6.  Check the log information. If the following log is displayed, it indicates that the full data synchronization is complete and the incremental data synchronization starts.
@@ -255,7 +257,7 @@ When the incremental data synchronization starts, you can open a command line wi
 
 The following figure shows sample monitoring information about MongoShake.
 
-![Monitoring output](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/1635298951/p49777.png)
+![Monitoring output](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1635298951/p49777.png)
 
 |Parameter|Description|
 |---------|-----------|
