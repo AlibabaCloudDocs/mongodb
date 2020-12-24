@@ -168,5 +168,5 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeIndexRecommendation
 |--------|---|----|--|
 |400|InvalidEndTime.Format|Specified end time is not valid.|输入的结束时间无效，请您检查输入的时间格式是否正确。|
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Dds)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Dds)查看更多错误码。
 
