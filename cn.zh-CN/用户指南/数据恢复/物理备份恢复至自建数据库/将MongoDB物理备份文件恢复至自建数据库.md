@@ -379,7 +379,7 @@ keyword: [备份恢复, 数据库恢复]
 
     **说明：** 各重要参数说明如下：
 
-    -   systemLog.path：当前节点的MongoDB日志文件路径，
+    -   systemLog.path下的path：当前节点的MongoDB日志文件路径，
     -   dbpath：当前节点的MongoDB数据文件路径。
     -   pidFilePath：当前节点的MongoDB的PID文件（记录进程ID的文件）路径。
     -   keyFile：副本集认证文件路径，所有节点必须使用同一个认证文件。
@@ -441,4 +441,10 @@ Q：为什么我使用指定的`mongod.conf`配置文件启动自建数据库报
 
 -   您可能在指定`mongod.conf`配置文件之前已经启动过一次数据库，导致data目录下自动生成了`storage.bson`文件。只需要移走这个文件并重新指定`mongod.conf`配置文件启动数据库即可。
 -   当前系统中可能已经有正在执行中的mongod进程，您可以通过`ps -e | grep mongod`命令查询到mongod的进程ID，并通过`kill <进程ID>`命令关闭mongod进程并重新指定`mongod.conf`配置文件启动数据库即可。
+-   您可能没有在`mongod.conf`配置文件中指定正确的systemLog.path日志路径。请确保指定的路径存在并且必须指定日志文件的名称。如：`path: /<日志文件路径>/<日志文件名称>.log`。
+-   您可能没有将指定的`keyFile`认证文件的权限修改为`600`。请在命令行中通过`sudo chmod 600 <keyFile文件路径>`修改权限后即可。
+
+Q：为什么通过副本集模式启动MongoDB数据库后系统变得很卡？
+
+-   因为启动完成后系统会自动开始同步Primary节点的数据到其他节点，等待数据同步完成即可。
 
