@@ -43,7 +43,9 @@ keyword: [备份恢复, 数据库恢复]
 
 -   该服务器已安装对应版本的MongoDB，安装方法请参见[MongoDB官方文档](https://docs.mongodb.com/guides/server/install/)。
 -   该服务器已对MongoDB[配置环境变量](#section_qbj_vae_xyv)，执行命令时无需再输入可执行文件的路径。
--   该服务器将/root/mongo/data作为MongoDB物理恢复操作的数据库所在目录（该目录是空的）。
+-   该服务器将/root/mongo/data作为MongoDB物理恢复操作的数据库所在目录。
+-   该服务器将/root/mongo/data1和/root/mongo/data1作为副本集节点的数据库目录。
+-   在该服务器中执行本文中提供的多行命令时，最后一行命令需要手动按回车键执行。
 
 ## 配置环境变量
 
@@ -219,7 +221,13 @@ keyword: [备份恢复, 数据库恢复]
     mongo --host 127.0.0.1 -u root -p <root用户密码> --authenticationDatabase admin
     ```
 
-2.  登录完成后，执行如下命令在admin库中创建一个临时用户，赋予该用户临时的local库读写权限，并移除local库中原有副本集配置。
+2.  登录成功后，执行下方代码框中的命令完成如下动作：
+
+    1.  在admin库中创建一个临时用户，赋予该用户临时的local库读写权限。
+    2.  切换至临时用户移除local库中原有副本集配置。
+    3.  切换回root用户删除临时用户和临时权限。
+
+        **说明：** 请将下列代码中的`<root用户密码>`部分替换成您root账户的密码后再执行。
 
     ```
     use admin
@@ -253,6 +261,10 @@ keyword: [备份恢复, 数据库恢复]
     db.auth('tmpuser','tmppwd')
     use local
     db.system.replset.remove({})
+    use admin
+    db.auth('root','<root用户密码>')
+    db.dropRole('tmprole')
+    db.dropUser('tmpuser')
     ```
 
     **说明：** 对于local库的`system.replset`集合，root用户只有只读权限，且由于root用户无法更改自身的权限，因此只能通过其他用户进行删除。
@@ -442,7 +454,10 @@ Q：为什么我使用指定的`mongod.conf`配置文件启动自建数据库报
 -   您可能在指定`mongod.conf`配置文件之前已经启动过一次数据库，导致data目录下自动生成了`storage.bson`文件。只需要移走这个文件并重新指定`mongod.conf`配置文件启动数据库即可。
 -   当前系统中可能已经有正在执行中的mongod进程，您可以通过`ps -e | grep mongod`命令查询到mongod的进程ID，并通过`kill <进程ID>`命令关闭mongod进程并重新指定`mongod.conf`配置文件启动数据库即可。
 -   您可能没有在`mongod.conf`配置文件中指定正确的systemLog.path日志路径。请确保指定的路径存在并且必须指定日志文件的名称。如：`path: /<日志文件路径>/<日志文件名称>.log`。
--   您可能没有将指定的`keyFile`认证文件的权限修改为`600`。请在命令行中通过`sudo chmod 600 <keyFile文件路径>`修改权限后即可。
+
+Q：为什么我使用指定的`mongod.conf`配置文件启动副本集模式报错？
+
+-   您可能没有将指定的`keyFile`认证文件的权限修改为`600`。请在命令行中通过`sudo chmod 600 <keyFile文件路径>`修改权限后重新尝试即可。
 
 Q：为什么通过副本集模式启动MongoDB数据库后系统变得很卡？
 
