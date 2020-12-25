@@ -41,37 +41,33 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
 
 ## 准备工作
 
-1.  创建作为同步目标端的MongoDB副本集实例，详情请参见[创建副本集实例](/intl.zh-CN/快速入门/创建实例/创建副本集实例.md)。
+1.  为达到最理想的同步性能，请确保源端MongoDB副本集实例的网络类型为专有网络VPC，如果是经典网络，请切换成专有网络VPC。更多信息，请参见[切换实例网络类型](/intl.zh-CN/用户指南/管理网络连接/切换实例网络类型.md)。
+2.  创建作为同步目标端的MongoDB副本集实例，在创建的时候请选择与源端MongoDB副本集实例相同的专有网络VPC，以获取最低的网络延迟。更多信息，请参见[创建副本集实例](/intl.zh-CN/快速入门/创建实例/创建副本集实例.md)。
+3.  创建用于运行MongoShake的ECS实例，在创建的时候请选择与源端MongoDB副本集实例相同的专有网络VPC，以获取最低的网络延迟。更多信息，请参见[t9601.dita\#topic\_2386095]()。
+4.  将ECS的IP地址加入至源端和目标端MongoDB实例的白名单中，并确保ECS可以连接源端和目标端MongoDB实例。 更多信息，请参见[设置白名单及安全组](/intl.zh-CN/用户指南/数据安全性/设置白名单及安全组.md)。
 
-    **说明：** 选择与源端的MongoDB实例相同的专有网络，便于ECS通过专有网络进行连接。
-
-2.  创建用于运行MongoShake的ECS实例，详情请参见[创建ECS实例](https://www.alibabacloud.com/help/zh/doc-detail/25424.htm)。
-
-    **说明：** ECS的操作系统选择为Linux，并选择与MongoDB实例相同的专有网络。
-
-3.  将ECS的IP地址加入至源端和目标端MongoDB实例的白名单中，并确保ECS可以连接源端和目标端MongoDB实例。
-
-    **说明：** 建议通过专有网络进行互连，以获取最低的网络延迟。
-
+**说明：** 如果您没有达到上述网络类型的要求，可以申请公网连接地址，通过公网地址进行同步操作。更多信息，请参见[申请公网连接地址](/intl.zh-CN/用户指南/管理网络连接/公网连接地址/申请公网连接地址.md)。
 
 ## 操作步骤
 
-1.  登录[ECS实例](https://www.alibabacloud.com/help/zh/doc-detail/25434.htm)。
-2.  执行如下命令格式下载MongoShake程序。
+本操作示例默认以/root/mongoshake目录作为MongoShake的安装目录。
+
+1.  登录[ECS实例](ECS实例t9621.dita#concept_rsl_2vx_wdb)。
+2.  执行如下命令下载MongoShake程序并重命名为`mongoshake.tar.gz`。
 
     ```
-    wget 最新版MongoShake包下载地址
+    wget "http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/196977/jp_ja/1608863913991/mongo-shake-v2.4.16.tar.gz" -O mongoshake.tar.gz
     ```
 
-    **说明：** 最新版本的MongoShake包下载地址请参见[releases页面](https://github.com/alibaba/MongoShake/releases)。
+    **说明：** 本文提供的链接是MongoShake 2.4.16版本，如需下载最新版本的MongoShake，请参见[releases页面](https://github.com/alibaba/MongoShake/releases)。
 
-3.  执行如下命令格式解压MongoShake程序。
+3.  执行如下命令在将MongoShake解压到/root/mongoshake目录中。
 
     ```
-    tar xvf mongoshake包文件名
+    tar zxvf mongoshake.tar.gz && mv mongo-shake-v2.4.16 /root/mongoshake && cd /root/mongoshake 
     ```
 
-4.  通过`vim`命令，修改MongoShake的配置文件collector.conf，涉及的主要参数的说明如下表所示。
+4.  执行`vi collector.conf`命令，修改MongoShake的配置文件collector.conf，涉及的主要参数说明如下表所示。
 
     |参数|说明|示例值|
     |:-|:-|:--|
@@ -80,7 +76,11 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
     -   建议通过专有网络地址进行互连，以获取最低的网络延迟。
     -   关于ConnectionStringURI格式详情请参见[副本集实例连接说明]()。
 |`mongo_urls = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717`**说明：** 密码中不得包含艾特（@）字符，否则会导致连接失败。 |
-    |tunnel.address|目标端MongoDB实例的ConnectionStringURI格式连接地址。|`tunnel.address = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717`**说明：** 密码中不得包含艾特（@）字符，否则会导致连接失败。 |
+    |tunnel.address|目标端MongoDB实例的ConnectionStringURI格式连接地址。**说明：**
+
+    -   建议通过专有网络地址进行互连，以获取最低的网络延迟。
+    -   关于ConnectionStringURI格式详情请参见[副本集实例连接说明]()。
+|`tunnel.address = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717`**说明：** 密码中不得包含艾特（@）字符，否则会导致连接失败。 |
     |sync\_mode|数据同步的方式，取值：     -   all：执行全量数据同步和增量数据同步。
     -   full：仅执行全量数据同步。
     -   incr：仅执行增量数据同步。
