@@ -1,41 +1,41 @@
-# 索引推荐
+# Index optimization of ApsaraDB for MongoDB
 
-在使用阿里云数据库MongoDB时，可能会因为漏加索引或者使用不恰当的索引，导致查询语句慢或超时，CPU使用率高，影响业务使用。阿里云MongoDB推出了索引推荐功能，帮助您发现漏加索引或者使用不恰当索引导致的慢查询，并为这些慢查询提供相应的最优索引，提升数据库性能。
+This topic introduces the index optimization feature of ApsaraDB for MongoDB. If you forget to add indexes or use incorrect indexes, query statements may run slowly or time out. This increases the CPU utilization of your ApsaraDB for MongoDB instance. This feature detects slow queries caused by the index issues, and provides the optimal indexes for these slow queries to improve the performance of ApsaraDB for MongoDB.
 
-## 前提条件
+## Prerequisites
 
--   实例类型为副本集实例或分片集群实例。
--   实例的地域为华东1、华东2、华南1、华北1或华北2。
--   已开通[审计日志](/intl.zh-CN/用户指南/数据安全性/旧版审计日志/审计日志.md)功能。
+-   The instance is a replica set or sharded cluster instance.
+-   The region of the instance is China \(Hangzhou\), China \(Shanghai\), China \(Shenzhen\), China \(Qingdao\), or China \(Beijing\).
+-   The [audit logging](/intl.en-US/User Guide/Data security/Audit logs (previous version)/Configure audit logging for an ApsaraDB for MongoDB instance.md) feature is enabled for the instance.
 
-## 索引推荐报告生成规则
+## Rules to generate an index optimization report
 
-系统每天自动地对0点-24点时间段内语句执行的情况分析，然后生成索引推荐报告，您也可以通过自定义分析来生成指定时间段内索引推荐报告。
+ApsaraDB for MongoDB automatically generates index optimization reports for statements executed from 00:00:00 to 24:00:00 every day. You can also select a time range to generate an index optimization report by using the Custom Analysis function in the ApsaraDB for MongoDB console.
 
-**说明：**
+**Note:**
 
--   语句的执行时间超过100ms则被定义为慢语句。
--   可保存最近7天的索引推荐报告，超过7天的报告内容将被自动删除。
+-   Query statements whose execution time exceeds 100 ms are defined as slow queries.
+-   Index optimization reports are retained for seven days and are automatically deleted after the seventh day.
 
-## 操作步骤
+## Procedure
 
-1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)[MongoDB管理控制台](https://partners-intl.console.aliyun.com/#/dds)。
-2.  在页面左上角，选择实例所在的地域。
-3.  根据实例类型，在左侧导航栏单击**副本集实例列表**或**分片集群实例列表**。
-4.  找到目标实例，单击实例ID。
-5.  在左侧导航栏中，选择**CloudDBA** \> **索引推荐**。
-6.  单击**自定义分析**。
-7.  在弹出的对话框中选择查询时间段，然后单击**确定**。
+1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/)[ApsaraDB for MongoDB console](https://partners-intl.console.aliyun.com/#/dds).
+2.  In the upper-left corner of the page, select the region where the target instance resides.
+3.  In the left-side navigation pane, click **Replica Set Instances** or **Sharding Instances**.
+4.  Find the target instance and click its ID.
+5.  In the left-side navigation pane, choose **CloudDBA** \> **Index Optimization**.
+6.  Click **Custom Analysis**.
+7.  In the Custom Analysis dialog box that appears, select a time range and click **OK**.
 
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9156819951/p33108.png)
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/0645298951/p33108.png)
 
-8.  单击**操作**列的**查看详情**，查看索引推荐的详细内容。
+8.  Find the index optimization report you want to view, and click **View Detail** in the **Operation** column.
 
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9156819951/p33109.png)
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/0645298951/p33109.png)
 
-9.  在弹出的对话框中，您可以查看索引推荐详情。
+9.  In the dialog box that appears, view the index diagnosis details.
 
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9156819951/p33110.png)
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/0645298951/p33110.png)
 
-10. 根据索引推荐详情添加或优化索引信息。
+10. Add or optimize indexes based on the details.
 
