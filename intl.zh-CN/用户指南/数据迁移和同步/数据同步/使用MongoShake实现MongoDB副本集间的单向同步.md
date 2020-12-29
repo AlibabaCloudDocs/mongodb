@@ -6,15 +6,16 @@ keyword: [实例之间实现准实时表级单向同步, 数据库同步, 阿里
 
 通过阿里云自研的MongoShake工具，您可以实现MongoDB数据库间的数据同步，该功能可用于数据分析、灾备和多活等业务场景。本文以云数据库MongoDB实例间的数据实时同步为例介绍配置流程。
 
-**说明：** 如果您需要实现副本集实例间的双向数据同步，您可以[提交工单](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex)申请。
-
 ## MongoShake介绍
 
 MongoShake是阿里云以Golang语言编写的通用平台型服务工具，它通过读取MongoDB的Oplog操作日志来复制MongoDB的数据以实现特定需求。
 
 MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafka、MetaQ等方式的灵活对接，适用于日志订阅、数据中心同步、Cache异步淘汰等场景。
 
-**说明：** 如需了解更多MongoShake相关信息，请参见[MongoDB-shake Github主页](https://github.com/alibaba/MongoShake)。
+**说明：**
+
+-   如需了解更多MongoShake相关信息，请参见[MongoDB-shake Github主页](https://github.com/alibaba/MongoShake)。
+-   如果您需要实现副本集实例间的双向数据同步，您可以[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)申请。
 
 ## 支持的数据源
 
@@ -42,11 +43,15 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
 ## 准备工作
 
 1.  为达到最理想的同步性能，请确保源端MongoDB副本集实例的网络类型为专有网络VPC，如果是经典网络，请切换成专有网络VPC。更多信息，请参见[切换实例网络类型](/intl.zh-CN/用户指南/管理网络连接/切换实例网络类型.md)。
-2.  创建作为同步目标端的MongoDB副本集实例，在创建的时候请选择与源端MongoDB副本集实例相同的专有网络VPC，以获取最低的网络延迟。更多信息，请参见[创建副本集实例](/intl.zh-CN/快速入门/创建实例/创建副本集实例.md)。
-3.  创建用于运行MongoShake的ECS实例，在创建的时候请选择与源端MongoDB副本集实例相同的专有网络VPC，以获取最低的网络延迟。更多信息，请参见[t9601.dita\#topic\_2386095]()。
-4.  将ECS的IP地址加入至源端和目标端MongoDB实例的白名单中，并确保ECS可以连接源端和目标端MongoDB实例。 更多信息，请参见[设置白名单及安全组](/intl.zh-CN/用户指南/数据安全性/设置白名单及安全组.md)。
 
-**说明：** 如果您没有达到上述网络类型的要求，可以申请公网连接地址，通过公网地址进行同步操作。更多信息，请参见[申请公网连接地址](/intl.zh-CN/用户指南/管理网络连接/公网连接地址/申请公网连接地址.md)。
+2.  创建作为同步目标端的MongoDB副本集实例，在创建的时候请选择与源端MongoDB副本集实例相同的专有网络VPC，以获取最低的网络延迟。更多信息，请参见[创建副本集实例](/intl.zh-CN/快速入门/创建实例/创建副本集实例.md)。
+
+3.  创建用于运行MongoShake的ECS实例，在创建的时候请选择与源端MongoDB副本集实例相同的专有网络VPC，以获取最低的网络延迟。更多信息，请参见[t9601.dita\#topic\_2386095]()。
+
+4.  将ECS的内网IP地址加入至源端和目标端MongoDB实例的白名单中，并确保ECS可以连接源端和目标端MongoDB实例。 更多信息，请参见[设置白名单及安全组](/intl.zh-CN/用户指南/数据安全性/设置白名单及安全组.md)。
+
+
+**说明：** 如果您没有达到上述网络类型的要求，可以分别申请源端和目标端MongoDB实例的公网连接地址，并将ECS的公网地址加入至源端和目标端MongoDB实例的白名单中，通过公网地址进行同步操作。更多信息，请参见[申请公网连接地址](/intl.zh-CN/用户指南/管理网络连接/公网连接地址/申请公网连接地址.md)和[设置白名单及安全组](/intl.zh-CN/用户指南/数据安全性/设置白名单及安全组.md)。
 
 ## 操作步骤
 
@@ -108,7 +113,7 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
 增量数据同步开始后，您可以再开启一个命令行窗口，通过如下命令来监控MongoShake。
 
 ```
-./mongoshake-stat --port=9100
+cd /root/mongoshake && ./mongoshake-stat --port=9100
 ```
 
 **说明：** `mongoshake-stat`是一个Python脚本，执行之前请先安装Python 2.7版本，详情请参见[Python官网](https://www.python.org/downloads/)。
@@ -312,4 +317,8 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
 **说明：** 如果启用则会对性能造成一定影响。
 
 |`incr_sync.executor.majority_enable = false`|
+
+## 常见问题
+
+请参见[MongoShake常见问题](https://github.com/alibaba/MongoShake/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98&FAQ)。
 
