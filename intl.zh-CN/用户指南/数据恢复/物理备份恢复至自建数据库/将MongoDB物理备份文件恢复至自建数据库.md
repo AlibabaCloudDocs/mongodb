@@ -211,6 +211,9 @@ keyword: [备份恢复, 数据库恢复]
 
     -   <username\>：该MongoDB实例的数据库账号，默认为root。
     -   <password\>：该数据库账号对应的密码。
+
+        **说明：** 如果您的密码中包含特殊字符，则需要使用英文单引号（'）包裹密码，如：'test123!@\#'。否则可能会登录失败。
+
     ![登录MongoDB成功示例](../images/p207011.png "登录MongoDB成功示例")
 
 6.  在Mongo Shell中，执行`show dbs`查询当前本地MongoDB中所有的数据库，以验证是否恢复成功。
@@ -227,6 +230,8 @@ keyword: [备份恢复, 数据库恢复]
     ```
     mongo --host 127.0.0.1 -u root -p <root用户密码> --authenticationDatabase admin
     ```
+
+    **说明：** 如果您的密码中包含特殊字符，则需要使用英文单引号（'）包裹密码，如：'test123!@\#'。否则可能会登录失败。
 
 2.  登录成功后，执行下方代码框中的命令完成如下动作：
 
@@ -427,8 +432,10 @@ keyword: [备份恢复, 数据库恢复]
 8.  等待启动完成后，使用root账号登录MongoDB数据库。
 
     ```
-    mongo -u root -p <root账号的密码> --authenticationDatabase admin
+    mongo --host 127.0.0.1 -u root -p <root账号的密码> --authenticationDatabase admin
     ```
+
+    **说明：** 如果您的密码中包含特殊字符，则需要使用英文单引号（'）包裹密码，如：'test123!@\#'。否则可能会登录失败。
 
 9.  在Mongo Shell中通过如下命令将上述步骤中创建的副本集成员节点加入副本集并初始化。
 
@@ -462,6 +469,9 @@ keyword: [备份恢复, 数据库恢复]
 
         -   <username\>：该MongoDB实例的数据库账号，默认为root。
         -   <password\>：该数据库账号对应的密码。
+
+            **说明：** 如果您的密码中包含特殊字符，则需要使用英文单引号（'）包裹密码，如：'test123!@\#'。否则可能会登录失败。
+
     3.  观察Mongo Shell命令行左侧，显示`<副本集名称>:PRIMARY>`即代表副本集模式启动成功。
 
         ![副本集模式](../images/p207079.png "副本集模式启动成功示例")
