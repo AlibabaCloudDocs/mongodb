@@ -4,7 +4,7 @@ keyword: [备份恢复, 数据库恢复]
 
 # 将MongoDB物理备份文件恢复至自建数据库
 
-您可以通过控制台下载MongoDB实例的物理备份文件。本文介绍如何将MongoDB物理备份中的数据，恢复至本地自建的MongoDB数据库中。
+您可以通过控制台下载MongoDB实例的物理备份数据。本文介绍如何将MongoDB物理备份中的数据恢复至本地自建的MongoDB数据库中。
 
 ## 前提条件
 
@@ -19,6 +19,8 @@ keyword: [备份恢复, 数据库恢复]
 
 ## 数据库版本要求
 
+云数据库MongoDB版实例的版本必须对应自建MongoDB数据库的版本。二者之间的对应关系如下：
+
 |MongoDB实例|自建MongoDB数据库|
 |:--------|:-----------|
 |3.2版本|3.2或3.4版本|
@@ -30,10 +32,10 @@ keyword: [备份恢复, 数据库恢复]
 
 |物理备份文件格式|文件后缀|说明|
 |--------|----|--|
-|tar压缩包|.tar.gz|2019年3月26日之前创建的实例，物理备份文件格式为tar压缩包。|
-|xbstream文件包|\_qp.xb|2019年3月26日及之后创建的实例，物理备份文件格式为xbstream文件包。**说明：** 由于Windows暂未支持解压此文件所需的percona-xtrabackup工具，因此xbstream文件包仅限Linux系统中解压使用。 |
+|tar格式|.tar.gz|2019年3月26日之前创建的实例，物理备份文件格式为tar。|
+|xbstream格式|\_qp.xb|2019年3月26日及之后创建的实例，物理备份文件格式为xbstream。**说明：** 由于Windows暂未支持解压此文件所需的percona-xtrabackup工具，因此xbstream格式仅限Linux系统中解压使用。 |
 
-**说明：** 上述两种格式的文件，对应的解压操作有所不同，详情请参见[步骤一：下载及解压物理备份文件](#section_lxg_5xp_5fb)。
+**说明：** 上述两种格式的文件，对应的解压操作有所不同，详情请参见[步骤二：下载及解压物理备份文件](#section_lxg_5xp_5fb)。
 
 ## 演示环境说明
 
@@ -47,9 +49,11 @@ keyword: [备份恢复, 数据库恢复]
 -   该服务器将/root/mongo/data1和/root/mongo/data1作为副本集节点的数据库目录。
 -   在该服务器中执行本文中提供的多行命令时，最后一行命令需要手动按回车键执行。
 
-## 配置环境变量
+## 步骤一：配置环境变量
 
 对自建库环境中的MongoDB配置环境变量，避免执行命令时繁琐的路径输入步骤。在执行此步骤前，请确认您已[安装MongoDB](https://docs.mongodb.com/guides/server/install/)。
+
+**说明：** 如您已对MongoDB配置过环境变量，请跳过这一步进入[步骤二：下载及解压物理备份文件](#section_lxg_5xp_5fb)。
 
 1.  执行如下命令打开Linux系统的`profile`环境变量文件。
 
@@ -77,7 +81,7 @@ keyword: [备份恢复, 数据库恢复]
     ```
 
 
-## 步骤一：下载及解压物理备份文件
+## 步骤二：下载及解压物理备份文件
 
 1.  [下载MongoDB物理备份文件](/cn.zh-CN/用户指南/数据恢复/物理备份恢复至自建数据库/副本集实例下载物理备份.md)，您可以通过如下命令进行下载。
 
@@ -87,18 +91,17 @@ keyword: [备份恢复, 数据库恢复]
 
     **说明：** 请根据下载文件的类型，确保文件后缀名为`.tar.gz`或`_qp.xb`。
 
-2.  执行`mkdir -p /root/mongo/data`命令在/root/mongo/中新建一个`data`目录，并执行如下命令将下载的MongoDB物理备份文件移动到/root/mongo/data/目录中。
+2.  执行如下命令在/root/mongo/中新建一个`data`目录，并将下载的MongoDB物理备份文件移动到/root/mongo/data/目录中。
 
     ```
-    mv <物理备份文件名.后缀> /root/mongo/data
+    mkdir -p /root/mongo/data && mv <物理备份文件名.后缀> /root/mongo/data
     ```
 
 3.  对物理备份文件执行解压操作。
     -   当下载的物理备份文件后缀为.tar.gz时，例如文件名为hins20190412.tar.gz时，请使用下述方法解压。
 
         ```
-        cd /root/mongo/data/
-        tar xzvf hins20190412.tar.gz 
+        cd /root/mongo/data/ && tar xzvf hins20190412.tar.gz 
         ```
 
         ![解压结果](../images/p70466.png "解压结果")
@@ -131,9 +134,9 @@ keyword: [备份恢复, 数据库恢复]
             ![解压结果](../images/p70454.png "解压结果")
 
 
-## 步骤二：以单节点模式恢复MongoDB物理备份的数据
+## 步骤三：以单节点模式恢复MongoDB物理备份的数据
 
-1.  在/root/mongo文件夹中新建配置文件mongod.conf。
+1.  执行如下命令在/root/mongo文件夹中新建配置文件mongod.conf。
 
     ```
     touch /root/mongo/mongod.conf
@@ -196,6 +199,8 @@ keyword: [备份恢复, 数据库恢复]
     mongod -f /root/mongo/mongod.conf
     ```
 
+    ![启动成功示例](../images/p207008.png "启动成功示例")
+
 5.  等待启动完成后，执行如下命令登录MongoDB数据库，进入Mongo Shell。
 
     ```
@@ -206,10 +211,12 @@ keyword: [备份恢复, 数据库恢复]
 
     -   <username\>：该MongoDB实例的数据库账号，默认为root。
     -   <password\>：该数据库账号对应的密码。
+    ![登录MongoDB成功示例](../images/p207011.png "登录MongoDB成功示例")
+
 6.  在Mongo Shell中，执行`show dbs`查询当前本地MongoDB中所有的数据库，以验证是否恢复成功。
 7.  至此恢复工作已成功完成，您可以在Mongo Shell中执行`exit`命令退出Mongo Shell。
 
-## 步骤三：副本集模式启动MongoDB数据库
+## 步骤四：副本集模式启动MongoDB数据库
 
 云数据库MongoDB的物理备份默认带有原实例的副本集配置。启动时需以单节点模式启动，否则可能无法访问。
 
@@ -267,6 +274,8 @@ keyword: [备份恢复, 数据库恢复]
     db.dropUser('tmpuser')
     ```
 
+    ![执行结果示例](../images/p207017.png "执行结果示例")
+
     **说明：** 对于local库的`system.replset`集合，root用户只有只读权限，且由于root用户无法更改自身的权限，因此只能通过其他用户进行删除。
 
 3.  执行如下命令关闭MongoDB服务并退出Mongo Shell。
@@ -277,39 +286,49 @@ keyword: [备份恢复, 数据库恢复]
     exit
     ```
 
+    ![执行结果示例](../images/p207018.png "执行结果示例")
+
 4.  创建副本集认证文件。
 
     如需以副本集模式启动MongoDB，您需要创建一个key文件作为每个副本集节点之间的认证文件。
 
-    1.  执行`mkdir -p /root/mongo/keyFile`命令在mongo目录下创建keyFile文件夹作为认证文件的目录，然后执行如下命令在该目录中创建一个key文件。
+    1.  执行如下命令在mongo目录下创建keyFile文件夹作为认证文件的目录，并在该目录中创建一个key文件。
 
         ```
-        touch /root/mongo/keyFile/mongodb.key
+        mkdir -p /root/mongo/keyFile && touch /root/mongo/keyFile/mongodb.key
         ```
 
-    2.  执行`vi /root/mongo/keyFile/mongodb.key`打开mongodb.key文件，按键盘上的`i`进入编辑模式，输入任意内容作为加密内容。例如：
+    2.  执行`vi /root/mongo/keyFile/mongodb.key`打开mongodb.key文件，按键盘上的`i`进入编辑模式，输入加密内容。例如：
 
         ```
         MongoDB Encrypting File
         ```
 
+        **说明：** 加密内容有如下几个限制
+
+        -   长度必须在6~1024个字符之间。
+        -   只能包含base64编码中的字符。
+        -   不能包含等号（=）。
     3.  按Esc键退出编辑模式，输入`:wq`保存并退出文件。
-    4.  在命令行中执行`sudo chmod 600 /root/mongo/keyFile/mongodb.key`将认证文件的权限修改为`600`，否则在启动mongod进程的过程中会报错。
+    4.  在命令行中执行如下命令将认证文件的权限修改为`400`，保证该文件内容仅对该文件所有者可见。
+
+        ```
+        sudo chmod 400 /root/mongo/keyFile/mongodb.key
+        ```
+
     **说明：** 此认证文件将应用于所有副本集节点。
 
 5.  通过下列步骤为副本集准备两个空的节点。
-    1.  分别执行如下两个命令复制两份mongod.conf文件作为另外两个节点的启动配置文件。
+    1.  执行如下命令复制两份mongod.conf文件分别作为另外两个节点的启动配置文件。
 
         ```
-        cp /root/mongo/mongod.conf /root/mongo/mongod1.conf
-        cp /root/mongo/mongod.conf /root/mongo/mongod2.conf
+        cp /root/mongo/mongod.conf /root/mongo/mongod1.conf && cp /root/mongo/mongod.conf /root/mongo/mongod2.conf
         ```
 
-    2.  分别执行如下两个命令为另外两个节点创建数据目录。
+    2.  执行如下命令分别为另外两个节点创建数据目录。
 
         ```
-        mkdir -p /root/mongo/data1
-        mkdir -p /root/mongo/data2
+        mkdir -p /root/mongo/data1 && mkdir -p /root/mongo/data2
         ```
 
 6.  分别通过下列指示修改各节点的配置文件。
@@ -399,12 +418,10 @@ keyword: [备份恢复, 数据库恢复]
     -   port：当前节点的端口号。如果是在同一台服务器上部署副本集，所有节点应采用不同的端口号。
     -   replication：副本集配置。
     -   replSetName：设置副本集的名称。
-7.  分别执行如下3个命令启动3个节点。
+7.  执行如下命令启动3个节点。
 
     ```
-    mongod -f /root/mongo/mongod.conf
-    mongod -f /root/mongo/mongod1.conf
-    mongod -f /root/mongo/mongod2.conf
+    mongod -f /root/mongo/mongod.conf && mongod -f /root/mongo/mongod1.conf && mongod -f /root/mongo/mongod2.conf
     ```
 
 8.  等待启动完成后，使用root账号登录MongoDB数据库。
@@ -427,6 +444,8 @@ keyword: [备份恢复, 数据库恢复]
     })
     ```
 
+    ![初始化成功示例](../images/p207069.png "初始化成功示例")
+
     **说明：** 此步骤使用`rs.initiate()`命令进行操作，详细命令用法请参见MongoDB官方文档[rs.initiate\(\)命令介绍](https://docs.mongodb.com/manual/reference/method/rs.initiate/)。
 
     执行成功后，新加入的两个节点将会与主节点进行数据同步，注意此过程的耗时根据备份文件的大小会有较大差异。等待数据同步完成后，副本集模式启动完成。
@@ -443,9 +462,10 @@ keyword: [备份恢复, 数据库恢复]
 
         -   <username\>：该MongoDB实例的数据库账号，默认为root。
         -   <password\>：该数据库账号对应的密码。
-    3.  观察Mongo Shell命令行左侧，各情况说明如下：
-        -   显示`<副本集名称>:PRIMARY>`：副本集模式启动成功。
-        -   显示`<副本集名称>:RECOVERYING>`：正在进行节点之间的数据同步操作，需要等待同步完成。
+    3.  观察Mongo Shell命令行左侧，显示`<副本集名称>:PRIMARY>`即代表副本集模式启动成功。
+
+        ![副本集模式](../images/p207079.png "副本集模式启动成功示例")
+
 
 ## 常见问题
 
@@ -458,7 +478,7 @@ Q：为什么我使用指定的`mongod.conf`配置文件启动自建数据库报
 Q：为什么我使用指定的`mongod.conf`配置文件启动副本集模式报错？
 
 -   您可能没有将指定的`keyFile`认证文件的权限修改为`600`。请在命令行中通过`sudo chmod 600 <keyFile文件路径>`修改权限后重新尝试即可。
-
+-   
 Q：为什么通过副本集模式启动MongoDB数据库后系统变得很卡？
 
 -   因为启动完成后系统会自动开始同步Primary节点的数据到其他节点，等待数据同步完成即可。
