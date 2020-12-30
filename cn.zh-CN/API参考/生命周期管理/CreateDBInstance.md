@@ -19,9 +19,9 @@
 |Action|String|是|CreateDBInstance|要执行的操作，取值：**CreateDBInstance**。 |
 |ClientToken|String|是|ETnLKlblzczshOTUbOCzxxxxxxxxxx|用于保证请求的幂等性，防止重复提交请求。由客户端生成该参数值，要保证在不同请求间唯一，最大值不超过64个ASCII字符，且该参数值中不能包含非ASCII字符。 |
 |Engine|String|是|MongoDB|数据库引擎，取值：**MongoDB**。 |
-|EngineVersion|String|是|4.0|数据库版本号，取值：3.4、4.0或4.2。
+|EngineVersion|String|是|4.0|数据库版本号。取值：**3.4**、**4.0**、**4.2**或**4.4**。
 
- **说明：** 调用本接口用于克隆实例时，该值必须与源实例保持一致。 |
+ **说明：** 调用此接口用于克隆实例时，数据库版本号必须和源数据库的一致。 |
 |DBInstanceClass|String|是|dds.mongo.standard|实例规格，取值详情请参见[实例规格表](~~57141~~)。 |
 |DBInstanceStorage|Integer|是|10|实例存储空间。
 
