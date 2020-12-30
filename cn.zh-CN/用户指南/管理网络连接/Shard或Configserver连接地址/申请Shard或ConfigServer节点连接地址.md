@@ -1,3 +1,7 @@
+---
+keyword: mongodb shard 地址 申请节点链接
+---
+
 # 申请Shard或ConfigServer节点连接地址
 
 分片集群实例由Mongos节点、Shard节点和ConfigServer节点共同组成，一般业务读写数据只需连接至Mongos节点即可。在某些特定场景下（例如集群间数据同步），需要读取Shard节点的oplog或ConfigServer节点的配置信息，您可以申请相应节点的连接地址，以满足业务需求。
@@ -9,7 +13,7 @@
 -   申请连接地址后，系统将为每个节点创建两个连接地址，分别对应该节点中的Primary节点和Secondary节点。
 -   申请的连接地址的网络类型将与当前Mongos节点的网络类型保持一致。
 -   申请Shard节点或ConfigServer节点的连接地址后，暂不支持修改。
--   申请的连接地址仅支持通过内网访问，如需通过公网访问，请[申请公网连接地址](/cn.zh-CN/分片集群快速入门/申请公网连接地址.md)。
+-   申请的连接地址仅支持通过内网访问，如需通过公网访问，请[申请公网连接地址]()。
 
 ## 分片集群架构及节点介绍
 
@@ -31,7 +35,7 @@
 
 7.  在弹出的对话框中，为Shard节点或ConfigServer节点申请连接地址。
 
-    ![申请节点地址](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/2646819951/p58471.png)
+    ![申请节点地址](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2646819951/p58471.png)
 
     |配置|说明|
     |--|--|
