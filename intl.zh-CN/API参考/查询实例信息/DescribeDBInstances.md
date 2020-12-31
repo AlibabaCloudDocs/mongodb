@@ -23,7 +23,7 @@
 -   **replicate**：副本集实例和单节点实例，默认值为replicate。 |
 |DBInstanceClass|String|否|dds.mongo.mid|实例规格，取值详情请参见[实例规格表](~~57141~~)。 |
 |Engine|String|否|MongoDB|数据库引擎，取值为**MongoDB**。 |
-|EngineVersion|String|否|4.0|实例的数据库版本，取值：3.2、3.4、4.0或4.2。 |
+|EngineVersion|String|否|4.0|数据库版本号。取值：**3.2**、**3.4**、**4.0**或**4.2**。 |
 |NetworkType|String|否|VPC|实例网络类型，取值：
 
  -   **Classic**：经典网络。
