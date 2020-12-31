@@ -4,7 +4,7 @@ keyword: [实例之间实现准实时表级单向同步, 数据库同步, 阿里
 
 # 使用MongoShake实现MongoDB副本集间的单向同步
 
-通过阿里云自研的MongoShake工具，您可以实现MongoDB数据库间的数据同步，该功能可用于数据分析、灾备和多活等业务场景。本文以云数据库MongoDB实例间的数据实时同步为例介绍配置流程。
+通过阿里云自研的MongoShake开源工具，您可以实现MongoDB数据库间的数据同步，该功能可用于数据分析、灾备和多活等业务场景。本文以云数据库MongoDB实例间的数据实时同步为例介绍配置流程。
 
 ## MongoShake介绍
 
@@ -15,7 +15,7 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
 **说明：**
 
 -   如需了解更多MongoShake相关信息，请参见[MongoDB-shake Github主页](https://github.com/alibaba/MongoShake)。
--   如果您需要实现副本集实例间的双向数据同步，您可以[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)申请。
+-   如果您需要实现副本集实例间的双向数据同步，您可以[提交工单](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex)申请。
 
 ## 支持的数据源
 
@@ -320,5 +320,5 @@ cd /root/mongoshake && ./mongoshake-stat --port=9100
 
 ## 常见问题
 
-请参见[MongoShake常见问题](https://github.com/alibaba/MongoShake/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98&FAQ)。
+请参见[MongoShake常见问题](https://github.com/alibaba/MongoShake/wiki/FAQ)。
 
