@@ -21,10 +21,10 @@
 
  -   取值范围：**1**~**10**，单位为GB。
 -   每1GB递增。 |
-|Engine|String|是|MongoDB|数据库引擎，取值：**MongoDB**。 |
 |EngineVersion|String|是|4.2|数据库版本号，固定为**4.2**。 |
 |RegionId|String|是|ap-southeast-1|地域ID，您可以通过调用[DescribeRegions](~~61933~~)查询可用的地域，使用此参数指定实例创建的地域。 |
 |ZoneId|String|否|ap-southeast-1c|可用区ID，您可以通过调用[DescribeRegions](~~61933~~)查询可用的可用区，使用此参数指定实例创建的可用区。 |
+|Engine|String|否|MongoDB|数据库引擎，取值：**MongoDB**。 |
 |DBInstanceDescription|String|否|测试数据库1|实例名称，长度为2~256个字符。以中文、英文字母开头，可以包含数字、中文、英文、下划线（\_）、短横线（-）。 |
 |SecurityIPList|String|否|10.23.12.24/24|实例的IP白名单。
 
@@ -32,9 +32,7 @@
 -   支持格式：%，0.0.0.0/0，10.23.12.24（IP）或者10.23.12.24/24（CIDR模式，无类域间路由，/24表示地址前缀的长度，范围为1~32）。
 
 **说明：** %和0.0.0.0/0表示任何IP地址都可以访问实例的数据库，属于高危设置，请谨慎设置。 |
-|ChargeType|String|否|PrePaid|实例的付费类型，仅支持预付费模式（包年包月），取值：**PrePaid**。 |
 |Period|Integer|否|1|实例的购买时长，单位为月。取值范围为：**1**~**9**、**12**、**24**、**36**、**60**。 |
-|NetworkType|String|否|VPC|实例的网络类型，Serverless实例仅支持专有网络类型，取值：**VPC**。 |
 |VpcId|String|否|vpc-bpxxxxxxxx|专有网络（VPC）ID。 |
 |VSwitchId|String|否|vsw-bpxxxxxxxx|专有网络中的虚拟交换机ID。 |
 |ClientToken|String|否|ETnLKlblzczshOTUbOCzxxxxxxxxxx|用于保证请求的幂等性，防止重复提交请求。由客户端生成该参数值，要保证在不同请求间唯一，最大值不超过64个ASCII字符，且该参数值中不能包含非ASCII字符。 |
@@ -46,6 +44,10 @@
 
 默认为手动续费。 |
 |ResourceGroupId|String|否|rg-axxxxxxxx|资源组ID。 |
+|PeriodPriceType|String|否|Day|查询按天或按月的费用。取值：
+
+ -   **Day**：按天查询。
+-   **Month**：按月查询。 |
 
 ## 返回数据
 
