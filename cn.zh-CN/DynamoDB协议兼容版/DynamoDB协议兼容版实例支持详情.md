@@ -26,26 +26,32 @@ Amazon DynamoDB是一种完全托管的NoSQL数据库服务，提供快速而可
 |可选参数：LocalSecondaryIndexes|是|无|
 |可选参数：ProvisionedThroughput|否|无|
 |可选参数：SSESpecification|否|无|
-|可选参数：StreamSpecification|否|无|
+|可选参数：StreamSpecification|是|`StreamViewType`参数当前仅支持如下值：-   KEYS\_ONLY
+-   NEW\_IMAGE
+
+**说明：** NEW\_IMAGE当前仅可包含分区键（Paritition key），如果表中存在排序键（Sort key），该排序键将会被忽略。 |
 |可选参数：Tags|否|无|
-|应答参数|TableDescription|是|无|
+|返回参数|TableDescription|是|无|
 |UpdateTable|请求参数|可选参数：AttributeDefinitions|是|无|
 |可选参数：BillingMode|否|无|
 |必选参数：GlobalSecondaryIndexesUpdates|是|支持Create和Delete，不支持Update。|
 |可选参数：ProvisionedThroughput|否|无|
 |可选参数：ReplicaUpdates|否|无|
 |可选参数：SSESpecification|否|无|
-|可选参数：StreamSpecification|否|无|
+|可选参数：StreamSpecification|是|`StreamViewType`参数当前仅支持如下值：-   KEYS\_ONLY
+-   NEW\_IMAGE
+
+**说明：** NEW\_IMAGE当前仅可包含分区键（Paritition key），如果表中存在排序键（Sort key），该排序键将会被忽略。 |
 |必选参数：TableName|是|无|
-|应答参数|TableDescription|是|参见TableDescription。|
+|返回参数|TableDescription|是|参见TableDescription。|
 |DescribeTable|请求参数|必选参数：TableName|是|无|
-|应答参数|Table|是|参见TableDescription。|
+|返回参数|Table|是|参见TableDescription。|
 |ListTables|请求参数|可选参数：ExclusiveStartTableName|否|不支持分页查询，没有返回记录条数的限制。|
 |可选参数：Limit|否|不支持分页查询，没有返回记录条数的限制。|
-|应答参数|LastEvaluatedTableName|否|无|
+|返回参数|LastEvaluatedTableName|否|无|
 |TableNames|是|无|
 |DeleteTable|请求参数|必选参数：TableName|是|无|
-|应答参数|TableDescription|是|参见TableDescription。|
+|返回参数|TableDescription|是|参见TableDescription。|
 |PutItem|请求参数|必选参数：Item|是|无|
 |必选参数：TableName|是|无|
 |可选参数：ConditionalOperator|否|无|
@@ -56,7 +62,7 @@ Amazon DynamoDB是一种完全托管的NoSQL数据库服务，提供快速而可
 |可选参数：ReturnConsumedCapacity|否|无|
 |可选参数：ReturnItemCollectionMetrics|否|无|
 |可选参数：ReturnValues|是|无|
-|应答参数|Attributes|是|无|
+|返回参数|Attributes|是|无|
 |ConsumedCapacity|否|无|
 |ItemCollectionMetrics|否|无|
 |UpdateItem|请求参数|必选参数：Key|是|无|
@@ -71,7 +77,7 @@ Amazon DynamoDB是一种完全托管的NoSQL数据库服务，提供快速而可
 |可选参数：ReturnItemCollectionMetrics|否|无|
 |可选参数：ReturnValues|是|无|
 |可选参数：UpdateExpression|是|参见[表达式支持情况](#section_wlf_yls_m1d)。|
-|应答参数|Attributes|是|无|
+|返回参数|Attributes|是|无|
 |ConsumedCapacity|否|无|
 |ItemCollectionMetrics|否|无|
 |GetItem|请求参数|必选参数：Key|是|无|
@@ -81,7 +87,7 @@ Amazon DynamoDB是一种完全托管的NoSQL数据库服务，提供快速而可
 |可选参数：ExpressionAttributeNames|是|参见[表达式支持情况](#section_wlf_yls_m1d)。|
 |可选参数：ProjectionExpression|是|参见[表达式支持情况](#section_wlf_yls_m1d)。|
 |可选参数：ReturnConsumedCapacity|否|无|
-|应答参数|ConsumedCapacity|否|无|
+|返回参数|ConsumedCapacity|否|无|
 |Item|是|无|
 |DeleteItem|请求参数|必选参数：Key|是|无|
 |必选参数：TableName|是|无|
@@ -93,18 +99,18 @@ Amazon DynamoDB是一种完全托管的NoSQL数据库服务，提供快速而可
 |可选参数：ReturnConsumedCapacity|否|无|
 |可选参数：ReturnItemCollectionMetrics|否|无|
 |可选参数：ReturnValues|是|无|
-|应答参数|Attributes|是|无|
+|返回参数|Attributes|是|无|
 |ConsumedCapacity|否|无|
 |ItemCollectionMetrics|否|无|
 |BatchWriteItem|请求参数|必选参数：RequestItems|是|无|
 |可选参数：ReturnConsumedCapacity|否|无|
 |可选参数：ReturnItemCollectionMetrics|否|无|
-|应答参数|ConsumedCapacity|否|无|
+|返回参数|ConsumedCapacity|否|无|
 |ItemCollectionMetrics|否|无|
 |UnprocessedItems|是|无|
 |BatchGetItem|请求参数|必选参数：RequestItems|是|Item元素不支持`AttributesToGet`和`ConsistentRead`参数。|
 |可选参数：ReturnConsumedCapacity|否|无|
-|应答参数|ConsumedCapacity|否|无|
+|返回参数|ConsumedCapacity|否|无|
 |Responses|是|无|
 |UnprocessedKeys|是|无|
 |Query|请求参数|必选参数：TableName|是|无|
@@ -118,13 +124,13 @@ Amazon DynamoDB是一种完全托管的NoSQL数据库服务，提供快速而可
 |可选参数：IndexName|是|无|
 |可选参数：KeyConditionExpression|是|参见[表达式支持情况](#section_wlf_yls_m1d)。|
 |可选参数：KeyConditions|否|无|
-|可选参数：Limit|是|不指定时默认按照每101条记录进行分页，而非1MB数据大小。|
+|可选参数：Limit|是|无|
 |可选参数：ProjectionExpression|是|参见[表达式支持情况](#section_wlf_yls_m1d)。|
 |可选参数：QueryFilter|否|无|
 |可选参数：ReturnConsumedCapacity|否|无|
 |可选参数：ScanIndexForward|是|无|
 |可选参数：Select|否|无|
-|应答参数|ConsumedCapacity|否|无|
+|返回参数|ConsumedCapacity|否|无|
 |Count|是|无|
 |Items|是|无|
 |LastEvaluatedKey|是|无|
@@ -138,18 +144,39 @@ Amazon DynamoDB是一种完全托管的NoSQL数据库服务，提供快速而可
 |可选参数：ExpressionAttributeValues|是|参见[表达式支持情况](#section_wlf_yls_m1d)。|
 |可选参数：FilterExpression|是|参见[表达式支持情况](#section_wlf_yls_m1d)。|
 |可选参数：IndexName|是|无|
-|可选参数：Limit|是|如不指定则默认按照每101条记录进行分页，而不是按照1MB数据大小分页。|
+|可选参数：Limit|是|无|
 |可选参数：ProjectionExpression|是|参见[表达式支持情况](#section_wlf_yls_m1d)。|
 |可选参数：ReturnConsumedCapacity|否|无|
 |可选参数：ScanFilter|否|无|
 |可选参数：Segment|是|无|
 |可选参数：Select|否|无|
 |可选参数：TotalSegments|是|无|
-|应答参数|ConsumedCapacity|否|无|
+|返回参数|ConsumedCapacity|否|无|
 |Count|是|无|
 |Items|是|无|
 |LastEvaluatedKey|是|无|
 |ScannedCount|是|无|
+
+|接口名|参数|是否支持|备注|
+|---|--|----|--|
+|DescribeStream|请求参数|必选参数：StreamArn|是|无|
+|可选参数：Limit|否|无|
+|可选参数：ExclusiveStartShardId|否|无|
+|返回参数|必选参数：StreamDescription|是|对比AWS DynamoDB实例，该返回参数返回结果有如下区别：-   `StartingSequenceNumber`字段固定为`unknown`。
+-   `EndingSequenceNumber`字段以时间戳体现。
+-   由于DynamoDB协议兼容版实例仅有一个Shard，`ShardId`字段固定为`arn:alibaba:mongo-dynamodb@shard-only-1`。 |
+|ListStreams|请求参数|可选参数：TableName|是|无|
+|可选参数：Limit|否|无|
+|可选参数：ExclusiveStartStreamArn|否|无|
+|返回参数|必选参数：Streams|是|每个表中最多只能返回一个Stream。|
+|GetShardIterator|请求参数|必选参数：StreamArn|是|无|
+|必选参数：ShardId|是|由于DynamoDB协议兼容版实例仅有一个Shard，本字段固定为`arn:alibaba:mongo-dynamodb@shard-only-1`。|
+|必选参数：ShardIteratorType|是|当前仅支持传入`LATEST`和`AFTER_SEQUENCE_NUMBER`。|
+|可选参数：SequenceNumber|是|当`ShardIteratorType`为`AFTER_SEQUENCE_NUMBER`时使用，可传入32位秒级时间戳。|
+|返回参数|必选参数：ShardIterator|是|无|
+|GetRecords|请求参数|必选参数：ShardIterator|是|无|
+|可选参数：Limit|是|不指定时默认按照每101条记录进行分页，而非1MB数据大小。|
+|返回参数|必选参数：Records|是|无|
 
 |数据类型|字段|是否支持|
 |----|--|----|
@@ -161,14 +188,14 @@ Amazon DynamoDB是一种完全托管的NoSQL数据库服务，提供快速而可
 |GlobalTableVersion|否|
 |ItemCount|是|
 |KeySchema|是|
-|LatestStreamArn|否|
-|LatestStreamLabel|否|
+|LatestStreamArn|是|
+|LatestStreamLabel|是|
 |LocalSecondaryIndexes|是|
 |ProvisionedThroughput|否|
 |Replicas|否|
 |RestoreSummary|否|
 |SSEDescription|否|
-|StreamSpecification|否|
+|StreamSpecification|是|
 |TableArn|否|
 |TableId|否|
 |TableName|是|
