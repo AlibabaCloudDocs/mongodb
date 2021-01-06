@@ -39,6 +39,7 @@
  -   asc：按时间升序排序。
 -   desc：按时间降序排序。 |
 |ResourceGroupId|String|否|sg-bpxxxxxxxxxxxxxxxxxx|资源组ID。 |
+|RoleId|String|否|651xxxxx|节点的角色ID。您可以通过[DescribeReplicaSetRole](~~62134~~)进行查询。 |
 
 ## 返回数据
 
