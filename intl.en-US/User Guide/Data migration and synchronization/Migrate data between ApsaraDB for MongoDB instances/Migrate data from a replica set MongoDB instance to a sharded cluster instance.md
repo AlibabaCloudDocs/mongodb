@@ -8,6 +8,7 @@ Each shard in the destination sharded cluster instance has sufficient storage sp
 
 -   During full data migration, DTS uses read and write resources of the source and destination databases. This may increase the load of the database server. If you migrate a large volume of data or the server specifications cannot meet your requirements, database services may become unavailable. Before you migrate data, evaluate the impact of data migration on the performance of the source and destination databases. We recommend that you migrate data during off-peak hours.
 -   If the source and destination ApsaraDB for MongoDB instances have different versions or storage engines, make sure that the versions or storage engines are compatible. For more information, see [MongoDB versions and storage engines](/intl.en-US/Product Introduction/MongoDB versions and storage engines.md).
+-   If the minor version of your instance expires or is not included in the maintenance list and the instance is upgraded, migrated, changed, or cloned, the system will upgrade the minor version to the latest version by default. This ensures better performance and stability of the instance.
 
 ## Billing
 
@@ -85,7 +86,7 @@ Create databases and collections to be sharded in the destination ApsaraDB for M
     |:--------|:----------|
     |Migration Types|    -   To perform only full data migration, select only **Full Data Migration**.
     -   To ensure service continuity during data migration, select both **Full Data Migration** and **Incremental Data Migration**.
- **Note:** If **Incremental Data Migration** is not selected, do not write data to the source ApsaraDB for MongoDB database during full data migration. This ensures data consistency between the source and destination databases. |
+**Note:** If **Incremental Data Migration** is not selected, do not write data to the source ApsaraDB for MongoDB database during full data migration. This ensures data consistency between the source and destination databases. |
     |Objects|    -   Select objects from the **Available** section and click the ![Right arrow](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/3457359951/p40698.png) icon to move the objects to the **Selected** section.
 
 **Note:** You cannot migrate data from the admin or local database.
