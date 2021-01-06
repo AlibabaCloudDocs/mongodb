@@ -107,23 +107,8 @@ keyword: [备份恢复, 数据库恢复]
         ![解压结果](../images/p70466.png "解压结果")
 
     -   当下载的物理备份文件后缀为\_qp.xb时，例如文件名为hins20190412\_qp.xb，请使用下述方法解压。
-        1.  安装percona-xtrabackup工具。
-
-            ```
-            apt-get update
-            apt install percona-xtrabackup
-            ```
-
-        2.  前往[QuickLZ网站](http://www.quicklz.com/)，下载qpress工具。
-        3.  解压并安装qpress工具。
-
-            ```
-            tar xvf qpress-11-linux-x64.tar
-            chmod 775 qpress
-            cp qpress /usr/bin
-            ```
-
-        4.  解压物理备份文件，例如数据库备份文件名为hins20190412\_qp.xb。
+        1.  安装percona-xtrabackup工具和qpress软件包。详情请参见PERCONA XtraBackup官网上的[安装步骤](https://www.percona.com/doc/percona-xtrabackup/2.4/installation/apt_repo.html)。
+        2.  解压物理备份文件，例如数据库备份文件名为hins20190412\_qp.xb。
 
             ```
             cd /root/mongo/data/
