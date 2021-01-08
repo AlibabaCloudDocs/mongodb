@@ -6,10 +6,6 @@ You can change the configuration of a sharded cluster instance if the configurat
 
 -   To ensure data security, you can add shard nodes but cannot delete them.
 -   When you change the configuration of a shard node, the new storage space must be larger than the storage space occupied by the current shard node.
--   If the billing method is subscription, you can only upgrade the configuration.
-
-    **Note:** You can use other methods to downgrade the configuration. For more information, see [Configuration change overview](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Configuration change overview.md).
-
 -   You cannot change the instance type or storage engine of a sharded cluster instance. Creating a new instance will cause a long-period shutdown and have a great impact on the business. Therefore, we do not recommend this method.
 
 ## Billing rules
