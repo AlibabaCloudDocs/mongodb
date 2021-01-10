@@ -26,10 +26,6 @@ The top configuration of this category is the dedicated host, which exclusively 
 
 Dedicated hosts enable flexible resource scheduling and meet your requirements for regulatory compliance, high performance, and security. For more information, see [What is ApsaraDB for MyBase?]()|Scenarios that require flexible resource scheduling and full permissions on hosts.|
 
-The following figure shows the differences among general-purpose instances, instances with dedicated local disks, and instances with dedicated cloud disks.
-
-![Comparison between ApsaraDB for MongoDB instance categories](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/7801129951/p41619.png)
-
 ## Instance types
 
 For more information about instance types and specifications such as the number of CPU cores, memory, storage space, maximum number of allowed connections, and IOPS, see [Instance types](/intl.en-US/Product Introduction/Instance types.md).
