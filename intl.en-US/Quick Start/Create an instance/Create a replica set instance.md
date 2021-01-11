@@ -33,17 +33,17 @@ After you perform the following steps, ApsaraDB for MongoDB automatically create
     |:------|:--------|:----------|
     |**Basic Configuration**|**Region**|The region where the ApsaraDB for MongoDB \(Serverless\) instance is deployed. After an instance is created, you cannot change its region. Exercise caution when you select the region.
 
- Instances in the same region \(such as an [ECS](~~25367~~) instance and an ApsaraDB for MongoDB instance\) can be interconnected with each other over the internal network. |
+Instances in the same region \(such as an [ECS](~~25367~~) instance and an ApsaraDB for MongoDB instance\) can be interconnected with each other over the internal network. |
     |**Zone**|A [zone](~~40654~~) is a geographic area with an independent power supply and network. An ECS instance and an ApsaraDB for MongoDB instance in the same zone can be interconnected over an internal network with the minimum network latency.
 
- **Note:** To implement zone-disaster recovery, you can deploy the replica set instance across multiple zones. For more information, see [Create a multi-zone replica set instance](/intl.en-US/User Guide/Zone-disaster restoration solution/Create a multi-zone replica set instance.md). |
+**Note:** To implement zone-disaster recovery, you can deploy the replica set instance across multiple zones. For more information, see [Create a multi-zone replica set instance](/intl.en-US/User Guide/Zone-disaster restoration solution/Create a multi-zone replica set instance.md). |
     |**Database Version**|The MongoDB version of the replica set instance. Valid values: 4.2, 4.0, and 3.4. For more information about versions, see [MongoDB versions and storage engines](/intl.en-US/Product Introduction/MongoDB versions and storage engines.md).
 
- **Note:**
+**Note:**
 
     -   ApsaraDB for MongoDB 3.2 has been unavailable. For more information, see [Notice: ApsaraDB for MongoDB has phased MongoDB 3.2 out and released MongoDB 4.2 since February 4](/intl.en-US/Product Notification/Notice: ApsaraDB for MongoDB has phased MongoDB 3.2 out and released MongoDB 4.2 since
          February 4.md).
-    -   You can manually upgrade the database version while an instance is running. For more information, see [Upgrade the database version](/intl.en-US/User Guide/Instance management/Upgrading Database Version/Upgrade the database version of an ApsaraDB for MongoDB instance.md). |
+    -   You can manually upgrade the database version while an instance is running. For more information, see [Upgrade the database version](/intl.en-US/User Guide/Instance management/Upgrading Database Version/Upgrade MongoDB versions.md). |
     |**Storage Engine**|The storage engine is **WiredTiger**. |
     |**Replication Factor**|Select the number of nodes for the replica set instance based on your business needs. For example, you can select more nodes for business scenarios with more reads than writes.|
     |**Network Type**|**Classic**|Cloud services in the classic network are not isolated. You can configure security groups or whitelist policies to block unauthorized access to the cloud services.|
@@ -59,7 +59,7 @@ After you perform the following steps, ApsaraDB for MongoDB automatically create
     -   **Set Later**
 |The password of the root user. You can set a password immediately or reset it during the running of the instance. For more information, see [Set a password]().
 
-     -   The password must contain at least three types of the following characters: uppercase letters, lowercase letters, digits, and special characters. Special characters include \# $ % ^ & \* \( \) \_ + - =
+    -   The password must contain at least three types of the following characters: uppercase letters, lowercase letters, digits, and special characters. Special characters include \# $ % ^ & \* \( \) \_ + - =
     -   The password must be 8 to 32 characters in length. |
     |**Purchase quantity**|**Duration**|    -   Subscription: Select the duration and quantity for the subscription-based instance to be purchased. You can select one to nine months for the subscription period on a monthly basis, or one to three years for the subscription period on a yearly basis.
 
@@ -91,9 +91,9 @@ After you perform the following steps, ApsaraDB for MongoDB automatically create
 |The instance list in the ApsaraDB for MongoDB console was not updated or was updated before the instance is created.|Wait for several minutes and then update the instance list to check whether the instance is added to the list.|
 |Resources are insufficient.|The system may fail to create the instance due to insufficient resources. In this case, your payment is refunded. You can check the refund on the [Orders](https://expense.console.aliyun.com/#/order/list/) page.
 
- After you confirm the refunded fees, you can try to create your instance in another region or zone. You can also[submit a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex). |
+After you confirm the refunded fees, you can try to create your instance in another region or zone. You can also [submit a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex). |
 
-After you create an instance, you must configure a whitelist. For more information, see [Configure a whitelist for a replica set instance](/intl.en-US/Quick Start/Configure a whitelist for a replica set instance.md). If you want to connect to the instance over the Internet, you must apply for a public endpoint. For more information, see [Apply for a public endpoint for a replica set instance](/intl.en-US/Quick Start/Apply for a public endpoint for a replica set instance.md).
+After you create an instance, you must configure a whitelist. For more information, see [Configure a whitelist for an ApsaraDB for MongoDB instance](/intl.en-US/Quick Start/Configure a whitelist for an ApsaraDB for MongoDB instance.md). If you want to connect to the instance over the Internet, you must apply for a public endpoint. For more information, see [Apply for a public endpoint for an ApsaraDB for MongoDB instance](/intl.en-US/Quick Start/Apply for a public endpoint for an ApsaraDB for MongoDB instance.md).
 
 For more information about instance connection methods and connection scenarios, see [Connect to an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Instance connection/Connect to an ApsaraDB for MongoDB instance.md).
 
