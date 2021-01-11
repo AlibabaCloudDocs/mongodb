@@ -30,7 +30,7 @@ DTS migrates a user-created MongoDB database by migrating each shard in the inst
 |Migration type|Instance fee|Internet traffic fee|
 |--------------|------------|--------------------|
 |Full data migration|Free of charge|Charged only when data is migrated from Alibaba Cloud over the Internet. For more information, see [Data Transmission Service Pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing).|
-|Incremental data migration|Charged. For more information, see[Data Transmission Service Pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing).|
+|Incremental data migration|Charged. For more information, see [Data Transmission Service Pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing).|
 
 ## Migration types
 
@@ -81,7 +81,7 @@ How to create and authorize a database account:
 
     3.  Run the following command on a shard to delete the orphaned documents from all collections in the specified database:
 
-        **Note:** You must repeat this step on each shard. To obtain shard ids and service ports, see [View the created instance](/intl.en-US/Quick Start/Create an instance/Create a sharded cluster instance.md).
+        **Note:** You must repeat this step on each shard. To obtain shard IDs and service ports, see [View the created instance](/intl.en-US/Quick Start/Create an instance/Create a sharded cluster instance.md).
 
         ```
         mongo --host <Shardhost> --port <Primaryport>  --authenticationDatabase <database> -u <username> -p <passowrd> cleanupOrphaned.js
