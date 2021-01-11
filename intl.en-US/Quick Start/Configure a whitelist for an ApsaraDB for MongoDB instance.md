@@ -21,7 +21,7 @@ This topic describes how to configure a whitelist for an ApsaraDB for MongoDB in
 
     **Manually Modify**
 
-    1.  In the **Manually Modify** panel, click the**IPv4** or **IPv6** tab based on your network connection.
+    1.  In the **Manually Modify** panel, click the **IPv4** or **IPv6** tab based on your network connection.
 
         **Note:**
 
@@ -67,7 +67,7 @@ This topic describes how to configure a whitelist for an ApsaraDB for MongoDB in
 
     **Manually Modify**
 
-    1.  In the **Manually Modify** panel, click the**IPv4** or **IPv6** tab based on your network connection.
+    1.  In the **Manually Modify** panel, click the **IPv4** or **IPv6** tab based on your network connection.
 
         **Note:**
 
