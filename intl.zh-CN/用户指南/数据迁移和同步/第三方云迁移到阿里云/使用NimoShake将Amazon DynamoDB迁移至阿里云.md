@@ -34,7 +34,7 @@ NimoShake目前支持全量和增量分离的同步机制，即先同步全量�
 
         |线程名称|说明|
         |----|--|
-        |Fecher|调用Amazon提供的协议转换驱动批量抓取源表的数据并放入队列中，直至抓取完源表的所有数据。 **说明：** 目前只提供一个Fetcher线程。 |
+        |Fetcher|调用Amazon提供的协议转换驱动批量抓取源表的数据并放入队列中，直至抓取完源表的所有数据。 **说明：** 目前只提供一个Fetcher线程。 |
         |Parser|从队列中读取数据，并解析成BSON结构。Parser解析完成后，将数据按条写入Executor队列。Parser线程可以启动多个，默认为2个，您可以通过`FullDocumentParser`参数调整Parser的个数。|
         |Executor|从队列中拉取数据，并将数据进行聚合后写入目的端MongoDB（聚合上限16MB，总条数1024）。Executor线程可以启动多个，默认为4个，您可以通过`FullDocumentConcurrency`参数调整Executor的个数。|
 
