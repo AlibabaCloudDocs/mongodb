@@ -6,7 +6,7 @@ keyword: [quasi-real-time one-way synchronization of tabular data between instan
 
 You can use the open source MongoShake tool developed by Alibaba Cloud to synchronize data between MongoDB databases. This tool can be used in scenarios such as data analysis, disaster recovery, and active-active replication. This topic describes how to configure MongoShake to synchronize data between ApsaraDB for MongoDB replica set instances in real time.
 
-**Note:** If you want to implement two-way data synchronization between replica set instances, you can[submit a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex).
+**Note:** If you want to implement two-way data synchronization between replica set instances, you can [submit a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex).
 
 ## MongoShake overview
 
@@ -45,7 +45,7 @@ MongoShake also allows you to subscribe to and consume MongoDB logs. You can con
 
     **Note:** Create the destination ApsaraDB for MongoDB instance in the same VPC as the source ApsaraDB for MongoDB instance. In this way, you can connect the ECS instance where MongoShake runs to the source and destination ApsaraDB for MongoDB instances over the VPC.
 
-2.  Create an ECS instance to run MongoShake. For more information, see[Create an ECS instance](https://www.alibabacloud.com/help/zh/doc-detail/25424.htm).
+2.  Create an ECS instance to run MongoShake. For more information, see [Create an ECS instance](https://www.alibabacloud.com/help/zh/doc-detail/25424.htm).
 
     **Note:** Set the operating system of the ECS instance to Linux and select the same VPC as that used by the source and destination ApsaraDB for MongoDB instances.
 
@@ -56,7 +56,7 @@ MongoShake also allows you to subscribe to and consume MongoDB logs. You can con
 
 ## Procedure
 
-1.  Log on to the[ECS instance](https://www.alibabacloud.com/help/zh/doc-detail/25434.htm).
+1.  Log on to the [ECS instance](https://www.alibabacloud.com/help/zh/doc-detail/25434.htm).
 2.  Run the following command to download the MongoShake package:
 
     ```
