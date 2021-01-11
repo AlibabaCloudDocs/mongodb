@@ -10,8 +10,6 @@
 
     **说明：** 目标实例的存储空间须大于源实例的已使用存储空间。
 
-    [https://icms.alibaba-inc.com/content/mongodb/a58a905?l=1&m=199&n=83046](https://icms.alibaba-inc.com/content/mongodb/a58a905?l=1&m=199&n=83046)
-
 
 在某些业务场景下，可能需要更换MongoDB实例的地域，例如：
 
