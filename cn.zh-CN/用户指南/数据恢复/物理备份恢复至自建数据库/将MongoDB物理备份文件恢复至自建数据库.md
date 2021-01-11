@@ -321,7 +321,7 @@ keyword: [备份恢复, 数据库恢复]
         mkdir -p /root/mongo/data1 && mkdir -p /root/mongo/data2
         ```
 
-6.  分别通过下列指示修改各节点的配置文件。
+6.  分别通过下列指示修改各节点的配置文件：
 
     -   执行`vi /root/mongo/mongod.conf`打开节点1的配置文件，并按照如下内容修改完成后保存退出。
 
