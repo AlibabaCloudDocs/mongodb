@@ -34,7 +34,7 @@ NimoShake performs full migration the first time and then incremental migration.
 
         |Thread|Description|
         |------|-----------|
-        |Fecher|Calls the protocol conversion driver provided by Amazon to capture data in the source collection in batches and then place the batches into queues until all source data is captured. **Note:** Only one fetcher thread is provided. |
+        |Fetcher|Calls the protocol conversion driver provided by Amazon to capture data in the source collection in batches and then place the batches into queues until all source data is captured. **Note:** Only one fetcher thread is provided. |
         |Parser|Reads data from queues and parses data into the BSON structure. After data is parsed, the parser thread writes data to queues of the executor thread as entries. Multiple parser threads can be started and the default value is 2. You can specify the number of parser threads through the `FullDocumentParser` parameter.|
         |Executor|Pulls data from queues and then aggregates and writes data to the ApsaraDB for MongoDB database. Up to 16 MB data in 1,024 entries can be aggregated. Multiple executor threads can be started and the default value is 4. You can specify the number of executor threads through the `FullDocumentConcurrency` parameter.|
 
