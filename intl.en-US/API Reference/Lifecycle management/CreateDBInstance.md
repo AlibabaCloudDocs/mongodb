@@ -60,7 +60,7 @@ Default value: pay-as-you-go
 
 Default value: CLASSIC.
 
-**Note:** If you specify this parameter to**VPC**, you must also specify the **VpcId** parameter and the **VSwitchId** parameter. |
+**Note:** If you specify this parameter to **VPC**, you must also specify the **VpcId** parameter and the **VSwitchId** parameter. |
 |VpcId|String|No|vpc-bpxxxxxxxx|The ID of the VPC.
 
 **Note:** This parameter is valid only if you set the **NetworkType** parameter to **VPC**. |
