@@ -4,7 +4,7 @@ As of November 19, 2020, the collection interval of ApsaraDB for MongoDB monitor
 
 ## Background information
 
-A collection interval indicates how often the system automatically collects resource information. In earlier versions, ApsaraDB for MongoDB supports collection intervals of 5 seconds and 300 seconds. The 5-second interval is too high a frequency and the 300-second interval is too low a frequency. Both cannot meet customer requirements. To solve this problem, Alibaba Cloud changes the collection interval of ApsaraDB for MongoDB monitoring data to 60 seconds. This allows you to find problems such as resource exceptions and fix them in a timely manner.
+A collection interval indicates how often the system automatically collects resource information. In earlier versions, ApsaraDB for MongoDB supports collection intervals of 1 seconds and 300 seconds. The 1-second interval is too high a frequency and the 300-second interval is too low a frequency. Both cannot meet customer requirements. To solve this problem, Alibaba Cloud changes the collection interval of ApsaraDB for MongoDB monitoring data to 60 seconds. This allows you to find problems such as resource exceptions and fix them in a timely manner.
 
 ## Effective date
 
@@ -14,14 +14,16 @@ November 19, 2020
 
 -   The collection interval of 60 seconds becomes available.
 -   The feature of adjusting collection intervals becomes unavailable.
--   The collection intervals of 5 seconds and 300 seconds become unavailable.
+-   The collection intervals of 1 seconds and 300 seconds become unavailable.
 
 ## Effects
 
 |Instance|Effect|
 |--------|------|
 |Existing instance|-   The collection interval cannot be adjusted.
--   The collection interval is set to 60 seconds. |
+-   The previously specified collection frequency remains effective.
+
+**Note:** To manually modify the collection frequency, you must [submit a ticket](https://selfservice.console.aliyun.com/ticket/category/dds/today) to after-sales service engineers. |
 |New instance|The collection interval is set to 60 seconds and cannot be adjusted.|
 
 We apologize for the inconvenience. If you have any questions, [submit a ticket](https://selfservice.console.aliyun.com/ticket/category/dds/today) to contact after-sales support engineers.
