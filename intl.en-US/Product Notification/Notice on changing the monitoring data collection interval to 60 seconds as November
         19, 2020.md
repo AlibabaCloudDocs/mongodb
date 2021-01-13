@@ -23,7 +23,7 @@ November 19, 2020
 |Existing instance|-   The collection interval cannot be adjusted.
 -   The previously specified collection frequency remains effective.
 
-**Note:** To manually modify the collection frequency, you must [submit a ticket](https://selfservice.console.aliyun.com/ticket/category/dds/today) to after-sales service engineers. |
+**Note:** To manually modify the collection frequency to 60 seconds, you must [submit a ticket](https://selfservice.console.aliyun.com/ticket/category/dds/today) to after-sales service engineers. |
 |New instance|The collection interval is set to 60 seconds and cannot be adjusted.|
 
 We apologize for the inconvenience. If you have any questions, [submit a ticket](https://selfservice.console.aliyun.com/ticket/category/dds/today) to contact after-sales support engineers.
