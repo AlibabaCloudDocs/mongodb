@@ -358,3 +358,66 @@
     ```
 
 
+## Go 连接示例
+
+相关链接：[MongoDB Go Driver](https://docs.mongodb.com/drivers/go)。
+
+1.  安装如下驱动包。
+
+    ```
+    go get gopkg.in/mgo.v2
+    ```
+
+2.  获取云数据库 MongoDB 连接信息。
+3.  Go Demo Code。
+
+    ```
+    package main
+    import (
+    "fmt"
+    "log"
+    "time""gopkg.in/mgo.v2"
+    "gopkg.in/mgo.v2/bson"
+    )
+    type Person struct {
+    Name  string
+    Phone string
+    }
+    func main() {
+    fmt.Println("hello world")
+    dialInfo := &mgo.DialInfo{
+    Addrs:     []string{"dds-bp1***********-pub.mongodb.rds.aliyuncs.com:3717", "dds-bp1***********-pub.mongodb.rds.aliyuncs.com:3717"},
+    Direct:    false,
+    Timeout:   time.Second * 1,
+    Database:  "admin",
+    Source:    "admin",
+    Username:  "root",
+    Password:  "********", 
+    }
+    session, err := mgo.DialWithInfo(dialInfo)
+    if err != nil {
+    fmt.Printf("dial failed: %v",err)
+    return
+    }
+    defer session.Close()
+    
+    session.SetMode(mgo.Monotonic, true)
+    
+    c := session.DB("test").C("test_collection")
+    err = c.Insert(&Person{"Ale", "+55 53 8116 9639"},
+        &Person{"Cla", "+55 53 8402 8510"})
+    if err != nil {
+        log.Fatal(err)
+    }
+    
+    result := Person{}
+    err = c.Find(bson.M{"name": "Ale"}).One(&result)
+    if err != nil {
+        log.Fatal(err)
+    }
+    
+    fmt.Println("Phone:", result.Phone)
+    }
+    ```
+
+
