@@ -39,7 +39,7 @@ The maximum number of connections varies depending on ApsaraDB for MongoDB insta
 
     ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/0157297751/p51156.png)
 
-7.  In the left-side navigation pane, click **Basic Information**。
+7.  In the left-side navigation pane, click **Basic Information**.
 
 8.  On the **Basic Information** page, query the maximum number of connections corresponding to the current instance specifications. In this example, the number is 500.
 
