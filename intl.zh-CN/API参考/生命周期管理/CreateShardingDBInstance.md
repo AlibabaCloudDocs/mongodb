@@ -36,25 +36,16 @@
 |ZoneId|String|否|cn-hangzhou-b|可用区ID，您可以通过[DescribeRegions](~~61933~~)查询可用的可用区，使用此参数指定实例创建的可用区。 |
 |Mongos.N.Class|String|否|dds.mongos.standard|Mongos节点的规格，取值详情请参见[实例规格表](~~57141~~)。取值范围：**2**~**32**。
 
- **说明：** **N**代表的是传入第几个Mongos节点的规格，例如：
-
- -   **Mongos.1.Class**表示传入第一个Mongos节点规格。
--   **Mongos.2.Class**表示传入第二个Mongos节点规格。 |
+ 参数名中的**N**代表的是传入第几个Mongos节点的规格，例如：**Mongos.2.Class**表示传入第二个Mongos节点规格。 |
 |ReplicaSet.N.Class|String|否|dds.shard.standard|Shard节点的规格，取值详情请参见[实例规格表](~~57141~~)。取值范围：**2**~**32**。
 
- **说明：** **N**代表的是传入第几个Shard节点的规格，例如：
-
- -   **ReplicaSet.1.Class**表示传入第一个Shard节点规格。
--   **ReplicaSet.2.Class**表示传入第二个Shard节点规格。 |
+ 参数名中的**N**代表的是传入第几个Shard节点的规格，例如：**ReplicaSet.2.Class**表示传入第二个Shard节点规格。 |
 |ReplicaSet.N.Storage|Integer|否|20|Shard节点的存储空间。具体取值受实例规格约束，详情请参见[实例规格表](~~57141~~)。
 
  -   取值范围：**10**~**2000**，单位为GB。
 -   每10GB递增。
 
- **说明：** **N**代表的是传入第几个Shard节点的存储空间，例如：
-
- -   **ReplicaSet.1.Storage**表示传入第一个Shard节点的存储空间。
--   **ReplicaSet.2.Storage**表示传入第二个Shard节点的存储空间。 |
+ 参数名中的**N**代表的是传入第几个Shard节点的存储空间，例如：**ReplicaSet.2.Storage**表示传入第二个Shard节点的存储空间。 |
 |ConfigServer.N.Class|String|否|dds.cs.mid|CongfigServer的规格，取值：**dds.cs.mid**。
 
  **说明：** 规格固定为1核2GB规格，数量固定为1个，例如：传入**ConfigServer.1.Class**参数，取值为**dds.cs.mid**。 |
@@ -113,10 +104,9 @@
 -   dynamodb：DynamoDB协议 |
 |ReplicaSet.N.ReadonlyReplicas|Integer|否|5|设置Shard节点的只读节点个数。取值范围：**0**~**5**。默认值：**0**。
 
- **说明：** **N**代表的是设置第几个Shard节点中的只读节点个数。例如：
+ 参数名中的**N**代表的是设置第几个Shard节点中的只读节点个数。例如：**ReplicaSet.2.ReadonlyReplicas**表示设置第二个Shard节点的只读节点个数。
 
- -   **ReplicaSet.1.ReadonlyReplicas**表示设置第一个Shard节点的只读节点个数。
--   **ReplicaSet.2.ReadonlyReplicas**表示设置第二个Shard节点的只读节点个数。 |
+ **说明：** 当前仅中国站支持本参数。 |
 
 ## 返回数据
 
