@@ -6,7 +6,7 @@ You can configure sharding for each collection in a sharded cluster instance to 
 
 If a collection is not sharded, all its data is stored on the same shard. In this case, you cannot make full use of the storage space and maximize the computing performance of other shards in the sharded cluster.
 
-![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/3230937951/p33995.png)
+![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/3230937951/p33995.png)
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ In addition to the preceding two sharding strategies, you can also configure a c
 
 The following procedure uses the database named mongodbtest and the collection named customer as an example.
 
-1.  [Connect to a sharded cluster instance by using the mongo shell](/intl.en-US/Quick Start for Cluster/Connect to an instance/Connect to a sharded cluster instance by using the mongo shell.md).
+1.  [Connect to a sharded cluster instance by using the mongo shell](/intl.en-US/Quick Start/Connect to an instance/Connect to a sharded cluster instance by using the mongo shell.md).
 2.  Enable sharding for the database where the collection to be sharded resides.
 
     ```
@@ -83,7 +83,7 @@ The following procedure uses the database named mongodbtest and the collection n
     Sample command for creating a hashed index:
 
     ```
-    db.customer.createIndex({id:"hashed"})
+    db.customer.createIndex({name:"hashed"})
     ```
 
 4.  Configure sharding for the collection.
@@ -109,7 +109,7 @@ The following procedure uses the database named mongodbtest and the collection n
     Sample command for configuring hashed sharding:
 
     ```
-    sh.shardCollection("mongodbtest.customer",{"id":"hashed"})
+    sh.shardCollection("mongodbtest.customer",{"name":"hashed"})
     ```
 
 
@@ -117,9 +117,9 @@ The following procedure uses the database named mongodbtest and the collection n
 
 After the database has been running and data has been written for a while, you can run the `sh.status()` command in the mongo shell to check the chunk information on shards.
 
-![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/4230937951/p34049.png)
+![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/4230937951/p34049.png)
 
 You can also run the `db.stats()` command to check the size of data stored on each shard.
 
-![](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/4230937951/p33949.png)
+![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/4230937951/p33949.png)
 
