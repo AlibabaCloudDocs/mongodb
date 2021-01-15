@@ -10,7 +10,7 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|否|DescribeDBInstances|要执行的操作，取值：**DescribeDBInstances**。 |
+|Action|String|是|DescribeDBInstances|要执行的操作，取值：**DescribeDBInstances**。 |
 |PageNumber|Integer|否|1|页码，取值为大于0且不超过Integer数据类型的最大值，默认值为**1**。 |
 |PageSize|Integer|否|30|每页记录数，取值： **30、50、100**，默认值为**30**。 |
 |DBInstanceId|String|否|dds-bpxxxxxxxx|实例ID。 |
@@ -122,6 +122,9 @@
 |NodeDescription|String|测试shard节点|Shard节点描述。 |
 |NodeId|String|d-bpxxxxxxxx|Shard节点ID。 |
 |NodeStorage|Integer|20|Shard节点的存储空间，单位为GB。 |
+|ReadonlyReplicas|Integer|1|Shard节点中只读节点的个数。返回值范围：**0**~**5**。
+
+ **说明：** 当前仅中国站支持本参数。 |
 |Tags|Array of Tag| |资源标签信息列表。 |
 |Tag| | | |
 |Key|String|test|资源的标签键。 |
