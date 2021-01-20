@@ -11,18 +11,16 @@ If you use MongoShake to synchronize data among multiple instances in real time,
 
 ## Preparations
 
-1.  Create an ApsaraDB for MongoDB replica set instance as the synchronization destination. For more information, see [Create a replica set instance](/intl.en-US/Quick Start/Create an instance/Create a replica set instance.md).
+1.  For best synchronization performance, make sure that the source ApsaraDB for MongoDB replica set instance resides in a VPC. If the source instance resides in the classic network, switch the network type to VPC. For more information, see [Switch the network type of an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Network connection management/Switch the network type of an ApsaraDB for MongoDB instance.md).
 
-    **Note:** Create the destination ApsaraDB for MongoDB instance in the same VPC as the source ApsaraDB for MongoDB instance. In this way, you can connect the ECS instance where MongoShake runs to the source and destination ApsaraDB for MongoDB instances over the VPC.
+2.  Create an ApsaraDB for MongoDB replica set instance as the synchronization destination. Select the same VPC as the one used by the source ApsaraDB for MongoDB replica set instance to minimize network latency. For more information, see [Create a replica set instance](/intl.en-US/Quick Start/Create an instance/Create a replica set instance.md).
 
-2.  Create an ECS instance to run MongoShake. For more information, see [Create an ECS instance](https://www.alibabacloud.com/help/zh/doc-detail/25424.htm).
+3.  Create an ECS instance to run MongoShake. Select the same VPC as the one used by the source ApsaraDB for MongoDB instance to minimize network latency. For more information, see [t9601.dita\#topic\_2386095]().
 
-    **Note:** Set the operating system of the ECS instance to Linux and select the same VPC as that used by the source and destination ApsaraDB for MongoDB instances.
+4.  Add the private IP address of the ECS instance to the whitelists of the source and destination ApsaraDB for MongoDB instances. Make sure that the ECS instance can connect to the source and destination ApsaraDB for MongoDB instances. For more information, see [Configure a whitelist or an ECS security group for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Data security/Configure a whitelist or an ECS security group for an ApsaraDB for MongoDB instance.md).
 
-3.  Add the IP address of the ECS instance to the whitelists of the source and destination ApsaraDB for MongoDB instances. Make sure that the ECS instance can connect to the source and destination ApsaraDB for MongoDB instances.
 
-    **Note:** We recommend that you use a VPC endpoint to minimize network latency.
-
+**Note:** If the network type does not meet the preceding requirements, you can apply for public endpoints for the source and destination ApsaraDB for MongoDB instances. Then, add the public IP address of the ECS instance to the whitelists of the source and destination ApsaraDB for MongoDB instances. This way, you can synchronize data by using the Internet. For more information, see [Apply for a public endpoint for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Network connection management/Public IP Connection/Apply for a public endpoint for an ApsaraDB for MongoDB instance.md) and [Configure a whitelist or an ECS security group for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Data security/Configure a whitelist or an ECS security group for an ApsaraDB for MongoDB instance.md).
 
 ## Configure delayed synchronization among ApsaraDB for MongoDB instances
 
