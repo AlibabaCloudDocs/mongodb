@@ -6,15 +6,16 @@ keyword: [quasi-real-time one-way synchronization of tabular data between instan
 
 You can use the open source MongoShake tool developed by Alibaba Cloud to synchronize data between MongoDB databases. This tool can be used in scenarios such as data analysis, disaster recovery, and active-active replication. This topic describes how to configure MongoShake to synchronize data between ApsaraDB for MongoDB replica set instances in real time.
 
-**Note:** If you want to implement two-way data synchronization between replica set instances, you can [submit a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex).
-
 ## MongoShake overview
 
 MongoShake is a general-purpose Platform as a Service \(PaaS\) tool, which is written in the Go language by Alibaba Cloud. MongoShake reads the oplogs of a MongoDB database and replicates data based on the oplogs to meet specific requirements.
 
 MongoShake also allows you to subscribe to and consume MongoDB logs. You can connect to MongoShake by using multiple methods such as SDKs, Kafka, and MetaQ. MongoShake is suitable for scenarios such as log subscription, data synchronization across data centers, and asynchronous cache eviction.
 
-**Note:** For more information about MongoShake, visit [MongoShake homepage on GitHub](https://github.com/alibaba/MongoShake).
+**Note:**
+
+-   For more information about MongoShake, visit [MongoShake homepage on GitHub](https://github.com/alibaba/MongoShake).
+-   If you want to implement two-way data synchronization between replica set instances, you can [submit a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex).
 
 ## Supported databases
 
@@ -27,7 +28,7 @@ MongoShake also allows you to subscribe to and consume MongoDB logs. You can con
 
 ## Precautions
 
--   Do not perform data definition language \(DDL\) operations in the source database before full data synchronization is complete. Otherwise, data inconsistency may occur.
+-   Do not perform data definition language \(DDL\) operations on the source database before full data synchronization is complete. Otherwise, data inconsistency may occur.
 -   You cannot use MongoShake to synchronize data in the admin and local databases.
 
 ## Required permissions on databases
@@ -41,37 +42,37 @@ MongoShake also allows you to subscribe to and consume MongoDB logs. You can con
 
 ## Preparations
 
-1.  Create an ApsaraDB for MongoDB replica set instance as the synchronization destination. For more information, see [Create a replica set instance](/intl.en-US/Quick Start/Create an instance/Create a replica set instance.md).
+1.  For best synchronization performance, make sure that the source ApsaraDB for MongoDB replica set instance resides in a VPC. If the source instance resides in the classic network, switch the network type to VPC. For more information, see [Switch the network type of an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Network connection management/Switch the network type of an ApsaraDB for MongoDB instance.md).
 
-    **Note:** Create the destination ApsaraDB for MongoDB instance in the same VPC as the source ApsaraDB for MongoDB instance. In this way, you can connect the ECS instance where MongoShake runs to the source and destination ApsaraDB for MongoDB instances over the VPC.
+2.  Create an ApsaraDB for MongoDB replica set instance as the synchronization destination. Select the same VPC as the one used by the source ApsaraDB for MongoDB replica set instance to minimize network latency. For more information, see [Create a replica set instance](/intl.en-US/Quick Start/Create an instance/Create a replica set instance.md).
 
-2.  Create an ECS instance to run MongoShake. For more information, see [Create an ECS instance](https://www.alibabacloud.com/help/zh/doc-detail/25424.htm).
+3.  Create an ECS instance to run MongoShake. Select the same VPC as the one used by the source ApsaraDB for MongoDB instance to minimize network latency. For more information, see [t9601.dita\#topic\_2386095]().
 
-    **Note:** Set the operating system of the ECS instance to Linux and select the same VPC as that used by the source and destination ApsaraDB for MongoDB instances.
+4.  Add the private IP address of the ECS instance to the whitelists of the source and destination ApsaraDB for MongoDB instances. Make sure that the ECS instance can connect to the source and destination ApsaraDB for MongoDB instances. For more information, see [Configure a whitelist or an ECS security group for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Data security/Configure a whitelist or an ECS security group for an ApsaraDB for MongoDB instance.md).
 
-3.  Add the IP address of the ECS instance to the whitelists of the source and destination ApsaraDB for MongoDB instances. Make sure that the ECS instance can connect to the source and destination ApsaraDB for MongoDB instances.
 
-    **Note:** We recommend that you use a VPC endpoint to minimize network latency.
-
+**Note:** If the network type does not meet the preceding requirements, you can apply for public endpoints for the source and destination ApsaraDB for MongoDB instances. Then, add the public IP address of the ECS instance to the whitelists of the source and destination ApsaraDB for MongoDB instances. This way, you can synchronize data by using the Internet. For more information, see [Apply for a public endpoint for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Network connection management/Public IP Connection/Apply for a public endpoint for an ApsaraDB for MongoDB instance.md) and [Configure a whitelist or an ECS security group for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Data security/Configure a whitelist or an ECS security group for an ApsaraDB for MongoDB instance.md).
 
 ## Procedure
 
-1.  Log on to the [ECS instance](https://www.alibabacloud.com/help/zh/doc-detail/25434.htm).
-2.  Run the following command to download the MongoShake package:
+By default, the /root/mongoshake directory is used as the installation directory for MongoShake in this example.
+
+1.  Log on to the ECS instance. For more information, see [t9621.dita\#concept\_rsl\_2vx\_wdb](/intl.en-US/Instance/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using a username and password.md).
+2.  Run the following command to download the MongoShake package and rename the package as `mongoshake.tar.gz`:
 
     ```
-    wget <Download URL of the latest MongoShake package>
+    wget "http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/196977/jp_ja/1608863913991/mongo-shake-v2.4.16.tar.gz" -O mongoshake.tar.gz
     ```
 
-    **Note:** We recommend that you download the latest MongoShake package. For more information, visit [Releases](https://github.com/alibaba/MongoShake/releases).
+    **Note:** The download URL for MongoShake V2.4.16 is used in this example. To download the latest version of MongoShake, visit [Releases](https://github.com/alibaba/MongoShake/releases).
 
-3.  Run the following command to decompress the MongoShake package:
+3.  Run the following command to decompress the MongoShake package to the /root/mongoshake directory:
 
     ```
-    tar xvf <Name of the MongoShake package>
+    tar zxvf mongoshake.tar.gz && mv mongo-shake-v2.4.16 /root/mongoshake && cd /root/mongoshake 
     ```
 
-4.  Use `Vim` to modify the collector.conf file of MongoShake. The following table describes the parameters that you must modify to synchronize data between ApsaraDB for MongoDB instances.
+4.  Run the `vi collector.conf` command to modify the collector.conf configuration file of MongoShake. The following table describes the parameters that you must configure to synchronize data between ApsaraDB for MongoDB instances.
 
     |Parameter|Description|Example|
     |:--------|:----------|:------|
@@ -80,7 +81,11 @@ MongoShake also allows you to subscribe to and consume MongoDB logs. You can con
     -   We recommend that you use a VPC endpoint to minimize network latency.
     -   For more information about the format of a connection string URI, see [Overview of replica set instance connections]().
 |`mongo_urls = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717`**Note:** The password cannot contain at signs \(@\). Otherwise, the connection may fail. |
-    |tunnel.address|The connection string URI of the destination ApsaraDB for MongoDB instance.|`tunnel.address = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717`**Note:** The password cannot contain at signs \(@\). Otherwise, the connection may fail. |
+    |tunnel.address|The connection string URI of the destination ApsaraDB for MongoDB instance.**Note:**
+
+    -   We recommend that you use a VPC endpoint to minimize network latency.
+    -   For more information about the format of a connection string URI, see [Overview of replica set instance connections]().
+|`tunnel.address = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717`**Note:** The password cannot contain at signs \(@\). Otherwise, the connection may fail. |
     |sync\_mode|The data synchronization method. Valid values:     -   all: performs both full data synchronization and incremental data synchronization.
     -   full: performs only full data synchronization.
     -   incr: performs only incremental data synchronization.
@@ -108,7 +113,7 @@ MongoShake also allows you to subscribe to and consume MongoDB logs. You can con
 When the incremental data synchronization starts, you can open a command line window to monitor MongoShake.
 
 ```
-./mongoshake-stat --port=9100
+cd /root/mongoshake && ./mongoshake-stat --port=9100
 ```
 
 **Note:** `mongoshake-stat` is a Python script. Before you run the script, make sure that Python 2.7 is installed. For more information, visit [Python official website](https://www.python.org/downloads/).
@@ -133,7 +138,7 @@ The following figure shows sample monitoring information about MongoShake.
 |Section|Parameter|Description|Example|
 |-------|:--------|:----------|:------|
 |N/A|conf.version|The version number of the configuration file. Do not change the value.|`conf.version = 4`|
-|Global configuration options|id|The ID of the synchronization task. You can specify the ID. The global configuration includes the log file name, the name of the database that stores the checkpoint information, and the name of the destination database.|`id = mongoshake`|
+|Global configuration options|id|The ID of the synchronization task. This value is customizable. The global configuration includes the log file name, the name of the database that stores the checkpoint information, and the name of the destination database.|`id = mongoshake`|
 |master\_quorum|Specifies whether the MongoShake node is the active node in high availability scenarios. If you use the active MongoShake node and standby MongoShake node to synchronize data from the same database, you must set this parameter to `true` for the active MongoShake node. Valid values:
 
 -   true
@@ -157,14 +162,14 @@ The following figure shows sample monitoring information about MongoShake.
 The default value is info.
 
 |`log.level = info`|
-|log.dir|The directory where the log file and PID file are stored. If you do not specify a value, the log file and PID file are stored in the logs directory in the working directory.**Note:** The path here must be an absolute path.
+|log.dir|The directory where the log file and PID file are stored. If you do not specify a value, the log file and PID file are stored in the logs directory in the working directory.**Note:** This parameter must be set to an absolute path.
 
 |`log.dir = ./logs/`|
-|log.file|The name of the log file. You can specify the name. **Note:** The default value is collector.log.
+|log.file|The name of the log file. This value is customizable. **Note:** The default value is collector.log.
 
 |`log.file = collector.log`|
-|log.flush|Specifies whether to display every log entry on the screen. Valid values: -   true: displays every log entry on the screen. This ensures that no log entry is missing on the screen but compromises the performance.
--   false: does not display every log entry on the screen. This ensures the performance but certain log entries may be missing on the screen.
+|log.flush|Specifies whether to display every log entry on the screen. Valid values: -   true: Every log entry is displayed on the screen. This ensures that no log entry is missing on the screen but compromises the performance.
+-   false: Not every log entry is displayed on the screen. This ensures the performance but some log entries may be missing on the screen.
 
 **Note:** The default value is false.
 
@@ -182,8 +187,8 @@ The default value is info.
 -   For more information about the format of a connection string URI, see [Overview of replica set instance connections]() or [Overview of sharded cluster instance connections]().
 
 |`mongo_urls = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717`|
-|mongo\_cs\_url|The endpoint of the ConfigServer node. Set this parameter if the source ApsaraDB for MongoDB instance is a sharded cluster instance. For more information about how to apply for an endpoint for the ConfigServer node, see [Apply for a connection string of a shard or Configserver node](/intl.en-US/User Guide/Network connection management/Connection String of a Shard or Configserver Node/Apply for a connection string of a shard or Configserver node.md).|`mongo_cs_url = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx-csxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx-csxxx.mongodb.rds.aliyuncs.com:3717/admin`|
-|mongo\_s\_url|The endpoint of the Mongos node. Set this parameter if the source ApsaraDB for MongoDB instance is a sharded cluster instance. You must specify the endpoint of at least one Mongos node. Separate the endpoints of multiple Mongos nodes with commas \(,\). For more information about how to apply for an endpoint for a Mongos node, see [Apply for a connection string of a shard or Configserver node](/intl.en-US/User Guide/Network connection management/Connection String of a Shard or Configserver Node/Apply for a connection string of a shard or Configserver node.md).|`mongos_s_url = mongodb://root:Ftxxxxxx@s-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,s-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717/admin`|
+|mongo\_cs\_url|The endpoint of the Configserver node. If the source ApsaraDB for MongoDB instance is a sharded cluster instance, you must specify this parameter. For more information about how to apply for an endpoint for a Configserver node, see [Apply for a connection string of a shard or Configserver node](/intl.en-US/User Guide/Network connection management/Connection String of a Shard or Configserver Node/Apply for a connection string of a shard or Configserver node.md).|`mongo_cs_url = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx-csxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx-csxxx.mongodb.rds.aliyuncs.com:3717/admin`|
+|mongo\_s\_url|The endpoint of the Mongos node. If the source ApsaraDB for MongoDB instance is a sharded cluster instance, you must specify this parameter. You must specify the endpoint of at least one Mongos node. Separate the endpoints of multiple Mongos nodes with commas \(,\). For more information about how to apply for an endpoint for a Mongos node, see [Apply for a connection string of a shard or Configserver node](/intl.en-US/User Guide/Network connection management/Connection String of a Shard or Configserver Node/Apply for a connection string of a shard or Configserver node.md).|`mongos_s_url = mongodb://root:Ftxxxxxx@s-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,s-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717/admin`|
 |tunnel|The type of the tunnel used for synchronization. Valid values: -   direct: directly synchronizes data to the destination ApsaraDB for MongoDB instance.
 -   rpc: synchronizes data by using NET/RPC.
 -   tcp: synchronizes data by using TCP.
@@ -202,8 +207,8 @@ The default value is info.
 -   If the tunnel parameter is set to `mock`, you do not need to set this parameter.
 
 |`tunnel.address = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717`|
-|tunnel.message|The type the data to be written to the tunnel. This parameter takes effect only when the tunnel parameter is set to `kafka` or `file`. Valid values: -   raw: writes data in the original format. The data is aggregated in batches to be written or read at a time.
--   json: writes data to Kafka in the `JSON` format so that the data can be read directly.
+|tunnel.message|The type of the data to be written to the tunnel. This parameter takes effect only when the tunnel parameter is set to `kafka` or `file`. Valid values: -   raw: writes data in the original format. The data is aggregated in batches to be written or read at a time.
+-   json: writes data to Kafka in the `JSON` format so that the data can be directly read.
 -   bson: writes data to Kafka in the Binary JSON \(`BSON`\) format.
 
 **Note:** The default value is raw.
@@ -220,15 +225,15 @@ The default value is info.
 
 |`filter.namespace.black = mongodbtest.customer;testdata.test123`|
 |filter.namespace.white|The whitelist for data synchronization. Only the specified namespaces are synchronized to the destination database. Separate multiple namespaces with semicolons \(;\).|`filter.namespace.white = mongodbtest.customer;test123`|
-|filter.pass.special.db|The special database from which you want to synchronize data to the destination database. You can specify multiple special databases. By default, the data in special databases, such as admin, local, mongoshake, config, and system.views, is not synchronized. You can set this parameter to synchronize data from special databases. Separate multiple database names with semicolons \(;\).|`filter.pass.special.db = admin;mongoshake`|
+|filter.pass.special.db|The special database from which you want to synchronize data to the destination database. You can specify multiple special databases. By default, the data in special databases such as admin, local, mongoshake, config, and system.views is not synchronized. You can set this parameter to synchronize data from special databases. Separate multiple database names with semicolons \(;\).|`filter.pass.special.db = admin;mongoshake`|
 |filter.ddl\_enable|Specifies whether to synchronize DDL operations. Valid values: -   true
 -   false
 
-**Note:** Do not set this parameter to true if the source ApsaraDB for MongoDB instance is a sharded cluster instance.
+**Note:** If the source ApsaraDB for MongoDB instance is a sharded cluster instance, you cannot set this parameter to true.
 
 |`filter.ddl_enable = false`|
 |checkpoint.storage.url|The storage location of checkpoints, which are used for resumable upload. If you do not set this parameter, MongoShake writes checkpoints to the following databases based on the type of the source ApsaraDB for MongoDB instance: -   Replica set instance: MongoShake writes checkpoints to the mongoshake database.
--   Sharded cluster instance: MongoShake writes checkpoints to the admin database on the ConfigServer node.
+-   Sharded cluster instance: MongoShake writes checkpoints to the admin database on the Configserver node.
 
 |`checkpoint.storage.url = mongodb://root:Ftxxxxxx@dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717,dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com:3717`|
 |checkpoint.storage.db|The name of the database that stores checkpoints. **Note:** The default value is mongoshake.
@@ -251,9 +256,9 @@ The default value is info.
 -   false: returns an error message and exits if a collection in the destination database has the same name as a source collection.
 
 |`full_sync.collection_exist_drop = true`|
-|full\_sync.create\_index|Specifies whether to create indexes after the synchronization is complete. Valid values: -   foreground: creates indexes in the foreground.
--   background: creates indexes in the background.
--   none: does not create indexes.
+|full\_sync.create\_index|Specifies whether to create indexes after the synchronization is complete. Valid values: -   foreground: Indexes are created in the foreground.
+-   background: Indexes are created in the background.
+-   none: No indexes are created.
 
 |`full_sync.create_index = none`|
 |full\_sync.executor.insert\_on\_dup\_update|Specifies whether to change an `INSERT` statement to an `UPDATE` statement if a document in the destination database has the same `_id` value as the source document. Valid values: -   true
@@ -275,22 +280,22 @@ The default value is oplog.
 
 |`incr_sync.mongo_fetch_method = oplog`|
 |incr\_sync.oplog.gids|The global ID used to implement two-way replication for ApsaraDB for MongoDB clusters. You can apply for global IDs by [submitting a ticket](https://workorder.console.aliyun.com/#/ticket/list).|`incr_sync.oplog.gids = xxxxxxxxxxxx`|
-|incr\_sync.shard\_key|The method used to distribute concurrent requests to internal worker threads. Do not modify this parameter.|`incr_sync.shard_key = collection`|
+|incr\_sync.shard\_key|The method used to distribute concurrent requests to internal worker threads. Do not modify this parameter value.|`incr_sync.shard_key = collection`|
 |incr\_sync.worker|The number of concurrent threads that transmit oplogs. If the performance of your ECS instance is sufficient, you can increase the number of concurrent threads. **Note:** If the source ApsaraDB for MongoDB instance is a sharded cluster instance, the number of concurrent threads must be equal to the number of shard nodes.
 
 |`incr_sync.worker = 8`|
-|incr\_sync.worker.oplog\_compressor|Specifies whether to decompress data to reduce network bandwidth usage. Valid values: -   none: does not compress data.
--   gzip: compresses data in the GZIP format.
--   zlib: compresses data in the ZLIB format.
--   deflate: compresses data in the DEFLATE format.
+|incr\_sync.worker.oplog\_compressor|Specifies whether to decompress data to reduce network bandwidth usage. Valid values: -   none: No data is compressed.
+-   gzip: Data is compressed in the GZIP format.
+-   zlib: Data is compressed in the ZLIB format.
+-   deflate: Data is compressed in the DEFLATE format.
 
 **Note:** This parameter takes effect only when the tunnel parameter is not set to `direct`. If the tunnel parameter is set to `direct`, set the value to `none`.
 
 |`incr_sync.worker.oplog_compressor = none`|
-|incr\_sync.target\_delay|The time delayed for synchronizing data between the source and destination ApsaraDB for MongoDB instances. By default, changes in the source database are synchronized to the destination database in real time. To avoid incorrect operations, you can set this parameter to delay the synchronization. For example, if you set `incr_sync.target_delay` to 1800, the synchronization is delayed for 30 minutes. Unit: seconds. **Note:** A value of 0 indicates that data is synchronized in real time.
+|incr\_sync.target\_delay|The time delayed for synchronizing data between the source and destination ApsaraDB for MongoDB instances. By default, changes in the source database are synchronized to the destination database in real time. To avoid invalid operations, you can set this parameter to delay the synchronization. For example, if you set `incr_sync.target_delay` to 1800, the synchronization is delayed for 30 minutes. Unit: seconds. **Note:** A value of 0 indicates that data is synchronized in real time.
 
 |`incr_sync.target_delay = 1800`|
-|incr\_sync.worker.batch\_queue\_size|The parameters for configuring internal queues in MongoShake. Do not modify these parameters unless otherwise required.|`incr_sync.worker.batch_queue_size = 64`|
+|incr\_sync.worker.batch\_queue\_size|The parameters for configuring internal queues in MongoShake. Do not modify the settings of these parameters unless otherwise required.|`incr_sync.worker.batch_queue_size = 64`|
 |incr\_sync.adaptive.batching\_max\_size|`incr_sync.adaptive.batching_max_size = 1024`|
 |incr\_sync.fetcher.buffer\_capacity|`incr_sync.fetcher.buffer_capacity = 256`|
 |Direct tunnel options \(This section takes effect only when the tunnel parameter is set to `direct`.\)|incr\_sync.executor.upsert|Specifies whether to change an `UPDATE` statement to an `INSERT` statement if no document in the destination database has the same `_id` value or unique index as the source document. Valid values: -   true
@@ -301,15 +306,19 @@ The default value is oplog.
 -   false
 
 |`incr_sync.executor.insert_on_dup_update = false`|
-|incr\_sync.conflict\_write\_to|Specifies whether to record conflicting documents if data write conflicts occur during the synchronization. Valid values: -   none: does not record conflict documents.
--   db: writes conflict logs to the mongoshake\_conflict database.
--   sdk: writes conflict logs to an SDK.
+|incr\_sync.conflict\_write\_to|Specifies whether to record conflicting documents if data write conflicts occur during the synchronization. Valid values: -   none: Conflict documents are not recorded.
+-   db: Conflict logs are written to the mongoshake\_conflict database.
+-   sdk: Conflict logs are written to an SDK.
 
 |`incr_sync.conflict_write_to = none`|
 |incr\_sync.executor.majority\_enable|Specifies whether to enable the majority write feature in the destination ApsaraDB for MongoDB instance. Valid values: -   true
 -   false
 
-**Note:** The majority write feature compromises the performance.
+**Note:** The majority write feature may compromise the performance.
 
 |`incr_sync.executor.majority_enable = false`|
+
+## FAQ
+
+For frequently asked questions about MongoShake, visit [FAQ](https://github.com/alibaba/MongoShake/wiki/FAQ).
 
