@@ -22,7 +22,7 @@ MongoDB is a document-oriented NoSQL database. MongoDB stores data in JSON-like 
 
 The storage structure of MongoDB is different from that of conventional relational databases. Data in MongoDB is organized at the following levels:
 
--   Document: Documents are the basic unit of data in MongoDB. A document consists of BSON key-value pairs and is equivalent to a column in a relational database.
+-   Document: Documents are the basic unit of data in MongoDB. A document consists of BSON key-value pairs and is equivalent to a row in a relational database.
 -   Collection: A collection contains multiple documents. It is equivalent to a table in a relational database.
 -   Database: A database contains multiple collections. It is equivalent to a relational database. You can create multiple databases in ApsaraDB for MongoDB.
 
