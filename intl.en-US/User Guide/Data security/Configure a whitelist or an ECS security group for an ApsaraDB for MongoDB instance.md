@@ -1,13 +1,13 @@
 # Configure a whitelist or an ECS security group for an ApsaraDB for MongoDB instance
 
-This topic describes how to configure a whitelist or an ECS security group for an ApsaraDB for MongoDB instance. After you create an ApsaraDB for MongoDB instance, you must configure an IP whitelist or add an ECS security group to allow access from authorized devices only. The default IP whitelist contains only the IP address 127.0.0.1, which indicates that no devices can access the ApsaraDB for MongoDB instance.
+This topic describes how to configure an IP address whitelist or an ECS security group for an ApsaraDB for MongoDB instance. After you create an ApsaraDB for MongoDB instance, you must configure an IP address whitelist or add an ECS security group to allow access only from authorized devices. The default whitelist contains only the IP address 127.0.0.1, which indicates that no devices can access the ApsaraDB for MongoDB instance.
 
-When you add an ECS security group, make sure that the ApsaraDB for MongoDB instance has the same network type as the ECS instances in the ECS security group. If both the ApsaraDB for MongoDB instance and ECS instances have the VPC network type, make sure that they reside in the same VPC.
+When you add an ECS security group, make sure that the ApsaraDB for MongoDB instance has the same network type as the ECS instances in the ECS security group. If both the ApsaraDB for MongoDB instance and ECS instances are of the VPC type, make sure that they reside in the same VPC.
 
--   Before the first time you use an ApsaraDB for MongoDB instance, you must configure a whitelist for it. After you configure the whitelist, the connection addresses of the instance appear on the **Basic Information** and **Database Connection** pages.
--   Whitelists make your ApsaraDB for MongoDB instance more secure. We recommend that you maintain the whitelists on a regular basis.
+-   Before you use an ApsaraDB for MongoDB instance for the first time, you must configure a whitelist for the instance. After you configure the whitelist, the endpoints of the instance appear on the **Basic Information** and **Database Connection** pages.
+-   Whitelists make your ApsaraDB for MongoDB instances more secure. We recommend that you maintain the whitelists on a regular basis.
 
-## Configure an IP whitelist for a standalone, replica set, or sharded cluster instance
+## Configure an IP address whitelist for a standalone instance, replica set instance, or sharded cluster instance
 
 1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
 
@@ -19,38 +19,43 @@ When you add an ECS security group, make sure that the ApsaraDB for MongoDB inst
 
 5.  In the left-side navigation pane, choose **Data Security** \> **Whitelist Settings**.
 
-6.  Configure an IP whitelist.
+6.  Find the IP address whitelist that you want to configure, and choose ![More icon](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/7023797951/p13206.png) \> **Manually Modify** or **Import ECS Intranet IP** in the **Actions** column.
 
-    To manually modify an IP whitelist, follow these steps:
+    **Manually Modify**
 
-    1.  Find the IP whitelist, and choose ![more](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9545298951/p13851.png) \> **Manually Modify** in the **Actions** column.
-
-        ![Manually modify an IP whitelist](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5145298951/p70091.png)
-
-    2.  Enter IP addresses or Classless Inter-Domain Routing \(CIDR\) blocks.
+    1.  In the **Manually Modify** panel, click the **IPv4** or **IPv6** tab based on your network connection.
 
         **Note:**
 
-        -   Separate multiple IP addresses with commas \(,\). A maximum of 1,000 different IP addresses can be added. Supported formats are IP addresses such as 0.0.0.0/0 and 10.23.12.24, or [CIDR blocks](~~54484~~) such as 10.23.12.24/24. /24 indicates the length of the IP address prefix. An IP address prefix can contain 1 to 32 bits.
-        -   If the IP whitelist is empty or only contains 0.0.0.0/0, all devices are granted access. This is risky for your ApsaraDB for MongoDB instance. We recommend that you only add the IP addresses or CIDR blocks of your own web servers to the IP whitelist.
-    3.  Click **OK**.
+        -   Limits for **IPv4** addresses:
+            -   Separate multiple IP addresses with commas \(,\). A maximum of 1,000 different IP addresses can be added.
 
-    To load the private IP addresses of ECS instances to an IP whitelist, follow these steps:
+                A whitelist can include IP addresses such as `0.0.0.0/0` and `10.23.12.24`, or [CIDR blocks](~~54484~~) such as `10.23.12.24/24`. `/24` indicates that the prefix of the CIDR block is 24-bit long. You can replace 24 with a value within the range of 1 to 32.
 
-    1.  Find the IP whitelist, and choose ![more](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9545298951/p13851.png) \> **Import ECS Intranet IP** in the **Actions** column.
+            -   If the whitelist is empty or contains `0.0.0.0/0`, all IP addresses can access the ApsaraDB for MongoDB instance. This may introduce security risks to the instance. Proceed with caution.
+        -   Limits for **IPv6** addresses:
+            -   Separate multiple IP addresses with commas \(,\). A maximum of 1,000 different IP addresses can be added.
 
-        ![Load the private IP addresses of ECS instances](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5145298951/p70092.png)
+                Supported formats include `::` and `0:0:0:0:0:0:0:1`. Only IP addresses are supported. [CIDR blocks](~~54484~~) will be supported later.
 
-    2.  From the displayed private IP addresses of ECS instances created by the current account, select the target IP and add them to the IP whitelist.
+            -   If the whitelist is empty or contains only `::`, all IP addresses can access the ApsaraDB for MongoDB instance. This may introduce security risks to the instance. Proceed with caution.
+            -   You can specify **IPv6** address whitelists only if the instance resides in Zone G of the China \(Hangzhou\) region.
+            -   You can specify **IPv6** address whitelists only if the version of the database engine is 4.2.
+        -   You cannot specify both **IPv4** and **IPv6** addresses in a single whitelist. If you want to specify both IPv4 and IPv6 addresses, specify them in separate whitelists.
+    2.  Click **OK**.
 
-        ![Select the private IP addresses of ECS instances](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5145298951/p37240.png)
+    **Import ECS Intranet IP**
 
-    3.  Click **OK**.
+    1.  Click **Import ECS Intranet IP**. In the Import ECS Intranet IP panel, the internal IP addresses of ECS instances created in the current account are displayed. Select one or more IP addresses and add them to the IP address whitelist.
 
-        **Note:** For easy O&M and access control, we recommend that you add an ECS security group. For more information, see [Add an ECS security group for a standalone, replica set, or sharded cluster instance](#section_fwu_oit_4dc).
+        ![Add internal IP addresses of ECS instances](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/8023797951/p13209.png)
+
+    2.  Click **OK**.
+
+        **Note:** For easy O&M and access control, we recommend that you add an ECS security group. For more information, see [Configure an ECS security group for a standalone instance, replica set instance, or sharded cluster instance](#section_fwu_oit_4dc).
 
 
-## Add an ECS security group for a standalone, replica set, or sharded cluster instance
+## Configure an ECS security group for a standalone instance, replica set instance, or sharded cluster instance
 
 An ECS security group relieves you from the tedious work of adding IP addresses or CIDR blocks. It makes database O&M easier.
 
@@ -62,20 +67,18 @@ An ECS security group relieves you from the tedious work of adding IP addresses 
 
 4.  Find the target instance and click its ID.
 
-5.  In the left-side navigation pane, choose **Data Security** \> **Whitelist Settings**.
+5.  Click **Add Security Group**.
 
-6.  Click **Add Security Group**.
+6.  In the Add Security Group panel, select one or more ECS security groups that you want to add.
 
-7.  In the dialog box that appears, select the target ECS security group.
-
-    ![Add a security group](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/4027562061/p70088.png)
+    ![Add one or more ECS security groups](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/4027562061/p70088.png)
 
     **Note:**
 
-    -   Each ApsaraDB for MongoDB instance can be added in up to 10 security group. After you add an ECS security group, all its ECS instances can access the ApsaraDB for MongoDB instance either over an internal network or over the Internet. For access over an internal network, the two types of instances must have the same network type. If the network type is VPC, the two types of instances must be in the same VPC. For access over the Internet, you must have applied for a public endpoint for the ApsaraDB for MongoDB instance.
-    -   If you move your pointer over an ECS security group, you can view its name and description. If you move your pointer over VPC, you can view the VPC ID. This way, you can quickly find the target ECS security group.
+    -   Each ApsaraDB for MongoDB instance can be added to up to 10 security groups. After you add an ECS security group, all its ECS instances can access the ApsaraDB for MongoDB instance either over an internal network or over the Internet. For access over an internal network, the two types of instances must have the same network type. If the network type is VPC, the two types of instances must be in the same VPC. For access over the Internet, you must have applied for a public endpoint for the ApsaraDB for MongoDB instance.
+    -   If you move your pointer over an ECS security group, you can view its name and description. If you move your pointer over VPC, you can view the VPC ID. This way, you can quickly find an ECS security group.
 
-## Delete an IP whitelist or an ECS security group of a standalone, replica set, or sharded cluster instance
+## Delete a whitelist or an ECS security group of a standalone instance, replica set instance, or sharded cluster instance
 
 1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
 
@@ -85,27 +88,25 @@ An ECS security group relieves you from the tedious work of adding IP addresses 
 
 4.  Find the target instance and click its ID.
 
-5.  In the left-side navigation pane, choose **Data Security** \> **Whitelist Settings**.
+5.  Delete a whitelist or an ECS security group.
 
-6.  Delete an IP whitelist or an ECS security group.
+    To delete a whitelist, perform the following steps:
 
-    To delete an IP whitelist, follow these steps:
+    1.  Find the whitelist that you want to delete, and choose **![More icon](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9545298951/p13851.png)** \> **Delete Whitelist Group** in the **Actions** column.
 
-    1.  Find the IP whitelist, and choose **![More](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9545298951/p13851.png)** \> **Delete Whitelist Group** in the **Actions** column.
+        ![Delete a whitelist](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5027562061/p67412.png)
 
-        ![Delete an IP whitelist](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5027562061/p67412.png)
+        **Note:** You cannot delete the default whitelist.
 
-        **Note:** You cannot delete the default IP whitelist.
+    2.  In the message that appears, click **OK**.
 
-    2.  In the dialog box that appears, click **OK**.
-
-    To delete an ECS security group, follow these steps:
+    To clear all ECS security groups, perform the following steps:
 
     1.  Click **Clear**.
 
-        ![Clear an ECS security group](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/6145298951/p70152.png)
+        ![Clear all ECS security groups](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/6145298951/p70152.png)
 
-    2.  In the message that appears, click **OK**.
+    2.  In the Clear Security Groups message, click **OK**.
 
 
 ## Common connection scenarios
