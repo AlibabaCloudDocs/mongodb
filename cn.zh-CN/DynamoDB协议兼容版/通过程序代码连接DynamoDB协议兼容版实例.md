@@ -39,10 +39,10 @@
 
     |参数|说明|示例|
     |--|--|--|
-    |`AWS Access Key ID`|输入您AWS账号的Access Key ID，如没有可以根据示例输入。|`AKIAIOSFODNN7EXAMPLE`|
-    |`AWS Secret Access Key`|输入您AWS账号的Secret Access Key，如没有可以根据示例输入。|`wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`|
+    |`AWS Access Key ID`|输入您AWS账号的Access Key ID，如没有可以输入任意字符。|`XXXXXXXXXX`|
+    |`AWS Secret Access Key`|输入您AWS账号的Secret Access Key，如没有可以输入任意字符。|`XXXXXXXXXX`|
     |`Default region name`|输入您AWS的DynamoDB数据库所在的地域，如没有可以根据示例输入。|`us-west-2`|
-    |`Default output format`|默认的输出格式，此处可以留空。|`JSON`|
+    |`Default output format`|默认的输出格式，此处可以留空。|`json`|
 
     **说明：** 更多AWS CLI配置说明的相关信息，请参见[AWS CLI基本配置](https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/cli-configure-quickstart.html)。
 
