@@ -146,3 +146,25 @@ MongoDB的存储结构区别于传统的关系型数据库，由如下三个单�
 
 
 
+
+<!-- -->
+
+* [DLA]()：云原生数据湖分析DLA（Data Lake Analytics）是新一代大数据解决方案，采取计算与存储完全分离的架构，提供弹性的Serverless SQL与Serverless Spark服务，满足在线交互式查询、流处理、批处理、机器学习等诉求。相关链接：
+
+  * [Serverless SQL对接MongoDB快速入门]()
+
+    
+  
+  * [Serverless Spark对接MongoDB快速入门]()
+
+    
+  
+
+  
+
+
+
+
+<!-- -->
+
+
