@@ -34,14 +34,8 @@ The ApsaraDB for MongoDB console provides a wide range of performance monitoring
 
         ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/4345298951/p67540.png)
 
-    -   ApsaraDB for MongoDB \(Serverless\) instances: You can view the monitoring information by selecting a mongosID node from the drop-down list in the upper part of the Monitoring Info page.
 
-        **Note:** Each ApsaraDB for MongoDB \(Serverless\) instance provides two mongosID nodes to ensure high availability.
-
-        ![Monitoring information of an ApsaraDB for MongoDB (Serverless) instance](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9574462061/p170911.png)
-
-
-## Performance metrics \(replica set and sharded cluster instances\)
+## Performance metrics
 
 |Performance metric|Description|
 |:-----------------|:----------|
