@@ -1,31 +1,46 @@
-# Create a multi-zone sharded cluster instance {#concept_262036 .concept}
+# Create a multi-zone sharded cluster instance
 
-ApsaraDB for MongoDB provides a zone-disaster recovery solution for sharded cluster instances. This solution deploys the components of a sharded cluster instance across three different [zones](../../../../intl.en-US/Product Introduction/Glossary.md#ul_icc_njg_hfb) in one region. The components in these zones exchange data through the internal network. If any of the three zones becomes unavailable due to unexpected events such as a power or network failure, the high availability system will automatically switch to another zone to ensure the availability of the entire sharded cluster.
+This topic describes how to create a multi-zone sharded cluster instance. ApsaraDB for MongoDB provides a zone-disaster recovery solution to ensure the reliability and availability of your sharded cluster instance. This solution deploys the components of a sharded cluster instance across three different zones in one region. The components in these zones exchange data over an internal network. When one of the three zones becomes unavailable due to unexpected events such as a power or network failure, the high-availability \(HA\) system automatically switches over services to another zone.
 
-## Precautions {#section_qbs_ng5_xfb .section}
+## Precautions
 
--   Standalone instances do not support this function.
--   You can create only multi-zone sharded cluster instances in **China \(Hangzhou\)**, **China \(Beijing\)**, and **China \(Shenzhen\)**.
+You can create a multi-zone sharded cluster instance only in the **China \(Hangzhou\)**, **China \(Beijing\)**, **China \(Shenzhen\)**, and **Singapore \(Singapore\)** regions.
 
-## Node deployment policy {#section_wjr_qpj_wgb .section}
+## Node deployment policies
 
-When you create a single-zone instance, the system deploys the components of the sharded cluster instance in one zone. When you create a multi-zone instance, the system deploys the components in three different zones.
+If you use the single-zone deployment solution, the system deploys all components of the sharded cluster instance to one zone. If you use the multi-zone deployment solution, the system deploys all components to three different zones.
 
--   Mongos are evenly deployed across all data centers. At least two mongos are deployed across two zones. When a third mongos is added, it is deployed in the third zone. Each subsequent new mongos is deployed to each of the three zones in turn.
--   The primary, secondary, and hidden nodes of each shard are not deployed to the three zones in sequence. The deployment of these nodes may change based on whether manual switchover or HA failover between primary and secondary nodes is used.
+-   The mongos nodes are evenly deployed across all data centers. At least two mongos nodes are deployed at a time, with each to one zone. When you add a third mongos node, the system deploys it to the third zone. Each new mongos node added later is deployed to one of the three zones in turn.
+-   The primary, secondary, and hidden shards in each shard are not deployed to the three zones in sequence. The deployment of these shards may change when manual switchover or HA failover between primary and secondary shards is triggered.
 
-![](images/46749_en-US.png "Deployment policy for the components and nodes in a multi-zone sharded cluster instance")
+![](../images/p46749.png "Deployment policy for the components in a multi-zone sharded cluster instance")
 
-## Procedure {#section_jrk_v35_xfb .section}
+## Procedure
 
-1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/#/mongodb/list).
-2.  In the left-side navigation pane, click **Sharding Instances**.
-3.  On the Sharding instances page, click **Create Instance**.
-4.  On the Create Instance page, set **Region** to **China \(Hangzhou\)**, **China \(Beijing\)**, or **China \(Shenzhen\)**, and select the zones that you require.
+1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
 
-    ![Select a multi-zone to create a sharded cluster instance](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/216351/156680398446740_en-US.png)
+2.  In the left-side navigation pane, click **Sharded Cluster Instances**.
 
-5.  For more information about other parameters for the instance, see [Create a sharded cluster instance](../../../../intl.en-US/Quick Start for Cluster/Create a sharded cluster instance.md#).
-6.  Click **Buy Now**. The Confirm Order page appears.
-7.  Read and select **ApsaraDB for MongoDB Agreement of Service**, and make the payment as prompted.
+3.  On the **Sharded Cluster Instances** page, click **Create Instance**.
+
+4.  Click **Sharded Cluster \(Subscription\)** or **Sharded Cluster \(Pay-as-you-go\)**.
+
+    **Note:**
+
+    -   Subscription: You must pay for an instance when you create it. This method is more cost-effective than the pay-as-you-go method. We recommend that you select this method for long-term use. A longer subscription period enables a larger discount.
+    -   Pay-as-you-go: You are billed on an hourly basis based on the used resources. We recommend that you select this billing method for short-term use. You can reduce costs by releasing your pay-as-you-go instance after you no longer need it.
+5.  Set **Region** to **China \(Hangzhou\)**, **China \(Beijing\)**,**China \(Shenzhen\)**, or **Singapore \(Singapore\)** and select a multi-zone.
+
+    ![Select a multi-zone](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/0745298951/p46740.png)
+
+6.  Configure other parameters. For more information, see [Create a sharded cluster instance](/intl.en-US/Quick Start/Create an instance/Create a sharded cluster instance.md).
+
+7.  Click **Buy Now** to go to the Confirm Order page.
+
+8.  Read and select Agreement of Service and complete the payment.
+
+
+## References
+
+You can use the Service Availability function to view the distribution of nodes in a replica set instance across zones. You can also switch the node roles of the instance based on your business deployment. This way, your applications can connect to the nodes closest to them. For more information, see [Switch node roles](/intl.en-US/User Guide/Instance management/Switch node roles.md).
 
