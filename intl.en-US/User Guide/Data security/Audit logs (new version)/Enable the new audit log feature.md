@@ -14,12 +14,9 @@ After you enable the new audit log feature, Log Service records operations on Ap
 
 ## Billing
 
-The new audit log feature has two editions: trial and official.
+The trial edition has been available. The official edition will be available at a later date.
 
-**Note:** The trial edition has been available. The official edition will be available at a later date.
-
--   In the trial edition, audit logs can be stored for one day with a maximum storage capacity of 100 GB.
--   The official edition is charged based on the size of audit logs and retention period. The official edition supports more features than the free trial edition.
+**Note:** In the trial edition, audit logs can be stored for one day with a maximum storage capacity of 100 GB.
 
 ## Procedure
 
@@ -27,7 +24,7 @@ The new audit log feature has two editions: trial and official.
 
 2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
 
-3.  In the left-side navigation pane, click **Replica Set Instances** or **Sharded Cluster Instances** based on the instance type.
+3.  In the left-side navigation pane, click **Replica Set Instances**, or **Sharded Cluster Instances** based on the instance type.
 
 4.  Find the target instance and click its ID.
 
@@ -35,7 +32,7 @@ The new audit log feature has two editions: trial and official.
 
 6.  Click **Enable Audit Logs**.
 
-    ![Enable Audit Logs](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/3245298951/p102028.png)
+    ![Enable Audit Logs](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/3245298951/p102028.png)
 
 7.  Click **OK**.
 
