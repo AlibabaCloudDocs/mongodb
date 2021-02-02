@@ -88,4 +88,5 @@ After you create an ApsaraDB for MongoDB instance, you can connect to the instan
 -   [ECS](~~25367~~): The best performance is achieved when you connect to ApsaraDB for MongoDB instances from ECS instances in the same region over an internal network. ECS and ApsaraDB for MongoDB instances compose a typical business architecture.
 -   [Data Transmission Service \(DTS\)](~~26592~~): You can use DTS to migrate data from an on-premises MongoDB database to the cloud.
 -   [Object Storage Service \(OSS\)](~~31817~~): OSS is a secure, cost-effective, and reliable cloud storage service that is provided by Alibaba Cloud. OSS enables you to store large volumes of data in the cloud.
+-   [Data Lake Analytics \(DLA\)](https://help.aliyun.com/document_detail/70378.html)DLA is a new-generation big data solution that adopts an architecture of separated computing and storage. DLA provides serverless SQL and serverless Spark engines to meet the requirements of online interactive search, stream processing, batch processing, and machine learning.
 
