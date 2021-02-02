@@ -4,7 +4,7 @@ This topic describes how to create a multi-zone sharded cluster instance. Apsara
 
 ## Precautions
 
-You can create a multi-zone sharded cluster instance only in the **China \(Hangzhou\)**, **China \(Beijing\)**, **China \(Shenzhen\)**, and **Singapore \(Singapore\)** regions.
+You can create a multi-zone sharded cluster instance only in some regions. For more information about the supported regions, see the ApsaraDB for MongoDB console.
 
 ## Node deployment policies
 
