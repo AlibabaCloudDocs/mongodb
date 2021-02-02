@@ -4,7 +4,7 @@ This topic describes how to create a multi-zone replica set instance. ApsaraDB f
 
 ## Notes
 
--   You can create a multi-zone replica set instance only in the **China \(Hangzhou\)**, **China \(Beijing\)**, **China \(Shenzhen\)**, and **Singapore \(Singapore\)** regions.
+-   You can create multi-zone replica set instances only in some regions. For more information about the supported regions, see the ApsaraDB for MongoDB console.
 -   When you create a multi-zone replica set instance, you must set **Replication Factor** to **Three Nodes Replica set**.
 
     **Note:** If you need more nodes, you can change the number of nodes after you create the instance. For more information, see [Change the number of nodes for a replica set instance](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Change the number of nodes for a replica set instance.md).
