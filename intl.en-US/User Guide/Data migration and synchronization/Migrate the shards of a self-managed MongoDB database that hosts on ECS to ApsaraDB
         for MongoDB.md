@@ -128,9 +128,10 @@ Disable the balancer for the source database and delete orphaned documents. For 
     -   A precheck is performed before the migration task starts. The migration task starts only after the precheck succeeds.
     -   If the precheck fails, click the ![Tip](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/7535298951/p50068.png) icon for each failed check item to view their details. Perform a precheck again after the failures are fixed.
 9.  After the precheck succeeds, click **Next**.
-10. Click **Buy and Start** to start the migration task.
-11. Repeat step 4 to step 11 to create migration tasks for the remaining shards.
-12. Stop the data migration task.
+10. On the **Confirm Settings** page, set **Channel Specification** and select **Data Transmission Service \(Pay-As-You-Go\) Service Terms**.
+11. Click **Buy and Start** to start the migration task.
+12. Repeat step 4 to step 11 to create migration tasks for the remaining shards.
+13. Stop the data migration task.
     -   Full data migration
 
         Do not manually stop a task during full data migration. Otherwise, the system may fail to perform a full data migration. Wait until the data migration task automatically stops.
@@ -146,5 +147,5 @@ Disable the balancer for the source database and delete orphaned documents. For 
 
             ![Stop a migration task](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1435298951/p34689.png)
 
-13. Switch over your business to the destination ApsaraDB for MongoDB instance.
+14. Switch over your business to the destination ApsaraDB for MongoDB instance.
 
