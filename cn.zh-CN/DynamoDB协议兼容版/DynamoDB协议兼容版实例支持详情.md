@@ -283,7 +283,6 @@ Amazon DynamoDB是一种完全托管的NoSQL数据库服务，提供快速而可
         -   `SET path = operand`语法中，不支持`operand`是`path`的场景。
         -   `SET path = operand1 '+'|'-' operand2`语法中，`operand1`必须等于`path`，即在此场景下只支持字段自增或自减。
         -   `SET path = if_not_exists (path, value)`语法中，两个`path`必须相等，且`value`只能是表达式属性值。
-        -   `SET path = if_not_exists (path, value)`语法中，在同时指定多个时不支持部分更新，即需要满足全部条件才能执行成功。
         -   `SET path = list_append(list1, list2)`语法中，`list1`和`list2`中必须有一个等于`path`，另外一个是表达式属性值。
     -   remove-action：用于移除`List`中某个元素时，用`null`代替被移除的元素，`List`大小不变，剩下的元素不会发生移位。
 
