@@ -1,6 +1,6 @@
 # DescribeAvailableEngineVersion
 
-You can call this operation to query the engine versions that an ApsaraDB for MongoDB instance can be upgraded to.
+You can call this operation to query the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
 
 ## Debugging
 
@@ -12,27 +12,25 @@ You can call this operation to query the engine versions that an ApsaraDB for Mo
 |---------|----|--------|-------|-----------|
 |Action|String|Yes|DescribeAvailableEngineVersion|The operation that you want to perform. Set the value to **DescribeAvailableEngineVersion**. |
 |DBInstanceId|String|Yes|dds-bpxxxxxxxx|The ID of the instance. |
-|RegionId|String|No|cn-hangzhou|The ID of the region. You can call the [DescribeRegions](~~61933~~) to query. |
+|RegionId|String|No|cn-hangzhou|The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the region ID of the instance. |
 
 ## Response parameters
 
 |Parameter|Type|Example|Description|
 |---------|----|-------|-----------|
 |RequestId|String|52507B6B-003B-47A3-A0A3-9FE992C7A243|The ID of the request. |
-|EngineVersions|List|\{"EngineVersion": \["4.0" \]\}|The engine versions that the ApsaraDB for MongoDB instance can be upgraded to.
+|EngineVersions|List|\{"EngineVersion": \["4.0" \]\}|The list of one or more engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
 
-**Note:** An empty string is returned if the latest version is being used. |
+ **Note:** An empty string is returned if the latest version is being used. |
 
 ## Examples
 
 Sample requests
 
 ```
-
 http(s)://mongodb.aliyuncs.com/? Action=DescribeAvailableEngineVersion
 &DBInstanceId=dds-bpxxxxxxxx
 &<Common request parameters>
-
 ```
 
 Sample success responses
@@ -52,12 +50,12 @@ Sample success responses
 
 ```
 {
-	"RequestId":"52507B6B-003B-47A3-A0A3-9FE992C7A243",
-	"EngineVersions":{
-		"EngineVersion":[
+	"EngineVersions": {
+		"EngineVersion": [
 			"4.0"
 		]
-	}
+	},
+	"RequestId": "52507B6B-003B-47A3-A0A3-9FE992C7A243"
 }
 ```
 
