@@ -11,17 +11,17 @@ You can call this operation to query the number of O&M tasks on an ApsaraDB for 
 |Parameter|Type|Required|Example|Description|
 |---------|----|--------|-------|-----------|
 |Action|String|Yes|DescribeActiveOperationTaskCount|The operation that you want to perform. Set the value to **DescribeActiveOperationTaskCount**. |
-|RegionId|String|No|cn-hangzhou|The region ID. You can call [DescribeRegions](~~61933~~) to query. |
+|RegionId|String|No|cn-hangzhou|The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the region ID of the instance. |
 |ResourceGroupId|String|No|sg-bpxxxxxxxxxxxxxxxxxx|The ID of the resource group. |
 
 ## Response parameters
 
 |Parameter|Type|Example|Description|
 |---------|----|-------|-----------|
-|NeedPop|Integer|0|Indicates whether pop-up messages are used to prompt users to perform tasks. Valid values:
+|NeedPop|Integer|0|Indicates whether any O&M tasks need pop-up windows to notify users actions. Valid values:
 
--   **0**: Pop-up messages are not used.
--   **1**: Pop-up messages are used. |
+-   **0**: No O&M tasks need pop-up windows to notify users actions.
+-   **1**: Some O&M tasks need pop-up windows to notify users actions. |
 |RequestId|String|770D7F11-21A2-402B-9DF6-D1A620570EF9|The ID of the request. |
 |TaskCount|Integer|0|The number of pending O&M tasks. |
 
