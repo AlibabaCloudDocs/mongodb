@@ -26,12 +26,12 @@ This topic describes how to modify the public and internal endpoints of an Apsar
 
 7.  In the dialog box that appears, enter a new endpoint.
 
-    ![Enter a new endpoint](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/5045298951/p66853.png)
+    ![Enter a new endpoint](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1387011161/p66853.png)
 
     **Note:**
 
     -   You can only modify the prefix of the endpoint.
-    -   The new endpoint must be 8 to 64 characters in length and can contain lowercase letters, digits, and hyphens \(-\). It must start with a lowercase letter and end with a lowercase letter or digit.
+    -   The new endpoint must start with a lowercase letter and end with a digit or lowercase letter. The password can be contain 8 to 64 characters in length, , and can contain lowercase letters, digits, and hyphens \(-\).
 8.  Click **Submit**.
 
 
