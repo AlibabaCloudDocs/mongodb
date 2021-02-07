@@ -1,8 +1,8 @@
 # DescribeMongoDBLogConfig
 
-You can call DescribeMongoDBLogConfig to view the log service configuration of ApsaraDB for MongoDB.
+You can call this operation to query the log feature configurations of an ApsaraDB for MongoDB instance.
 
-This interface is based on the new version of MongoDB log service. For more information, see [activate new audit logs](~~164542~~).
+This operation is based on the new log feature of ApsaraDB for MongoDB. For more information, see [Enable the new audit log feature](~~164542~~).
 
 ## Debugging
 
@@ -13,23 +13,23 @@ This interface is based on the new version of MongoDB log service. For more info
 |Parameter|Type|Required|Example|Description|
 |---------|----|--------|-------|-----------|
 |Action|String|Yes|DescribeMongoDBLogConfig|The operation that you want to perform. Set the value to **DescribeMongoDBLogConfig**. |
-|DBInstanceId|String|Yes|dds-bpxxxxxxxx|The ID of the instance. You can call [DescribeDBInstances](~~61939~~) to query. |
-|RegionId|String|No|cn-hangzhou|The region ID of the instance. You can call [DescribeDBInstanceAttribute](~~62010~~) to query. |
+|DBInstanceId|String|Yes|dds-bpxxxxxxxx|The ID of the instance. You can call the [DescribeDBInstances](~~61939~~) operation to query the ID of the instance. |
+|RegionId|String|No|cn-hangzhou|The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the region ID of the instance. |
 
 ## Response parameters
 
 |Parameter|Type|Example|Description|
 |---------|----|-------|-----------|
-|IsEtlMetaExist|Integer|1|Whether the rule to distribute logs to Logtail is created. For more information about Logtail, see [Logtail overview](~~28979~~). Valid values:
+|IsEtlMetaExist|Integer|1|Indicates whether a rule to distribute logs to Logtail is created. For more information, see [Logtail overview](~~28979~~). Valid values:
 
--   1: Created
--   0 or null: not created |
-|IsUserProjectLogstoreExist|Integer|1|Whether the log service project exists in the current region. Valid values:
+-   1: A rule to distribute logs to Logtail is created
+-   0 or null: A rule to distribute logs to Logtail is not created. |
+|IsUserProjectLogstoreExist|Integer|1|Indicates whether a Log Service project exists in the current region. Valid values:
 
--   1: Exists
--   0 or null: does not exist |
-|RequestId|String|664ECE26-658 A- 47C5-88F6-870B0132E8D2|The ID of the request. |
-|UserProjectName|String|nosql-140xxxxxxxxxxxxx-cn-hangzhou|Specifies the name of the project in log service. |
+-   1: A Log Service project exists in the current region.
+-   0 or null: A Log Service project does not exist in the current region. |
+|RequestId|String|664ECE26-658A-47C5-88F6-870B0132E8D2|The ID of the request. |
+|UserProjectName|String|nosql-140xxxxxxxxxxxxx-cn-hangzhou|The name of the Log Service project. |
 
 ## Examples
 
@@ -63,7 +63,7 @@ Sample success responses
 }
 ```
 
-## Error code
+## Error codes
 
 For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Dds).
 
