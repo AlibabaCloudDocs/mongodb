@@ -19,11 +19,11 @@ The instance must be in the running state when you call this operation.
 |Parameter|Type|Required|Example|Description|
 |---------|----|--------|-------|-----------|
 |Action|String|Yes|UpgradeDBInstanceEngineVersion|The operation that you want to perform. Set the value to **UpgradeDBInstanceEngineVersion**. |
-|EngineVersion|String|Yes|4.0|The database version to which you want to upgrade the instance. Valid values: **3.4**, **4.0**, or **4.2**.
+|EngineVersion|String|Yes|4.0|The new database engine version of the instance. Valid values: **3.4**, **4.0**, and **4.2**.
 
-**Note:** The target database version must be later than the current database version of the instance. |
+**Note:** The database version must be later than the current database version of the instance. |
 |DBInstanceId|String|Yes|dds-bpxxxxxxxx|The ID of the instance. |
-|RegionId|String|No|cn-hangzhou|The ID of the region where the instance is deployed. You can call the [DescribeRegions](~~61933~~) operation to query the region ID. |
+|RegionId|String|No|cn-hangzhou|The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the region ID of the instance. |
 
 ## Response parameters
 
@@ -44,7 +44,7 @@ http(s)://mongodb.aliyuncs.com/? Action=UpgradeDBInstanceEngineVersion
 
 Sample success responses
 
-`XML` format
+`XML` fomat
 
 ```
 <UpgradeDBInstanceEngineVersionResponse>
