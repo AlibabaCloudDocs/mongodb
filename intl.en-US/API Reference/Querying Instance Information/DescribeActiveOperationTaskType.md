@@ -1,6 +1,6 @@
 # DescribeActiveOperationTaskType
 
-You can call this operation to query the types of O&M tasks on an ApsaraDB for MongoDB instance and the number of each type of tasks.
+You can call this operation to query the types of O&M tasks on an ApsaraDB for MongoDB instance and the number of tasks of each type.
 
 ## Debugging
 
@@ -11,13 +11,13 @@ You can call this operation to query the types of O&M tasks on an ApsaraDB for M
 |Parameter|Type|Required|Example|Description|
 |---------|----|--------|-------|-----------|
 |Action|String|Yes|DescribeActiveOperationTaskType|The operation that you want to perform. Set the value to **DescribeActiveOperationTaskType**. |
-|RegionId|String|No|cn-hangzhou|The ID of the region where the instance is deployed. You can call the [DescribeRegions](~~61933~~) operation to query the region ID. |
+|RegionId|String|No|cn-hangzhou|The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the region ID of the instance. |
 |IsHistory|Integer|No|0|Specifies whether to return all O&M tasks. Valid values:
 
--   **0**: Returns pending tasks only.
--   **1**: Returns all tasks.
+ -   **0**: returns only pending tasks.
+-   **1**: returns all tasks.
 
-Default value: **0**. |
+ Default value: **0**. |
 |ResourceGroupId|String|No|sg-bpxxxxxxxxxxxxxxxxxx|The ID of the resource group. |
 
 ## Response parameters
@@ -25,11 +25,11 @@ Default value: **0**. |
 |Parameter|Type|Example|Description|
 |---------|----|-------|-----------|
 |RequestId|String|339BFDFD-BBC0-40C1-93E0-EE691DE28B21|The ID of the request. |
-|TypeList|Array| |The list of tasks. |
+|TypeList|Array of Items| |Details about the tasks. |
 |Count|Integer|1|The number of pending tasks. |
 |TaskType|String|rds\_apsaradb\_upgrade|The type of the task. Valid values:
 
--   **rds\_apsaradb\_transfer**: instance migration
+ -   **rds\_apsaradb\_transfer**: instance migration
 -   **rds\_apsaradb\_upgrade**: minor version upgrade
 -   **rds\_apsaradb\_network\_upgrade**: network upgrade |
 
