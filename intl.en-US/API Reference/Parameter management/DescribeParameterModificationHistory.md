@@ -12,28 +12,28 @@ You can call this operation to query the modification records of ApsaraDB for Mo
 |---------|----|--------|-------|-----------|
 |Action|String|Yes|DescribeParameterModificationHistory|The operation that you want to perform. Set the value to **DescribeParameterModificationHistory**. |
 |StartTime|String|Yes|2019-01-01T12:10Z|The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. |
-|EndTime|String|Yes|2019-01-02T12:10Z|The end of the time range to query. The end time must be later than the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. |
+|EndTime|String|Yes|2019-01-02T12:10Z|The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. |
 |DBInstanceId|String|Yes|dds-bpxxxxxxxx|The ID of the instance.
 
-**Note:** If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter. |
+**Note:** If you set the value to the ID of a sharded cluster instance, you must specify the **NodeId** parameter. |
 |CharacterType|String|Yes|mongos|The role of the object that you want to query. Valid values:
 
--   db: a shard
--   cs: a config server
--   mongos: a mongos
--   logic: a sharded cluster instance |
-|NodeId|String|No|d-bpxxxxxxxx|The ID of the mongos or shard in the specified sharded cluster instance.
+-   db: shard
+-   cs: Configserver
+-   mongos: mongos
+-   logic: sharded cluster instance |
+|NodeId|String|No|d-bpxxxxxxxx|The ID of the mongos or shard node in the specified sharded cluster instance.
 
-**Note:** This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance. |
-|RegionId|String|No|cn-hangzhou|The ID of the region where the instance is deployed. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the region ID. |
+**Note:** This parameter takes effect only when you set the **DBInstanceId** parameter to the ID of a sharded cluster instance. |
+|RegionId|String|No|cn-hangzhou|The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the region ID of the instance. |
 
 ## Response parameters
 
 |Parameter|Type|Example|Description|
 |---------|----|-------|-----------|
-|HistoricalParameters|Array| |The list of parameter modification records. |
+|HistoricalParameters|Array of HistoricalParameter| |Details about the parameter modification records. |
 |HistoricalParameter| | | |
-|ModifyTime|String|2019-03-12T07:58:24Z|The time when the parameter was modified. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC. |
+|ModifyTime|String|2019-03-12T07:58:24Z|The time when the parameter was modified. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC. |
 |NewParameterValue|String|200|The parameter value after modification. |
 |OldParameterValue|String|100|The parameter value before modification. |
 |ParameterName|String|operationProfiling.slowOpThresholdMs|The name of the modified parameter. |
