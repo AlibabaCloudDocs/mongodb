@@ -13,12 +13,12 @@ You can call this operation to release the public endpoint of an ApsaraDB for Mo
 |Action|String|Yes|ReleasePublicNetworkAddress|The operation that you want to perform. Set the value to **ReleasePublicNetworkAddress**. |
 |DBInstanceId|String|Yes|dds-bpxxxxxxxx|The ID of the instance.
 
- **Note:** If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter. |
+**Note:** If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter. |
 |NodeId|String|No|s-bpxxxxxxxx|A sharded cluster instance consists of three components: mongos, shard, and Configserver.
 
- **Note:**
+**Note:**
 
--   This parameter is valid only if you set the**DBInstanceId**parameter to the ID of a sharded cluster instance.
+-   This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
 -   You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the ID of the mongos, shard, or Configserver node. |
 |RegionId|String|No|cn-hangzhou|The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the region ID of the instance. |
 
@@ -45,7 +45,7 @@ Sample success responses
 
 ```
 <ReleasePublicNetworkAddressResponse>
-	  <RequestId>B6D17591-B48B-4D31-9CD6-9B9796B2270A</RequestId>
+      <RequestId>B6D17591-B48B-4D31-9CD6-9B9796B2270A</RequestId>
 </ReleasePublicNetworkAddressResponse>
 ```
 
@@ -53,7 +53,7 @@ Sample success responses
 
 ```
 {
-	"RequestId": "1D6AFE36-1AF5-4DE4-A954-672159D4CC69"
+    "RequestId": "1D6AFE36-1AF5-4DE4-A954-672159D4CC69"
 }
 ```
 
