@@ -49,9 +49,10 @@ Instances in the same region \(such as an [ECS](~~25367~~) instance and an Apsar
     |**Network Type**|**Classic**|Cloud services in the classic network are not isolated. You can configure security groups or whitelist policies to block unauthorized access to the cloud services.|
     |**VPC**|A VPC is an isolated network with higher security and performance than the classic network. **Note:**
 
-    -   You must create a VPC in advance. For more information, see [Create a VPC](/intl.en-US/VPCs and VSwitches/VPC management/Create a VPC.md).
+    -   You must create a VPC in advance. For more information, see [Create a VPC](/intl.en-US/VPCs and vSwitchs/Create a VPC.md).
     -   You can change the network type after you create an instance. For more information, see [Switch the network type of an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Network connection management/Switch the network type of an ApsaraDB for MongoDB instance.md).
-    -   If you want to migrate your applications to the cloud, you can build a virtual data center by connecting your self-managed data center to the resources in a VPC over a leased line or a virtual private network \(VPN\). For more information, see [Configure a hybrid access solution to switch the network type of an ApsaraDB for MongoDB instance from Classic Network to VPC](/intl.en-US/User Guide/Network connection management/Configure a hybrid access solution to switch the network type of an ApsaraDB for MongoDB instance from Classic Network to VPC.md). |
+    -   If you want to migrate your applications to the cloud, you can build a virtual data center by connecting your self-managed data center to the resources in a VPC over a leased line or a virtual private network \(VPN\). For more information, see [Configure a hybrid access solution to switch the network type of an ApsaraDB for MongoDB instance from Classic Network to VPC](/intl.en-US/User Guide/Network connection management/Configure a hybrid access solution to switch the network type of an ApsaraDB for MongoDB
+         instance from classic network to VPC.md). |
     |**Specifications**|**Plan**|    -   The CPU and memory occupied by the instance.
     -   The maximum number of connections and maximum IOPS varies based on different specifications. The maximum IOPS is separately measured for read and write operations, and the maximum sum of read and write operations can be twice the maximum IOPS. For more information, see [Instance types](/intl.en-US/Product Introduction/Instance types.md). |
     |**Storage Space**|Each node in the replica set instance has dedicated storage space. **Note:** The storage space of a node stores your data, system, and log files. |
@@ -91,7 +92,7 @@ Instances in the same region \(such as an [ECS](~~25367~~) instance and an Apsar
 |The instance list in the ApsaraDB for MongoDB console was not updated or was updated before the instance is created.|Wait several minutes and update the instance list to check whether the instance is added to the list.|
 |Resources are insufficient.|The system may fail to create the instance due to insufficient resources. In this case, your payment is refunded. You can check the refund on the [Orders](https://expense.console.aliyun.com/#/order/list/) page.
 
-After you confirm the refunded fees, you can try to create your instance in another region or zone. You can also[submit a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex). |
+After you confirm the refunded fees, you can try to create your instance in another region or zone. You can also [submit a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex). |
 
 After you create an instance, you must configure a whitelist. For more information, see [Configure a whitelist for an ApsaraDB for MongoDB instance](/intl.en-US/Quick Start/Configure a whitelist for an ApsaraDB for MongoDB instance.md). If you want to connect to the instance over the Internet, you must apply for a public endpoint. For more information, see [Apply for a public endpoint for an ApsaraDB for MongoDB instance](/intl.en-US/Quick Start/Apply for a public endpoint for an ApsaraDB for MongoDB instance.md).
 
