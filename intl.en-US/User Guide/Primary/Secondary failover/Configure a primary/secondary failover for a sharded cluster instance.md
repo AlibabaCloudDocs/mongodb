@@ -28,7 +28,7 @@ ApsaraDB for MongoDB provides connection strings for you to connect to the prima
 
     You can trigger a primary/secondary failover separately for each shard node. The failover operation takes effect only for the current shard node and does not affect other shard nodes of the same sharded cluster instance.
 
-6.  In the **Failover**dialog box, select **Effective At** and click **Submit**.
+6.  In the **Failover** dialog box, select **Effective At** and click **Submit**.
 
     **Note:** **Failover** supports two types of **Effective At**:
 
