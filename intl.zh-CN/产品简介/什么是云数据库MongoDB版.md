@@ -136,7 +136,7 @@ MongoDB的存储结构区别于传统的关系型数据库，由如下三个单�
 
   
 
-* [DTS](~~26592~~)：您可以使用数据传输服务DTS（Data Transmission Service）将本地MongoDB数据库迁移上云。
+* [DTS]()：您可以使用数据传输服务DTS（Data Transmission Service）将本地MongoDB数据库迁移上云。
 
   
 
