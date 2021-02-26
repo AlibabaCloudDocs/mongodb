@@ -93,7 +93,7 @@ MongoShake还提供了日志数据的订阅和消费功能，可通过SDK、Kafk
 
 |`sync_mode = all`|
 
-    **说明：** 关于collector.conf全量参数说明，请参见[附件](#section_uhl_7wp_94n)中的collector.conf全量参数说明。
+    **说明：** 关于collector.conf全量参数说明，请参见[附件](#section_zkn_lqg_z79)中的collector.conf全量参数说明。
 
 5.  执行下述命令启动同步任务，并打印日志信息。
 
