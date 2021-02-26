@@ -4,7 +4,7 @@ If an ECS instance and an ApsaraDB for MongoDB instance are in different regions
 
 ## Method 1: Migrate the ApsaraDB for MongoDB instance to the region where the ECS instance is located
 
-This method uses the data migration feature of [What is DTS?]() \(DTS\) to migrate the ApsaraDB for MongoDB instance to the region where the ECS instance is located. For example, you can migrate a MongoDB instance from China \(Qingdao\) to China \(Hangzhou\).
+This method uses the data migration feature of [Data Transmission Service]() \(DTS\) to migrate the ApsaraDB for MongoDB instance to the region where the ECS instance is located. For example, you can migrate a MongoDB instance from China \(Qingdao\) to China \(Hangzhou\).
 
 1.  Create an ApsaraDB for MongoDB instance in the region where the ECS instance is located. For more information, see [Create an instance](/intl.en-US/Quick Start/Create an instance/Create a replica set instance.md). Skip this step if you have already created an ApsaraDB for MongoDB instance.
 2.  Migrate the MongoDB database from the instance in the source region to the instance in the destination region. For more information, see [Migrate the data of an ApsaraDB for MongoDB instance across regions](/intl.en-US/User Guide/Data migration and synchronization/Migrate data between ApsaraDB for MongoDB instances/Migrate the data of an ApsaraDB for MongoDB instance across regions.md).
