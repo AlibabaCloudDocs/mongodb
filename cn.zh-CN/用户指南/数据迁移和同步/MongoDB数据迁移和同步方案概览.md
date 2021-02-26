@@ -12,7 +12,7 @@ keyword: [数据库迁移, mongodb迁移, 阿里云数据库同步, 数据库同
 
 ## MongoDB数据迁移方案介绍
 
-通过[数据传输服务（DTS）](https://help.aliyun.com/document_detail/26592.html)，您可以实现MongoDB数据库的全量数据迁移和增量数据迁移，在不影响业务的情况下平滑地将MongoDB数据库迁移上云。
+通过[数据传输服务（DTS）](数据传输服务（DTS）t17063.dita#concept_26592_zh)，您可以实现MongoDB数据库的全量数据迁移和增量数据迁移，在不影响业务的情况下平滑地将MongoDB数据库迁移上云。
 
 云数据库MongoDB支持使用官方的mongodump和mongorestore工具全量迁移数据库。
 
