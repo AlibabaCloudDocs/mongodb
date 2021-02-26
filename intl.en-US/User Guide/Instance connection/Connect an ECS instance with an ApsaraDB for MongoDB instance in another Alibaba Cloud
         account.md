@@ -4,7 +4,7 @@ If an ECS instance and an ApsaraDB for MongoDB instance do not belong to the sam
 
 ## Method 1: Migrate the ApsaraDB for MongoDB instance to the Alibaba Cloud account to which the ECS instance belongs
 
-This method uses the data migration feature of [Data Transmission Service](~~26592~~) \(DTS\) to migrate the ApsaraDB for MongoDB database to the Alibaba Cloud account to which the ECS instance belongs.
+This method uses the data migration feature of [Data Transmission Service]() \(DTS\) to migrate the ApsaraDB for MongoDB database to the Alibaba Cloud account to which the ECS instance belongs.
 
 Procedure
 
