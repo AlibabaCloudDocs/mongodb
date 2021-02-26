@@ -92,7 +92,7 @@ Before you use DTS to migrate incremental data, enable the oplog feature for the
 
 ## Procedure
 
-1.  Log on to the[DTS console](https://dts-intl.console.aliyun.com/).
+1.  Log on to the [DTS console](https://dts-intl.console.aliyun.com/).
 
 2.  In the left-side navigation pane, click **Data Migration**.
 
@@ -149,7 +149,7 @@ Before you use DTS to migrate incremental data, enable the oplog feature for the
         -   Data in the admin and local databases cannot be migrated.
         -   The config database is an internal database. We recommend that you do not migrate data in the config database.
     -   A migration object can be a database, collection, or function.
-    -   By default, after an object is migrated to the destination database, the name of the object remains unchanged. You can use the object name mapping feature to change the names of the objects that are migrated to the destination database. For more information, see[Object name mapping](https://www.alibabacloud.com/help/doc-detail/26628.htm). |
+    -   By default, after an object is migrated to the destination database, the name of the object remains unchanged. You can use the object name mapping feature to change the names of the objects that are migrated to the destination database. For more information, see [Object name mapping](https://www.alibabacloud.com/help/doc-detail/26628.htm). |
 
 8.  In the lower-right corner of the page, click **Precheck**.
 
