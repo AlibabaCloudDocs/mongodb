@@ -57,7 +57,7 @@ MongoShake also allows you to subscribe to and consume MongoDB logs. You can con
 
 By default, the /root/mongoshake directory is used as the installation directory for MongoShake in this example.
 
-1.  Log on to the ECS instance. For more information, see [t9621.dita\#concept\_rsl\_2vx\_wdb](/intl.en-US/Instance/Connect to instances/Connect to Linux instances/Connect to a Linux instance by using a username and password.md).
+1.  Log on to the ECS instance. For more information, see [t9621.dita\#concept\_rsl\_2vx\_wdb](/intl.en-US/Instance/Connect to instances/Connect to an instance by using third-party client tools/Connect to a Linux instance by using a username and password.md).
 2.  Run the following command to download the MongoShake package and rename the package as `mongoshake.tar.gz`:
 
     ```
@@ -93,7 +93,7 @@ By default, the /root/mongoshake directory is used as the installation directory
 
 |`sync_mode = all`|
 
-    **Note:** For more information about all parameters in the collector.conf file, see the [Appendix](#section_uhl_7wp_94n) section of this topic.
+    **Note:** For more information about all parameters in the collector.conf file, see the [Appendix](#section_zkn_lqg_z79) section of this topic.
 
 5.  Run the following command to start the data synchronization task and generate the log information:
 
