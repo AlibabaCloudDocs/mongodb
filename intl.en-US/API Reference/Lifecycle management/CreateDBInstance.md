@@ -4,7 +4,7 @@ You can call this operation to create and clone an ApsaraDB for MongoDB replica 
 
 Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
 
-For more information about the instance types in ApsaraDB for MongoDB, see[Instance types](~~57141~~).
+For more information about the instance types in ApsaraDB for MongoDB, see [Instance types](~~57141~~).
 
 To create sharded cluster instances, you can call the [CreateShardingDBInstance](~~61884~~) operation.
 
@@ -18,7 +18,7 @@ This operation is only available on the partner site.
 
 |Parameter|Type|Required|Example|Description|
 |---------|----|--------|-------|-----------|
-|Action|String|Yes|CreateDBInstance|The operation that you want to perform. Set the value to**CreateDBInstance**. |
+|Action|String|Yes|CreateDBInstance|The operation that you want to perform. Set the value to **CreateDBInstance**. |
 |ClientToken|String|Yes|ETnLKlblzczshOTUbOCzxxxxxxxxxx|The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. |
 |Engine|String|Yes|MongoDB|The database engine. Set the value to **MongoDB**. |
 |EngineVersion|String|Yes|4.0|The database engine version of the instance. Valid values: 3.2, 3.4, 4.0, and 4.2.
@@ -30,7 +30,7 @@ This operation is only available on the partner site.
 -   Valid values:**10**to **3000**. Unit: GB.
 -   The value must be a multiple of 10 GB.
 
-**Note:** The values that can be specified for this parameter are subject to the instance specifications. For more information, see[Instance types](~~57141~~). |
+**Note:** The values that can be specified for this parameter are subject to the instance specifications. For more information, see [Instance types](~~57141~~). |
 |RegionId|String|Yes|cn-hangzhou|The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the regions where the instance can be created. |
 |ZoneId|String|No|cn-hangzhou-b|The zone ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the zones where the instance can be created. |
 |DBInstanceDescription|String|No|Test database 1|The name of the instance. It must be 2 to 256 characters in length. The name must start with a letter, and can contain digits, letters, underscores \(\_\), and hyphens \(-\). |
@@ -60,14 +60,14 @@ Default value: pay-as-you-go
 
 Default value: CLASSIC.
 
-**Note:** If you specify this parameter to **VPC**, you must also specify the **VpcId**parameter and the**VSwitchId**parameter. |
+**Note:** If you specify this parameter to **VPC**, you must also specify the **VpcId**parameter and the **VSwitchId**parameter. |
 |VpcId|String|No|vpc-bpxxxxxxxx|The ID of the VPC.
 
-**Note:** This parameter is valid only if you set the**NetworkType** parameter to**VPC**. |
+**Note:** This parameter is valid only if you set the **NetworkType** parameter to**VPC**. |
 |VSwitchId|String|No|vsw-bpxxxxxxxx|The ID of the vSwitch in the specified VPC.
 
-**Note:** This parameter is valid only if you set the**NetworkType** parameter to**VPC**. |
-|SrcDBInstanceId|String|No|dds-bpxxxxxxxx|The ID of the source instance. This parameter can only be specified when this operation is called to clone instances. You must also specify the **BackupId** parameter or**RestoreTime**parameter. |
+**Note:** This parameter is valid only if you set the **NetworkType** parameter to**VPC**. |
+|SrcDBInstanceId|String|No|dds-bpxxxxxxxx|The ID of the source instance. This parameter can only be specified when this operation is called to clone instances. You must also specify the **BackupId** parameter or **RestoreTime**parameter. |
 |BackupId|String|No|32994xxxx|The ID of the backup set. This parameter can only be specified when this operation is called to clone instances. You must also specify the **SrcDBInstanceId** parameter.
 
 **Note:** You can call [DescribeBackups](~~62172~~) to query the backup ID. |
@@ -75,7 +75,7 @@ Default value: CLASSIC.
 
 **Note:**
 
--   This parameter can only be specified when this operation is called to clone instances. You must also specify the**SrcDBInstanceId**parameter and the**BackupId** parameter.
+-   This parameter can only be specified when this operation is called to clone instances. You must also specify the**SrcDBInstanceId** parameter and the**BackupId** parameter.
 -   You can set this parameter to any point in time in the last seven days. |
 |BusinessInfo|String|No|\{“ActivityId":"000000000"\}|The business information. It is an additional parameter. |
 |DatabaseNames|String|No|mongodbtest|The names of the databases.
@@ -88,7 +88,7 @@ Default value: CLASSIC.
 
 Default value: false.
 
-**Note:** This parameter is valid only if you set the**ChargeType**parameter to**PrePaid**. |
+**Note:** This parameter is valid only if you set the **ChargeType**parameter to**PrePaid**. |
 |CouponNo|String|No|youhuiquan\_promotion\_option\_id\_for\_blank|The coupon code. Default value:**youhuiquan\_promotion\_option\_id\_for\_blank**. |
 |StorageEngine|String|No|WiredTiger|The storage engine used by the instance. Valid values: **WiredTiger**, **RocksDB**, and **TerarkDB**. Default value: **WiredTiger**. For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](~~61906~~).
 
