@@ -9,9 +9,17 @@ When you add an ECS security group, make sure that the ApsaraDB for MongoDB inst
 
 ## Configure an IP address whitelist for a standalone instance, replica set instance, or sharded cluster instance
 
-1.  In the left-side navigation pane, choose **Data Security** \> **Whitelist Settings**.
+1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
 
-2.  Find the IP address whitelist that you want to configure, and choose ![More icon](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/7023797951/p13206.png) \> **Manually Modify** or **Import ECS Intranet IP** in the **Actions** column.
+2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
+
+3.  In the left-side navigation pane, click **Replica Set Instances**, or **Sharded Cluster Instances** based on the instance type.
+
+4.  Find the target instance and click its ID.
+
+5.  In the left-side navigation pane, choose **Data Security** \> **Whitelist Settings**.
+
+6.  Find the IP address whitelist that you want to configure, and choose ![More icon](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/7023797951/p13206.png) \> **Manually Modify** or **Import ECS Intranet IP** in the **Actions** column.
 
     **Manually Modify**
 
@@ -51,9 +59,17 @@ When you add an ECS security group, make sure that the ApsaraDB for MongoDB inst
 
 An ECS security group relieves you from the tedious work of adding IP addresses or CIDR blocks. It makes database O&M easier.
 
-1.  Click **Add Security Group**.
+1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
 
-2.  In the Add Security Group panel, select one or more ECS security groups that you want to add.
+2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
+
+3.  In the left-side navigation pane, click **Replica Set Instances**, or **Sharded Cluster Instances** based on the instance type.
+
+4.  Find the target instance and click its ID.
+
+5.  Click **Add Security Group**.
+
+6.  In the Add Security Group panel, select one or more ECS security groups that you want to add.
 
     ![Add one or more ECS security groups](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/4027562061/p70088.png)
 
@@ -64,7 +80,15 @@ An ECS security group relieves you from the tedious work of adding IP addresses 
 
 ## Delete a whitelist or an ECS security group of a standalone instance, replica set instance, or sharded cluster instance
 
-1.  Delete a whitelist or an ECS security group.
+1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
+
+2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
+
+3.  In the left-side navigation pane, click **Replica Set Instances**, or **Sharded Cluster Instances** based on the instance type.
+
+4.  Find the target instance and click its ID.
+
+5.  Delete a whitelist or an ECS security group.
 
     To delete a whitelist, perform the following steps:
 
