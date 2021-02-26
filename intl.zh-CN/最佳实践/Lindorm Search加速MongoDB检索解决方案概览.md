@@ -23,9 +23,3 @@
 -   历史数据自动构建、实时数据自动同步，毫秒级同步延迟。
 -   即将支持MQL（MetaQuotes Language）统一访问，自动利用全文搜索优化查询。 |
 
-## 功能支持
-
-目前本解决方案定向邀测中，欢迎有需求的用户[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)或扫下列钉钉二维码进群。
-
-![二维码](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7828805061/p181707.png)
-
