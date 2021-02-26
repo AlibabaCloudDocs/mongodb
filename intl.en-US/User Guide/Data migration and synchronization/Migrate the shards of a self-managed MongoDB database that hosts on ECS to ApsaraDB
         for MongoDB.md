@@ -82,11 +82,11 @@ Disable the balancer for the source database and delete orphaned documents. For 
     |Instance Region|The region where the ECS instance is deployed.|
     |ECS Instance ID|The ID of the ECS instance. DTS migrates each shard of the source database in turn. In this example, enter the ID of the ECS instance on which the first shard is deployed.
 
- For the second migration task, enter the ID of the ECS instance on which the second shard is deployed. Repeat this operation until all shards are migrated. |
+For the second migration task, enter the ID of the ECS instance on which the second shard is deployed. Repeat this operation until all shards are migrated. |
     |Database Type|The type of the database. In this example, select **MongoDB** from the drop-down list.|
     |Port Number|The service port of the shard. In this example, enter the service port of the first shard.
 
- For the second migration task, enter the service port of the second shard. Repeat this operation until all shards are migrated. |
+For the second migration task, enter the service port of the second shard. Repeat this operation until all shards are migrated. |
     |Database Name|The name of the destination database to which the database account belongs.|
     |Database Account|The username of the database account used to connect to the source database. For more information about the permissions that are required for the account, see [Permissions required for database accounts](#section_u2r_lh8_kvi).|
     |Database Password|The password of the database account used to connect to the source database. **Note:** After you specify the source database information, click **Test Connectivity** next to **Database Password** to check whether the information is correct. If the specified parameters are valid, the **Passed** message appears. If the **Failed** message appears, click **Check** next to **Failed**. Modify the source database parameters based on the check results. |
@@ -99,7 +99,7 @@ Disable the balancer for the source database and delete orphaned documents. For 
 
 6.  In the lower-right corner of the page, click **Set Whitelist and Next**.
 
-    **Note:** The Classless CIDR blocks of DTS servers are automatically added to the inbound rule of the ECS instance and the whitelist of the ApsaraDB for MongoDB instance. This ensures that DTS servers can connect to the source and destination instances. After data migration is complete, you can remove the CIDR blocks of DTS servers from the whitelists. For more information, see[Manage security group rules](https://www.alibabacloud.com/help/zh/doc-detail/25472.htm) and [Configure a whitelist for an ApsaraDB for MongoDB instance](/intl.en-US/Quick Start/Configure a whitelist for an ApsaraDB for MongoDB instance.md).
+    **Note:** The Classless CIDR blocks of DTS servers are automatically added to the inbound rule of the ECS instance and the whitelist of the ApsaraDB for MongoDB instance. This ensures that DTS servers can connect to the source and destination instances. After data migration is complete, you can remove the CIDR blocks of DTS servers from the whitelists. For more information, see [Manage security group rules](https://www.alibabacloud.com/help/zh/doc-detail/25472.htm) and [Configure a whitelist for an ApsaraDB for MongoDB instance](/intl.en-US/Quick Start/Configure a whitelist for an ApsaraDB for MongoDB instance.md).
 
 7.  Select the migration types and the objects to be migrated.
 
