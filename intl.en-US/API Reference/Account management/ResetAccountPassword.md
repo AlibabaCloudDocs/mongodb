@@ -13,7 +13,7 @@ You can call this operation to reset the password of the root account of an Apsa
 |Parameter|Type|Required|Example|Description|
 |---------|----|--------|-------|-----------|
 |Action|String|Yes|ResetAccountPassword|The operation that you want to perform. Set the value to **ResetAccountPassword**. |
-|AccountName|String|Yes|root|The account for which you want to reset the password. Set the value to**root**. |
+|AccountName|String|Yes|root|The account for which you want to reset the password. Set the value to **root**. |
 |AccountPassword|String|Yes|Ali! 123456|The new password.
 
 -   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include `! # $ % ^ & * ( ) _ + - =`
