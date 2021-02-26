@@ -6,7 +6,7 @@
 
 为了满足这一需求，云数据库MongoDB与[云原生多模数据库Lindorm](https://www.aliyun.com/product/apsaradb/lindorm)联合推出一体化的全文搜索方案，极大程度上增强了MongoDB的检索能力。关于Lindorm的更多信息，请参见[Lindorm产品概述]()。
 
-![解决方案](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7828805061/p181695.png)
+![解决方案](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7828805061/p181695.png)
 
 ## 核心能力
 
@@ -27,5 +27,5 @@
 
 目前本解决方案定向邀测中，欢迎有需求的用户[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)或扫下列钉钉二维码进群。
 
-![二维码](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7828805061/p181707.png)
+![二维码](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7828805061/p181707.png)
 
