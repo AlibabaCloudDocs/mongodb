@@ -52,7 +52,7 @@ When you add an ECS security group, make sure that the ApsaraDB for MongoDB inst
 
     2.  Click **OK**.
 
-        **Note:** For easy O&M and access control, we recommend that you add an ECS security group. For more information, see [Configure an ECS security group for a standalone instance, replica set instance, or sharded cluster instance](#section_fwu_oit_4dc).
+        **Note:** For easy O&M and access control, we recommend that you add an ECS security group. For more information, see [Configure an ECS security group for a standalone instance, replica set instance, or sharded cluster instance](/intl.en-US/User Guide/Data security/Configure a whitelist or an ECS security group for an ApsaraDB for MongoDB instance.md).
 
 
 ## Configure an ECS security group for a standalone instance, replica set instance, or sharded cluster instance
