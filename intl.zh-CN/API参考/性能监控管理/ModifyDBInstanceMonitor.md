@@ -2,7 +2,7 @@
 
 调用ModifyDBInstanceMonitor接口设置MongoDB实例的监控采集粒度。
 
-**说明：** 关于各监控项支持的监控粒度介绍，请参见[设置监控采集粒度](~~68188~~)。
+**由于监控采集粒度调整功能下线，本接口暂不可用。**
 
 调用本接口时，实例必须满足以下条件：
 
@@ -41,7 +41,7 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyDBInstanceMonitor
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
 <ModifyDBInstanceMonitorResponse>
@@ -49,7 +49,7 @@ http(s)://mongodb.aliyuncs.com/?Action=ModifyDBInstanceMonitor
 </ModifyDBInstanceMonitorResponse>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
 {
