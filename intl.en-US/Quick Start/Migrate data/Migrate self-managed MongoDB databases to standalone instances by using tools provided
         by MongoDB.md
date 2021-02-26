@@ -2,7 +2,7 @@
 
 mongodump and mongorestore are both built in MongoDB for backup and restoration. You can install the MongoDB database on a local device or ECS instance and use mongodump and mongorestore to migrate a self-managed MongoDB database to an ApsaraDB for MongoDB instance.
 
-To avoid service disruption, we recommend that you use DTS to migrate self-managed MongoDB databases to Alibaba Cloud. For more information, see [Migrate user-created standalone MongoDB databases to Alibaba Cloud by using DTS](/intl.en-US/Quick Start/Migrate data/Migrate user-created standalone MongoDB databases to Alibaba Cloud by using DTS.md).
+To avoid service disruption, we recommend that you use DTS to migrate self-managed MongoDB databases to Alibaba Cloud. For more information, see [Migrate self-managed standalone MongoDB databases to Alibaba Cloud by using DTS](/intl.en-US/Quick Start/Migrate data/Migrate self-managed standalone MongoDB databases to Alibaba Cloud by using DTS.md).
 
 For more information about data migration and synchronization solutions, see [Overview](/intl.en-US/User Guide/Data migration and synchronization/Overview.md).
 
@@ -69,7 +69,7 @@ Wait until data backup is complete. The data of the self-managed MongoDB databas
 
         |Address type|Description|Application scenario|
         |------------|-----------|--------------------|
-        |VPC connection address|A VPC is an isolated network with higher security and performance than the classic network.|The self-managed MongoDB database is deployed on the[ECS instance](https://www.alibabacloud.com/help/zh/doc-detail/25367.htm). **Note:** The ECS instance and ApsaraDB for MongoDB instance must be located in the same region and VPC. |
+        |VPC connection address|A VPC is an isolated network with higher security and performance than the classic network.|The self-managed MongoDB database is deployed on the [ECS instance](https://www.alibabacloud.com/help/zh/doc-detail/25367.htm). **Note:** The ECS instance and ApsaraDB for MongoDB instance must be located in the same region and VPC. |
         |Public connection address|By default, ApsaraDB for MongoDB instances do not provide public connection addresses. You must apply for a public endpoint if necessary. For more information, see [Apply for a public endpoint for a standalone ApsaraDB for MongoDB instance]().|The self-managed MongoDB database is deployed on a local device.|
 
 2.  Add the IP address of the server where the self-managed database is deployed to a whitelist of the ApsaraDB for MongoDB instance. For more information, see [Configure a whitelist for a standalone ApsaraDB for MongoDB instance]().
