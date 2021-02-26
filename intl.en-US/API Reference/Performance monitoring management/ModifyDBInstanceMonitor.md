@@ -2,7 +2,7 @@
 
 You can call this operation to set the monitoring granularity for a ApsaraDB for MongoDB instance.
 
-**Note:** For more information about the monitoring granularity values supported for various metrics, see [Set monitoring granularity](~~68188~~).
+**Note:** operation is currently unavailable.
 
 Before you call this operation, make sure that the following requirements are met:
 
@@ -45,7 +45,7 @@ Sample success responses
 
 ```
 <ModifyDBInstanceMonitorResponse>
-	  <RequestId>EFD65226-08CC-4C4D-B6A4-CB3C382F67B0</RequestId>
+      <RequestId>EFD65226-08CC-4C4D-B6A4-CB3C382F67B0</RequestId>
 </ModifyDBInstanceMonitorResponse>
 ```
 
@@ -53,7 +53,7 @@ Sample success responses
 
 ```
 {
-	"RequestId": "EFD65226-08CC-4C4D-B6A4-CB3C382F67B0"
+    "RequestId": "EFD65226-08CC-4C4D-B6A4-CB3C382F67B0"
 }
 ```
 
