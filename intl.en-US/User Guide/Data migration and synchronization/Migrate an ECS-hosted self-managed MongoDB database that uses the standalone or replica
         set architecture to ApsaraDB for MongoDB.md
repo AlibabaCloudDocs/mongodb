@@ -89,7 +89,7 @@ If the self-managed MongoDB database on ECS uses the standalone architecture, en
 
 6.  In the lower-right corner of the page, click **Set Whitelist and Next**.
 
-    **Note:** The CIDR blocks of DTS servers are automatically added to the inbound rule of the ECS instance and the whitelist of the ApsaraDB for MongoDB instance. This ensures that DTS servers can connect to the source and destination instances. After data migration is complete, you can remove the CIDR blocks of DTS servers from the whitelists. For more information, see[Manage security group rules](https://www.alibabacloud.com/help/zh/doc-detail/25472.htm) and [Configure a whitelist for an ApsaraDB for MongoDB instance](/intl.en-US/Quick Start/Configure a whitelist for an ApsaraDB for MongoDB instance.md).
+    **Note:** The CIDR blocks of DTS servers are automatically added to the inbound rule of the ECS instance and the whitelist of the ApsaraDB for MongoDB instance. This ensures that DTS servers can connect to the source and destination instances. After data migration is complete, you can remove the CIDR blocks of DTS servers from the whitelists. For more information, see [Manage security group rules](https://www.alibabacloud.com/help/zh/doc-detail/25472.htm) and [Configure a whitelist for an ApsaraDB for MongoDB instance](/intl.en-US/Quick Start/Configure a whitelist for an ApsaraDB for MongoDB instance.md).
 
 7.  Select the migration types and the objects to be migrated.
 
