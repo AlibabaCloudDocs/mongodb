@@ -32,8 +32,8 @@ The balancer consumes resources of nodes in an instance to migrate chunks, which
 
     **Note:**
 
-    -   <start-time\>: the start time in HH:MM format in UTC time, where the value range of HH is 00 to 23 and that of MM is 00 to 59.
-    -   <stop-time\>: the end time in HH:MM format in UTC time, where the value range of HH is 00 to 23 and that of MM is 00 to 59.
+    -   <start-time\>: the beginning of the time range. Specify the time in the HH:MM format \(the local time of the specified region\). The valid values for HH: 00 to 23. The valid values for MM: 00 to 59.
+    -   <stop-time\>: the end time of the time range. Specify the time in the HH:MM format \(the local time of the specified region\). The valid values for HH: 00 to 23. The valid values for MM: 00 to 59.
     You can run the `sh.status()` command to check the active time window of the balancer. For example, the following command output shows that the active time window of the balancer is 01:00 to 03:00.
 
     ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/4130276951/p34738.png)
