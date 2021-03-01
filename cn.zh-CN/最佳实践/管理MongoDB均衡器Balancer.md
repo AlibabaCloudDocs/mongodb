@@ -32,8 +32,8 @@
 
     **说明：**
 
-    -   <start-time\>：开始时间，时间格式为HH:MM（UTC时间），HH取值范围为00 - 23，MM取值范围为00 - 59。
-    -   <stop-time\>：结束时间，时间格式为HH:MM（UTC时间），HH取值范围为00 - 23，MM取值范围为00 - 59。
+    -   <start-time\>：开始时间，时间格式为HH:MM（实例所在地域的当地时间），HH取值范围为00 - 23，MM取值范围为00 - 59。
+    -   <stop-time\>：结束时间，时间格式为HH:MM（实例所在地域的当地时间），HH取值范围为00 - 23，MM取值范围为00 - 59。
     您可以通过执行`sh.status()`命令查看Balancer的活动窗口。如下示例中，活动窗口被设置为01:00- 03:00。
 
     ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6130276951/p34738.png)
