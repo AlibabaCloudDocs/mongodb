@@ -12,7 +12,7 @@ This topic describes how to create a multi-zone replica set instance. ApsaraDB f
 
 -   When you create a multi-zone replica set instance, you must set **Replication Factor** to **Three Nodes Replicaset**.
 
-    **Note:** If you need more nodes after you create an instance, you can [change the number of nodes](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Change the number of nodes for a replica set instance.md)
+    **Note:** If you need more nodes after you create an instance, you can [change the number of nodes](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Change the number of nodes for a replica set instance.md).
 
 
 ## Node deployment policies
