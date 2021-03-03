@@ -4,27 +4,28 @@ keyword: [backup and restoration, database restoration]
 
 # Restore data of an ApsaraDB for MongoDB instance to a self-managed MongoDB database by using physical backup
 
-This topic describes how to restore data of an ApsaraDB for MongoDB instance to a MongoDB database by using physical backup. Before you start to restore data, you must download the physical backup data of the ApsaraDB for MongoDB instance in the ApsaraDB for MongoDB console.
+This topic describes how to restore data of an ApsaraDB for MongoDB instance to a self-managed MongoDB database by using physical backup. Before you start to restore data, you must download the physical backup data of the ApsaraDB for MongoDB instance in the ApsaraDB for MongoDB console.
 
 ## Prerequisites
 
 -   The ApsaraDB for MongoDB instance is a replica set instance.
 -   The Transparent Data Encryption \(TDE\) feature is disabled for the ApsaraDB for MongoDB instance. For more information, see [Configure TDE for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Data security/Configure TDE for an ApsaraDB for MongoDB instance.md).
--   The storage engine of the ApsaraDB for MongoDB instance is WiredTiger or RocksDB. If the storage engine is TerarkDB, use logical backup to restore data of the ApsaraDB for MongoDB instance to the MongoDB database. For more information, see [Restore data of an ApsaraDB for MongoDB instance to user-created MongoDB databases by using logical backup](/intl.en-US/User Guide/Data recovery/Restore data of an ApsaraDB for MongoDB instance to user-created MongoDB databases by using logical backup.md).
+-   The storage engine of the ApsaraDB for MongoDB instance is WiredTiger or RocksDB. If the storage engine is TerarkDB, use logical backup to restore data of the ApsaraDB for MongoDB instance to a self-managed MongoDB database. For more information, see [Restore data of an ApsaraDB for MongoDB instance to self-managed MongoDB databases by using logical backup](/intl.en-US/User Guide/Data recovery/Restore data of an ApsaraDB for MongoDB instance to self-managed MongoDB databases
+         by using logical backup.md).
 
     **Note:**
 
     -   You can view the storage engine of an ApsaraDB for MongoDB instance on the **Basic Information** page in the ApsaraDB for MongoDB console.
-    -   If the storage engine is RocksDB, you must compile and install MongoDB for the MongoDB database to support the RocksDB storage engine.
+    -   If the storage engine is RocksDB, you must compile and install a MongoDB application that is equipped with the RocksDB storage engine.
 
 ## Database version requirements
 
-The version of the ApsaraDB for MongoDB instance must correspond to the version of the MongoDB database. The following table lists the mappings between the ApsaraDB for MongoDB instance and the MongoDB database.
+The version of the ApsaraDB for MongoDB instance must correspond to the version of the self-managed MongoDB database. The following table lists the mappings between the ApsaraDB for MongoDB instance and the self-managed MongoDB database.
 
 |ApsaraDB for MongoDB instance|Self-managed MongoDB database|
 |:----------------------------|:----------------------------|
 |V3.2|3.2 or 3.4|
-|V3.4|3.4|
+|V3.2|3.4|
 |V4.0|4.0|
 |V4.2|4.2|
 
@@ -32,26 +33,26 @@ The version of the ApsaraDB for MongoDB instance must correspond to the version 
 
 |Physical backup file format|File extension|Description|
 |---------------------------|--------------|-----------|
-|tar|.tar.gz|ApsaraDB for MongoDB instances that were created before March 26, 2019 have physical backup files in the .tar format.|
-|xbstream|\_qp.xb|ApsaraDB for MongoDB instances that were created on or after March 26, 2019 have physical backup files in the .xbstream format.**Note:** The .xbstream format is available only for Linux. The .xbstream format is not available for Windows because Windows does not support the Percona XtraBackup tool that is used to decompress the files in the .xbstream format. |
+|TAR|.tar.gz|ApsaraDB for MongoDB instances that were created before March 26, 2019 have physical backup files in the .tar format.|
+|xbstream|\_qp.xb|ApsaraDB for MongoDB instances that were created on or after March 26, 2019 have physical backup files in the .xbstream format.**Note:** The .xbstream format is available only for Linux. The .xb stream format is unavailable for Windows because Windows does not support the Percona XtraBackup tool that is used to decompress the files in the .xbstream format. |
 
 **Note:** You must use different methods to decompress the packages in the preceding two file formats. For more information, see [Step 2: Download and decompress a physical backup file](#section_lxg_5xp_5fb).
 
 ## Environment preparation
 
-The following procedure uses an ECS instance created from a Ubuntu 16.04 64-bit image. For more information, see [Create an ECS instance](~~25424~~).
+The following procedure uses an ECS instance created from an Ubuntu 16.04 64-bit image. For more information, see [Create an ECS instance](~~25424~~).
 
 **Note:**
 
 -   MongoDB of the required version is installed on the ECS instance. For more information about how to install MongoDB, visit [Install MongoDB](https://docs.mongodb.com/guides/server/install/).
--   Environment variables are configured for the MongoDB database on the ECS instance. When you run commands, you do not need to enter executable file paths again. For more information, see [Configure environment variables](#section_qbj_vae_xyv).
+-   Environment variables are configured for the self-managed MongoDB database on the ECS instance. When you run commands, you do not need to enter executable file paths again. For more information, see [Configure environment variables](#section_qbj_vae_xyv).
 -   The /root/mongo/data directory of the ECS instance is used for the replica set instance.
--   The /root/mongo/data1 and /root/mongo/data1 directories of the ECS instance are used for the MongoDB database in a replica set node.
+-   The /root/mongo/data1 and /root/mongo/data2 directories of the ECS instance are used for the self-managed MongoDB database in a replica set node.
 -   When you execute the commands that are provided in this topic on the ECS instance, you must press the Enter key after you enter the last command.
 
 ## Step 1: Configure environment variables
 
-Configure environment variables for the MongoDB database. This way, you do not need to enter executable file paths when you run commands. Before you perform this step, make sure that MongoDB is installed. For more information, visit [Install MongoDB](https://docs.mongodb.com/guides/server/install/).
+Configure environment variables for the self-managed MongoDB database. This way, you do not need to enter executable file paths when you run commands. Before you perform this step, make sure that MongoDB is installed. For more information, visit [Install MongoDB](https://docs.mongodb.com/guides/server/install/).
 
 **Note:** If environment variables are configured for MongoDB, skip this step and perform [Step 2: Download and decompress a physical backup file](#section_lxg_5xp_5fb).
 
@@ -86,15 +87,15 @@ Configure environment variables for the MongoDB database. This way, you do not n
 1.  Download the physical backup data of the ApsaraDB for MongoDB instance in the ApsaraDB for MongoDB console. For more information, see [Download the physical backup data of a replica set instance](/intl.en-US/User Guide/Data recovery/Recover physical backup data in a user-created MongoDB instance/Download the physical backup data of a replica set instance.md). You can also run the following command to download the data:
 
     ```
-    wget -c '<The external download URL of the data backup file>' -O <The name that you want to use for the downloaded data backup file> <File name extension>
+    wget -c '<External download URL of the data backup file>' -O <Custom name of the downloaded data backup file>.<File name extension> 
     ```
 
     **Note:** Make sure that the file extension is `.tar.gz` or `_qp.xb`.
 
-2.  Run the following command to create a directory named `data` in the /root/mongo/ directory. Then, move the downloaded physical backup file of the ApsaraDB for MongoDB instance to the /root/mongo/data/ directory:
+2.  Run the following command to create a directory named `data` in the /root/mongo/ directory. Then, move the downloaded physical backup file of the ApsaraDB for MongoDB instance to the /root/mongo/data/ directory.
 
     ```
-    mkdir -p /root/mongo/data && mv <<The name of the physical backup file>.<File name extension>> /root/mongo/data 
+    mkdir -p /root/mongo/data && mv <Name of the physical backup file>.<File name extension> /root/mongo/data
     ```
 
 3.  Decompress the physical backup file.
@@ -107,23 +108,8 @@ Configure environment variables for the MongoDB database. This way, you do not n
         ![Decompression result](../images/p70466.png "Decompression result")
 
     -   If the physical backup file has a \_qp.xb extension, such as hins20190412\_qp.xb, perform the following operations to decompress the file:
-        1.  Install the Percona XtraBackup tool.
-
-            ```
-            apt-get update
-            apt install percona-xtrabackup
-            ```
-
-        2.  Download the qpress tool package. For the download URL, visit [QuickLZ](http://www.quicklz.com/).
-        3.  Decompress the qpress tool package and install the tool.
-
-            ```
-            tar xvf qpress-11-linux-x64.tar
-            chmod 775 qpress
-            cp qpress /usr/bin
-            ```
-
-        4.  Decompress the physical backup file. In this example, the file is hins20190412\_qp.xb.
+        1.  Install the Percona XtraBackup and qpress tools. For more information, visit [Installing Percona XtraBackup on Debian and Ubuntu](https://www.percona.com/doc/percona-xtrabackup/2.4/installation/apt_repo.html).
+        2.  Decompress the physical backup file. In this example, the file is hins20190412\_qp.xb.
 
             ```
             cd /root/mongo/data/
@@ -134,7 +120,7 @@ Configure environment variables for the MongoDB database. This way, you do not n
             ![Decompression result](../images/p70454.png "Decompression result")
 
 
-## Step 3: Restore data to the MongoDB database in standalone mode
+## Step 3: Restore data to the self-managed MongoDB database in standalone mode
 
 1.  Run the following command to create a configuration file named mongod.conf in the /root/mongo directory:
 
@@ -201,7 +187,7 @@ Configure environment variables for the MongoDB database. This way, you do not n
 
     ![Example of a successful start](../images/p207008.png "Example of a successful start")
 
-5.  After you start MongoDB, run the following command to log on to the ApsaraDB for MongoDB database and go to the mongo shell:
+5.  After you start MongoDB, run the following command to log on to the self-managed MongoDB database and go to the mongo shell:
 
     ```
     mongo --host 127.0.0.1 -u <username> -p <password> --authenticationDatabase admin
@@ -209,32 +195,37 @@ Configure environment variables for the MongoDB database. This way, you do not n
 
     Parameter description:
 
-    -   <username\>: the account used to log on to the MongoDB database. The default value is root.
-    -   <password\>: the password used to log on to the MongoDB database.
+    -   <username\>: the account used to log on to the self-managed MongoDB database. The default value is root.
+    -   <password\>: the password used to log on to the self-managed MongoDB database.
+
+        **Note:** If the password contains special characters, you must enclose the password in single quotation marks \(' '\). Example: 'test123!@\#' Otherwise, you may fail to log on to the database.
+
     ![Example of a successful logon](../images/p207011.png "Example of a successful logon")
 
 6.  Run the `show dbs` command in the mongo shell to query all the available databases on the MongoDB server. This way, you can check whether the recovery is successful.
-7.  Run the `exit` command in the mongo shell to exit the mongo shell.
+7.  Run the exit command in the mongo shell to `exit` the mongo shell.
 
-## Step 4: Start the MongoDB database in replica set mode
+## Step 4: Start the self-managed MongoDB database in replica set mode
 
-By default, the physical backup file of the ApsaraDB for MongoDB instance contains the replica set configuration. You must start MongoDB in standalone mode. Otherwise, the MongoDB database may be inaccessible.
+By default, the physical backup file of the ApsaraDB for MongoDB instance contains the replica set configuration. You must start MongoDB in standalone mode. Otherwise, the self-managed MongoDB database may be inaccessible.
 
-If you want to start MongoDB in replica set mode, you must [restore data to the MongoDB database in standalone mode](#section_pwz_yxp_5fb) before you perform the following operations:
+If you want to start MongoDB in replica set mode, you must [restore data to the self-managed MongoDB database in standalone mode](#section_pwz_yxp_5fb) before you perform the following operations:
 
-1.  On the command line, log on to the database as the root user by using the mongo shell.
+1.  On the command line, log on to the database as the root user by using the mongo shell:
 
     ```
-    mongo --host 127.0.0.1 -u root -p <root account password> --authenticationDatabase admin
+    mongo --host 127.0.0.1 -u <username> -p <password> --authenticationDatabase admin
     ```
 
-2.  After you log on to the database, run the commands in the following code block to perform the following operations:
+    **Note:** If the password contains special characters, you must enclose the password in single quotation marks \(' '\). Example: 'test123!@\#' Otherwise, you may fail to log on to the database.
+
+2.  After you log on to the database, run the commands in the sample code to perform the following operations:
 
     1.  Create a temporary user in the admin database and grant the temporary user the read and write permissions on the local database.
     2.  Switch to the temporary user and delete the original replica set configuration of the local database.
     3.  Switch back to the root user and delete the temporary user and the temporary permissions.
 
-        **Note:** Replace `<The password of the root account>` in the following code with the password of your root account.
+        **Note:** Replace `<Password of the root account>` in the following code with the password of your root account.
 
     ```
     use admin
@@ -269,7 +260,7 @@ If you want to start MongoDB in replica set mode, you must [restore data to the 
     use local
     db.system.replset.remove({})
     use admin
-    db.auth('root','<The password of the root account>')
+    db.auth('root','<Password of the root account>')
     db.dropRole('tmprole')
     db.dropUser('tmpuser')
     ```
@@ -310,13 +301,13 @@ If you want to start MongoDB in replica set mode, you must [restore data to the 
         -   The key can contain only Base64-encoded characters.
         -   The key cannot contain equal signs \(=\).
     3.  Press the Esc key to exit the edit mode, and enter `:wq` to save the file and exit.
-    4.  On the command line, run the following command to assign `400` permissions on the authentication file. This way, only the owner of the file can view the content of the file.
+    4.  On the command line, run the following command to change the permission on the authentication file to `400`. This way, only the owner of the file can view the content of the file.
 
         ```
         sudo chmod 400 /root/mongo/keyFile/mongodb.key
         ```
 
-    **Note:** This authentication file is applied to all replica set nodes.
+    **Note:** This authentication file applies to all replica set nodes.
 
 5.  Perform the following operations to prepare two empty nodes for the replica set:
     1.  Run the following command to create two copies of the mongod.conf file. The two copies are used as the configuration files for the other two nodes.
@@ -424,11 +415,13 @@ If you want to start MongoDB in replica set mode, you must [restore data to the 
     mongod -f /root/mongo/mongod.conf && mongod -f /root/mongo/mongod1.conf && mongod -f /root/mongo/mongod2.conf
     ```
 
-8.  After you start the three nodes, use the root account to log on to the MongoDB database.
+8.  After you start the three nodes, use the root account to log on to the self-managed MongoDB database.
 
     ```
-    mongo -u root -p <The password of the root account> --authenticationDatabase admin
+    mongo -u root -p <Password of the root account> --authenticationDatabase admin
     ```
+
+    **Note:** If the password contains special characters, you must enclose the password in single quotation marks \(' '\). Example: 'test123!@\#' Otherwise, you may fail to log on to the database.
 
 9.  In the mongo shell, add the nodes that you created in the preceding operations to the replica set and initialize the replica set.
 
@@ -448,11 +441,11 @@ If you want to start MongoDB in replica set mode, you must [restore data to the 
 
     **Note:** The `rs.initiate()` command is used in this step. For more information about the command, visit [rs.initiate\(\)](https://docs.mongodb.com/manual/reference/method/rs.initiate/).
 
-    After the command is executed, data is synchronized between the two added nodes and the primary node. The time consumed in this process varies based on the size of the backup file. After the data is synchronized, the MongoDB database is started in replica set mode.
+    After the command is executed, data is synchronized between the two added nodes and the primary node. The time consumed in this process varies based on the size of the backup file. After the data is synchronized, the self-managed MongoDB database is started in replica set mode.
 
-10. Perform the following operations to check whether the MongoDB database in replica set mode is started.
+10. Perform the following operations to check whether the self-managed MongoDB database in replica set mode is started:
     1.  Run the `exit` command to exit the mongo shell.
-    2.  Run the following command to log on to the MongoDB database again:
+    2.  Run the following command to log on to the self-managed MongoDB database again:
 
         ```
         mongo -u <username> -p <password> --authenticationDatabase admin
@@ -460,26 +453,29 @@ If you want to start MongoDB in replica set mode, you must [restore data to the 
 
         Parameter description:
 
-        -   <username\>: the account used to log on to the MongoDB database. The default value is root.
-        -   <password\>: the password used to log on to the MongoDB database.
-    3.  Check whether the MongoDB database is started in replica set mode. If `<The name of the replica set>:PRIMARY>` is displayed on the left side of the command line in the mongo shell, the MongoDB database is started in replica set mode.
+        -   <username\>: the account used to log on to the self-managed MongoDB database. The default value is root.
+        -   <password\>: the password used to log on to the self-managed MongoDB database.
 
-        ![Replica set mode](../images/p207079.png "Example of a successful start of the MongoDB database in replica set mode")
+            **Note:** If the password contains special characters, you must enclose the password in single quotation marks \(' '\). Example: 'test123!@\#' Otherwise, you may fail to log on to the database.
+
+    3.  Check whether the self-managed MongoDB database is started in replica set mode. If `<Name of the replica set>:PRIMARY>` is displayed on the left side of the command line in the mongo shell, the self-managed MongoDB database is started in replica set mode.
+
+        ![Example of a successful start of the self-managed MongoDB database in replica set mode](../images/p207079.png "Example of a successful start of the self-managed MongoDB database in replica set mode")
 
 
 ## FAQ
 
-Q: Why does an error occur when I use the specified `mongod.conf` configuration file to start the MongoDB database?
+Q: Why does an error occur when I use the specified `mongod.conf` configuration file to start the self-managed MongoDB database?
 
--   You may have started the MongoDB database before you specified the `mongod.conf` configuration file. As a result, the `storage.bson` file is automatically generated in the data directory. In this case, remove the storage.bson file and specify the `mongod.conf` configuration file to start the MongoDB database.
--   Another mongod process may be running in the current system. In this case, run the `ps -e | grep mongod` command to query the PID of the process and run the `kill <PID>` command to stop the process. Then, specify the `mongod.conf` configuration file to start the MongoDB database.
--   The specified systemLog.path log path in the `mongod.conf` configuration file may be invalid. In this case, check whether the specified path exists and whether the log file has the specified name. Example: `path: /<The path of the log file>/<The name of the log file>.log`.
+-   You may have started the self-managed MongoDB database before you specified the `mongod.conf` configuration file. As a result, the `storage.bson` file is automatically generated in the data directory. In this case, remove the storage.bson file and specify the `mongod.conf` configuration file to start the self-managed MongoDB database.
+-   Another mongod process may be running in the current system. In this case, run the `ps -e | grep mongod` command to query the PID of the process and run the `kill <PID>` command to stop the process. Then, specify the `mongod.conf` configuration file to start the self-managed MongoDB database.
+-   The specified systemLog.path log path in the `mongod.conf` configuration file may be invalid. In this case, check whether the specified path exists and whether the log file has the specified name. Example: `path: /<Path of the log file>/<Name of the log file>.log`.
 
-Q: Why does an error occur when I use the `mongod.conf` configuration file to start the MongoDB database in replica set mode?
+Q: Why does an error occur when I use the `mongod.conf` configuration file to start the self-managed MongoDB database in replica set mode?
 
--   You may fail to assign `600` permissions on the specified `keyFile` authentication file. On the command line, run the `sudo chmod 600 <The path of keyFile>` command to modify the permissions. Then, attempt to start the MongoDB database in replica set mode.
+-   You may fail to change the permission on the specified `keyFile` authentication file to `600`. On the command line, run the `sudo chmod 600 <Path of keyFile>` command to modify the permissions.
 
-Q: Why does the system performance become low after I start the MongoDB database in replica set mode?
+Q: Why does the system performance become low after I start the self-managed MongoDB database in replica set mode?
 
 -   After you start MongoDB in replica set mode, the system automatically starts to synchronize data of the primary node to other nodes. This process can affect the system performance. The system performance returns to normal after the data is synchronized.
 
