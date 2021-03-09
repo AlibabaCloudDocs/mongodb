@@ -1,25 +1,25 @@
 ---
-keyword: [云数据库, 阿里云数据库, 云数据库mongodb, 单节点]
+keyword: [ApsaraDB, Alibaba Cloud database, ApsaraDB for MongoDB, standalone]
 ---
 
-# 单节点架构
+# Architecture of standalone instances
 
-云数据库MongoDB单节点实例是阿里云为数据容错性高的场景打造的一款产品，适合非核心数据的存储，单节点架构保障系统超高的性价比，是测试环境业务、学习培训业务、企业内部系统业务等的首选。
+Standalone instances of ApsaraDB for MongoDB are developed for scenarios with high fault tolerance and apply to the storage of non-core data. This architecture is highly cost-effective and is ideal for environment testing, learning and training, and internal enterprise business.
 
-单节点实例以更低的入门价格享受云数据库MongoDB在运维支持、内核级优化上的产品优势。单节点架构可以根据各类场景的差异适配对应的产品形态，为企业降低更多的成本支出。
+It enables you to purchase ApsaraDB for MongoDB at a lower entry-level price to enjoy superiority in O&M support and kernel-level optimization. The standalone architecture can adapt ApsaraDB for MongoDB to various scenarios to help enterprises minimize their costs and expenses.
 
-![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/0167958951/p915.png)
+![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/2801129951/p915.png)
 
-## 常见问题
+## FAQ
 
-问：单节点架构是否提供高可用？
+Does the architecture of standalone instances provide high availability?
 
-答：单节点架构只有一个副本，无法提供高可用，发生故障时在极端情况下会造成30分钟以上服务不可用，强烈建议在生产环境中使用副本集架构。
+The architecture of standalone instances has only one replica, which cannot provide high availability. A failure can cause service unavailability for more than 30 minutes in extreme cases. We recommend that you use the architecture of the replica set in production environments.
 
-**相关文档**  
+**Related topics**  
 
 
-[副本集架构](/intl.zh-CN/产品简介/系统架构/副本集架构.md)
+[Architecture of replica set instances](/intl.en-US/Product Introduction/System architecture/Architecture of replica set instances.md)
 
-[分片集群架构](/intl.zh-CN/产品简介/系统架构/分片集群架构.md)
+[Architecture of sharded cluster instances](/intl.en-US/Product Introduction/System architecture/Architecture of sharded cluster instances.md)
 
