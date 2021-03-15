@@ -4,7 +4,7 @@
 
 ## 方法一：将MongoDB实例迁移至ECS实例所属地域
 
-本方法通过[数据传输服务]()DTS（Data Transmission Service）的数据迁移功能，实现迁移MongoDB实例至ECS实例所属地域的目的，例如将MongoDB实例从华北1迁移至华东1。
+本方法通过[数据传输服务]()DTS（Data Transmission Service）的数据迁移功能，实现迁移MongoDB实例至ECS实例所属地域的目的，例如将MongoDB实例从华北1（青岛）迁移至华东1（杭州）。
 
 ![迁移MongoDB至其他地域](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/0897549951/p43672.png)
 
@@ -17,7 +17,7 @@
 
 ## 方法二：将ECS实例迁移至MongoDB实例所属地域
 
-下述两种方法分别通过自定义镜像和迁云工具，实现迁移ECS实例数据至MongoDB实例所属地域的目的，例如将ECS实例从华北1迁移至华东1。
+下述两种方法分别通过自定义镜像和迁云工具，实现迁移ECS实例数据至MongoDB实例所属地域的目的，例如将ECS实例从华北1（青岛）迁移至华东1（杭州）。
 
 ![迁移ECS地域](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7836819951/p43766.png)
 
