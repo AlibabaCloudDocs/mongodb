@@ -12,22 +12,17 @@ This operation applies to replica set instances and sharded cluster instances. Y
 
 ## Request parameters
 
-|Parameter|Location|Type|Required|Example|Description|
-|---------|--------|----|--------|-------|-----------|
-|Action|Query|String|Yes|EvaluateResource|The operation that you want to perform. Set the value to **EvaluateResource**. |
-|Engine|Query|String|Yes|MongoDB|The database engine. Set the value to **MongoDB**. |
-|EngineVersion|Query|String|Yes|4.0|The version of the database engine. Valid values:
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|EvaluateResource|The operation that you want to perform. Set the value to **EvaluateResource**. |
+|Engine|String|Yes|MongoDB|The database engine of the instance. Set the value to **MongoDB**. |
+|EngineVersion|String|Yes|4.0|The version of the database engine. Valid values: **3.4**, **4.0**, and **4.2**. |
+|RegionId|String|Yes|cn-hangzhou|The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the region ID of the instance. |
+|ZoneId|String|Yes|cn-hangzhou-h|The zone ID of the instance. You can call [DescribeRegions](~~61933~~) to query the zone ID. |
+|DBInstanceClass|String|No|dds.mongo.mid|The instance type. This parameter is required when you check whether resources are sufficient for creating or upgrading a replica set instance. For more information, see [Instance types](~~57141~~). |
+|ShardsInfo|String|No|\{"NodeId": "d-xxx", "NodeClass": "dds.shard.standard"\}|The node information. This parameter is required when you check whether resources are sufficient for creating or upgrading a sharded cluster instance.
 
--   **3.2**
--   **3.4**
--   **4.0**
--   **4.2** |
-|RegionId|Query|String|Yes|cn-hangzhou|The ID of the region. You can call [DescribeRegions](~~61933~~) to query the region ID. |
-|ZoneId|Query|String|Yes|cn-hangzhou-h|The ID of the zone. You can call [DescribeRegions](~~61933~~) to query the zone ID. |
-|DBInstanceClass|Query|String|No|dds.mongo.mid|The instance type. This parameter is required when you check whether resources are sufficient for creating or upgrading a replica set instance. For more information, see [Instance types](~~57141~~). |
-|ShardsInfo|Query|String|No|\{"NodeId": "d-xxx", "NodeClass": "dds.shard.standard"\}|The node information. This parameter is required when you check whether resources are sufficient for creating or upgrading a sharded cluster instance.
-
--   To check whether resources are sufficient for creating a sharded cluster instance, specify the configurations of each node in the instance. The value must be a JSON string. The following example shows how to specify the node configurations:
+ -   To check whether resources are sufficient for creating a sharded cluster instance, specify the configurations of each node in the instance. The value must be a JSON string. The following example shows how to specify the node configurations:
 
 ```
 
@@ -44,7 +39,7 @@ This operation applies to replica set instances and sharded cluster instances. Y
 
 The following list describes the parameters:
 
-    -   `ConfigSvrs` specifies the configurations of the config server. `Mongos` specifies the configurations of the mongos nodes.`Shards` specifies the configurations of the shards.
+    -   `ConfigSvrs` specifies the configurations of the Configserver node. `Mongos` specifies the configurations of the mongos nodes. `Shards` specifies the configurations of the shard nodes.
     -   `Storage`: the storage space of the node.
     -   `DBInstanceClass`: the instance type of the node. For more information, see [Instance types](~~57141~~).
 -   To check whether resources are sufficient for upgrading a node of a sharded cluster instance, specify the information of the node to be upgraded only. The value must be a JSON string. The following example shows how to specify the information of a node:
@@ -61,7 +56,7 @@ The following list describes the parameters:
 
     -   `NodeId`: the ID of the node. You can call [DescribeDBInstanceAttribute](~~62010~~) to query the node ID.
     -   `NodeClass`: the instance type of the node. For more information, see [Instance types](~~57141~~). |
-|DBInstanceId|Query|String|No|dds-bpxxxxxxxx|The ID of the ApsaraDB for MongoDB instance. This parameter is required when you check whether resources are sufficient for upgrading an instance. |
+|DBInstanceId|String|No|dds-bpxxxxxxxx|The ID of the ApsaraDB for MongoDB instance. This parameter is required when you check whether resources are sufficient for upgrading an instance. |
 
 ## Response parameters
 
@@ -69,9 +64,9 @@ The following list describes the parameters:
 |---------|----|-------|-----------|
 |DBInstanceAvailable|String|1|Indicates whether the resources are sufficient in the region. Valid values:
 
--   **1**: The resources are sufficient.
+ -   **1**: The resources are sufficient.
 -   **0**: The resources are insufficient. |
-|Engine|String|MongoDB|The database engine. The returned value is MongoDB. |
+|Engine|String|MongoDB|The database engine of the instance. The returned value is MongoDB. |
 |EngineVersion|String|4.0|The version of the database engine. |
 |RequestId|String|AE2DE465-E45F-481F-ABD8-37D641738660|The ID of the request. |
 
@@ -104,10 +99,10 @@ Sample success responses
 
 ```
 {
-    "DBInstanceAvailable": 1,
-    "EngineVersion": "4.0",
-    "RequestId": "AE2DE465-E45F-481F-ABD8-37D641738660",
-    "Engine": "MongoDB"
+	"DBInstanceAvailable": 1,
+	"EngineVersion": "4.0",
+	"RequestId": "AE2DE465-E45F-481F-ABD8-37D641738660",
+	"Engine": "MongoDB"
 }
 ```
 
