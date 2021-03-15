@@ -23,7 +23,7 @@ MongoShake版本为2.4.6及以上。详情请参见[MongoShake发布页面](http
 
 ## 搭建MongoDB间的延迟同步架构
 
-本示例以ECS上的Ubuntu系统为例介绍如何搭建延迟同步架构。详情请参见[准备工作](#section_3kv_hrf_0d1)。
+本示例以ECS上的Ubuntu系统为例介绍如何搭建延迟同步架构。详情请参见[使用MongoShake实现MongoDB副本集间的单向同步](/intl.zh-CN/用户指南/数据迁移和同步/数据同步/使用MongoShake实现MongoDB副本集间的单向同步.md)。
 
 1.  登录[ECS实例](https://www.alibabacloud.com/help/zh/doc-detail/25434.htm)。
 
@@ -74,7 +74,7 @@ MongoShake版本为2.4.6及以上。详情请参见[MongoShake发布页面](http
 
 在主实例中日常执行CURD操作时，可能会存在某条语句误写入等误操作的情况发生，此时您可以通过下列步骤将业务切换到还没有发生误操作的从实例中。
 
-1.  通过查询MongoDB的操作日志（oplog）定位到误操作发生的时间点。例如：您可以通过执行如下命令来查询2020年6月1日至2020年6月2日之间所有的操作日志。关于查询oplog的详情请参见[MongoDB官方文档](https://docs.mongodb.com/manual/reference/command/find/)。
+1.  通过查询MongoDB的操作日志（oplog）定位到误操作发生的时间点。例如：您可以通过执行如下命令来查询2020年06月01日至2020年06月02日之间所有的操作日志。关于查询oplog的详情请参见[MongoDB官方文档](https://docs.mongodb.com/manual/reference/command/find/)。
 
     ```
     use local #切换到local数据库
@@ -93,7 +93,7 @@ MongoShake版本为2.4.6及以上。详情请参见[MongoShake发布页面](http
     curl -X POST --data '{"ExitPoint": 1593534600}' 127.0.0.1:9100/sentinel/options
     ```
 
-    **说明：** `1593534600`是Unix时间戳，表示2020年6月30日16:30:00。MongoShake同步到这个时间点后将会自动退出。
+    **说明：** `1593534600`是Unix时间戳，表示2020年06月30日16:30:00。MongoShake同步到这个时间点后将会自动退出。
 
 3.  执行`vi collector.conf`命令打开配置文件，将原主从实例的地址调换。详细操作方法请参见[使用MongoShake实现MongoDB副本集间的单向同步](/intl.zh-CN/用户指南/数据迁移和同步/数据同步/使用MongoShake实现MongoDB副本集间的单向同步.md)。
 
