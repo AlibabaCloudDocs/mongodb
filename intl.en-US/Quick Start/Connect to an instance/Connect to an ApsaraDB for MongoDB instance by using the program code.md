@@ -17,7 +17,7 @@ ApsaraDB for MongoDB is compatible with the MongoDB protocol. This topic describ
 
 ## Node.js
 
-Related link: [MongoDB Node.js Driver](https://docs.mongodb.org/getting-started/node/client/).
+Related link: [MongoDB Node.js Driver](https://docs.mongodb.com/drivers/node/).
 
 1.  Initialize a project.
 
