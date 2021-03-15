@@ -57,7 +57,8 @@ Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/
 -   [Configure TDE for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Data security/Configure TDE for an ApsaraDB for MongoDB instance.md)
 -   [Enable the new audit log feature](/intl.en-US/User Guide/Data security/Audit logs (new version)/Enable the new audit log feature.md) |
 |**Logs**|You can view the operational log of the database.|[Overview](/intl.en-US/User Guide/Log management/Overview.md)|
-|**CloudDBA**|You can use Database Autonomy Service \(DAS\) to analyze data stored in ApsaraDB for MongoDB.|-   [Real-time performance](/intl.en-US/User Guide/CloudDBA/Real-time performance.md)
+|**CloudDBA**|You can use Database Autonomy Service \(DAS\) to analyze data stored in ApsaraDB for MongoDB.|-   [View performance trends of an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/CloudDBA/View performance trends of an ApsaraDB for MongoDB instance.md)
+-   [Real-time performance](/intl.en-US/User Guide/CloudDBA/Real-time performance.md)
 -   [Instance sessions](/intl.en-US/User Guide/CloudDBA/Instance sessions.md)
 -   [Capacity analysis](/intl.en-US/User Guide/CloudDBA/Capacity analysis.md)
 -   [Slow query logs](/intl.en-US/User Guide/CloudDBA/Slow query logs.md) |
