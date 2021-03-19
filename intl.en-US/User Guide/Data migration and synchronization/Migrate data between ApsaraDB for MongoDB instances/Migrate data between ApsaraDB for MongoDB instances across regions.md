@@ -111,7 +111,7 @@ An ApsaraDB for MongoDB instance in the China \(Qingdao\) region is migrated to 
 **Note:** Data in the admin and local databases cannot be migrated.
 
     -   A migration object can be a database, collection, or function.
-    -   By default, the name of an object remains unchanged after migration. If you want a different object name after migration, use the object name mapping feature provided by DTS. For more information, see[Object name mapping](https://www.alibabacloud.com/help/zh/doc-detail/26628.htm). |
+    -   By default, the name of an object remains unchanged after migration. If you want a different object name after migration, use the object name mapping feature provided by DTS. For more information, see [Object name mapping](https://www.alibabacloud.com/help/zh/doc-detail/26628.htm). |
 
 8.  In the lower-right corner of the page, click **Precheck**.
 
