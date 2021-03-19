@@ -7,7 +7,6 @@ ApsaraDB for MongoDB is compatible with the MongoDB protocol. This topic describ
 -   Obtain the connection strings of an ApsaraDB for MongoDB instance based on the instance type. For more information, see the following topics:
     -   [Overview of replica set instance connections]()
     -   [Overview of sharded cluster instance connections]()
-    -   [Overview of ApsaraDB for MongoDB \(Serverless\) instance connections]()
 -   Download and install the official driver package of your language. For more information, visit [Start Developing with MongoDB](https://docs.mongodb.org/ecosystem/drivers/).
 
 **Note:**
@@ -243,7 +242,7 @@ Related links:
 Related links:
 
 -   [PyMongo download](https://pypi.python.org/pypi/pymongo/)
--   [Official documentation](http://api.mongodb.org/python/current/index.html)
+-   [Official documentation](https://pymongo.readthedocs.io/en/stable/)
 
 1.  Install PyMongo.
 
