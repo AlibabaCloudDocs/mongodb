@@ -243,7 +243,7 @@
 相关链接：
 
 -   [pymongo下载地址](https://pypi.python.org/pypi/pymongo/)。
--   [官方文档](http://api.mongodb.org/python/current/index.html)。
+-   [官方文档](https://pymongo.readthedocs.io/en/stable/)。
 
 1.  安装pymongo。
 
