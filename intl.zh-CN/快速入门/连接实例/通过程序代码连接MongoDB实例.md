@@ -7,17 +7,16 @@
 -   根据您的实例类型获取云数据库MongoDB连接地址。更多信息，请参见：
     -   [副本集实例连接说明]()
     -   [分片集群实例连接说明]()
-    -   [Serverless实例连接说明]()
 -   根据您使用的语言下载并安装官方驱动程序。更多信息，请参见[MongoDB Drivers](https://docs.mongodb.org/ecosystem/drivers/)。
 
 **说明：**
 
 -   本文连接Demo仅适用于阿里云提供的MongoDB内网连接地址。
--   连接分片集群实例以及Serverless实例时，无需指定下列Demo中的replicaSet相关参数。
+-   连接分片集群实例时，无需指定下列Demo中的replicaSet相关参数。
 
 ## Node.js 连接示例
 
-相关链接：[MongoDB Node.js Driver](https://docs.mongodb.org/getting-started/node/client/)。
+相关链接：[MongoDB Node.js Driver](https://docs.mongodb.com/drivers/node/)。
 
 1.  项目初始化。
 
