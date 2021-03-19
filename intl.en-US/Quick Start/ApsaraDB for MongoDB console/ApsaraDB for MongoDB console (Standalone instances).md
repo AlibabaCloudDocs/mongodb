@@ -2,11 +2,11 @@
 
 The ApsaraDB for MongoDB console is a web application for managing instances. In the ApsaraDB for MongoDB console, you can create and manage instances, configure the instance IP whitelists, passwords, and network types, and perform other operations.
 
-The ApsaraDB for MongoDB console is part of the Alibaba Cloud Management Console. For more information about common settings and basic operations in the Alibaba Cloud Management Console, see[Alibaba Cloud console](https://www.alibabacloud.com/help/zh/doc-detail/47605.htm).
+The ApsaraDB for MongoDB console is part of the Alibaba Cloud Management Console. For more information about common settings and basic operations in the Alibaba Cloud Management Console, see [Alibaba Cloud console](https://www.alibabacloud.com/help/zh/doc-detail/47605.htm).
 
 ## Prerequisites
 
-An Alibaba Cloud account is used. To create an Alibaba Cloud account, click[Create Your Alibaba Cloud Account](https://account.alibabacloud.com/register/intl_register.htm).
+An Alibaba Cloud account is used. To create an Alibaba Cloud account, click [Create Your Alibaba Cloud Account](https://account.alibabacloud.com/register/intl_register.htm).
 
 ## ApsaraDB for MongoDB console homepage
 
