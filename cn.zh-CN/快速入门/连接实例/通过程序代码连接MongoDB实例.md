@@ -17,7 +17,7 @@
 
 ## Node.js 连接示例
 
-相关链接：[MongoDB Node.js Driver](https://docs.mongodb.org/getting-started/node/client/)。
+相关链接：[MongoDB Node.js Driver](https://docs.mongodb.com/drivers/node/)。
 
 1.  项目初始化。
 
