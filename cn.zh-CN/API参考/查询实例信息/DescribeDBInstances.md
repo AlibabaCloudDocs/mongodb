@@ -20,7 +20,8 @@
 |DBInstanceType|String|否|replicate|实例类型，取值：
 
  -   **sharding**：分片集群实例。
--   **replicate**：副本集实例和单节点实例，默认值为replicate。 |
+-   **replicate**：副本集实例和单节点实例，默认值为replicate。
+-   **serverless**：Serverless实例。 |
 |DBInstanceClass|String|否|dds.mongo.mid|实例规格，取值详情请参见[实例规格表](~~57141~~)。 |
 |Engine|String|否|MongoDB|数据库引擎，取值为**MongoDB**。 |
 |EngineVersion|String|否|4.0|数据库版本号。取值：**3.2**、**3.4**、**4.0**、**4.2**或**4.4**。 |
@@ -146,7 +147,7 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeDBInstances
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
 <PageNumber>1</PageNumber>
@@ -198,7 +199,7 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeDBInstances
 </DBInstances>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
 {
