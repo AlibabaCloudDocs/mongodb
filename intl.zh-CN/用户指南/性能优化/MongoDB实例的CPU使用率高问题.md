@@ -71,7 +71,7 @@ MongoDB实例的CPU使⽤率是⼀个⾮常重要的监控指标。如果MongoDB
 
     ![开通审计日志方法](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7137666161/p235655.png)
 
-    关于审计⽇志的使⽤⽅法和语法参考：[开通日志审计功能](https://help.aliyun.com/document_detail/180836.html?spm=a2c4g.11186623.6.729.58173958efqDsi)
+    关于审计⽇志的使⽤⽅法和语法参考：[t1936227.dita\#task\_1936227](/intl.zh-CN/数据采集/云产品日志采集/MongoDB日志/开通日志审计功能.md)
 
 
 ## CPU使用率高的常见原因和优化策略
@@ -94,7 +94,7 @@ CPU使用率高的常见原因及对应的优化策略如下：
 
     -   索引设计和优化
 
-        除了全表扫描以外，当查询的扫描行数关键字docsExamined超过1000且执行频率较高时，我们需要关注该查询。除了全表扫描以 外，造成docsExamined过多⼀般有以下情况：
+        除了全表扫描以外，当查询的扫描行数关键字docsExamined超过1000且执行频率较高时，我们需要关注该查询。除了全表扫描以外，造成docsExamined过多⼀般有以下情况：
 
         -   多条件过滤时，未使⽤组合索引或不满⾜最左前缀匹配原则。
         -   未使⽤索引做排序操作。
@@ -106,7 +106,6 @@ CPU使用率高的常见原因及对应的优化策略如下：
         -   使⽤索引排序，详情请参见：[https://docs.mongodb.com/manual/tutorial/sort-results-with-indexes/](https://docs.mongodb.com/manual/tutorial/sort-results-with-indexes/)。
         -   使⽤Hint固化执⾏计划，详情请参考：[https://docs.mongodb.com/manual/reference/operator/meta/hint/](https://docs.mongodb.com/manual/reference/operator/meta/hint/)和[https://docs.mongodb.com/manual/reference/method/cursor.hint/](https://docs.mongodb.com/manual/reference/method/cursor.hint/)。
         -   索引的数据选择性和运⾏频率折中⽅法，详情请参见：[https://docs.mongodb.com/manual/tutorial/create-queries-that-ensure-selectivity/](https://docs.mongodb.com/manual/tutorial/create-queries-that-ensure-selectivity/)。
-        -   阿⾥云MongoDB DAS数据库⾃动驾驶基于机器学习的基础上提供“索引推荐”功能， 可以在部分情况下推荐您使⽤最合适的索引，详情请参考：[索引推荐](https://help.aliyun.com/document_detail/98239.html?)。
 -   并发过大
 
     如果确认查询层⾯没有问题，那么引起实例CPU占用高的可能原因为业务并发过⾼。如果是由于业务请求量过⼤，并发过⾼导致了CPU占用高的问题，在云数据库MongoDB中解决思路本质上就是通过添加CPU核数的⽅式解决，⼀般有如下⽅法：
@@ -115,7 +114,7 @@ CPU使用率高的常见原因及对应的优化策略如下：
     -   配置副本集层⾯的读写分离，或者添加该副本的只读实例。
     -   升级⾄MongoDB分⽚集群，通过数据⽔平拆分的⽅式横向，线性扩展系统性能。
     -   如果是Mongos路由节点CPU占满，则直接添加Mongos节点个数并设置Mongos节点的负载均衡。
-    更多内容请参见阿⾥云MongoDB官⽅⽂档：[变更分片集群实例配置](https://help.aliyun.com/document_detail/128782.html)、[变更单节点或副本集实例配置](https://help.aliyun.com/document_detail/129161.html)和[变更副本集实例节点数](https://help.aliyun.com/document_detail/95286.html)。
+    更多内容请参见阿⾥云MongoDB官⽅⽂档：[t1253515.dita\#task\_1580394](/intl.zh-CN/用户指南/实例管理/变更实例配置/变更分片集群实例配置.md)、[t1254246.dita\#task\_1580779](/intl.zh-CN/用户指南/实例管理/变更实例配置/变更单节点或副本集实例配置.md)和[t41229.dita\#task\_pwm\_cfm\_qfb](/intl.zh-CN/用户指南/实例管理/变更实例配置/变更副本集实例节点数.md)。
 
 
 ## 其他可能导致CPU使用率高的场景
