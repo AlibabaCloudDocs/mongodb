@@ -7,7 +7,7 @@ In the ApsaraDB for MongoDB console, you can manage ApsaraDB for MongoDB instanc
 -   An Alibaba Cloud account is created. To create an Alibaba Cloud account, go to the [Alibaba Cloud official website](https://account.alibabacloud.com/register/intl_register.htm).
 -   Before you log on to the ApsaraDB for MongoDB console, you must purchase an ApsaraDB for MongoDB instance by using your Alibaba Cloud account. For more information about how to create an instance, see [Create a standalone instance](/intl.en-US/Quick Start/Create an instance/Create a standalone instance.md), [Create a replica set instance](/intl.en-US/Quick Start/Create an instance/Create a replica set instance.md), and [Create a sharded cluster instance](/intl.en-US/Quick Start/Create an instance/Create a sharded cluster instance.md).
 
-    **Note:** For more information, see[ApsaraDB for MongoDB Pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
+    **Note:** For more information, see [ApsaraDB for MongoDB Pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
 
 
 ## Log on to the ApsaraDB for MongoDB console
