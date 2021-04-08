@@ -1,16 +1,16 @@
 # Troubleshoot the high CPU utilization of ApsaraDB for MongoDB
 
-When you use ApsaraDB for MongoDB, the CPU utilization may become excessively high or even approach 100%. The high CPU utilization slows down data read /write operations and affects normal business operations. This topic describes how to troubleshoot the high CPU utilization of ApsaraDB for MongoDB for your applications.
+When you use ApsaraDB for MongoDB, the CPU utilization may become excessively high or even approach 100%. The high CPU utilization slows down read and write operations and affects normal business operations. This topic describes how to troubleshoot the high CPU utilization of ApsaraDB for MongoDB for your applications.
 
 ## Analyze running requests in ApsaraDB for MongoDB
 
-1.  Connect to an ApsaraDB for MongoDB instance through the mongo shell.
+1.  Connect to an ApsaraDB for MongoDB instance by using the mongo shell.
 
-    For more information, see [Connect to a standalone ApsaraDB for MongoDB instance by using the mongo shell](/intl.en-US/Quick Start/Connect to an instance/Connect to a standalone ApsaraDB for MongoDB instance by using the mongo shell.md), [Connect to a replica set instance by using the mongo shell](/intl.en-US/Quick Start/Connect to an instance/Connect to a replica set instance by using the mongo shell.md), and [Connect to a sharded cluster instance by using the mongo shell](/intl.en-US/Quick Start/Connect to an instance/Connect to a sharded cluster instance by using the mongo shell.md).
+    For more information, see [Connect to a standalone ApsaraDB for MongoDB instance by using the mongo shell](/intl.en-US/Quick Start/Connect to an instance/Connect to a standalone ApsaraDB for MongoDB instance by using the mongo shell.md), [Connect to a replica set instance by using the mongo shell](/intl.en-US/Quick Start/Connect to an instance/Connect to a replica set instance by using the mongo shell.md), and [Connect to a sharded cluster instance by using the mongo shell](/intl.en-US/Quick Start/Connect to an instance/Connect to a sharded cluster ApsaraDB for MongoDB instance by using the mongo shell.md).
 
 2.  Run the `db.currentOp()` command to check running operations in ApsaraDB for MongoDB.
 
-    Example of the command output:
+    The following code provides an example of the command output:
 
     ```
     {
@@ -38,31 +38,31 @@ When you use ApsaraDB for MongoDB, the CPU utilization may become excessively hi
     ```
 
 
-The following table describes some fields.
+You need to pay close attention to the following parameters.
 
-|Field|Description|
-|:----|:----------|
+|Parameter|Description|
+|:--------|:----------|
 |client|The client that sent the request.|
 |opid|The unique ID of the operation. **Note:** If necessary, you can run the `db.killOp(opid)` command to terminate an operation. |
-|secs\_running|The duration that the operation has been running, in seconds. If this field returns a value that exceeds the defined threshold, check whether the request is appropriate.|
-|microsecs\_running|The duration that the operation has been running, in microseconds. If this field returns a value that exceeds the defined threshold, check whether the request is appropriate.|
+|secs\_running|The duration that the operation has been running, in seconds. If this parameter returns a value that exceeds the defined threshold, check whether the request is appropriate.|
+|microsecs\_running|The duration that the operation has been running, in microseconds. If this parameter returns a value that exceeds the defined threshold, check whether the request is appropriate.|
 |ns|The collection of the operation.|
 |op|The operation type, which is query, insert, update, or delete.|
-|locks|The lock-related fields. For more information, see [Concurrency](https://docs.mongodb.com/manual/faq/concurrency/index.html). **Note:** For more information about the db.currentOp\(\) command, see [db.currentOp](https://docs.mongodb.com/manual/reference/method/db.currentOp/?spm=5176.100239.blogcont73389.12.K1pNOi). |
+|locks|The lock-related fields. For more information, visit [FAQ: Concurrency](https://docs.mongodb.com/manual/faq/concurrency/index.html). **Note:** For more information about the db.currentOp\(\) command, visit [db.currentOp\(\)](https://docs.mongodb.com/manual/reference/method/db.currentOp/?spm=5176.100239.blogcont73389.12.K1pNOi). |
 
-You can run the `db.currentOp()` command to check in-progress operations and analyze whether ApsaraDB for MongoDB is processing time-consuming requests. The CPU utilization is normal for your routine business. When O&M personnel log on to ApsaraDB for MongoDB to perform some operations that require a collection scan, the CPU utilization significantly increases and ApsaraDB for MongoDB responds slowly. In this case, you must check for long-running operations.
+You can run the `db.currentOp()` command to check running operations and analyze whether ApsaraDB for MongoDB is processing time-consuming requests. The CPU utilization is normal for your routine business. When O&M personnel log on to ApsaraDB for MongoDB to perform some operations that require a collection scan, the CPU utilization significantly increases and ApsaraDB for MongoDB slowly responds. In this case, you must check for long-running operations.
 
-**Note:** If you find an abnormal request, you can obtain the operation ID \(specified by the opid field\) of such a request and run the `db.killOp(opid)` command to terminate this request.
+**Note:** If you find an abnormal request, you can obtain the operation ID \(specified by the opid field\) of this request and run the `db.killOp(opid)` command to terminate this request.
 
-For example, the CPU utilization of the relevant ApsaraDB for MongoDB instance immediately increases and remains high after your application starts running. If you cannot find any abnormal requests in the output of the `db.currentOp()` command, you can analyze slow requests in ApsaraDB for MongoDB.
+For example, the CPU utilization of the relevant ApsaraDB for MongoDB instance immediately increases and remains high after your application starts running. If you cannot find abnormal requests in the output of the `db.currentOp()` command, you can analyze slow requests in ApsaraDB for MongoDB.
 
 ## Analyze slow requests in ApsaraDB for MongoDB
 
-ApsaraDB for MongoDB enables slow request profiling by default. ApsaraDB for MongoDB automatically records requested operations that have been running for longer than 100 ms in the system.profile collection of the relevant database.
+ApsaraDB for MongoDB enables slow request profiling by default. ApsaraDB for MongoDB records requested operations that run for longer than 100 ms in the system.profile collection of the relevant database.
 
-1.  Connect to an ApsaraDB for MongoDB instance through the mongo shell.
+1.  Connect to an ApsaraDB for MongoDB instance by using the mongo shell.
 
-    For more information, see [Connect to a standalone ApsaraDB for MongoDB instance by using the mongo shell](/intl.en-US/Quick Start/Connect to an instance/Connect to a standalone ApsaraDB for MongoDB instance by using the mongo shell.md), [Connect to a replica set instance by using the mongo shell](/intl.en-US/Quick Start/Connect to an instance/Connect to a replica set instance by using the mongo shell.md), and [Connect to a sharded cluster instance by using the mongo shell](/intl.en-US/Quick Start/Connect to an instance/Connect to a sharded cluster instance by using the mongo shell.md).
+    For more information, see [Connect to a standalone ApsaraDB for MongoDB instance by using the mongo shell](/intl.en-US/Quick Start/Connect to an instance/Connect to a standalone ApsaraDB for MongoDB instance by using the mongo shell.md), [Connect to a replica set instance by using the mongo shell](/intl.en-US/Quick Start/Connect to an instance/Connect to a replica set instance by using the mongo shell.md), and [Connect to a sharded cluster instance by using the mongo shell](/intl.en-US/Quick Start/Connect to an instance/Connect to a sharded cluster ApsaraDB for MongoDB instance by using the mongo shell.md).
 
 2.  Run the `use <database>` command to access a database.
 
@@ -78,7 +78,7 @@ ApsaraDB for MongoDB enables slow request profiling by default. ApsaraDB for Mon
 
 4.  Analyze the slow request logs to discover the cause of high CPU utilization in ApsaraDB for MongoDB.
 
-    The following example shows a slow request log. For this request, ApsaraDB for MongoDB did not query data based on an index, but has run a collection scan and scanned 11,000,000 documents.
+    The following example shows a slow request log. For this request, ApsaraDB for MongoDB runs a collection scan on 11,000,000 documents, instead of querying data based on an index.
 
     ```
     {
@@ -148,7 +148,7 @@ For slow request logs, you must take note of the following items:
 -   Collection scan \(keywords: COLLSCAN and docsExamined\)
     -   COLLSCAN indicates a collection scan.
 
-        A collection scan for a request \(such as a query, update, or delete operation\) can cause a high CPU utilization. If you find a COLLSCAN keyword in slow request logs, your CPU resources may have been occupied by these slow requests.
+        A collection scan for a request \(such as a query, update, or delete operation\) may cause a high CPU utilization. If you find a COLLSCAN keyword in slow request logs, your CPU resources may have been occupied by these slow requests.
 
         **Note:** If such slow requests are frequently submitted, we recommend that you create an index on queried fields to optimize query performance.
 
@@ -157,8 +157,8 @@ For slow request logs, you must take note of the following items:
 
     **Note:**
 
-    -   If you have too many indexes, the write and update performance is affected.
-    -   If your application contains too many write operations, inappropriate indexes may affect the application performance.
+    -   If you have excessive indexes, the write and update performance is affected.
+    -   If your application contains excessive write operations, inappropriate indexes may affect the application performance.
     The keysExamined field indicates the number of index keys that ApsaraDB for MongoDB has scanned for a request that uses an index. A larger value of this field indicates higher CPU overheads occupied by this request.
 
     If you create an index that is inappropriate or matches a large amount of data, the index cannot reduce CPU overheads or accelerate the execution of a request.
@@ -187,22 +187,25 @@ For slow request logs, you must take note of the following items:
     db.createIndex( {y: 1, x: 1 } ) // This index is appropriate because a small amount of data has the same value of the y field.
     ```
 
-    For the difference between indexes \{y: 1\} and \{y: 1, x: 1\}, see [Design Principles of MongoDB Indexes](https://yq.aliyun.com/articles/33726) and [Compound Indexes](https://docs.mongodb.com/manual/core/index-compound/).
+    For the difference between indexes \{y: 1\} and \{y: 1, x: 1\}, visit [Design Principles of MongoDB Indexes](https://yq.aliyun.com/articles/33726) and [Compound Indexes](https://docs.mongodb.com/manual/core/index-compound/).
 
 -   Sorting of a large amount of data \(keywords: SORT and hasSortStage\)
 
-    The value of the hasSortStage field is true in the system.profile collection when a query cannot use the sort order in the index to return the requested sorted results. In this case, ApsaraDB for MongoDB must sort the query results. Considering that a sort operation causes a high CPU utilization, you can create an index on frequently sorted fields to optimize sorting performance.
+    The value of the hasSortStage field is true in the system.profile collection when a query cannot use the sort order in the index to return the requested sorted results. In this case, ApsaraDB for MongoDB must sort the query results. A sort operation may cause a high CPU utilization. In this case, you can create an index on frequently sorted fields to optimize sorting performance.
 
     **Note:** If you find the SORT keyword in the system.profile collection, you can use an index to optimize sorting performance.
 
 
-Other operations such as index creation and aggregation \(a combination of traverse, query, update, and sort\) may also cause a high CPU utilization. You can also use the preceding troubleshooting methods. For more information about profiling, see [Database Profiler](https://docs.mongodb.com/manual/tutorial/manage-the-database-profiler/).
+Other operations such as index creation and aggregation \(a combination of traverse, query, update, and sort\) may also cause a high CPU utilization. You can also use the preceding troubleshooting methods. For more information about profiling, visit [Database Profiler](https://docs.mongodb.com/manual/tutorial/manage-the-database-profiler/).
 
 ## Assess service capabilities
 
-After you analyze and optimize running requests and slow requests in ApsaraDB for MongoDB, all requests efficiently use indexes and the query performance of ApsaraDB for MongoDB is optimized.
+After you analyze and optimize running requests and slow requests in ApsaraDB for MongoDB, all requests efficiently use indexes, and the query performance of ApsaraDB for MongoDB is optimized.
 
-If CPU resources are still fully occupied during business operations, the maximum capabilities of your instances may have reached. In this case, you can view the monitoring information to analyze the resource usage of instances. You can also check whether current instances satisfy the performance and capability requirements in your business scenarios. For more information, see [View monitoring information](/intl.en-US/User Guide/Monitoring and alerting/View monitoring information.md).
+If CPU resources are still fully occupied, your instances may have reached the maximum capabilities. In this case, we recommend that you use the following method to solve the problem:
 
-To upgrade instances, you can follow the instructions in [Configuration change overview](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Configuration change overview.md) or [Change the number of nodes for a replica set instance](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Change the number of nodes for a replica set instance.md).
+1.  View the monitoring information to analyze the resource usage of instances. For more information, see [View monitoring information](/intl.en-US/User Guide/Monitoring and alerting/View monitoring information.md).
+2.  Check whether current instances meet the performance and capability requirements in your business scenarios.
+
+For information about how to upgrade instances, see [Configuration change overview](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Configuration change overview.md) or [Change the number of nodes for a replica set instance](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Change the number of nodes for a replica set instance.md).
 
