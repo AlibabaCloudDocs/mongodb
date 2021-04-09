@@ -9,7 +9,7 @@ MongoDB实例的IOPS使⽤率是⼀个⾮常重要的监控指标。如果MongoD
 ## 查看IOPS使用率
 
 -   监控图查看
-    -   在[MongoDB管理控制台](https://mongodb.console.aliyun.com/)的**基本信息**页面，确认该实例的最⼤IOPS上限。不同实例规格对应的IOPS使⽤上限请参见：[实例规格表](https://help.aliyun.com/document_detail/57141.html)。
+    -   在[MongoDB管理控制台](https://mongodb.console.aliyun.com/)的**基本信息**页面，确认该实例的最⼤IOPS上限。不同实例规格对应的IOPS使⽤上限请参见：[t6649.dita\#concept\_wrp\_kg4\_tdb](/intl.zh-CN/产品简介/实例规格表.md)。
 
         ![通过基本信息查看IOPS上限](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/3237666161/p235810.png)
 
