@@ -41,7 +41,7 @@ MongoDB实例的空间使⽤率是⼀个⾮常重要的监控指标。如果Mong
             -   [https://docs.mongodb.com/manual/reference/method/db.collection.totalSize/](https://docs.mongodb.com/manual/reference/method/db.collection.totalSize/)
         -   在[MongoDB管理控制台](https://mongodb.console.aliyun.com/)的**CloudDBA** \> **空间分析**页面分析。
 
-            **说明：** 在**CloudDBA** \> **空间分析**页面，您可以查看以下内容，更多信息请参见[空间分析](https://help.aliyun.com/document_detail/162422.html)。
+            **说明：** 在**CloudDBA** \> **空间分析**页面，您可以查看以下内容，更多信息请参见[t1846264.dita\#task\_2350359](/cn.zh-CN/用户指南/性能诊断与优化（CloudDBA）/空间分析.md)。
 
             -   数据库和表使用空间情况概览、⽇均增⻓量和预测可⽤天数。
             -   异常数据库和表使用空间情况。
@@ -72,7 +72,7 @@ MongoDB实例的空间使⽤率是⼀个⾮常重要的监控指标。如果Mong
     **说明：**
 
     -   collectionName为集合名称，请根据实际情况替换。
-    -   MongoDB 4.4以后的官方版本，compact命令将不再阻塞业务读写，compact命令的使用方法和限制请参见：[https://docs.mongodb.com/manual/reference/command/compact/](https://docs.mongodb.com/manual/reference/command/compact/)、[https://mongoing.com/archives/26907](https://mongoing.com/archives/26907)和[https://help.aliyun.com/document\_detail/96530.html](https://help.aliyun.com/document_detail/96530.html)。
+    -   MongoDB 4.4以后的官方版本，compact命令将不再阻塞业务读写，compact命令的使用方法和限制请参见：[https://docs.mongodb.com/manual/reference/command/compact/](https://docs.mongodb.com/manual/reference/command/compact/)、[https://mongoing.com/archives/26907](https://mongoing.com/archives/26907)和[t61599.dita\#concept\_ngj\_sxl\_sfb](/cn.zh-CN/最佳实践/性能/整理物理空间碎片以提升磁盘利用率.md)。
 -   compact⽆效
 
     compact的基本原理并不是⽴⻢开辟新的空间存放数据来替换原来的⽂件，⽽是将数据不断地往前⾯的空间空洞挪动，所以在某些场景下虽然存在空间空洞，但内部的compact算法并不能保证肯定可以复⽤这些空洞，我们称之为compact无效。compact无效的场景和解决方法如下：
