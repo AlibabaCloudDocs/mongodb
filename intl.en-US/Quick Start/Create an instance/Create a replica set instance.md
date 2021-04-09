@@ -89,7 +89,7 @@ Instances in the same region, such as an [ECS](~~25367~~) instance and an Apsara
 |The instance list in the ApsaraDB for MongoDB console was not updated or was updated before the instance is created.|Wait several minutes and update the instance list to check whether the instance is added to the list.|
 |Resources are insufficient.|The system may fail to create the instance due to insufficient resources. In this case, your payment is refunded. You can check the refund on the [Orders](https://expense.console.aliyun.com/#/order/list/) page.
 
-After you confirm the refunded fees, you can try to create your instance in another region or zone. You can also[submit a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex). |
+After you confirm the refunded fees, you can try to create your instance in another region or zone. You can also [submit a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex). |
 
 After you create an instance, you must configure a whitelist. For more information, see [Configure a whitelist for an ApsaraDB for MongoDB instance](/intl.en-US/Quick Start/Configure a whitelist for an ApsaraDB for MongoDB instance.md). If you want to connect to the instance over the Internet, you must apply for a public endpoint. For more information, see [Apply for a public endpoint for an ApsaraDB for MongoDB instance](/intl.en-US/Quick Start/Apply for a public endpoint for an ApsaraDB for MongoDB instance.md).
 
