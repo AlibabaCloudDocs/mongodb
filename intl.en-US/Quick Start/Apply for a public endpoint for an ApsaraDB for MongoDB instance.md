@@ -26,15 +26,15 @@ The following table describes the endpoint types supported by an ApsaraDB for Mo
 
 4.  Find the target instance and click its ID.
 
-5.  In the left-side navigation pane, click **Database Connection**.
+5.  In the left-side navigation pane, click **Database Connections**.
 
-6.  In the **Public IP Connection** section, click **Apply for Public Connection String**.
+6.  In the **Public Connections** section, click **Apply for Public Connection String**.
 
     ![Apply for a public endpoint](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/0910008061/p88063.png)
 
 7.  In the **Apply for Public Connection String** message, click **OK**.
 
-    **Note:** If you want to connect to an ApsaraDB for MongoDB instance by using a public endpoint, you must add the public IP address of your client to a whitelist of this instance. For more information, see [Configure a Whitelist](/intl.en-US/Quick Start/Configure a Whitelist.md).
+    **Note:** If you want to connect to an ApsaraDB for MongoDB instance by using a public endpoint, you must add the public IP address of your client to a whitelist of this instance. For more information, see [Configure a whitelist for an ApsaraDB for MongoDB instance](/intl.en-US/Quick Start/Configure a whitelist for an ApsaraDB for MongoDB instance.md).
 
 
 ## Apply for a public endpoint for a sharded cluster instance
@@ -47,9 +47,9 @@ The following table describes the endpoint types supported by an ApsaraDB for Mo
 
 4.  Find the target instance and click its ID.
 
-5.  In the left-side navigation pane, click **Database Connection**.
+5.  In the left-side navigation pane, click **Database Connections**.
 
-6.  In the **Public IP Connection** section, click **Apply for Public Connection String**.
+6.  In the **Public Connections** section, click **Apply for Public Connection String**.
 
     ![Apply for a public endpoint](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/8278317951/p37037.png)
 
@@ -71,10 +71,10 @@ The following table describes the endpoint types supported by an ApsaraDB for Mo
 
 ## Results
 
-After the application is complete, the available public endpoints are displayed in the **Public IP Connection** section. For more information about endpoints, see [Overview of replica set instance connections]().
+After the application is complete, the available public endpoints are displayed in the **Public Connections** section. For more information about endpoints, see [Overview of replica set instance connections]().
 
 ## References
 
--   [Connect a local client to an ApsaraDB for MongoDB instance over the Internet](/intl.en-US/User Guide/Instance connection/Connect a local client to an ApsaraDB for MongoDB instance over the Internet.md).
--   To ensure data security, we recommend that you release a public endpoint if you no longer need it. For more information, see [Release a public connection string](/intl.en-US/User Guide/Network connection management/Public IP Connection/Release a public connection string.md).
+-   [Connect to an ApsaraDB for MongoDB instance over the Internet](/intl.en-US/User Guide/Instance connection/Connect to an ApsaraDB for MongoDB instance over the Internet.md).
+-   To ensure data security, we recommend that you release a public endpoint if you no longer need it. For more information, see [Release a public endpoint](/intl.en-US/User Guide/Network connection management/Public IP Connection/Release a public endpoint.md).
 
