@@ -46,7 +46,7 @@ keyword: [备份恢复, 数据库恢复]
 -   该服务器已安装对应版本的MongoDB，安装方法请参见[MongoDB官方文档](https://docs.mongodb.com/guides/server/install/)。
 -   该服务器已对MongoDB[配置环境变量](#section_qbj_vae_xyv)，执行命令时无需再输入可执行文件的路径。
 -   该服务器将/root/mongo/data作为MongoDB物理恢复操作的数据库所在目录。
--   该服务器将/root/mongo/data1和/root/mongo/data1作为副本集节点的数据库目录。
+-   该服务器将/root/mongo/data1和/root/mongo/data2作为副本集节点的数据库目录。
 -   在该服务器中执行本文中提供的多行命令时，最后一行命令需要手动按回车键执行。
 
 ## 步骤一：配置环境变量
