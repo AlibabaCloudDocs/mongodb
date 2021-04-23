@@ -13,17 +13,18 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DescribeRunningLogRecords|要执行的操作，取值：**DescribeRunningLogRecords**。 |
-|StartTime|String|是|2019-01-01T12:10Z|查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。 |
-|EndTime|String|是|2019-01-01T13:10Z|查询结束时间，必须晚于查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
-
- **说明：** 查询结束时间距查询开始时间不得超过24个小时，超过则调用失败。 |
+|Action|String|是|DescribeRunningLogRecords|系统规定参数。取值：**DescribeRunningLogRecords**。 |
+|RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。 |
 |DBInstanceId|String|是|dds-bpxxxxxxxx|实例ID。
 
  **说明：** 当本参数传入的是分片集群实例ID时，还需要传入**NodeId**参数。 |
 |NodeId|String|否|d-bpxxxxxxxx|分片集群实例中Mongos节点ID或Shard节点ID。
 
  **说明：** 当**DBInstanceId**参数传入的是分片集群实例ID时，本参数才可用。 |
+|StartTime|String|是|2019-01-01T12:10Z|查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。 |
+|EndTime|String|是|2019-01-01T13:10Z|查询结束时间，必须晚于查询开始时间，格式为*yyyy-MM-dd*T*HH:mm*Z（UTC时间）。
+
+ **说明：** 查询结束时间距查询开始时间不得超过24个小时，超过则调用失败。 |
 |DBName|String|否|mongodbtest|数据库名。 |
 |RoleType|String|否|primary|实例中节点的角色。取值：
 
@@ -33,8 +34,7 @@
  **说明：** 当**NodeId**参数传入的是Mongos节点ID时，**RoleType**取值只能为**primary**。 |
 |PageSize|Integer|否|30|每页记录数，取值范围为**30**~**100**。 |
 |PageNumber|Integer|否|1|页码，取值为大于0且不超过Integer数据类型的最大值，默认值为**1**。 |
-|RegionId|String|否|cn-hangzhou|实例所属的地域ID，您可以通过调用[DescribeDBInstanceAttribute](~~62010~~)进行查询。 |
-|OrderType|String|否|asc|按时间的升降序对查询到的慢日志进行排序。取值：
+|OrderType|String|否|asc|按时间的升降序对查询到的运行日志进行排序。取值：
 
  -   asc：按时间升序排序。
 -   desc：按时间降序排序。 |
@@ -45,18 +45,17 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|Engine|String|MongoDB|当前数据库的引擎类型。 |
-|Items|Array of LogRecords| |运行日志明细列表。 |
-|LogRecords| | | |
-|Category|String|NETWORK|日志类别。 |
-|ConnInfo|String|conn18xxxxxx|日志连接信息。 |
-|Content|String|end connection 11.xxx.xxx.xx:3xxxx \(0 connections now open\)\\n|日志信息。 |
-|CreateTime|String|2019-02-26T12:09:34Z|日志生成时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。 |
-|Id|Integer|1111111111|日志ID。 |
-|PageNumber|Integer|1|页码。 |
+|TotalRecordCount|Integer|2|总记录数。 |
 |PageRecordCount|Integer|30|每页的记录数。 |
 |RequestId|String|45D2B592-DEBA-4347-BBF3-47FF6C97DBBC|请求ID。 |
-|TotalRecordCount|Integer|2|总记录数。 |
+|PageNumber|Integer|1|页码。 |
+|Items|Array of LogRecords| |运行日志明细列表。 |
+|ConnInfo|String|conn18xxxxxx|日志连接信息。 |
+|CreateTime|String|2019-02-26T12:09:34Z|日志生成时间，格式为*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。 |
+|Category|String|NETWORK|日志类别。 |
+|Content|String|end connection 11.xxx.xxx.xx:3xxxx \(0 connections now open\)\\n|日志信息。 |
+|Id|Integer|1111111111|日志ID。 |
+|Engine|String|MongoDB|当前数据库的引擎类型。 |
 
 ## 示例
 
@@ -72,55 +71,59 @@ http(s)://mongodb.aliyuncs.com/?Action=DescribeRunningLogRecords
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
+HTTP/1.1 200 OK
+Content-Type:application/xml
+
+<?xml version="1.0" encoding="UTF-8" ?>
 <DescribeRunningLogRecordsResponse>
-	  <Items>
-		    <LogRecords>
-			      <Category>-</Category>
-			      <CreateTime>2019-02-26T12:09:34Z</CreateTime>
-			      <ConnInfo>conn18xxxxxx</ConnInfo>
-			      <Content>
+	<Items>
+		<LogRecords>
+			<Category>-</Category>
+			<CreateTime>2019-02-26T12:09:34Z</CreateTime>
+			<ConnInfo>conn18xxxxxx</ConnInfo>
+			<Content>
 				end connection 11.xxx.xxx.xx:3xxxx (0 connections now open)
 			</Content>
-		    </LogRecords>
-		    <LogRecords>
-			      <Category>NETWORK</Category>
-			      <CreateTime>2019-02-26T12:09:34Z</CreateTime>
-			      <ConnInfo>thread1</ConnInfo>
-			      <Content>connection accepted from 11.xxx.xxx.xx:3xxxx #1862051 (11 connections now open)</Content>
-		    </LogRecords>
-	  </Items>
-	  <PageNumber>1</PageNumber>
-	  <TotalRecordCount>2</TotalRecordCount>
-	  <RequestId>45D2B592-DEBA-4347-BBF3-47FF6C97DBBC</RequestId>
+		</LogRecords>
+		<LogRecords>
+			<Category>NETWORK</Category>
+			<CreateTime>2019-02-26T12:09:34Z</CreateTime>
+			<ConnInfo>thread1</ConnInfo>
+			<Content>connection accepted from 11.xxx.xxx.xx:3xxxx #1862051 (11 connections now open)</Content>
+		</LogRecords>
+	</Items>
+	<PageNumber>1</PageNumber>
+	<TotalRecordCount>2</TotalRecordCount>
+	<RequestId>45D2B592-DEBA-4347-BBF3-47FF6C97DBBC</RequestId>
 </DescribeRunningLogRecordsResponse>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
+HTTP/1.1 200 OK
+Content-Type:application/json
+
 {
-    "Items": {
-        "LogRecords": [
-            {
-                "Category": "-",
-                "CreateTime": "2019-02-26T12:09:34Z",
-                "ConnInfo": "conn18xxxxxx",
-                "Content": "end connection 11.xxx.xxx.xx:3xxxx (0 connections now open)\n"
-            },
-            {
-                "Category": "NETWORK",
-                "CreateTime": "2019-02-26T12:09:34Z",
-                "ConnInfo": "thread1",
-                "Content": "connection accepted from 11.xxx.xxx.xx:3xxxx #1862051 (11 connections now open)"
-            }
-        ]
-    },
-    "PageNumber": 1,
-    "TotalRecordCount": 2,
-    "RequestId": "45D2B592-DEBA-4347-BBF3-47FF6C97DBBC"
+  "Items" : {
+    "LogRecords" : [ {
+      "Category" : "-",
+      "CreateTime" : "2019-02-26T12:09:34Z",
+      "ConnInfo" : "conn18xxxxxx",
+      "Content" : "end connection 11.xxx.xxx.xx:3xxxx (0 connections now open)\n"
+    }, {
+      "Category" : "NETWORK",
+      "CreateTime" : "2019-02-26T12:09:34Z",
+      "ConnInfo" : "thread1",
+      "Content" : "connection accepted from 11.xxx.xxx.xx:3xxxx #1862051 (11 connections now open)"
+    } ]
+  },
+  "PageNumber" : 1,
+  "TotalRecordCount" : 2,
+  "RequestId" : "45D2B592-DEBA-4347-BBF3-47FF6C97DBBC"
 }
 ```
 
