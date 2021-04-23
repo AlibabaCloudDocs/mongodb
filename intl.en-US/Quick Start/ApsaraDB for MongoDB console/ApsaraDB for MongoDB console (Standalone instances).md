@@ -44,17 +44,17 @@ Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/
 -   [Restart an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Instance management/Restart an ApsaraDB for MongoDB instance.md) |
 |Left-side navigation pane|**Basic Information**|Views the basic information of the instance, such as the instance ID, and network type. You can also change the configurations of the instance.|[Configuration change overview](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Configuration change overview.md)|
 |**Accounts**|Views account information and resets passwords.|[Reset the password](/intl.en-US/Quick Start/Reset the password.md)|
-|**Database Connection**|Views the endpoint of the node.|[Overview of replica set instance connections]()|
+|**Database Connections**|Views the endpoint of the node.|[Overview of replica set instance connections]()|
 |**Backup and Recovery**|Configures automatic backup for an instance, manages backup data, and creates an instance by time point.|[Configure automatic backup for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Data backup/Configure automatic backup for an ApsaraDB for MongoDB instance.md)|
-|**Monitoring Info**|Queries the resource usage of an instance.|[View monitoring information](/intl.en-US/User Guide/Monitoring and alerting/View monitoring information.md)|
-|**Alert Rules**|Sets alert rules of an instance.|[Set alert rules](/intl.en-US/User Guide/Monitoring and alerting/Set alert rules.md)|
+|**Monitoring Data**|Queries the resource usage of an instance.|[View monitoring information](/intl.en-US/User Guide/Monitoring and alerting/View monitoring information.md)|
+|**Alert Rules**|Sets alert rules of an instance.|[Configure alert rules](/intl.en-US/User Guide/Monitoring and alerting/Configure alert rules.md)|
 |**Service Availability**|Views the zone distribution of the instance.|N/A|
 |**Parameter List**|Sets database parameters.|[Configure database parameters for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Parameter settings/Configure database parameters for an ApsaraDB for MongoDB instance.md)|
 |**Data Security**|The security configurations of the instance such as whitelists, SSL, and TDE.|[Configure a whitelist or an ECS security group for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Data security/Configure a whitelist or an ECS security group for an ApsaraDB for MongoDB instance.md)|
 |**Logs**|Standalone instances do not support this feature.|N/A|
-|**CloudDBA**|Use Database Autonomy Service \(DAS\) to analyze ApsaraDB for MongoDB databases.|-   [View performance trends of an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/CloudDBA/View performance trends of an ApsaraDB for MongoDB instance.md)
--   [Real-time performance](/intl.en-US/User Guide/CloudDBA/Real-time performance.md)
--   [Instance sessions](/intl.en-US/User Guide/CloudDBA/Instance sessions.md)
--   [Capacity analysis](/intl.en-US/User Guide/CloudDBA/Capacity analysis.md)
--   [Slow query logs](/intl.en-US/User Guide/CloudDBA/Slow query logs.md) |
+|**CloudDBA**|Use Database Autonomy Service \(DAS\) to analyze ApsaraDB for MongoDB databases.|-   [View performance trends of an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/CloudDBA for performance diagnostics and optimization/View performance trends of an ApsaraDB for MongoDB instance.md)
+-   [Real-time performance](/intl.en-US/User Guide/CloudDBA for performance diagnostics and optimization/Real-time performance.md)
+-   [Instance sessions](/intl.en-US/User Guide/CloudDBA for performance diagnostics and optimization/Instance sessions.md)
+-   [Capacity analysis](/intl.en-US/User Guide/CloudDBA for performance diagnostics and optimization/Capacity analysis.md)
+-   [Slow query logs](/intl.en-US/User Guide/CloudDBA for performance diagnostics and optimization/Slow query logs.md) |
 
