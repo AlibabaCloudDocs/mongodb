@@ -21,7 +21,7 @@ After you perform the following operations, ApsaraDB for MongoDB automatically c
 
 4.  On the **Sharded Cluster Instances** page, click **Create Instance**.
 
-5.  Click **Sharded Cluster \(Subscription\)** or**Sharded Cluster \(Pay-as-you-go\)**.
+5.  Click **Sharded Cluster \(Subscription\)** or **Sharded Cluster \(Pay-as-you-go\)**.
 
     **Note:**
 
