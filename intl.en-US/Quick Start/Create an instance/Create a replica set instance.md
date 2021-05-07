@@ -21,7 +21,7 @@ After you perform the following operations, ApsaraDB for MongoDB automatically c
 
 4.  On the **Replica Set Instances** page, click **Create Instance**.
 
-5.  Click **Replica Set \(Subscription\)** or**Replica Set \(Pay-as-you-go\)**.
+5.  Click **Replica Set \(Subscription\)** or **Replica Set \(Pay-as-you-go\)**.
 
     **Note:**
 
