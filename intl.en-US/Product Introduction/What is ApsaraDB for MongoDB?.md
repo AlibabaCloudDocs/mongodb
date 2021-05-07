@@ -1,7 +1,7 @@
 What is ApsaraDB for MongoDB? 
 ==================================================
 
-ApsaraDB for MongoDB is a MongoDB-compatible database service that is developed based on the distributed system and high-reliability storage engine of Apsara. ApsaraDB for MongoDB uses a multi-node architecture to ensure high availability, and supports elastic scaling, disaster recovery, backup and restoration, and performance optimization.
+ApsaraDB for MongoDB is a MongoDB-compatible database service that is developed based on the distributed system and high-reliability storage engine of Apsara. ApsaraDB for MongoDB uses a multi-node architecture to ensure high availability, and supports elastic scaling, disaster recovery, backup and restoration, and performance optimization. 
 
 Data structure of MongoDB 
 ----------------------------------------------
@@ -18,6 +18,8 @@ MongoDB is a document-oriented NoSQL database. MongoDB stores data in JSON-like 
 
 
 
+}
+
 Storage structure of MongoDB 
 -------------------------------------------------
 
@@ -33,7 +35,7 @@ The storage structure of MongoDB is different from that of conventional relation
 
   
 
-* Database: A database contains multiple collections. It is equivalent to a relational database. You can create multiple databases in ApsaraDB for MongoDB.
+* Database: A database contains multiple collections. It is equivalent to a relational database. You can create multiple databases in an ApsaraDB for MongoDB instance.
 
   
 
@@ -43,21 +45,7 @@ The storage structure of MongoDB is different from that of conventional relation
 Why ApsaraDB for MongoDB? 
 ----------------------------------------------
 
-For more information about the benefits of ApsaraDB for MongoDB, see [Comparison between ApsaraDB for MongoDB and self-managed databases](/intl.en-US/Product Introduction/Comparison between ApsaraDB for MongoDB and self-managed databases.md) and [Scenarios](/intl.en-US/Product Introduction/Scenarios.md).
-
-Supported architectures 
---------------------------------------------
-
-ApsaraDB for MongoDB supports multiple deployment architectures to meet the requirements of different business scenarios.
-
-
-|                                                                           Architecture                                                                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Architecture of standalone instances](/intl.en-US/Product Introduction/System architecture/Architecture of standalone instances.md)           | A standalone instance applies to development, testing, and other scenarios where non-core enterprise data is stored. You can purchase a standalone instance at a lower price and enjoy the superior O\&M support and kernel-level optimization that is provided by ApsaraDB for MongoDB. For more information about how to create a standalone instance, see [Create a standalone instance](/intl.en-US/Quick Start/Create an instance/Create a standalone instance.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| [Architecture of replica set instances](/intl.en-US/Product Introduction/System architecture/Architecture of replica set instances.md)         | A replica set instance consists of a primary node that supports read and write operations, one or more high-availability secondary nodes,and a hidden node. For more information about the nodes and their differences, see [Architecture of replica set instances](/intl.en-US/Product Introduction/System architecture/Architecture of replica set instances.md). For more information about how to create a replica set instance, see [Create a replica set instance](/intl.en-US/Quick Start/Create an instance/Create a replica set instance.md). You can add or remove secondary nodes based on your business needs. For example, assume that you are running an informational website or an order query system that has more read operations than write operations. To improve read performance, you can add secondary nodes. You can also add secondary nodes during business spikes and remove them after the spikes to reduce costs. For more information, see [Change the number of nodes for a replica set instance](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Change the number of nodes for a replica set instance.md). |
-| [Architecture of sharded cluster instances](/intl.en-US/Product Introduction/System architecture/Architecture of sharded cluster instances.md) | A sharded cluster instance is created based on multiple three-node replica sets. A sharded cluster instance consists of three components: mongos, shards, and config servers. You can specify the number and configurations of mongos and shards to create ApsaraDB for MongoDB clusters that have different service capabilities. For more information about how to create a sharded cluster instance, see [Create a sharded cluster instance](/intl.en-US/Quick Start/Create an instance/Create a sharded cluster instance.md). For more information about the components, see [Architecture of sharded cluster instances](/intl.en-US/Product Introduction/System architecture/Architecture of sharded cluster instances.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-
-
+For more information about the benefits of ApsaraDB for MongoDB, see [Comparison between ApsaraDB for MongoDB and self-managed databases](/intl.en-US/Product Introduction/Comparison between ApsaraDB for MongoDB and self-managed databases.md) and [Scenarios.](/intl.en-US/Product Introduction/Scenarios.md)
 
 Pricing 
 ----------------------------
@@ -67,16 +55,16 @@ For more information, see [Billing items and pricing](/intl.en-US/Purchase Guide
 Dedicated clusters 
 ---------------------------------------
 
-You can purchase ApsaraDB for MongoDB instances in ApsaraDB MyBase dedicated clusters. For more information, see [What is ApsaraDB MyBase?]()
+You can purchase ApsaraDB for MongoDB instances in ApsaraDB for MyBase dedicated clusters. For more information, see [What is ApsaraDB for MyBase?]()
 
 Deployment suggestions 
 -------------------------------------------
 
 Consider the following aspects when you create and use an ApsaraDB for MongoDB instance:
 
-* Region and zone 
+* Regions and zones 
 
-  A region is an Alibaba Cloud data center. A zone is a physical area within a region that has its own independent power grid and network. The region and zone determine the physical location of an ApsaraDB for MongoDB instance. You cannot change the region of an ApsaraDB for MongoDB instance after the instance is created. For more information, see [Regions and zones](~~40654~~).
+  A region is an Alibaba Cloud data center. A zone is a physical area within a region that has its own independent power grid and network. The region and zone determine the physical location of an ApsaraDB for MongoDB instance. You cannot change the region of an ApsaraDB for MongoDB instance after the instance is created. For more information, see [Regions and zones](~~40654~~). 
 
   You can select a region and zone based on your geographical location, availability of Alibaba Cloud services, application availability requirements, and whether internal network communication is required. For example, if your application is deployed on an [Elastic Compute Service](~~25367~~) (ECS) instance and requires an ApsaraDB for MongoDB instance to serve as its database, you must select the same region and zone as the ECS instance when you create your ApsaraDB for MongoDB instance. 
 
@@ -136,7 +124,7 @@ Related services
 
   
 
-* [Data Transmission Service (DTS)](~~26592~~): You can use DTS to migrate data from an on-premises MongoDB database to the cloud.
+* [Data Transmission Service (DTS)](): You can use DTS to migrate data from an on-premises MongoDB database to the cloud.
 
   
 
