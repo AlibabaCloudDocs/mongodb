@@ -104,8 +104,6 @@ This topic describes how to migrate data between ApsaraDB for MongoDB instances 
 
     3.  Select the migration types and the objects to be migrated.
 
-        ![Select the migration types and objects to be migrated](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1535298951/p38566.png)
-
         |Parameter|Description|
         |---------|-----------|
         |Migration Types|We recommend that you select both **Full Data Migration** and **Incremental Data Migration** to ensure the consistency of migrated data. If you select only **Full Data Migration**, the data updated during the migration process may not be migrated from the source instance to the destination instance.
