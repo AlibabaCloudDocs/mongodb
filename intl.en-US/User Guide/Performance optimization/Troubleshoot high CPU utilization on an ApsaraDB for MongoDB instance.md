@@ -58,7 +58,7 @@ For a replica set instance, you can use the following methods to view the CPU ut
 
     If you require more detailed auditing to troubleshoot problematic requests, you can enable audit logs in the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/). In the left-side navigation pane, choose **Data Security** \> **Audit Logs**. On the page that appears, click Enable Audit Logs.
 
-    For more information, see [Enable the log audit feature](https://help.aliyun.com/document_detail/180836.html?spm=a2c4g.11186623.6.729.58173958efqDsi).
+    For more information, see [Enable the log audit feature](https://www.alibabacloud.com/help/doc-detail/180836.htm).
 
 
 ## Possible causes of high CPU utilization and optimization strategies
@@ -101,7 +101,7 @@ This section describes the common causes of high CPU utilization on an instance 
     -   Configure read/write splitting for replica sets or add read-only instances for the replica sets.
     -   Upgrade the problematic instance to a sharded cluster instance for linear scale-out.
     -   If mongos nodes consume all CPU resources, add mongos nodes and configure load balancing for mongos nodes.
-    For more information, see [Change the configuration of a sharded cluster instance](https://help.aliyun.com/document_detail/128782.html), [Change the configuration of a standalone or replica set instance](https://help.aliyun.com/document_detail/129161.html), and [Change the number of nodes for a replica set instance](https://help.aliyun.com/document_detail/95286.html).
+    For more information, see [t1253515.dita\#task\_1580394](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Change the configuration of a sharded cluster instance.md), [t1254246.dita\#task\_1580779](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Change the configuration of a standalone or replica set instance.md), and [t41229.dita\#task\_pwm\_cfm\_qfb](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Change the number of nodes for a replica set instance.md).
 
 
 ## Other possible causes
