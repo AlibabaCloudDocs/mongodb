@@ -37,7 +37,7 @@ If the disk usage on an instance exceeds the range of 80% to 85%, you can reduce
             -   [https://docs.mongodb.com/manual/reference/method/db.collection.totalSize/](https://docs.mongodb.com/manual/reference/method/db.collection.totalSize/)
         -   Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/). Find the instance that you want to view and click the instance ID. In the left-side navigation pane, choose **CloudDBA** \> **Capacity analysis**.
 
-            **Note:** On the page that appears, you can view the following items. For more information, see [Capacity analysis](https://help.aliyun.com/document_detail/162422.html).
+            **Note:** On the page that appears, you can view the following items. For more information, see [t1846264.dita\#task\_2350359](/intl.en-US/User Guide/CloudDBA for performance diagnostics and optimization/Capacity analysis.md).
 
             -   Overview of the disk usage of databases and tables, average daily increment, and predicted available days of storage
             -   Disk usage of abnormal databases and tables
@@ -64,7 +64,7 @@ If the disk usage on an instance exceeds the range of 80% to 85%, you can reduce
     **Note:**
 
     -   Replace the collectionName parameter value with your actual collection name.
-    -   In versions later than MongoDB 4.4, the compact command does not block business data reads or writes. For more information about the usage and limits of the compact command, visit [https://docs.mongodb.com/manual/reference/command/compact/](https://docs.mongodb.com/manual/reference/command/compact/), [https://mongoing.com/archives/26907](https://mongoing.com/archives/26907), and [https://help.aliyun.com/document\_detail/96530.html](https://help.aliyun.com/document_detail/96530.html).
+    -   In versions later than MongoDB 4.4, the compact command does not block business data reads or writes. For more information about the usage and limits of the compact command, visit [https://docs.mongodb.com/manual/reference/command/compact/](https://docs.mongodb.com/manual/reference/command/compact/), [https://mongoing.com/archives/26907](https://mongoing.com/archives/26907), and [t61599.dita\#concept\_ngj\_sxl\_sfb](/intl.en-US/Best Practices/Performance/Defragment a disk to improve disk usage.md).
 -   Invalid compact operation
 
     After you run the compact command, new space is not immediately created to store existing data. Instead, existing data is continuously moved forward into free space. However, the free space may not be reused to store existing data. The following list describes scenarios and solutions:
