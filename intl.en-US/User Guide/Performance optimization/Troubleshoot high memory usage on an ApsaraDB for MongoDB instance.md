@@ -39,7 +39,7 @@ The following list describes common causes of high memory usage:
 
     MongoDB uses TCMalloc as a memory allocator. The WiredTiger storage engine consumes the largest portion of the cache. The maximum memory size of the storage engine is determined by the cachesize parameter. For compatibility and security purposes, ApsaraDB for MongoDB sets the cachesize parameter to 60% of the allocated size. For more information, see [Instance specifications](#table_737_6ka_9te).
 
-    If the size of cached data exceeds 95% of the configured cache size, the system has a high risk of performance degradation. WiredTiger performs evictions when the memory usage approaches the threshold to prevent user requests from being blocked. For more information, see [Eviction parameters](#table_c7l_nzo_2lb).
+    If the size of cached data exceeds 95% of the configured cache size, the system has a high risk of performance degradation. WiredTiger performs evictions when the memory usage approaches the threshold to prevent user requests from being blocked. For more information, see [Table 2](#table_qsa_7cm_bbt).
 
     You can use the following methods to view the memory usage of the engine:
 
