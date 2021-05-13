@@ -9,7 +9,7 @@ Typically, to prevent hosts from competing for I/O resources, most cloud databas
 ## View IOPS usage
 
 -   View IOPS usage in monitoring charts
-    -   On the **Basic Information** page of an instance in the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/), view the upper limit of IOPS on the instance. For more information about the upper limit of IOPS on instances of different instance specifications, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+    -   On the **Basic Information** page of an instance in the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/), view the upper limit of IOPS on the instance. For more information about the upper limit of IOPS on instances of different instance specifications, see [t6649.dita\#concept\_wrp\_kg4\_tdb](/intl.en-US/Product Introduction/Instance types.md).
     -   On the **Monitoring Info** page of an instance in the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/), view the upper limit of IOPS on the instance. In most cases, the data files and the logs of an ApsaraDB for MongoDB instance are stored in the same disk. The IOPS usage of data files is the same as that of log files.
 -   View IOPS usage by running commands
 
