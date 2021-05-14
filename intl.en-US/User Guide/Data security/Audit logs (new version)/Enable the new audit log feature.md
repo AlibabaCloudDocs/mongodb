@@ -2,24 +2,22 @@
 
 The new audit log feature integrates the features of Log Service with ApsaraDB for MongoDB. The audit log feature allows you to filter log data, analyze logs online, and export logs. This helps you discover security and performance issues of your ApsaraDB for MongoDB instances at your earliest opportunity.
 
-If you want to enable the new audit log feature as a RAM user, the RAM user must be granted the AliyunLogFullAccess permission. For more information, see [Grant permissions](~~121945~~).
+If you want to enable the new audit log feature as a RAM user, the RAM user must be granted the AliyunLogFullAccess permissions. For more information, see [Grant permissions](~~121945~~).
 
 Alibaba Cloud Log Service is an all-in-one service and has been used in big data analytics scenarios. Log Service allows you to collect, consume, ship, search, and analyze log data without the need for extra code resources. This service makes O&M more efficient ApsaraDB for MongoDB integrates the features of Log Service to provide the new audit log feature, which is characterized by stability, ease of use, flexibility, and high efficiency.
 
 This topic describes how to enable the new audit log feature.
 
-## Notes
+## Note
 
-After you enable the new audit log feature, Log Service records operations on ApsaraDB for MongoDB instances in logs to facilitate troubleshooting.
+-   After the new audit log feature is enabled, the performance of an ApsaraDB for MongoDB instance is slightly compromised.
+-   After you enable the new audit log feature, Log Service records operations on ApsaraDB for MongoDB instances in logs to facilitate troubleshooting.
 
 ## Billing
 
-The new audit log feature has two editions: trial and official.
+The trial edition has been available and is free of charge. The official edition will be available soon.
 
-**Note:** The trial edition has been available. The official edition is planning to be available at a later date.
-
--   In the trial edition, audit logs can be stored for one day with a maximum storage capacity of 100 GB.
--   The official version is charged based on the size of audit logs and retention period. The official version supports more features than the free trial version.
+**Note:** In the trial edition, audit logs can be stored for one day with a maximum storage capacity of 100 GB.
 
 ## Procedure
 
@@ -51,5 +49,5 @@ The new audit log feature has two editions: trial and official.
 
 [Overview](/intl.en-US/User Guide/Log management/Overview.md)
 
-[Slow query logs](/intl.en-US/User Guide/CloudDBA/Slow query logs.md)
+[Slow query logs](/intl.en-US/User Guide/CloudDBA for performance diagnostics and optimization/Slow query logs.md)
 
