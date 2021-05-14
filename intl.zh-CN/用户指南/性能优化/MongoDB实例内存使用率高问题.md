@@ -114,20 +114,20 @@ MongoDB内存使用率高的原因如下：
 
 |实例规格|规格大小|实际大小|WiredTiger的cachesize大小|
 |----|----|----|----------------------|
-|dds.mongo.small|1024GB|2048GB|1GB|
-|dds.mongo.mid|2048GB|4096GB|1GB|
-|dds.mongo.standard|4096GB|7168GB|2GB|
-|dds.mongo.large|8192GB|12288GB|5GB|
-|dds.mongo.xlarge|16384GB|24576GB|10GB|
-|dds.mongo.2xlarge|32768GB|49152GB|20GB|
-|dds.mongo.4xlarge|65536GB|98304GB|40GB|
-|dds.mongo.monopolize|450560GB|450560GB|264GB|
-|mongo.x8.medium|16384GB|16384GB|10GB|
-|mongo.x8.large|32768GB|32768GB|20GB|
-|mongo.x8.xlarge|65536GB|65536GB|40GB|
-|mongo.x8.2xlarge|131072GB|131072GB|77GB|
-|mongo.x8.4xlarge|262144GB|262144GB|154GB|
-|dds.sn4.8xlarge.3|131072GB|131072GB|64GB|
+|dds.mongo.small|1024 MB|2048 MB|1 GB|
+|dds.mongo.mid|2048 MB|4096 MB|1 GB|
+|dds.mongo.standard|4096 MB|7168 MB|2 GB|
+|dds.mongo.large|8192 MB|12288 MB|5 GB|
+|dds.mongo.xlarge|16384 MB|24576 MB|10 GB|
+|dds.mongo.2xlarge|32768 MB|49152 MB|20 GB|
+|dds.mongo.4xlarge|65536 MB|98304 MB|40 GB|
+|dds.mongo.monopolize|450560 MB|450560 MB|264 GB|
+|mongo.x8.medium|16384 MB|16384 MB|10 GB|
+|mongo.x8.large|32768 MB|32768 MB|20 GB|
+|mongo.x8.xlarge|65536 MB|65536 MB|40 GB|
+|mongo.x8.2xlarge|131072 MB|131072 MB|77 GB|
+|mongo.x8.4xlarge|262144 MB|262144 MB|154 GB|
+|dds.sn4.8xlarge.3|131072 MB|131072 MB|64 GB|
 
 |参数|默认值|含义|
 |--|---|--|
