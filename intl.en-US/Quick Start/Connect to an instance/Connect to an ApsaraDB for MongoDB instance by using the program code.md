@@ -7,23 +7,23 @@ ApsaraDB for MongoDB is compatible with the MongoDB protocol. This topic describ
 -   Obtain the connection strings of an ApsaraDB for MongoDB instance based on the instance type. For more information, see the following topics:
     -   [Overview of replica set instance connections]()
     -   [Overview of sharded cluster instance connections]()
--   Download and install the official driver package of your language. For more information, visit [Start Developing with MongoDB](https://docs.mongodb.org/ecosystem/drivers/).
+-   Download and install the official driver package of your language.For more information, visit Start Developing with MongoDB.
 
 **Note:**
 
--   The sample code in this topic applies when you use internal connection strings provided by Alibaba Cloud to connect to ApsaraDB for MongoDB.
--   When you connect to a sharded cluster instance or serverless instance, you do not need to specify the replicaSet parameter.
+-   The sample code in this topic applies only to internal endpoints of ApsaraDB for MongoDB replica set instances. For other types of instances, replace the relevant content based on actual conditions.
+-   To connect to sharded cluster instances, you do not need to specify the replicaSet-related parameters.
 
 ## Node.js
 
-Related link: [MongoDB Node.js Driver](https://docs.mongodb.com/drivers/node/).
+Related link: [MongoDB Node.js Driver](https://docs.mongodb.com/drivers/node/current/).
 
 1.  Initialize a project.
 
     ```
-    mkdir node-mongodb-demo
+     mkdir node-mongodb-demo
     cd node-mongodb-demo
-    npm init
+    npm init 
     ```
 
 2.  Install the driver package and toolkit.
@@ -36,7 +36,7 @@ Related link: [MongoDB Node.js Driver](https://docs.mongodb.com/drivers/node/).
 4.  Use the following Node.js sample code:
 
     ```
-    'use strict';
+     'use strict';
     var uuid = require('node-uuid');
     var sprintf = require("sprintf-js").sprintf;
     var mongoClient = require('mongodb').MongoClient;
@@ -50,7 +50,7 @@ Related link: [MongoDB Node.js Driver](https://docs.mongodb.com/drivers/node/).
     var demoDb = "test";
     var demoColl = "testColl";
     // The officially recommended solution.
-    var url = sprintf("mongodb://%s:%d,%s:%d/%s? replicaSet=%s", host1, port1, host2, port2, demoDb, replSetName);
+    var url = sprintf("mongodb://%s:%d,%s:%d/%s?replicaSet=%s", host1, port1, host2, port2, demoDb, replSetName);
     console.info("url:", url);
     // Obtain the MongoClient.
     mongoClient.connect(url, function (err, db) {
@@ -90,27 +90,27 @@ Related link: [MongoDB Node.js Driver](https://docs.mongodb.com/drivers/node/).
                 });
             });
         });
-    });
+    });                   
     ```
 
 
 ## PHP
 
-Related link: [MongoDB PHP Driver](https://docs.mongodb.org/ecosystem/drivers/php/).
+Related link: [MongoDB PHP Driver](https://docs.mongodb.com/drivers/php/).
 
 1.  Install the driver package and toolkit.
 
     ```
     $ pecl install mongodb
     $ echo "extension=mongodb.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
-    $ composer require "mongodb/mongodb=^1.0.0"
+    $ composer require "mongodb/mongodb=^1.0.0" 
     ```
 
 2.  Obtain the information required to connect to an ApsaraDB for MongoDB instance.
 3.  Use the following PHP sample code:
 
     ```
-    <? php
+    <?php
     require 'vendor/autoload.php'; // include Composer goodies
     # Specify instance information.
     $demo_seed1 = '**********.mongodb.test.aliyun-inc.com:3717';
@@ -120,9 +120,9 @@ Related link: [MongoDB PHP Driver](https://docs.mongodb.org/ecosystem/drivers/ph
     $demo_password = '**********';
     $demo_db = 'admin';
     # Construct a MongoDB connection string URI based on the instance information.
-    # mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][? options]]
+    # mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
     $demo_uri = 'mongodb://' . $demo_user . ':' . $demo_password . '@' .
-        $demo_seed1 . ',' . $demo_seed2 . '/' . $demo_db . '? replicaSet=' . $demo_replname;
+        $demo_seed1 . ',' . $demo_seed2 . '/' . $demo_db . '?replicaSet=' . $demo_replname;
     $client = new MongoDB\Client($demo_uri);
     $collection = $client->testDb->testColl;
     $result = $collection->insertOne(['name' => 'ApsaraDB for Mongodb', 'desc' => 'Hello, Mongodb']);
@@ -131,7 +131,7 @@ Related link: [MongoDB PHP Driver](https://docs.mongodb.org/ecosystem/drivers/ph
     foreach ($result as $entry) {
         echo $entry->_id, ': ', $entry->name, "\n";
     }
-    ? >
+    ?>
     ```
 
 
@@ -139,8 +139,8 @@ Related link: [MongoDB PHP Driver](https://docs.mongodb.org/ecosystem/drivers/ph
 
 Related links:
 
--   Official [Quick Start](http://mongodb.github.io/mongo-java-driver/3.0/driver/getting-started/)
--   JAR package [download](https://oss.sonatype.org/content/repositories/releases/org/mongodb/mongo-java-driver/3.0.4/)
+-   Official [Getting Started](http://mongodb.github.io/mongo-java-driver/3.0/driver/getting-started/).
+-   JAR package [download](https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.0.4/).
 
 1.  Obtain the information required to connect to an ApsaraDB for MongoDB instance.
 2.  Use the following Java sample code:
@@ -200,9 +200,9 @@ Related links:
                 }
                  public static MongoClient createMongoDBClientWithURI() {
                         // Use a URI to initialize the MongoClient.
-                        // mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][? options]]
+                        // mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
                         MongoClientURI connectionString = new MongoClientURI("mongodb://" + username + ":" + password + "@"
-                                        + seed1 + "," + seed2 + "/" + DEFAULT_DB + "? replicaSet=" + ReplSetName);
+                                        + seed1 + "," + seed2 + "/" + DEFAULT_DB + "?replicaSet=" + ReplSetName);
                         return new MongoClient(connectionString);
                 }
                  public static void main(String args[]) {
@@ -233,7 +233,7 @@ Related links:
                         }
                         return;
                 }
-        }
+        }                                                           
         ```
 
 
@@ -241,8 +241,8 @@ Related links:
 
 Related links:
 
--   [PyMongo download](https://pypi.python.org/pypi/pymongo/)
--   [Official documentation](https://pymongo.readthedocs.io/en/stable/)
+-   [PyMongo download](https://pypi.org/project/pymongo/).
+-   [Official documentation](https://pymongo.readthedocs.io/en/stable/).
 
 1.  Install PyMongo.
 
@@ -256,16 +256,16 @@ Related links:
     ```
     import uuid
     from pymongo import MongoClient
-    CONN_ADDR1 = '**********.mongodb. ****. ******.rdstest.aliyun-inc.com:27017'
-    CONN_ADDR2 = '**********.mongodb. ****. ******.rdstest.aliyun-inc.com:27017'
+    CONN_ADDR1 = '**********.mongodb.****.******.rdstest.aliyun-inc.com:27017'
+    CONN_ADDR2 = '**********.mongodb.****.******.rdstest.aliyun-inc.com:27017'
     REPLICAT_SET = 'mgset-**********'
      username = 'demouser'
     password = '********'
-     # Obtain the MongoClient.
+    # Obtain the MongoClient.
     client = MongoClient([CONN_ADDR1, CONN_ADDR2], replicaSet=REPLICAT_SET)
-     # Authenticate the username and password used to log on to ApsaraDB for MongoDB. The username in this sample code is used to log on to the admin database.
+    # Authenticate the username and password used to log on to ApsaraDB for MongoDB. The username in this sample code is used to log on to the admin database.
     client.admin.authenticate(username, password)
-     # Insert doc and search for documents based on the demo name. The collection:testColl of the test database is used in the example.
+    # Insert doc and search for documents based on the demo name. The collection:testColl of the test database is used in the example.
     demo_name = 'python-' + str(uuid.uuid1())
     print 'demo_name:', demo_name
      doc = dict(DEMO=demo_name, MESG="Hello ApsaraDB For MongoDB")
@@ -278,7 +278,7 @@ Related links:
 
 ## C\#
 
-Related link: [MongoDB C\# Driver](https://docs.mongodb.com/ecosystem/drivers/csharp/).
+Related link: [MongoDB C\# Driver](https://docs.mongodb.com/drivers/csharp/).
 
 1.  Install the following driver package:
 
@@ -312,13 +312,13 @@ Related link: [MongoDB C\# Driver](https://docs.mongodb.com/ecosystem/drivers/cs
     
                 try
                 {
-                    Console.WriteLine("connecting...") ;
+                    Console.WriteLine("connecting...");
                     MongoClientSettings settings = new MongoClientSettings();
                     List<MongoServerAddress> servers = new List<MongoServerAddress>();
                     servers.Add(new MongoServerAddress(host1, port1));
                     servers.Add(new MongoServerAddress(host2, port2));
                     settings.Servers = servers;
-                    // Set ReplicaSetName.
+                   // Set ReplicaSetName.
                     settings.ReplicaSetName = replicaSetName;
                     // Set ConnectTimeout to 3.
                     settings.ConnectTimeout = new TimeSpan(0, 0, 0, 3, 0);
@@ -337,11 +337,11 @@ Related link: [MongoDB C\# Driver](https://docs.mongodb.com/ecosystem/drivers/cs
                     // Obtain a data entry.
                     User result = collection.FindOne();
                     Console.WriteLine("id:" + result.id + " name:" + result.name + " sex:"+result.sex);
-                    Console.WriteLine("connection successful...")
+                    Console.WriteLine("connection successful...");
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("connection failed:"+e.Message)
+                    Console.WriteLine("connection failed:"+e.Message);
     
                 }
             }
@@ -359,7 +359,7 @@ Related link: [MongoDB C\# Driver](https://docs.mongodb.com/ecosystem/drivers/cs
 
 ## Go
 
-Related link: [MongoDB C\# Driver](https://docs.mongodb.com/drivers/go).
+Related link: [MongoDB Go Driver](https://docs.mongodb.com/drivers/go/).
 
 1.  Install the following driver package:
 
@@ -394,7 +394,7 @@ Related link: [MongoDB C\# Driver](https://docs.mongodb.com/drivers/go).
     Password:  "********", 
     }
     session, err := mgo.DialWithInfo(dialInfo)
-    if err ! = nil {
+    if err != nil {
     fmt.Printf("dial failed: %v",err)
     return
     }
@@ -405,13 +405,13 @@ Related link: [MongoDB C\# Driver](https://docs.mongodb.com/drivers/go).
     c := session.DB("test").C("test_collection")
     err = c.Insert(&Person{"Ale", "+55 53 8116 9639"},
         &Person{"Cla", "+55 53 8402 8510"})
-    if err ! = nil {
+    if err != nil {
         log.Fatal(err)
     }
     
     result := Person{}
     err = c.Find(bson.M{"name": "Ale"}).One(&result)
-    if err ! = nil {
+    if err != nil {
         log.Fatal(err)
     }
     
