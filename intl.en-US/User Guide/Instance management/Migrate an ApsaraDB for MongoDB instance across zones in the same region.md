@@ -6,8 +6,8 @@ This topic describes how to migrate an ApsaraDB for MongoDB instance across zone
 
 -   A replica set or sharded cluster instance is created.
 -   The destination and source zones are in the same region.
--   If the instance is in a VPC, make sure that a vSwitch is created in the destination zone before you start migration. For more information about how to create a vSwitch, see [Create a VSwitch](https://www.alibabacloud.com/help/zh/doc-detail/65387.htm).
--   The instance does not have a public endpoint. If you have applied for a public endpoint, you must release it before migration. For more information, see [Release a public connection string](/intl.en-US/User Guide/Network connection management/Public IP Connection/Release a public connection string.md).
+-   If the instance is in a VPC, make sure that a vSwitch is created in the destination zone before you start migration. For more information about how to create a vSwitch, see [Create a vSwitch](https://www.alibabacloud.com/help/zh/doc-detail/65387.htm).
+-   The instance does not have a public endpoint. If you have applied for a public endpoint, you must release it before migration. For more information, see [Release a public endpoint](/intl.en-US/User Guide/Network connection management/Public IP Connection/Release a public endpoint.md).
 
 ## Precautions
 
