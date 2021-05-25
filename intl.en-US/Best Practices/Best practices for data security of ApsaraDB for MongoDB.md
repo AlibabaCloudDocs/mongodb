@@ -29,7 +29,7 @@ You can select multiple zones when you create an instance. For more information,
 
     ApsaraDB for MongoDB supports multiple network types. We recommend that you use VPCs.
 
-    A VPC is an isolated virtual network with higher security and better performance than the classic network. You must create the VPC in advance. For more information, see [Create a default Virtual Private Cloud \(VPC\) network and VSwitch](~~65402~~).
+    A VPC is an isolated virtual network with higher security and better performance than the classic network. You must create the VPC in advance. For more information, see [Create a default Virtual Private Cloud \(VPC\) network and vSwitch](~~65402~~).
 
     If an ApsaraDB for MongoDB instance is deployed in the classic network, you can switch the network type of the instance to VPC. For more information, see [Switch the network type of an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Network connection management/Switch the network type of an ApsaraDB for MongoDB instance.md). If your ApsaraDB for MongoDB instance is deployed in a VPC, no further action is required.
 
@@ -50,13 +50,14 @@ You can select multiple zones when you create an instance. For more information,
 
 Audit logs of ApsaraDB for MongoDB record all operations that you perform on databases. Audit logs allow you to obtain data execution information by performing fault analysis, behavior analysis, and security audit on databases.
 
-For more information, see [Configure audit logging for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Data security/Audit logs (previous version)/Configure audit logging for an ApsaraDB for MongoDB instance.md).
+For more information, see [Configure audit logging for an ApsaraDB for MongoDB instance]().
 
 ## Data encryption
 
 -   SSL encryption
 
-    If you connect to a database over the Internet, you can enable Secure Sockets Layer \(SSL\) encryption to improve the security of data links. SSL encryption can encrypt network connections at the transport layer. This improves data security and ensures data integrity. For more information, see [Use the mongo shell to connect to an ApsaraDB for MongoDB database in SSL encryption mode](/intl.en-US/User Guide/Data security/Use the mongo shell to connect to an ApsaraDB for MongoDB database in SSL encryption mode.md).
+    If you connect to a database over the Internet, you can enable Secure Sockets Layer \(SSL\) encryption to improve the security of data links. SSL encryption can encrypt network connections at the transport layer. This improves data security and ensures data integrity. For more information, see [Use the mongo shell to connect to an ApsaraDB for MongoDB database in SSL encryption mode](/intl.en-US/User Guide/Data security/Use the mongo shell to connect to an ApsaraDB for MongoDB database in SSL encryption
+         mode.md).
 
 -   TDE
 
