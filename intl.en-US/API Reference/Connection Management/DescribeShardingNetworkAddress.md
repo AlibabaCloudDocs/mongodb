@@ -16,7 +16,7 @@ This operation supports sharded cluster instances only.
 |DBInstanceId|String|Yes|dds-bpxxxxxxxx|The ID of an instance. |
 |NodeId|String|No|d-bpxxxxxxxx|A sharded cluster instance consists of three components: mongos, shard, and Configserver.
 
- **Note:** You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the ID of the mongos, shard, or Configserverr node. |
+**Note:** You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to query the ID of the mongos, shard, or Configserverr node. |
 |RegionId|String|No|cn-hangzhou|The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the region ID of the instance. |
 
 ## Response parameters
@@ -30,16 +30,16 @@ This operation supports sharded cluster instances only.
 |NetworkAddress|String|dds-bpxxxxxxxxxxxxxx.mongodb.rds.aliyuncs.com|The endpoint of the instance. |
 |NetworkType|String|VPC|The network type. Valid values:
 
- -   **VPC**
+-   **VPC**
 -   **Classic**
 -   **Public**: pubic endpoint |
 |Port|String|3717|The port number. |
 |VPCId|String|vpc-bpxxxxxxxx|The ID of the VPC.
 
- **Note:** This parameter is returned when the network type is **VPC**. |
-|VswitchId|String|vsw-bpxxxxxxxx|The VSwitch ID of the VPC.
+**Note:** This parameter is returned when the network type is **VPC**. |
+|VswitchId|String|vsw-bpxxxxxxxx|The vSwitch ID of the VPC.
 
- **Note:** This parameter is returned when the network type is **VPC**. |
+**Note:** This parameter is returned when the network type is **VPC**. |
 |NetworkAddresses|Array| |An array that consists of the endpoints of ApsaraDB for MongoDB instances. |
 |NetworkAddress| | | |
 |ExpiredTime|String|2591963|The remaining duration of the classic network address. Unit: seconds. |
@@ -47,26 +47,26 @@ This operation supports sharded cluster instances only.
 |NetworkAddress|String|s-bpxxxxxxxx.mongodb.rds.aliyuncs.com|The endpoint of the instance. |
 |NetworkType|String|VPC|The network type. Valid values:
 
- -   **VPC**
+-   **VPC**
 -   **Classic**
 -   **Public**: pubic endpoint |
 |NodeId|String|s-bpxxxxxxxx|The ID of the mongos. |
 |NodeType|String|mongos|The type of the node. Valid values:
 
- -   **mongos**
+-   **mongos**
 -   **shard**
 -   **configserver** |
 |Port|String|3717|The port number. |
 |Role|String|Primary|The role of the node. Valid values:
 
- -   Primary
+-   Primary
 -   Secondary |
 |VPCId|String|vpc-bpxxxxxxxx|The ID of the VPC.
 
- **Note:** This parameter is returned when the network type is **VPC**. |
-|VswitchId|String|vsw-bpxxxxxxxx|The VSwitch ID of the VPC.
+**Note:** This parameter is returned when the network type is **VPC**. |
+|VswitchId|String|vsw-bpxxxxxxxx|The vSwitch ID of the VPC.
 
- **Note:** This parameter is returned when the network type is **VPC**. |
+**Note:** This parameter is returned when the network type is **VPC**. |
 |RequestId|String|18D8AAFD-6BEB-420F-8164-810CB0C0AA39|The ID of the request. |
 
 ## Examples
@@ -114,32 +114,32 @@ Sample success responses
 
 ```
 {
-	"NetworkAddresses": {
-		"NetworkAddress": [
-			{
-				"NetworkType": "Public",
-				"NodeId": "s-bpxxxxxxxx",
-				"Port": "3717",
-				"VPCId": "",
-				"IPAddress": "47.xx.xx.xxx",
-				"NodeType": "mongos",
-				"Role": "Primary",
-				"NetworkAddress": "s-bpxxxxxxxx-pub.mongodb.rds.aliyuncs.com"
-			},
-			{
-				"NetworkType": "VPC",
-				"NodeId": "s-bpxxxxxxxx",
-				"Port": "3717",
-				"VPCId": "vpc-bpxxxxxxxx",
-				"IPAddress": "192.168.xx.xxx",
-				"NodeType": "mongos",
-				"Role": "Primary",
-				"VswitchId": "vsw-bpxxxxxxxx",
-				"NetworkAddress": "s-bpxxxxxxxx.mongodb.rds.aliyuncs.com"
-			}
-		]
-	},
-	"RequestId": "3F5DD5CD-0B93-46FF-96DD-F938B13CDE8B"
+    "NetworkAddresses": {
+        "NetworkAddress": [
+            {
+                "NetworkType": "Public",
+                "NodeId": "s-bpxxxxxxxx",
+                "Port": "3717",
+                "VPCId": "",
+                "IPAddress": "47.xx.xx.xxx",
+                "NodeType": "mongos",
+                "Role": "Primary",
+                "NetworkAddress": "s-bpxxxxxxxx-pub.mongodb.rds.aliyuncs.com"
+            },
+            {
+                "NetworkType": "VPC",
+                "NodeId": "s-bpxxxxxxxx",
+                "Port": "3717",
+                "VPCId": "vpc-bpxxxxxxxx",
+                "IPAddress": "192.168.xx.xxx",
+                "NodeType": "mongos",
+                "Role": "Primary",
+                "VswitchId": "vsw-bpxxxxxxxx",
+                "NetworkAddress": "s-bpxxxxxxxx.mongodb.rds.aliyuncs.com"
+            }
+        ]
+    },
+    "RequestId": "3F5DD5CD-0B93-46FF-96DD-F938B13CDE8B"
 }
 ```
 
