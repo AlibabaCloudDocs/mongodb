@@ -7,7 +7,7 @@ ApsaraDB for MongoDB is compatible with the MongoDB protocol. This topic describ
 -   Obtain the connection strings of an ApsaraDB for MongoDB instance based on the instance type. For more information, see the following topics:
     -   [Overview of replica set instance connections]()
     -   [Overview of sharded cluster instance connections]()
--   Download and install the official driver package of your language.For more information, visit Start Developing with MongoDB.
+-   Download and install the official driver package of your language. For more information, visit Start Developing with MongoDB.
 
 **Note:**
 
