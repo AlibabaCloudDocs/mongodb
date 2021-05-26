@@ -81,7 +81,9 @@
     vi collector.conf
     ```
 
-    进入vi编辑器后，输入i，修改以下字段的值：
+    进入vi编辑器后，输入i。根据业务需求，参考配置文件中的字段说明修改对应字段的值。
+
+    关于配置文件中的如下字段，建议您按照以下内容进行配置。
 
     |参数|说明|示例|
     |--|--|--|
@@ -113,8 +115,6 @@
 |`incr_sync.mongo_fetch_method = change_stream`|
     |special.source.db.flag|特殊形态支持。请配置为aliyun\_serverless。|`special.source.db.flag = aliyun_serverless`|
 
-    **说明：** 关于collector.conf全量参数说明，请参见[附件](/cn.zh-CN/用户指南/数据迁移和同步/数据同步/使用MongoShake实现MongoDB副本集间的单向同步.md)中的collector.conf全量参数说明。
-
     修改完成后，按ESC键，输入:wq!并按Enter。
 
 6.  执行如下命令，启动迁移任务。
@@ -137,7 +137,9 @@
     vi collector.log
     ```
 
-    当日志信息中出现如下信息时，说明全量数据迁移已完成并进入增量数据迁移模式。
+    当日志信息中出现如下信息时，说明全量数据迁移已完成。
+
+    **说明：** 如果您开启了增量迁移，说明全量数据迁移已完成并进入增量迁移模式。
 
     ```
     [2021/04/30 14:20:38 CST] [INFO] ------------------------full sync done!------------------------
@@ -145,27 +147,27 @@
 
     查看完成后，按ESC键，输入:q并按Enter。
 
-9.  查看增量迁移数据是否与当前时间点数据一致。
+9.  查看增量数据是否完成迁移。
 
     1.  执行如下命令，进入MongoShake程序的安装目录。
 
         ```
-        cd - MongoShake程序的安装目录
+        cd MongoShake程序的安装目录
         ```
 
         示例：
 
         ```
-        cd - mongo-shake-v2.6.4
+        cd mongo-shake-v2.6.4
         ```
 
-    2.  执行如下命令，查看增量迁移数据是否与当前时间点数据一致。
+    2.  执行如下命令，查看`lsn_ckpt`和`now`的`time`值。
 
         ```
         curl -s http://127.0.0.1:9100/repl | python -m json.tool
         ```
 
-        回显类似如下信息，部分参数说明请参见[\#table\_6xm\_imr\_zj2](#table_6xm_imr_zj2)。
+        回显类似如下信息，部分参数说明请参见[字段说明](#table_6xm_imr_zj2)。
 
         ```
         {
@@ -200,19 +202,19 @@
         }
         ```
 
-        当`lsn_ckpt`和`now`的`time`值相同时，说明增量迁移与当前时间一致。
+        当`lsn_ckpt`和`now`的`time`值基本相同时，说明增量数据迁移已完成。
 
 
-## 参数说明
+## 字段说明
 
-|参数|说明|
-|--|--|
+|字段|字段说明|
+|--|----|
 |`logs_get`|拉取的oplog总数。|
 |`logs_repl`|尝试写入目标库的oplog总数。|
 |`logs_success`|成功写入目标库的oplog总数。|
-|`lsn`|拉取数据的checkpoint时间，即初始时间，当前没有数据写入。|
-|`lsn_ack`|成功写入目标库的checkpoint时间，该时间会随着数据写入变化。|
-|`lsn_ckpt`|成功写入目标库的checkpoint时间，该时间已经稳定持久。|
+|`lsn`|拉取数据的Checkpoint时间，即初始时间，当前没有数据写入。|
+|`lsn_ack`|成功写入目标库的Checkpoint时间，该时间会随着数据写入变化。|
+|`lsn_ckpt`|成功写入目标库的Checkpoint时间，该时间已经稳定持久。|
 |`now`|当前时间。|
 |`replset`|源端名称。|
 
