@@ -1,42 +1,42 @@
-# 设置报警规则
+# Configure alert rules
 
-云数据库MongoDB提供实例状态监控及报警功能，通过对重要的监控指标设置报警规则，让您在第一时间得知指标数据发生异常，帮您迅速定位处理故障。
+ApsaraDB for MongoDB provides the instance status monitoring and alerting feature. You can configure alert rules for important metrics to help detect abnormal data in a timely manner and quickly identify and troubleshoot faults.
 
-## 操作步骤
+## Procedure
 
-1.  登录[云监控控制台](https://cms-intl.console.aliyun.com/)。
-2.  在左侧导航树中，单击**报警服务** \> **报警规则**。
-3.  在**报警规则列表**页面，单击**阈值报警**页签。
-4.  单击**创建报警规则**。
-5.  在**创建报警规则**页面，设置报警规则参数信息。
-    -   关联资源
+1.  Log on to the [Cloud Monitor console](https://cms-intl.console.aliyun.com/).
+2.  In the left-side navigation pane, choose **Alerts** \> **Alert Rules**.
+3.  On the **Alert Rules** page, click the **Threshold Value Alert** tab.
+4.  Click **Create Alert Rule**.
+5.  On the **Create Alert Rule** page, configure the parameters for an alert rule.
+    -   Related Resource
 
-        |参数名称|参数说明|
-        |----|----|
-        |产品|下拉选择实例类型。         -   云数据库MongoDB版-副本集
-        -   云数据库MongoDB版-分片集群
-        -   云数据库MongoDB版-单节点实例
-**说明：** 当选择**云数据库MongoDB版-分片集群**时，请选择需要监控的**Mongos**节点和**Shard**节点。 |
-        |资源范围|        -   资源范围选择**全部资源**，则产品下任何实例满足报警规则描述时，都会发送报警通知。
-        -   选择指定的**实例**，则选中的实例满足报警规则描述时，才会发送报警通知。 |
+        |Parameter|Description|
+        |---------|-----------|
+        |Product|The architecture type of the instance. Valid values:         -   ApsaraDB for MongoDB-Instance Copy
+        -   ApsaraDB for MongoDB-Cluster Instance
+        -   ApsaraDB for MongoDB-Single Node Instance
+**Note:** If you select **ApsaraDB for MongoDB-Cluster Instance**, you must specify the **mongos** and **shard** nodes that you want to monitor. |
+        |Resource Range|        -   **All Resources**: The alert rule is applicable to all resources of the specified service.
+        -   **Instances**: The alert rule is applicable to the specified ApsaraDB for MongoDB instances. |
 
-    -   设置报警规则
+    -   Set Alert Rules
 
-        各项参数说明请参见[管理报警规则](/intl.zh-CN/报警服务/报警规则/管理报警规则.md)。
+        For information about parameters, see [Manage alert rules](/intl.en-US/Alarm service/Alarm rules/Manage alert rules.md).
 
-    -   通知方式
+    -   Notification Mode
 
-        各项参数说明请参见[管理报警规则](/intl.zh-CN/报警服务/报警规则/管理报警规则.md)。
+        For information about parameters, see [Manage alert rules](/intl.en-US/Alarm service/Alarm rules/Manage alert rules.md).
 
-        **说明：** 如您尚未在云监控中创建报警联系人，请参见[创建报警联系人或报警联系组](/intl.zh-CN/报警服务/报警联系人/创建报警联系人或报警联系组.md)。
+        **Note:** Before you configure an alert rule, you must create an alert contact or contact group in the Cloud Monitor console. For more information, see [Create an alert contact or alert group](/intl.en-US/Alarm service/Alert contacts/Create an alert contact or alert group.md).
 
-6.  设置完成后，单击**确认**。报警规则将自动生效。
+6.  Click **Confirm**. The alert rule automatically takes effect.
 
-## 更多信息
+## References
 
-关于监控项中产品的详细说明，请参见：
+For more information about the metrics, see the following topics:
 
--   [云数据库MongoDB版-单节点实例](/intl.zh-CN/附录1 云服务监控项/数据库/NoSQL数据库/云数据库MongoDB版-单节点实例.md)
--   [云数据库MongoDB版-副本集](/intl.zh-CN/附录1 云服务监控项/数据库/NoSQL数据库/云数据库MongoDB版-副本集.md)
--   [云数据库MongoDB版-分片集群](/intl.zh-CN/附录1 云服务监控项/数据库/NoSQL数据库/云数据库MongoDB版-分片集群.md)
+-   [ApsaraDB for MongoDB-Single Node Instance](/intl.en-US/Appendix 1: Metrics/Databases/NoSQL databases/ApsaraDB for MongoDB-Single Node Instance.md)
+-   [ApsaraDB for MongoDB-Instance Copy](/intl.en-US/Appendix 1: Metrics/Databases/NoSQL databases/ApsaraDB for MongoDB-Instance Copy.md)
+-   [ApsaraDB for MongoDB-Cluster Instance](/intl.en-US/Appendix 1: Metrics/Databases/NoSQL databases/ApsaraDB for MongoDB-Cluster Instance.md)
 
