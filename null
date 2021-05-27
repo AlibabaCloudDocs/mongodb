@@ -1,42 +1,113 @@
-# Configure alert rules
+# 查看监控信息
 
-ApsaraDB for MongoDB provides the instance status monitoring and alerting feature. You can configure alert rules for important metrics to help detect abnormal data in a timely manner and quickly identify and troubleshoot faults.
+云数据库MongoDB管理控制台提供了丰富的性能监控数据，方便您查看和掌握实例的运行状态。
 
-## Procedure
+## 背景信息
 
-1.  Log on to the [Cloud Monitor console](https://cms-intl.console.aliyun.com/).
-2.  In the left-side navigation pane, choose **Alerts** \> **Alert Rules**.
-3.  On the **Alert Rules** page, click the **Threshold Value Alert** tab.
-4.  Click **Create Alert Rule**.
-5.  On the **Create Alert Rule** page, configure the parameters for an alert rule.
-    -   Related Resource
+关于云数据库MongoDB的监控信息功能，请您了解以下内容：
 
-        |Parameter|Description|
-        |---------|-----------|
-        |Product|The architecture type of the instance. Valid values:         -   ApsaraDB for MongoDB-Instance Copy
-        -   ApsaraDB for MongoDB-Cluster Instance
-        -   ApsaraDB for MongoDB-Single Node Instance
-**Note:** If you select **ApsaraDB for MongoDB-Cluster Instance**, you must specify the **mongos** and **shard** nodes that you want to monitor. |
-        |Resource Range|        -   **All Resources**: The alert rule is applicable to all resources of the specified service.
-        -   **Instances**: The alert rule is applicable to the specified ApsaraDB for MongoDB instances. |
+-   新旧版本MongoDB管理控制台支持的监控信息功能存在差异，建议您使用新版MongoDB管理控制台，体验更多特性。
+-   如果您使用的是新版本MongoDB管理控制台，但查看到的实例采集粒度为1秒/次或300秒/次，属于正常现象，原因为：
+    -   当前部分存量实例继承原有的监控粒度采集设置。
+    -   实例在旧版本MongoDB管理控制台进行了监控粒度采集设置，详情请参见[设置监控采集粒度](/cn.zh-CN/用户指南/监控与报警/设置监控采集粒度.md)。
+-   如果您使用的是旧版本MongoDB管理控制台，但查看到的实例采集粒度为60秒/次，属于正常现象，说明该实例是在监控采集粒度统一变更为60秒/次后创建。更多信息请参见[【通知】11月19日监控采集粒度变更为60秒](/cn.zh-CN/产品通知/【通知】11月19日监控采集粒度变更为60秒.md)。
 
-    -   Set Alert Rules
+## 注意事项
 
-        For information about parameters, see [Manage alert rules](/intl.en-US/Alarm service/Alarm rules/Manage alert rules.md).
+-   如果您接收到来自阿里云的告警信息（例如提示您CPU使用率高于80%），在您通过查看实例的监控信息进行问题溯源分析时，您需要筛选实例的节点，以排查各节点是否存在异常。
+-   监控数据保存时间为7天，您无法查看7天之前的监控信息。
 
-    -   Notification Mode
+## 操作步骤
 
-        For information about parameters, see [Manage alert rules](/intl.en-US/Alarm service/Alarm rules/Manage alert rules.md).
+1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
 
-        **Note:** Before you configure an alert rule, you must create an alert contact or contact group in the Cloud Monitor console. For more information, see [Create an alert contact or alert group](/intl.en-US/Alarm service/Alert contacts/Create an alert contact or alert group.md).
+2.  在页面左上角，选择实例所在的资源组和地域。
 
-6.  Click **Confirm**. The alert rule automatically takes effect.
+3.  根据实例类型，在左侧导航栏单击**副本集实例列表**、**分片集群实例列表**或**Serverless实例列表**。
 
-## References
+4.  找到目标实例，单击实例ID。
 
-For more information about the metrics, see the following topics:
+5.  在左侧导航栏中，单击**监控信息**。
 
--   [ApsaraDB for MongoDB-Single Node Instance](/intl.en-US/Appendix 1: Metrics/Databases/NoSQL databases/ApsaraDB for MongoDB-Single Node Instance.md)
--   [ApsaraDB for MongoDB-Instance Copy](/intl.en-US/Appendix 1: Metrics/Databases/NoSQL databases/ApsaraDB for MongoDB-Instance Copy.md)
--   [ApsaraDB for MongoDB-Cluster Instance](/intl.en-US/Appendix 1: Metrics/Databases/NoSQL databases/ApsaraDB for MongoDB-Cluster Instance.md)
+6.  根据实例类型，选择要查看监控信息的节点。
+
+    **说明：** 默认展示最近一天的监控数据，您也可以选择查询时间来查看监控历史数据。
+
+    -   单节点实例：固定展示Primary节点的监控数据，无法选择。
+    -   副本集实例：在页面上方，选择实例中的Primary节点和Secondary节点。
+
+        ![副本集实例监控信息](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/0369041261/p67534.png)
+
+    -   分片集群实例：在页面上方，选择实例中的Mongos节点、Shard节点和ConfigServer节点。
+
+        **说明：**
+
+        -   节点ID以**s-**为前缀的是Mongos节点；以**d-**为前缀的是Shard节点；以**-cs**为后缀的是ConfigServer节点。
+        -   如果选择Shard节点，您可以选择Primary节点、Secondary节点、Hidden节点或ReadOnly节点查看对应节点的监控信息。
+        ![分片集群实例监控信息](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1367517161/p258290.png)
+
+    -   Serverless实例：在页面上方，选择实例中的MongosID节点。
+
+        **说明：** Serverless实例仅提供2个MongosID节点保证实例的高可用。
+
+        ![Serverless监控信息](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4747376161/p170911.png)
+
+
+## 监控项说明（副本集实例和分片集群实例）
+
+|监控项|说明|
+|:--|:-|
+|CPU使用率|cpu\_usage：实例的CPU使用率。|
+|内存使用率|mem\_usage：实例的内存使用率。|
+|IOPS使用量|IOPS使用量，包括： -   data\_iops：数据盘IOPS。
+-   log\_iops：日志盘IOPS。 |
+|IOPS使用率|iops\_usage：实例使用IOPS大小与最大可用IOPS的比值。|
+|磁盘空间使用量|实例使用的磁盘空间，包括： -   ins\_size：总使用空间。
+-   data\_size：数据磁盘使用空间。
+-   log\_size：日志磁盘使用空间。 |
+|磁盘空间使用率|disk\_usage：实例总使用空间与规格最大可使用空间的比值。|
+|操作QPS数|实例的操作QPS数，包括： -   insert操作数。
+-   query操作数。
+-   delete操作数。
+-   update操作数。
+-   getmore操作数。
+-   command操作数。 |
+|连接数|current\_conn：实例当前连接数|
+|cursors|实例当前使用的cursor数，包括： -   total\_open：当前cursor打开数量。
+-   timed\_out：cursor超时数量。 |
+|网络流量|实例的网络流量，包括： -   bytes\_in：进口流量。
+-   bytes\_out：出口流量。
+-   num\_requests：处理的请求数。 |
+|等待全局锁的队列长度|实例当前等待全局锁的队列长度，包括： -   gl\_cq\_readers：全局读锁的等待队列长度。
+-   gl\_cq\_writers：全局写锁的等待队列长度。
+-   gl\_cq\_total：所有全局锁的等待队列长度。 |
+|WiredTiger|实例wiredTiger引擎cache层指标，包括： -   bytes\_read\_into\_cache：读入cache的数据量大小。
+-   bytes\_written\_from\_cache：从cache写的磁盘大小。
+-   maximum\_bytes\_configured：配置最大可用的磁盘大小。 |
+|主备延时|repl\_lag：采集实例主备节点的数据同步延时信息。|
+|WT请求队列|查看当前正在并发（out）的读写请求数以及剩余可用（available）的并发数。包括： -   write\_concurrent\_trans\_out：写并发请求数。
+-   read\_concurrent\_trans\_out：读并发请求数。
+-   write\_concurrent\_trans\_available：可用的写并发数。
+-   read\_concurrent\_trans\_available：可用的读并发数。 |
+|IO延迟|iocheck\_cost：反映当前IO的响应性能。**说明：** 该监控项仅适用于副本集实例。 |
+
+## 监控项说明（Serverless实例）
+
+|监控项|说明|
+|:--|:-|
+|磁盘空间使用率（单位：%）|sl\_disk\_usage：当前实例总使用空间与当前规格最大可使用空间的比值。|
+|操作QPS数（单位：个）|实例的操作QPS个数，包括： -   insert操作数。
+-   query操作数。
+-   update操作数。
+-   delete操作数。
+-   getmore操作数。
+-   command操作数。 |
+|网络流量（单位：B）|实例的网络流量，包括： -   sl\_bytes\_in：进口流量。
+-   sl\_bytes\_out：出口流量。 |
+|连接数（单位：个）|sl\_connections：实例的当前连接数。|
+|每秒访问次数（单位：个）|sl\_qps：实例的每秒访问次数。|
+
+## 更多信息
+
+您可以将MongoDB实例接入至数据库自治服务DAS（Database Autonomy Service）。在DAS控制台中，您可以对MongoDB实例的实时性能、实时会话、慢日志、磁盘空间等信息进行监控和管理，详情请参见[DAS操作流程](https://help.aliyun.com/document_detail/64900.html)。
 
