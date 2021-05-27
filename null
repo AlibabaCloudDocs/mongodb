@@ -9,8 +9,8 @@
 -   新旧版本MongoDB管理控制台支持的监控信息功能存在差异，建议您使用新版MongoDB管理控制台，体验更多特性。
 -   如果您使用的是新版本MongoDB管理控制台，但查看到的实例采集粒度为1秒/次或300秒/次，属于正常现象，原因为：
     -   当前部分存量实例继承原有的监控粒度采集设置。
-    -   实例在旧版本MongoDB管理控制台进行了监控粒度采集设置，详情请参见[设置监控采集粒度](/cn.zh-CN/用户指南/监控与报警/设置监控采集粒度.md)。
--   如果您使用的是旧版本MongoDB管理控制台，但查看到的实例采集粒度为60秒/次，属于正常现象，说明该实例是在监控采集粒度统一变更为60秒/次后创建。更多信息请参见[【通知】11月19日监控采集粒度变更为60秒](/cn.zh-CN/产品通知/【通知】11月19日监控采集粒度变更为60秒.md)。
+    -   实例在旧版本MongoDB管理控制台进行了监控粒度采集设置，详情请参见[设置监控采集粒度](/intl.zh-CN/用户指南/监控与报警/设置监控采集粒度.md)。
+-   如果您使用的是旧版本MongoDB管理控制台，但查看到的实例采集粒度为60秒/次，属于正常现象，说明该实例是在监控采集粒度统一变更为60秒/次后创建。更多信息请参见[【通知】11月19日监控采集粒度变更为60秒](/intl.zh-CN/产品通知/【通知】11月19日监控采集粒度变更为60秒.md)。
 
 ## 注意事项
 
@@ -23,7 +23,7 @@
 
 2.  在页面左上角，选择实例所在的资源组和地域。
 
-3.  根据实例类型，在左侧导航栏单击**副本集实例列表**、**分片集群实例列表**或**Serverless实例列表**。
+3.  根据实例类型，在左侧导航栏单击**副本集实例列表**或**Serverless实例列表**。
 
 4.  找到目标实例，单击实例ID。
 
@@ -40,20 +40,12 @@
 
     -   分片集群实例：在页面上方，选择实例中的Mongos节点、Shard节点和ConfigServer节点。
 
-        **说明：**
+        **说明：** 节点ID以**s-**为前缀的是Mongos节点；以**d-**为前缀的是Shard节点；以**-cs**为后缀的是ConfigServer节点。
 
-        -   节点ID以**s-**为前缀的是Mongos节点；以**d-**为前缀的是Shard节点；以**-cs**为后缀的是ConfigServer节点。
-        -   如果选择Shard节点，您可以选择Primary节点、Secondary节点、Hidden节点或ReadOnly节点查看对应节点的监控信息。
-        ![分片集群实例监控信息](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1367517161/p258290.png)
-
-    -   Serverless实例：在页面上方，选择实例中的MongosID节点。
-
-        **说明：** Serverless实例仅提供2个MongosID节点保证实例的高可用。
-
-        ![Serverless监控信息](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4747376161/p170911.png)
+        ![分片集群实例监控信息](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4747376161/p67540.png)
 
 
-## 监控项说明（副本集实例和分片集群实例）
+## 监控项说明
 
 |监控项|说明|
 |:--|:-|
@@ -90,24 +82,4 @@
 -   write\_concurrent\_trans\_available：可用的写并发数。
 -   read\_concurrent\_trans\_available：可用的读并发数。 |
 |IO延迟|iocheck\_cost：反映当前IO的响应性能。**说明：** 该监控项仅适用于副本集实例。 |
-
-## 监控项说明（Serverless实例）
-
-|监控项|说明|
-|:--|:-|
-|磁盘空间使用率（单位：%）|sl\_disk\_usage：当前实例总使用空间与当前规格最大可使用空间的比值。|
-|操作QPS数（单位：个）|实例的操作QPS个数，包括： -   insert操作数。
--   query操作数。
--   update操作数。
--   delete操作数。
--   getmore操作数。
--   command操作数。 |
-|网络流量（单位：B）|实例的网络流量，包括： -   sl\_bytes\_in：进口流量。
--   sl\_bytes\_out：出口流量。 |
-|连接数（单位：个）|sl\_connections：实例的当前连接数。|
-|每秒访问次数（单位：个）|sl\_qps：实例的每秒访问次数。|
-
-## 更多信息
-
-您可以将MongoDB实例接入至数据库自治服务DAS（Database Autonomy Service）。在DAS控制台中，您可以对MongoDB实例的实时性能、实时会话、慢日志、磁盘空间等信息进行监控和管理，详情请参见[DAS操作流程](https://help.aliyun.com/document_detail/64900.html)。
 
