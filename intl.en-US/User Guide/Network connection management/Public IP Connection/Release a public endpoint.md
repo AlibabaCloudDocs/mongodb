@@ -52,7 +52,7 @@ You can release one or more public connection strings of the mongos, shard, and 
 
 7.  In the **Actions** column corresponding to the instance, click **Release**.
 
-    ![Release a public connection string](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/6137812261/p13376.png)
+    ![Release a public connection string](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/4388812261/p13376.png)
 
     |Node type|Description|
     |---------|-----------|
