@@ -24,7 +24,7 @@ This topic describes how to connect to a sharded cluster instance by using the m
 
 5.  In the left-side navigation pane, click **Database Connections** to obtain the endpoint of a mongos.
 
-    ![Connection information](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9135812261/p13833.png)
+    ![Connection information](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1953912261/p13833.png)
 
 6.  Connect to the sharded cluster instance from your client or ECS instance that has the mongo shell installed.
 
