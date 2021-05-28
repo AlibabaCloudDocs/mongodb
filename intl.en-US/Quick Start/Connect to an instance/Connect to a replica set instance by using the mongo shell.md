@@ -22,7 +22,7 @@ This topic describes how to use the mongo shell to connect to a replica set inst
 
 4.  Find the target instance and click its ID.
 
-5.  In the left-side navigation pane, click **Database Connection** to obtain the connection string of a node and the connection string URI.
+5.  In the left-side navigation pane, click **Database Connections** to obtain the connection string of a node and the connection string URI.
 
     **Note:** For more information about how to query the connection addresses, see [Description of connection strings]().
 
@@ -32,7 +32,7 @@ This topic describes how to use the mongo shell to connect to a replica set inst
 
         During routine tests, you can directly connect to a primary or secondarynode. A [failover](/intl.en-US/User Guide/Primary/Secondary failover/Trigger a primary/secondary failover for a replica set instance.md) changes the roles of connected nodes, which affects read/write operations.
 
-        ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5123797951/p31535.png)
+        ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/2074812261/p31535.png)
 
         Command syntax:
 
@@ -59,7 +59,7 @@ This topic describes how to use the mongo shell to connect to a replica set inst
 
     -   HA connection \(recommended\): You can use a connection string URI to connect to both the primary and secondary nodes of a replica set instance. This ensures that your application is always connected to the primary node and the read/write operations of your application are not affected even if the roles of the primary and secondary nodes are switched.
 
-        ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5123797951/p34449.png)
+        ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/2074812261/p34449.png)
 
         Command syntax:
 
@@ -77,20 +77,21 @@ This topic describes how to use the mongo shell to connect to a replica set inst
 
 ## Common connection scenarios
 
--   [Connect a local client to an ApsaraDB for MongoDB instance over the Internet](/intl.en-US/User Guide/Instance connection/Connect a local client to an ApsaraDB for MongoDB instance over the Internet.md)
+-   [Connect to an ApsaraDB for MongoDB instance over the Internet](/intl.en-US/User Guide/Instance connection/Connect to an ApsaraDB for MongoDB instance over the Internet.md)
 
     **Note:** Before you connect to a replica set instance over the Internet, we recommend that you enable SSL encryption. For more information, see [Use the mongo shell to connect to an ApsaraDB for MongoDB database in SSL encryption mode](/intl.en-US/User Guide/Data security/Use the mongo shell to connect to an ApsaraDB for MongoDB database in SSL encryption
          mode.md).
 
 -   [How to connect an ECS instance to an ApsaraDB for MongoDB instance when their network types are different](/intl.en-US/User Guide/Instance connection/How to connect an ECS instance to an ApsaraDB for MongoDB instance when their network types are different.md)
--   [How to connect an ECS instance to an ApsaraDB for MongoDB instance when they are in different regions](/intl.en-US/User Guide/Instance connection/How to connect an ECS instance to an ApsaraDB for MongoDB instance when they are in different regions.md)
--   [Connect an ECS instance with an ApsaraDB for MongoDB instance in another Alibaba Cloud account](/intl.en-US/User Guide/Instance connection/How to connect an ECS instance to an ApsaraDB for MongoDB instance when they do not belong to the same Alibaba Cloud account.md)
+-   [How to connect an ECS instance to an ApsaraDB for MongoDB instance when they are in different regions](/intl.en-US/User Guide/Instance connection/How to connect an ECS instance to an ApsaraDB for MongoDB instance when they are in
+         different regions.md)
+-   [Connect an ECS instance with an ApsaraDB for MongoDB instance in another Alibaba Cloud account](/intl.en-US/User Guide/Instance connection/Connect an ECS instance with an ApsaraDB for MongoDB instance in another Alibaba Cloud
+         account.md)
 
 ## FAQ
 
--   [How to troubleshoot logon issues for the mongo shell](/intl.en-US/Product Usage/Hot issues/The system prompts "Timeout while receiving message" when logging on to apsaradb for MongoDB through the Mongo Shell from a Linux instance.md)
--   [How to troubleshoot database connection failures after the number of connections reaches the upper limit](/intl.en-US/Product Usage/Hot issues/How to troubleshoot database connection failures after the number of connections reaches
-         the upper limit.md)
--   [Troubleshoot the high CPU usage of ApsaraDB for MongoDB](/intl.en-US/Best Practices/Performance/Troubleshoot the high CPU usage of ApsaraDB for MongoDB.md)
--   [How to query and limit the number of connections](/intl.en-US/Product Usage/Hot issues/How to query and limit the number of connections to an apsaradb for MongoDB instance.md)
+-   [How to troubleshoot logon issues for the mongo shell](/intl.en-US/Product Usage/Database connections/The system prompts "Timeout while receiving message" when logging on to apsaradb for MongoDB through the Mongo Shell from a Linux instance.md)
+-   [How to troubleshoot database connection failures after the number of connections reaches the upper limit](/intl.en-US/Product Usage/Database connections/How to troubleshoot database connection failures after the number of connections reaches the upper limit.md)
+-   [Troubleshoot the high CPU usage of ApsaraDB for MongoDB](/intl.en-US/Best Practices/Performance/Troubleshoot the high CPU utilization of ApsaraDB for MongoDB.md)
+-   [How to query and limit the number of connections](/intl.en-US/Product Usage/Database connections/How do I query and limit the number of connections?.md)
 
