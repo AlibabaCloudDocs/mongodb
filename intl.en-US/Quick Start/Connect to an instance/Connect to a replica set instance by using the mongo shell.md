@@ -32,7 +32,7 @@ This topic describes how to use the mongo shell to connect to a replica set inst
 
         During routine tests, you can directly connect to a primary or secondarynode. A [failover](/intl.en-US/User Guide/Primary/Secondary failover/Trigger a primary/secondary failover for a replica set instance.md) changes the roles of connected nodes, which affects read/write operations.
 
-        ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/2074812261/p31535.png)
+        ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9434912261/p31535.png)
 
         Command syntax:
 
@@ -59,7 +59,7 @@ This topic describes how to use the mongo shell to connect to a replica set inst
 
     -   HA connection \(recommended\): You can use a connection string URI to connect to both the primary and secondary nodes of a replica set instance. This ensures that your application is always connected to the primary node and the read/write operations of your application are not affected even if the roles of the primary and secondary nodes are switched.
 
-        ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/2074812261/p34449.png)
+        ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9434912261/p34449.png)
 
         Command syntax:
 
