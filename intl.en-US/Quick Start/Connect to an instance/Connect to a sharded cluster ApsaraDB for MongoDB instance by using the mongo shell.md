@@ -22,9 +22,9 @@ This topic describes how to connect to a sharded cluster instance by using the m
 
 4.  Find the target instance and click its ID.
 
-5.  In the left-side navigation pane, click **Database Connection** to obtain the endpoint of a mongos.
+5.  In the left-side navigation pane, click **Database Connections** to obtain the endpoint of a mongos.
 
-    ![Connection information](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/2378317951/p13833.png)
+    ![Connection information](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9135812261/p13833.png)
 
 6.  Connect to the sharded cluster instance from your client or ECS instance that has the mongo shell installed.
 
@@ -59,9 +59,8 @@ This topic describes how to connect to a sharded cluster instance by using the m
 
 ## Related FAQ
 
--   [How do I troubleshoot logon issues for the mongo shell?](/intl.en-US/Product Usage/Hot issues/The system prompts "Timeout while receiving message" when logging on to apsaradb for MongoDB through the Mongo Shell from a Linux instance.md)
--   [How to troubleshoot database connection failures after the number of connections reaches the upper limit](/intl.en-US/Product Usage/Hot issues/How to troubleshoot database connection failures after the number of connections reaches
-         the upper limit.md)
+-   [How do I troubleshoot logon issues for the mongo shell?](/intl.en-US/Product Usage/Database connections/The system prompts "Timeout while receiving message" when logging on to apsaradb for MongoDB through the Mongo Shell from a Linux instance.md)
+-   [How to troubleshoot database connection failures after the number of connections reaches the upper limit](/intl.en-US/Product Usage/Database connections/How to troubleshoot database connection failures after the number of connections reaches the upper limit.md)
 -   [How do I troubleshoot the high CPU utilization of ApsaraDB for MongoDB?](/intl.en-US/Best Practices/Performance/Troubleshoot the high CPU utilization of ApsaraDB for MongoDB.md)
--   [How do I query and limit the number of connections?](/intl.en-US/Product Usage/Hot issues/How do I query and limit the number of connections?.md)
+-   [How do I query and limit the number of connections?](/intl.en-US/Product Usage/Database connections/How do I query and limit the number of connections?.md)
 
