@@ -4,7 +4,7 @@ This topic describes how to configure an IP address whitelist or an ECS security
 
 When you add an ECS security group, make sure that the ApsaraDB for MongoDB instance has the same network type as the ECS instances in the ECS security group. If both the ApsaraDB for MongoDB instance and ECS instances are of the VPC type, make sure that they reside in the same VPC.
 
--   Before you use an ApsaraDB for MongoDB instance for the first time, you must configure a whitelist for the instance. After you configure the whitelist, the endpoints of the instance appear on the **Basic Information** and **Database Connection** pages.
+-   Before you use an ApsaraDB for MongoDB instance for the first time, you must configure a whitelist for the instance. After you configure the whitelist, the endpoints of the instance appear on the **Basic Information** and **Database Connections** pages.
 -   Whitelists make your ApsaraDB for MongoDB instances more secure. We recommend that you maintain the whitelists on a regular basis.
 
 ## Configure an IP address whitelist for a standalone instance, replica set instance, or sharded cluster instance
