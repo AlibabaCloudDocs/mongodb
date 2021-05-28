@@ -20,9 +20,9 @@ This topic describes how to modify the public and internal endpoints of an Apsar
 
 4.  Find the target instance and click its ID.
 
-5.  In the left-side navigation pane, click **Database Connection**.
+5.  In the left-side navigation pane, click **Database Connections**.
 
-6.  In the **Intranet Connection** or **Public IP Connection** section, click **Update Connection String**.
+6.  In the **Internal Connections** or **Public Connections** section, click **Update Connection String**.
 
 7.  In the dialog box that appears, enter a new endpoint.
 
