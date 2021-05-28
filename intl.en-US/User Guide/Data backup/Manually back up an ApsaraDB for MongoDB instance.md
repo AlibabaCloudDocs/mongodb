@@ -25,7 +25,7 @@ This topic describes how to manually back up an ApsaraDB for MongoDB instance. A
 
 4.  Find the target instance and click its ID.
 
-5.  In the upper-right corner of the page, click **Backup Instance**.
+5.  In the upper-right corner of the page, click **Back up Instance**.
 
 6.  In the dialog box that appears, specify **Backup Method**.
 
@@ -33,7 +33,7 @@ This topic describes how to manually back up an ApsaraDB for MongoDB instance. A
 
     -   If the instance is a standalone instance, you can select only **Snapshot Backup**.
     -   If the instance is a replica set or sharded cluster instance, you can select **Logical Backup** or **Physical Backup**.
-    ![Select a backup method](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9445298951/p7041.png)
+    ![Select a backup method](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/6694812261/p7041.png)
 
 7.  Click **OK**.
 
