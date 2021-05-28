@@ -29,7 +29,7 @@ For more information, see [Architecture of sharded cluster instances](/intl.en-U
 
 4.  Find the target instance and click its ID.
 
-5.  In the left-side navigation pane, click **Database Connection**.
+5.  In the left-side navigation pane, click **Database Connections**.
 
 6.  In the upper-right corner, choose **More** \> **Apply for Shard or ConfigServer Connection String**.
 
@@ -61,7 +61,7 @@ For more information, see [Architecture of sharded cluster instances](/intl.en-U
 
 ## Node types
 
-After you apply for the connection string of a shard or Configserver node, you can view the connection string on the **Database Connection** page. The following table describes node types.
+After you apply for the connection string of a shard or Configserver node, you can view the connection string on the **Database Connections** page. The following table describes node types.
 
 |Node type|Description|
 |---------|-----------|
