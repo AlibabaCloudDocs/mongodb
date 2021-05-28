@@ -65,7 +65,7 @@ Wait until data backup is complete. The data of the self-managed MongoDB databas
 
     5.  In the left-side navigation pane, click **Database Connections** to view connection information.
 
-        ![View connection details on a standalone instance](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/6421812261/p35103.png)
+        ![View connection details on a standalone instance](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9964912261/p35103.png)
 
         |Address type|Description|Application scenario|
         |------------|-----------|--------------------|
