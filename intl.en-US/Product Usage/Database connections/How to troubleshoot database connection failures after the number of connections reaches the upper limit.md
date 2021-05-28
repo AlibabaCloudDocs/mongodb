@@ -45,7 +45,7 @@ The maximum number of connections varies depending on ApsaraDB for MongoDB insta
 
     **Note:** Based on the number of current connections, you can confirm that the number of connections has reached the upper limit.
 
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/3142812261/p51158.png)
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1924812261/p51158.png)
 
 
 ## Solution
