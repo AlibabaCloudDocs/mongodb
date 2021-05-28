@@ -22,7 +22,7 @@ When you switch the network type of an instance, a transient connection error wi
 
 ## Switch from classic network to VPC
 
-1.  Create a VPC in the same region as the target ApsaraDB for MongoDB instance. For more information, see [Create a VPC](/intl.en-US/VPCs and VSwitches/VPC management/Create a VPC.md).
+1.  Create a VPC in the same region as the target ApsaraDB for MongoDB instance. For more information, see [Work with VPCs](/intl.en-US/VPCs and vSwitchs/Work with VPCs.md).
 
 2.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
 
@@ -32,7 +32,7 @@ When you switch the network type of an instance, a transient connection error wi
 
 5.  Find the target instance and click its ID.
 
-6.  In the left-side navigation pane, click **Database Connection**.
+6.  In the left-side navigation pane, click **Database Connections**.
 
 7.  In the Intranet Connection - Classic Network section, click **Switch to VPC**.
 
@@ -59,7 +59,7 @@ After you switch the network type of the instance to classic network, the intern
 
 4.  Find the target instance and click its ID.
 
-5.  In the left-side navigation pane, click **Database Connection**.
+5.  In the left-side navigation pane, click **Database Connections**.
 
 6.  In the Intranet Connection - Classic Network section, click **Switch to Classic Network**.
 
