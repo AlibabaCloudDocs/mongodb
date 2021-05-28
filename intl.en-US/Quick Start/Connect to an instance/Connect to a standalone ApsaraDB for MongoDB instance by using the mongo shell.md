@@ -24,7 +24,7 @@ This topic describes how to connect to a standalone ApsaraDB for MongoDB instanc
 
 5.  In the left-side navigation pane, click **Database Connections** to obtain the endpoint of the primary node.
 
-    ![Obtain the endpoint](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/7885812261/p13741.png)
+    ![Obtain the endpoint](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/6833912261/p13741.png)
 
     |Item|Description|
     |:---|:----------|
