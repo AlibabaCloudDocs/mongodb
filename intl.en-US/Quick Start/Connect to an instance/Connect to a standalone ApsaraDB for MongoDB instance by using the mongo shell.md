@@ -22,14 +22,14 @@ This topic describes how to connect to a standalone ApsaraDB for MongoDB instanc
 
 4.  Find the target instance and click its ID.
 
-5.  In the left-side navigation pane, click **Database Connection** to obtain the endpoint of the primary node.
+5.  In the left-side navigation pane, click **Database Connections** to obtain the endpoint of the primary node.
 
-    ![Obtain the endpoint](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1851166951/p13741.png)
+    ![Obtain the endpoint](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/7885812261/p13741.png)
 
     |Item|Description|
     |:---|:----------|
-    |Connection type|    -   **Intranet Connection**: A virtual private cloud \(VPC\) is an isolated virtual network that provides higher security and higher performance than the classic network. By default, ApsaraDB for MongoDB provides endpoints on a VPC.
-    -   **Public IP Connection**: By default, ApsaraDB for MongoDB instances do not provide public endpoints because connecting to instances over the Internet poses security risks. If you want to connect to a sharded cluster instance from a device outside Alibaba Cloud \(for example, a local client\), you must apply for a public endpoint. For more information, see [Apply for a public endpoint for a standalone ApsaraDB for MongoDB instance](). |
+    |Connection type|    -   **Internal Connections**: A virtual private cloud \(VPC\) is an isolated virtual network that provides higher security and higher performance than the classic network. By default, ApsaraDB for MongoDB provides endpoints on a VPC.
+    -   **Public Connections**: By default, ApsaraDB for MongoDB instances do not provide public endpoints because connecting to instances over the Internet poses security risks. If you want to connect to a sharded cluster instance from a device outside Alibaba Cloud \(for example, a local client\), you must apply for a public endpoint. For more information, see [Apply for a public endpoint for a standalone ApsaraDB for MongoDB instance](). |
     |**Node**|Primary: indicates the primary node of the ApsaraDB for MongoDB instance. You can connect to this node to perform read/write operations on the database.|
     |Address|The connection string of the primary node is in the format of `<host>:<port>`. **Note:**
 
@@ -78,9 +78,8 @@ mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][
 
 ## Related FAQ
 
--   [How do I troubleshoot logon issues for the mongo shell?](/intl.en-US/Product Usage/Hot issues/The system prompts "Timeout while receiving message" when logging on to apsaradb for MongoDB through the Mongo Shell from a Linux instance.md)
--   [How to troubleshoot database connection failures after the number of connections reaches the upper limit](/intl.en-US/Product Usage/Hot issues/How to troubleshoot database connection failures after the number of connections reaches
-         the upper limit.md)
+-   [How do I troubleshoot logon issues for the mongo shell?](/intl.en-US/Product Usage/Database connections/The system prompts "Timeout while receiving message" when logging on to apsaradb for MongoDB through the Mongo Shell from a Linux instance.md)
+-   [How to troubleshoot database connection failures after the number of connections reaches the upper limit](/intl.en-US/Product Usage/Database connections/How to troubleshoot database connection failures after the number of connections reaches the upper limit.md)
 -   [How do I troubleshoot the high CPU utilization of ApsaraDB for MongoDB?](/intl.en-US/Best Practices/Performance/Troubleshoot the high CPU utilization of ApsaraDB for MongoDB.md)
--   [How do I query and limit the number of connections?](/intl.en-US/Product Usage/Hot issues/How do I query and limit the number of connections?.md)
+-   [How do I query and limit the number of connections?](/intl.en-US/Product Usage/Database connections/How do I query and limit the number of connections?.md)
 
