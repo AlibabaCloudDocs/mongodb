@@ -20,11 +20,11 @@ To ensure data security, you can release a public connection string that is no l
 
 4.  Find the target instance and click its ID.
 
-5.  In the left-side navigation pane, click **Database Connection**.
+5.  In the left-side navigation pane, click **Database Connections**.
 
-6.  In the **Public IP Connection** section, click **Release Public Connection String**.
+6.  In the **Public Connections** section, click **Release Public Connection String**.
 
-    ![Release a public connection string](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/2045298951/p37322.png)
+    ![Release a public connection string](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5137812261/p37322.png)
 
 7.  In the dialog box that appears, click **OK**.
 
@@ -46,13 +46,13 @@ You can release one or more public connection strings of the mongos, shard, and 
 
 4.  Find the target instance and click its ID.
 
-5.  In the left-side navigation pane, click **Database Connection**.
+5.  In the left-side navigation pane, click **Database Connections**.
 
-6.  In the **Public IP Connection** section, find the mongos, shard, or Configserver node for which you want to release the public connection string.
+6.  In the **Public Connections** section, find the mongos, shard, or Configserver node for which you want to release the public connection string.
 
 7.  In the **Actions** column corresponding to the instance, click **Release**.
 
-    ![Release a public connection string](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/2045298951/p13376.png)
+    ![Release a public connection string](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/6137812261/p13376.png)
 
     |Node type|Description|
     |---------|-----------|
@@ -75,11 +75,11 @@ You can release one or more public connection strings of the mongos, shard, and 
 
 4.  Find the target instance and click its ID.
 
-5.  In the left-side navigation pane, click **Database Connection**.
+5.  In the left-side navigation pane, click **Database Connections**.
 
-6.  In the **Public IP Connection** section, click **Release** under the **Actions** column to the right of the public connection string.
+6.  In the **Public Connections** section, click **Release** under the **Actions** column to the right of the public connection string.
 
-    ![Release a public connection string](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/4516711061/p170497.png)
+    ![Release a public connection string](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/6137812261/p170497.png)
 
 7.  In the message that appears, click **OK**.
 
