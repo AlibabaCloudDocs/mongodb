@@ -21,7 +21,7 @@ This topic describes how to enable or disable password-free access over a VPC fo
 
 4.  Find the target instance and click its ID.
 
-5.  In the left-side navigation pane, click **Database Connection**.
+5.  In the left-side navigation pane, click **Database Connections**.
 
 6.  In the upper-right corner of the Intranet Connection - VPC section, click **Enable password-free access** or **Disable password-free access**.
 
