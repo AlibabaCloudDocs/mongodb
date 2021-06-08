@@ -5,14 +5,14 @@
 ## RAM用户授权操作步骤
 
 1.  云账号登录[RAM控制台](https://ram.console.aliyun.com/)。
-2.  [创建RAM用户](/cn.zh-CN/用户管理/创建RAM用户.md)。
+2.  创建RAM用户，具体方法，请参见[创建RAM用户](/cn.zh-CN/用户管理/基本操作/创建RAM用户.md)。
 3.  在左侧导航栏的**人员管理**菜单下，单击**用户**。
 4.  在**用户登录名称/显示名称**列表下，找到目标RAM用户。
 5.  单击**添加权限**。
 
     ![添加授权](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6874797951/p48650.png)
 
-6.  在添加权限对话框中，配置授权信息。
+6.  在**添加权限**对话框中，配置授权信息。
 
     ![配置授权信息](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6874797951/p48651.png)
 
@@ -28,7 +28,7 @@
 
 ## 自定义RAM授权策略
 
-系统策略针对所有MongoDB资源进行RAM授权，您也可以根据业务需求自定义授权策略，仅向RAM用户授予指定实例的具体操作权限。关于自定义授权策略语法，请参见[Policy结构和语法](~~93739~~)。
+系统策略针对所有MongoDB资源进行RAM授权，您也可以根据业务需求自定义授权策略，仅向RAM用户授予指定实例的具体操作权限。关于自定义授权策略语法，请参见[Policy结构和语法](Policy结构和语法t23770.dita#concept_srq_fbk_xdb)。
 
 RAM授权MongoDB Resource的方式
 
@@ -44,21 +44,9 @@ RAM授权MongoDB Resource的方式
 
 |参数名称|说明|
 |----|--|
-|```
-$regionid
-```
-
-|地域的ID，可以用`*`表示。|
-|```
-$dbinstanceid
-```
-
-|实例ID，可以用`*`表示。|
-|```
-$accountid
-```
-
-|云账号的数字ID，可以用`*`表示。|
+|`$regionid`|地域的ID，可以用`*`表示。|
+|`$dbinstanceid`|实例ID，可以用`*`表示。|
+|`$accountid`|云账号的数字ID，可以用`*`表示。|
 
 可授权的Action
 
