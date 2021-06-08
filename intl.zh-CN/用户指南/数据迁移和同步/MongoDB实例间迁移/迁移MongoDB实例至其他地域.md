@@ -1,6 +1,6 @@
 # 迁移MongoDB实例至其他地域
 
-本文介绍如何使用数据传输服务DTS（Data Transmission Service），将MongoDB单节点实例或副本集实例迁移至其他地域。DTS支持全量数据迁移和增量数据迁移，同时使用这两种迁移类型可以实现在不停服的情况下，平滑地完成数据库的迁移。
+本文介绍如何使用数据传输服务DTS（Data Transmission Service），将MongoDB单节点实例或副本集实例迁移至其他地域。DTS支持全量数据迁移和增量数据迁移，同时使用这两种迁移类型可以实现在只读情况下，平滑地完成数据库的迁移。
 
 -   源实例类型为单节点实例或副本集实例。如果源实例为分片集群实例，请使用MongoDB自带的工具进行迁移，步骤与[使用MongoDB工具将自建数据库迁移至分片集群实例](/intl.zh-CN/快速入门/数据迁移/使用MongoDB工具迁移自建数据库上云.md)类似。
 
@@ -17,7 +17,7 @@
 -   业务结构调整。
 -   在ECS实例上部署了相关应用程序，需要使用MongoDB实例提供数据库服务，但是ECS实例与MongoDB实例不在同一地域。
 
-本文以MongoDB实例从华北1迁移至华东1为例，介绍具体的操作流程。
+本文以MongoDB实例从华北1（青岛）迁移至华东1（杭州）为例，介绍具体的操作流程。
 
 ![迁移MongoDB实例至其他地域](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/0897549951/p43672.png)
 
@@ -54,7 +54,7 @@
 |源MongoDB实例|待迁移库的read权限|待迁移库、admin库和local库的read权限|
 |目标MongoDB实例|目标库的readWrite权限|目标库的readWrite权限|
 
-**说明：** 数据库账号创建及授权方法请参见[使用DMS管理MongoDB数据库用户](/intl.zh-CN/用户指南/账号管理/MongoDB数据库账号权限管理.md)
+**说明：** 数据库账号创建及授权方法请参见[使用DMS管理MongoDB数据库用户](/intl.zh-CN/用户指南/账号管理/MongoDB数据库账号权限管理.md)。
 
 ## 操作步骤
 
