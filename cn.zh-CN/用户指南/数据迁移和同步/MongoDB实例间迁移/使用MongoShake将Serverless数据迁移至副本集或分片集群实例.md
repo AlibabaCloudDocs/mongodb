@@ -115,7 +115,7 @@
 |`incr_sync.mongo_fetch_method = change_stream`|
     |special.source.db.flag|特殊形态支持。请配置为aliyun\_serverless。|`special.source.db.flag = aliyun_serverless`|
 
-    修改完成后，按ESC键，输入:wq!并按Enter。
+    修改完成后，按Esc键，输入:wq!并按Enter。
 
 6.  执行如下命令，启动迁移任务。
 
@@ -145,7 +145,7 @@
     [2021/04/30 14:20:38 CST] [INFO] ------------------------full sync done!------------------------
     ```
 
-    查看完成后，按ESC键，输入:q并按Enter。
+    查看完成后，按Esc键，输入:q并按Enter。
 
 9.  查看增量数据是否完成迁移。
 
