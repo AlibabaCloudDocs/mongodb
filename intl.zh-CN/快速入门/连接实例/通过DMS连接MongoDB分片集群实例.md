@@ -33,9 +33,9 @@
 
 4.  找到目标实例，单击实例ID。
 
-5.  单击页面右上角的**登录数据库**，选择任意Mongos节点ID，跳转到**数据管理DMS**页面。
+5.  单击页面右上角的![更多](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5639373261/p283135.png)，选择**登录数据库**，并选择任意Mongos节点ID，跳转到**数据管理DMS**页面。
 
-    ![选择mongos节点登录](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7425715061/p66241.png)
+    ![登录数据库](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8839373261/p283565.png)
 
 6.  在**登录实例**对话框中，填写相应信息。
 
@@ -67,8 +67,8 @@
 
 ## 相关问题
 
--   [排查 Mongo Shell 登录问题](/intl.zh-CN/常见问题/热点问题/Linux实例使用Mongo Shell登录MongoDB数据库提示“Timeout while receiving message”错误.md)
--   [排查因连接数耗尽导致的数据库连接问题](/intl.zh-CN/常见问题/热点问题/MongoDB实例连接数耗尽导致数据库连接失败.md)
+-   [排查 Mongo Shell 登录问题](/intl.zh-CN/常见问题/连接数据库/Linux实例使用Mongo Shell登录MongoDB数据库提示“Timeout while receiving message”错误.md)
+-   [排查因连接数耗尽导致的数据库连接问题](/intl.zh-CN/常见问题/连接数据库/排查因连接数耗尽导致的数据库连接问题.md)
 -   [排查 MongoDB CPU使用率高的问题](/intl.zh-CN/最佳实践/性能/排查MongoDB CPU使用率高的问题.md)
--   [如何查询及限制连接数](/intl.zh-CN/常见问题/热点问题/如何查询及限制MongoDB实例的连接数.md)
+-   [如何查询及限制连接数](/intl.zh-CN/常见问题/连接数据库/如何查询及限制MongoDB实例的连接数.md)
 
