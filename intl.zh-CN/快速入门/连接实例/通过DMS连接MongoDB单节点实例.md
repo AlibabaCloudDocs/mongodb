@@ -1,0 +1,59 @@
+# 通过DMS连接MongoDB单节点实例
+
+数据管理服务DMS（Data Management Service）是一种集数据管理、结构管理、用户授权、安全审计、数据趋势、数据追踪、BI图表、性能优化和服务器管理于一体的可视化、图形化数据管理服务。通过DMS获取MongoDB数据库列表后，您可以更加方便快捷地远程访问、在线管理您的MongoDB数据库。
+
+## 准备工作
+
+将DMS服务器IP地址（100.104.0.0/16）加入至MongoDB实例的白名单中，详情请参见[设置白名单]()。
+
+**说明：** 如果您已经将DMS服务器的IP地址加入至MongoDB实例的白名单中，可跳过此步骤。
+
+## 操作步骤
+
+1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
+
+2.  在页面左上角，选择实例所在的资源组和地域。
+
+3.  在左侧导航栏，单击**副本集实例列表**。
+
+4.  找到目标实例，单击实例ID。
+
+5.  单击页面右上角的![更多](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5639373261/p283135.png)，选择**登录数据库**，跳转到**数据管理DMS**页面。
+
+    ![登录数据库](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5639373261/p283544.png)
+
+6.  在**登录实例**对话框中，填写相应信息。
+
+    ![DMS登录](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7425715061/p181952.png)
+
+    |参数|说明|
+    |--|--|
+    |**数据库类型**|目标数据库的类型，系统默认为当前需要连接的数据库类型。|
+    |**实例地区**|目标实例所在的地域，系统默认为当前实例所在地域。|
+    |**连接串地址**|目标实例的连接串地址，系统默认为当前实例的连接串地址。|
+    |**数据库名称**|填入鉴权数据库名，即数据库账号所属的数据库。 **说明：**
+
+    -   如果**数据库账号**填写的是root，那么对应的数据库名即为admin。
+    -   不建议在生产环境中直接使用root账号连接数据库。您可以根据业务需求创建用户并分配权限，详情请参见[使用DMS管理MongoDB实例的账号](/intl.zh-CN/用户指南/账号管理/MongoDB数据库账号权限管理.md)。 |
+    |**数据库账号**|目标数据库的账号，初始账号为`root`。|
+    |**数据库密码**|填入该数据库账号对应的密码。 **说明：** 如果忘记root账号的密码，您可以[重置密码]()。 |
+
+7.  单击**登录**。
+
+    **说明：** 若您希望浏览器记住该账号的密码，可以先勾选**记住密码**，再单击**登录**。
+
+
+## 常见的连接场景
+
+-   [如何通过公网连接MongoDB实例](/intl.zh-CN/用户指南/连接实例/如何通过公网连接MongoDB实例.md)
+-   [ECS实例与MongoDB实例网络类型不同时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例网络类型不同时如何连接.md)
+-   [ECS实例与MongoDB实例地域不同时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例地域不同时如何连接.md)
+-   [ECS实例与MongoDB实例不在同一阿里云账号时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例不在同一阿里云账号时如何连接.md)
+
+## 相关问题
+
+-   [排查Mongo Shell登录问题](/intl.zh-CN/常见问题/连接数据库/Linux实例使用Mongo Shell登录MongoDB数据库提示“Timeout while receiving message”错误.md)
+-   [排查因连接数耗尽导致的数据库连接问题](/intl.zh-CN/常见问题/连接数据库/排查因连接数耗尽导致的数据库连接问题.md)
+-   [排查MongoDB CPU使用率高的问题](/intl.zh-CN/最佳实践/性能/排查MongoDB CPU使用率高的问题.md)
+-   [如何查询及限制连接数](/intl.zh-CN/常见问题/连接数据库/如何查询及限制MongoDB实例的连接数.md)
+
