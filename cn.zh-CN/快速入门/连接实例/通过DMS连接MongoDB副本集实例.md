@@ -4,7 +4,7 @@
 
 ## 准备工作
 
-根据MongoDB实例的网络类型，将DMS服务器的IP地址加入至MongoDB实例的白名单中，详情请参见[设置白名单](/cn.zh-CN/快速入门/设置白名单.md)。 如需连接MongoDB的只读节点，请事先创建只读节点，详情请参见[创建副本集实例](/cn.zh-CN/快速入门/创建实例/创建副本集实例.md)或[变更副本集实例节点数](/cn.zh-CN/用户指南/实例管理/变更实例配置/变更副本集实例节点数.md)。
+根据MongoDB实例的网络类型，将DMS服务器的IP地址加入至MongoDB实例的白名单中，详情请参见[设置白名单](/cn.zh-CN/快速入门/设置白名单.md)。 如需连接MongoDB的只读节点，请事先创建只读节点，详情请参见[创建副本集实例](/cn.zh-CN/快速入门/创建实例/创建副本集实例.md)或[变更副本集实例配置](/cn.zh-CN/用户指南/实例管理/变更实例配置/变更副本集实例配置.md)。
 
 **说明：** 如您已经将DMS服务器的IP地址加入至MongoDB实例的白名单中，可跳过此步骤。
 
@@ -35,9 +35,9 @@
 
 4.  找到目标实例，单击实例ID。
 
-5.  单击页面右上角的**登录数据库**，并单击要登录的数据库节点（**Primary**、**Secondary**或**Readonly**），跳转到**数据管理DMS**页面。
+5.  单击页面右上角的![更多](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5639373261/p283135.png)，选择**登录数据库**，并选择要登录的数据库节点（**Primary**、**Secondary**或**Readonly**），跳转到**数据管理DMS**页面。
 
-    ![选择节点](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/0594087951/p142393.png)
+    ![登录数据库](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7739373261/p283570.png)
 
     **说明：**
 
@@ -74,10 +74,10 @@
 
 ## 相关问题
 
--   [排查 Mongo Shell 登录问题](/cn.zh-CN/常见问题/热点问题/Linux实例使用Mongo Shell登录MongoDB数据库提示“Timeout while receiving message”错误.md)
--   [排查因连接数耗尽导致的数据库连接问题](/cn.zh-CN/常见问题/热点问题/MongoDB实例连接数耗尽导致数据库连接失败.md)
+-   [排查 Mongo Shell 登录问题](/cn.zh-CN/常见问题/连接数据库/Linux实例使用Mongo Shell登录MongoDB数据库提示“Timeout while receiving message”错误.md)
+-   [排查因连接数耗尽导致的数据库连接问题](/cn.zh-CN/常见问题/连接数据库/MongoDB实例连接数耗尽导致数据库连接失败.md)
 -   [排查 MongoDB CPU使用率高的问题](/cn.zh-CN/最佳实践/性能/排查MongoDB CPU使用率高的问题.md)
--   [如何查询及限制连接数](/cn.zh-CN/常见问题/热点问题/如何查询及限制MongoDB实例的连接数.md)
+-   [如何查询及限制连接数](/cn.zh-CN/常见问题/连接数据库/如何查询及限制MongoDB实例的连接数.md)
 
 ## 更多信息
 
