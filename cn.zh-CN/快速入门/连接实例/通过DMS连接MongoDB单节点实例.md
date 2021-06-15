@@ -18,7 +18,9 @@
 
 4.  找到目标实例，单击实例ID。
 
-5.  单击页面右上角的**登录数据库**，跳转到**数据管理DMS**页面。
+5.  单击页面右上角的![更多](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5639373261/p283135.png)，选择**登录数据库**，跳转到**数据管理DMS**页面。
+
+    ![登录数据库](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5639373261/p283544.png)
 
 6.  在**登录实例**对话框中，填写相应信息。
 
@@ -50,10 +52,10 @@
 
 ## 相关问题
 
--   [排查Mongo Shell登录问题](/cn.zh-CN/常见问题/热点问题/Linux实例使用Mongo Shell登录MongoDB数据库提示“Timeout while receiving message”错误.md)
--   [排查因连接数耗尽导致的数据库连接问题](/cn.zh-CN/常见问题/热点问题/MongoDB实例连接数耗尽导致数据库连接失败.md)
+-   [排查Mongo Shell登录问题](/cn.zh-CN/常见问题/连接数据库/Linux实例使用Mongo Shell登录MongoDB数据库提示“Timeout while receiving message”错误.md)
+-   [排查因连接数耗尽导致的数据库连接问题](/cn.zh-CN/常见问题/连接数据库/MongoDB实例连接数耗尽导致数据库连接失败.md)
 -   [排查MongoDB CPU使用率高的问题](/cn.zh-CN/最佳实践/性能/排查MongoDB CPU使用率高的问题.md)
--   [如何查询及限制连接数](/cn.zh-CN/常见问题/热点问题/如何查询及限制MongoDB实例的连接数.md)
+-   [如何查询及限制连接数](/cn.zh-CN/常见问题/连接数据库/如何查询及限制MongoDB实例的连接数.md)
 
 ## 更多信息
 
