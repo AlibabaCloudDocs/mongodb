@@ -41,7 +41,7 @@ Amazon DynamoDB是一种完全托管的NoSQL数据库服务，提供快速而可
 |可选参数：StreamSpecification|是|`StreamViewType`参数当前仅支持如下值：-   KEYS\_ONLY
 -   NEW\_IMAGE
 
-**说明：** NEW\_IMAGE当前仅可包含分区键（Paritition key），如果表中存在排序键（Sort key），该排序键将会被忽略。 |
+**说明：** NEW\_IMAGE当前仅可包含分区键（Partition key），如果表中存在排序键（Sort key），该排序键将会被忽略。 |
 |必选参数：TableName|是|无|
 |返回参数|TableDescription|是|参见TableDescription。|
 |DescribeTable|请求参数|必选参数：TableName|是|无|
@@ -283,6 +283,7 @@ Amazon DynamoDB是一种完全托管的NoSQL数据库服务，提供快速而可
         -   `SET path = operand`语法中，不支持`operand`是`path`的场景。
         -   `SET path = operand1 '+'|'-' operand2`语法中，`operand1`必须等于`path`，即在此场景下只支持字段自增或自减。
         -   `SET path = if_not_exists (path, value)`语法中，两个`path`必须相等，且`value`只能是表达式属性值。
+        -   `SET path = if_not_exists (path, value)`语法中，在同时指定多个时不支持部分更新，即需要满足全部条件才能执行成功。
         -   `SET path = list_append(list1, list2)`语法中，`list1`和`list2`中必须有一个等于`path`，另外一个是表达式属性值。
     -   remove-action：用于移除`List`中某个元素时，用`null`代替被移除的元素，`List`大小不变，剩下的元素不会发生移位。
 
