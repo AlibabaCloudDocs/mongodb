@@ -27,9 +27,10 @@ Amazon DynamoDB是一种完全托管的NoSQL数据库服务，提供快速而可
 |可选参数：ProvisionedThroughput|否|无|
 |可选参数：SSESpecification|否|无|
 |可选参数：StreamSpecification|是|`StreamViewType`参数当前仅支持如下值：-   KEYS\_ONLY
--   NEW\_IMAGE
 
-**说明：** NEW\_IMAGE当前仅可包含分区键（Partition key），如果表中存在排序键（Sort key），该排序键将会被忽略。 |
+**说明：** KEYS\_ONLY当前仅支持包含分区键（Partition key），不支持表中存在排序键（Sort key）。
+
+-   NEW\_IMAGE |
 |可选参数：Tags|否|无|
 |返回参数|TableDescription|是|无|
 |UpdateTable|请求参数|可选参数：AttributeDefinitions|是|无|
@@ -39,9 +40,10 @@ Amazon DynamoDB是一种完全托管的NoSQL数据库服务，提供快速而可
 |可选参数：ReplicaUpdates|否|无|
 |可选参数：SSESpecification|否|无|
 |可选参数：StreamSpecification|是|`StreamViewType`参数当前仅支持如下值：-   KEYS\_ONLY
--   NEW\_IMAGE
 
-**说明：** NEW\_IMAGE当前仅可包含分区键（Partition key），如果表中存在排序键（Sort key），该排序键将会被忽略。 |
+**说明：** KEYS\_ONLY当前仅支持包含分区键（Partition key），不支持表中存在排序键（Sort key）。
+
+-   NEW\_IMAGE |
 |必选参数：TableName|是|无|
 |返回参数|TableDescription|是|参见TableDescription。|
 |DescribeTable|请求参数|必选参数：TableName|是|无|
