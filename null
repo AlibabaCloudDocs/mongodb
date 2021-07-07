@@ -1,30 +1,52 @@
-# Set a password for a standalone ApsaraDB for MongoDB instance
+# 设置白名单
 
-This topic describes how to set or reset a password for a standalone ApsaraDB for MongoDB instance.
+创建MongoDB单节点实例后，您需要设置实例的白名单，以允许外部设备访问该实例。默认的白名单只包含默认的IP地址（127.0.0.1），表示任何设备均无法访问该实例。
 
-1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
+-   在初次使用目标实例前，需要先设置实例的白名单。添加白名单后，实例的**基本信息**页面和**数据库连接**页面才可以显示实例的连接地址。
+-   正确使用白名单可以让MongoDB得到高级别的安全保护，建议定期维护白名单。
 
-2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
+## 操作步骤
 
-3.  In the left-side navigation pane, click **Replica Set Instances**.
+1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
 
-4.  Find the target instance and click its ID.
+2.  在页面左上角，选择实例所在的资源组和地域。
 
-5.  In the left-side navigation pane, click **Accounts**.
+3.  在左侧导航栏，单击**副本集实例列表**。
 
-6.  Click **Reset Password**.
+4.  找到目标实例，单击实例ID。
 
-    ![Reset Password](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/0246033261/p88040.png)
+5.  在左侧导航栏，选择**数据安全性** \> **白名单设置**。
 
-7.  In the **Reset Password** panel, enter a new password and confirm it. Click **OK**.
+6.  单击**操作**列的![更多](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5494087951/p13206.png)，并单击**手动修改**或者**加载ECS内网IP添加**来设置IP白名单。
 
-    **Note:** A password must meet the following rules:
+    -   单击**手动修改**，手动输入IP地址或IP段，然后单击**确定**。
+    -   单击**加载ECS内网IP添加**，在弹出对话框中将显示当前阿里云账号下ECS的内网IP。您可以选择所需的IP地址并将其添加到白名单中，然后单击**确定**。
 
-    -   The password contains at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include
+        ![添加ECS内网IP](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5494087951/p13209.png)
 
-        ! @ \# $ % ^ & \* \( \) \_ + =
+    **说明：**
 
-    -   The password is 8 to 32 characters in length.
-    ![Reset Password](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5023797951/p13222.png)
+    -   IP地址之间以英文逗号（,）分隔，不可重复，最多1000个。
 
+        支持格式如：0.0.0.0/0、10.23.12.24（单个IP地址）、10.23.12.24/24（[CIDR模式](~~54484~~)，即无类域间路由，/24表示了地址中前缀的长度，范围\[1，32\]）。
+
+    -   设置为0.0.0.0/0或空表示对访问的IP来源不作任何限制，此时MongoDB数据库将面临高安全风险，请谨慎使用。
+
+## 更多操作
+
+-   [通过ECS安全组设置白名单（单节点、副本集或分片集群实例）](/cn.zh-CN/用户指南/数据安全性/设置白名单及安全组.md)
+-   [删除白名单分组或安全组（单节点、副本集或分片集群实例）](/cn.zh-CN/用户指南/数据安全性/设置白名单及安全组.md)
+
+## 常见的连接场景
+
+-   [如何通过公网连接MongoDB实例](/cn.zh-CN/用户指南/连接实例/如何通过公网连接MongoDB实例.md)
+-   [ECS实例与MongoDB实例网络类型不同时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例网络类型不同时如何连接.md)
+-   [ECS实例与MongoDB实例地域不同时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例地域不同时如何连接.md)
+-   [ECS实例与MongoDB实例不在同一阿里云账号时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例不在同一阿里云账号时如何连接.md)
+
+## 相关文档
+
+[白名单分组名称及来源说明](/cn.zh-CN/常见问题/产品特性/白名单分组名称及来源说明.md)
+
+添加白名单后，实例的**基本信息**页面和**数据库连接**页面将显示实例的专有网络连接地址。
 
