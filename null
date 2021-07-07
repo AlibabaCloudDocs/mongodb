@@ -1,80 +1,131 @@
----
-keyword: [enable remote connection for ApsaraDB for MongoDB instances, connect to ApsaraDB for MongoDB instances over the Internet]
----
+# 创建分片集群实例
 
-# Apply for a public endpoint for an ApsaraDB for MongoDB instance
+云数据库MongoDB提供的分片集群实例适用于高并发读写的场景。本文介绍云数据库MongoDB分片集群实例的创建方法。
 
-This topic describes how to apply for a public endpoint for an ApsaraDB for MongoDB instance so that you can connect to the instance over the Internet.
+-   已注册阿里云账号，注册流程请参见[注册阿里云账号](https://help.aliyun.com/knowledge_detail/37195.html)。
+-   如果您需要创建付费类型为按量付费的实例，请您确保您的账户余额大于等于100元。
 
-The following table describes the endpoint types supported by an ApsaraDB for MongoDB instance.
+## 费用说明
 
-|Endpoint type|Description|
-|:------------|:----------|
-|VPC endpoint|-   A VPC is an isolated network with higher security and performance than the classic network.
--   By default, ApsaraDB for MongoDB provides endpoints on a VPC. |
-|Classic network endpoint|Cloud services on the classic network are not isolated. Unauthorized access can be blocked only by using security groups or whitelists. You can switch the network type to VPC. For more information, see [Switch the network type of an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Network connection management/Switch the network type of an ApsaraDB for MongoDB instance.md).**Note:** Standalone instances cannot be connected over the classic network. |
-|Public endpoint|-   It is risky to connect to an ApsaraDB for MongoDB instance over the Internet. Therefore, ApsaraDB for MongoDB does not provide public endpoints.
--   If you want to connect to an ApsaraDB for MongoDB instance from a device outside Alibaba Cloud such as an on-premises client, you must apply for a public endpoint. |
+云数据库MongoDB提供如下付费类型，您可以根据实际业务需要选择其中一种创建实例：
 
-## Apply for a public endpoint for a standalone or replica setinstance
+-   包年包月：预付费，在创建实例时就需要支付费用。
+-   按量付费：后付费，每小时根据实例配置生成1个收费订单，并扣除相应的账户余额。
 
-1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
+关于收费信息，请参见[收费项目及价格说明](/cn.zh-CN/产品定价/收费项目及价格说明.md)。
 
-2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
+如果您是首次购买云数据库MongoDB实例，您可以参与数据库首购折扣价活动，活动信息请参见[云数据库优惠活动](https://www.aliyun.com/database/dbfirstbuy)。
 
-3.  In the left-side navigation pane, click **Replica Set Instances**.
+## 注意事项
 
-4.  Find the target instance and click its ID.
+如果应用部署在ECS实例，您需要确保云数据库MongoDB实例和ECS服务器满足以下条件，以保证网络的连通性。
 
-5.  In the left-side navigation pane, click **Database Connections**.
+-   所在地域相同。如果您已经创建了ECS服务器，您可以查看ECS所在地域，查看方法请参见[查看ECS实例所在地域](/cn.zh-CN/实例/管理实例属性/查看实例信息.md)。
+-   建议所属可用区相同，以减少网络延时。如果您已经创建了ECS服务器，您可以查看ECS所在可用区，查看方法请参见[查看ECS实例所在地域](/cn.zh-CN/实例/管理实例属性/查看实例信息.md)。
+-   网络类型相同。如果您已经创建了ECS服务器，您可以查看ECS的网络类型，查看方法请参见[查看ECS实例网络类型](/cn.zh-CN/实例/管理实例属性/查看实例信息.md)。当ECS服务器的网络类型为**经典网络**时，您可以将**经典网络**迁移至**专有网络**，迁移方法请参见[ECS实例从经典网络迁移到专有网络](/cn.zh-CN/网络/经典网络迁移到专有网络（新版）/ECS实例从经典网络迁移到专有网络.md)。
 
-6.  In the **Public Connections** section, click **Apply for Public Connection String**.
+## 操作步骤
 
-    ![Apply for a public endpoint](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/0910008061/p88063.png)
+在执行完下列步骤之后，云数据库MongoDB版会自动为您配置好数据库，您无需手动进行安装部署。
 
-7.  In the **Apply for Public Connection String** message, click **OK**.
+1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
 
-    **Note:** If you want to connect to an ApsaraDB for MongoDB instance by using a public endpoint, you must add the public IP address of your client to a whitelist of this instance. For more information, see [Configure a whitelist for an ApsaraDB for MongoDB instance]().
+2.  在页面左上角，选择实例所在的资源组和地域。
+
+3.  在左侧导航栏，单击**分片集群实例列表**。
+
+4.  在**分片集群实例列表**页面，单击**创建实例**。
+
+5.  在**商品类型**区域，请根据业务需求，选择**分片集群（包年包月）**或**分片集群（按量付费）**。
+
+6.  设置以下参数，完成分片集群实例的参数配置。
+
+    |参数|参数说明|
+    |:-|:---|
+    |**地域和可用区**|选择实例所属地域和可用区。**说明：**
+
+    -   实例创建成功后将无法更换地域，请您谨慎选择。
+    -   如果应用部署在ECS实例，请您选择与ECS实例相同的地域，否则无法直接通过内网通信。
+    -   如果应用部署在ECS实例，建议您选择与ECS实例相同的可用区，以减少网络延时。如果选择不相同，您可以迁移可用区，迁移方法请参见[迁移可用区](/cn.zh-CN/用户指南/实例管理/迁移可用区.md)。
+    -   您可以选择多可用区实现实例的同城容灾，详情请参见[创建多可用区分片集群实例](/cn.zh-CN/用户指南/同城容灾解决方案/创建多可用区分片集群实例.md)。 |
+    |**协议类型**|选择实例使用的协议。    -   **MongoDB协议**
+    -   **DynamoDB协议**
+**说明：** 关于DynamoDB协议的更多信息，请参见[MongoDB实例兼容DynamoDB协议](~~164422~~)。 |
+    |**数据库版本**|请根据业务需求，选择对应数据库版本。    -   **MongoDB 4.2**
+    -   **MongoDB 4.0**
+    -   **MongoDB 3.4**
+**说明：** 您可以在实例运行期间手动升级数据库版本，升级方法请参见[升级数据库版本](/cn.zh-CN/用户指南/实例管理/数据库升级/升级数据库版本.md)。 |
+    |**存储引擎**|固定为**WiredTiger**。|
+    |**资源组**|选择管理实例的资源组。您可以选择加入已经创建的资源组，也可以创建一个资源组加入，资源组的创建方法请参见[创建资源组]()。**说明：** 通过设置资源组，您可以对单个云账号下多个地域、多种云资源进行集中的分组管理。 |
+    |**网络类型**|选择实例的网络类型。建议您选择**专有网络**。    -   **经典网络**：仅依靠安全组或白名单策略来阻挡非法访问。
+    -   **专有网络**：一种隔离的网络环境，安全性和性能均高于传统的经典网络。
+
+**说明：** 如果应用部署在ECS实例，您需要确保ECS实例的网络类型为**专有网络**，以保证网络的连通性。 |
+    |**专有网络**|选择实例所属专有网络。如果您没有可以使用的专有网络，您可以在专有网络控制台创建专有网络，创建方法请参见[使用专有网络](/cn.zh-CN/专有网络和交换机/使用专有网络.md)。 **说明：**
+
+    -   如果需要更改网络类型，具体请参见[切换实例网络类型](/cn.zh-CN/用户指南/管理网络连接/切换实例网络类型.md)。
+    -   此外，您还可以通过专线或者VPN的方式将自建机房与阿里云专有网络内的云资源组合成一个虚拟机房，实现应用平滑上云。具体方案请参见：[经典网络平滑迁移到VPC的混访方案](/cn.zh-CN/用户指南/管理网络连接/经典网络平滑迁移到VPC的混访方案.md)。 |
+    |**虚拟交换机**|选择实例所属交换机。如果您没有可以使用的交换机，您可以在专有网络控制台创建交换机，创建方法请参见[使用交换机](/cn.zh-CN/专有网络和交换机/使用交换机.md)。|
+    |**mongos规格**|选择实例中mongos节点的规格，关于mongos节点支持的规格信息，请参见[实例规格](/cn.zh-CN/产品简介/实例规格表.md)。 **说明：** 实例运行期间，您可以变更mongos节点的配置和数量。 |
+    |**Mongos购买数量**|选择实例中mongos节点的数量。取值范围为2~32。|
+    |**shard规格配置**|选择实例中shard节点的规格，关于mongos节点支持的规格信息，请参见[实例规格](/cn.zh-CN/产品简介/实例规格表.md)。 **说明：** 实例运行期间，您可以变更Shard节点的配置和数量。 |
+    |**Shard（副本集）**|选择实例中Shard节点存储空间的大小。**说明：** Shard节点的存储空间包含您的数据文件、系统文件、日志文件空间。 |
+    |**Shard购买数量**|选择实例中Shard节点的数量。取值范围为2~32。|
+    |**configserver规格**|固定为1核2GB。|
+    |**ConfigServer（副本集）**|固定为20 GB。|
+    |**密码设置**|设置root账号的密码。您可以选择以下任意一种方法：    -   **立即设置**：立即设置密码。
+    -   **创建后设置**：在实例运行期间设置密码，设置方法请参见[设置密码]()。 |
+    |**密码**|如果您选择立即设置密码，请按照如下规则设置密码：    -   密码由大写字母、小写字母、数字、特殊字符中的至少三种组成，特殊字符为：
+
+!@\#$%^&\*\(\)\_+-=
+
+    -   密码长度为8~32位。 |
+
+7.  购买实例。
+
+    1.  配置完成后，单击**立即购买**。
+
+    2.  在**确认订单**页面，阅读并勾选服务协议，根据提示完成支付。
+
+8.  查看分片集群实例是否创建成功。
+
+    1.  支付完成后，单击**管理控制台**，进入云数据库MongoDB控制台。
+
+    2.  在页面左上角，选择主机所在的资源组和地域。
+
+    3.  在左侧导航栏，选择**分片集群实例列表**。
+
+    4.  查看创建的实例是否在分片集群实例列表中。
+
+        -   是，说明实例已创建，当实例状态为**运行中**时，说明实例创建成功。
+        -   否，请您等待10~15分钟后刷新页面重新查看，如果分片集群列表中仍然没有，请先排查是否是以下原因导致，如果不是，请联系阿里云技术支持。
+
+            可能导致实例列表中找不到实例的可能原因及解决办法。
+
+            |可能原因|解决方法|
+            |----|----|
+            |地域选择错误|在云数据库MongoDB控制台左上角，选择实例所在的资源组和地域。|
+            |实例列表选择错误|在云数据库MongoDB控制台左侧导航栏，选择**分片集群实例列表**。|
+            |资源不足|新创建的实例可能因为资源不足而退款。请您在订单管理中查看退款，具体请参见[订单管理](https://expense.console.aliyun.com/#/order/list/)。
+
+在您确认退款后，您可以选择以下任意一种方法处理：
+
+            -   更换可用区尝试再次购买。
+            -   提交工单处理，具体请参见[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)。 |
 
 
-## Apply for a public endpoint for a sharded cluster instance
+## 相关API
 
-1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
+|接口|说明|
+|--|--|
+|[CreateShardingDBInstance](/cn.zh-CN/API参考/生命周期管理/CreateShardingDBInstance.md)|-   创建云数据库MongoDB分片集群实例。
+-   克隆云数据库MongoDB分片集群实例。 |
+|[DescribeInstanceAutoRenewalAttribute](/cn.zh-CN/API参考/生命周期管理/DescribeInstanceAutoRenewalAttribute.md)|查询云数据库MongoDB实例是否为自动付费。|
+|[DescribeDBInstanceAttribute](/cn.zh-CN/API参考/查询实例信息/DescribeDBInstanceAttribute.md)|查询云数据库MongoDB实例的详情。|
 
-2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
+实例创建完成后，您还需要执行以下操作：
 
-3.  In the left-side navigation pane, click **Sharded Cluster Instances**.
-
-4.  Find the target instance and click its ID.
-
-5.  In the left-side navigation pane, click **Database Connections**.
-
-6.  In the **Public Connections** section, click **Apply for Public Connection String**.
-
-    ![Apply for a public endpoint](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/7018812261/p37037.png)
-
-7.  In the dialog box that appears, specify **Node Type** and **Node ID**, and click **OK**.
-
-    ![Select a node type](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/8278317951/p59647.png)
-
-    |Parameter|Value|Description|
-    |:--------|:----|:----------|
-    |**Node Type**|**Shard**|A shard. Before you apply for a public endpoint for a shard, you must apply for an internal endpoint for it. For more information, see [Apply for a connection string of a shard or Configserver node](/intl.en-US/User Guide/Network connection management/Connection String of a Shard or Configserver Node/Apply for a connection string of a shard or Configserver node.md). If you want to read the oplog data of a shard over the Internet when you perform specific operations such as data synchronization between clusters, you must apply for a public endpoint for the shard. |
-    |**CS**|A config server. Before you apply for a public endpoint for a config server, you must apply for an internal endpoint for it. For more information, see [Apply for a connection string of a shard or Configserver node](/intl.en-US/User Guide/Network connection management/Connection String of a Shard or Configserver Node/Apply for a connection string of a shard or Configserver node.md). If you want to read the configuration information of a config server over the Internet when you perform specific operations such as data synchronization between clusters, you must apply for a public endpoint for the config server. |
-    |**Mongos**|A mongos. This is the default option because your application is connected to a mongos in most cases.|
-    |**Node ID**|The ID of the current instance node|The ID of the node for which you want to apply for a public endpoint|
-
-    **Note:**
-
-    -   For more information about node types, see [Architecture of sharded cluster instances](/intl.en-US/Product Introduction/System architecture/Architecture of sharded cluster instances.md).
-    -   To apply for public endpoints for multiple nodes, repeat this operation. You can apply for a new public endpoint only after the current one is created.
-
-## Results
-
-After the application is complete, the available public endpoints are displayed in the **Public Connections** section. For more information about endpoints, see [Overview of replica set instance connections]().
-
-## References
-
--   [Connect to an ApsaraDB for MongoDB instance over the Internet](/intl.en-US/User Guide/Instance connection/Connect to an ApsaraDB for MongoDB instance over the Internet.md).
--   To ensure data security, we recommend that you release a public endpoint if you no longer need it. For more information, see [Release a public endpoint](/intl.en-US/User Guide/Network connection management/Public IP Connection/Release a public endpoint.md).
+-   如果您在创建实例时没有立即设置密码，请您设置密码，设置方法请参见[设置密码]()。
+-   设置实例的白名单，以允许外部设备访问该实例，设置方法请参见[设置白名单]()。
+-   如果您需要通过公网连接实例，请您先申请公网连接地址，申请方法请参见[申请公网连接地址]()。
 
