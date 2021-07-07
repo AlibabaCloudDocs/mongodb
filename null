@@ -1,64 +1,66 @@
 ---
-keyword: [mongo 连接指定数据库, mongodb安全写入, mongo登录方法, mongodb如何连接, mongo密码登录连接数据库]
+keyword: [connect to a specified database by using the mongo shell, ApsaraDB for MongoDB secure write, ApsaraDB for MongoDB logon methods, how to connect ApsaraDB for MongoDB, ApsaraDB for MongoDB password that you connect to a database]
 ---
 
-# 通过Mongo Shell连接MongoDB分片集群实例
+# Connect to a sharded cluster ApsaraDB for MongoDB instance by using the mongo shell
 
-Mongo Shell是MongoDB数据库自带的数据库管理工具，您可以在本地或ECS上安装Mongo Shell工具，然后通过Mongo Shell连接MongoDB分片集群实例。
+This topic describes how to connect to a sharded cluster instance by using the mongo shell. The mongo shell is a database management tool that comes with MongoDB. You can install the mongo shell on your client or in an ECS instance.
 
--   为保障鉴权成功，请安装与MongoDB实例版本相对应的Mongo Shell版本。安装步骤请参见官方文档[Install MongoDB](https://docs.mongodb.com/manual/installation/)（请根据您的客户端版本在页面左上角选择版本号）。
--   已将客户端的IP地址加入到MongoDB实例的白名单中，详情请参见[设置白名单]()。
+-   The version of the mongo shell is the same as your instance. This ensures successful authentication. For more information about the installation procedure, visit [Install MongoDB](https://docs.mongodb.com/manual/installation/). Select the correct version based on your client.
+-   The IP address of your client is added to a whitelist of the ApsaraDB for MongoDB instance. For more information, see [Configure a whitelist for a standalone ApsaraDB for MongoDB instance]().
 
-    **说明：** 如需通过公网连接MongoDB实例，需要[申请公网连接地址]()。
+    **Note:** If you want to connect to the instance over the Internet, you must apply for a public endpoint. For more information, see [Apply for a public endpoint for a sharded cluster instance]().
 
 
-## 操作步骤
+## Procedure
 
-1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
+1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
 
-2.  在页面左上角，选择实例所在的资源组和地域。
+2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
 
-3.  在左侧导航栏，单击**分片集群实例列表**。
+3.  In the left-side navigation pane, click **Sharded Cluster Instances**.
 
-4.  找到目标实例，单击实例ID。
+4.  Find the target instance and click its ID.
 
-5.  在左侧导航栏，单击**数据库连接**，获取Mongos节点的连接地址。
+5.  In the left-side navigation pane, click **Database Connections** to obtain the endpoint of a mongos.
 
-    ![连接信息](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/3378317951/p13833.png)
+    ![Connection information](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/3273912261/p13833.png)
 
-6.  在安装有Mongo Shell的本地服务器或ECS中连接实例。
+6.  Connect to the sharded cluster instance from your client or ECS instance that has the mongo shell installed.
 
     ```
     mongo --host <mongos_host> -u <username> -p --authenticationDatabase <database>
     ```
 
-    **说明：**
+    **Note:**
 
-    -   <mongos\_host\>：任一Mongos节点连接地址中的连接地址。
-    -   <username\>：MongoDB实例的数据库账号，初始账号为root。不建议在生产环境中直接使用root账号连接数据库。您可以根据业务需求创建用户并分配权限，详情请参见[MongoDB数据库账号权限管理](/intl.zh-CN/用户指南/账号管理/MongoDB数据库账号权限管理.md)。
-    -   <database\>：鉴权数据库名，即数据库账号所属的数据库。当数据库账号为root时，对应的数据库为admin。如果您希望指定其他数据库，请先在该数据库中使用[db.createUser\(\)](https://docs.mongodb.com/manual/reference/method/db.createUser/index.html)命令创建账号，然后再使用该账号进行连接。
-    示例：
+    -   <mongos\_host\>: the endpoint of a mongos in the sharded cluster instance.
+    -   <username\>: the database account of the ApsaraDB for MongoDB instance. The initial account is root. We recommend that you do not log on to a database as the root account in a production environment. You can create accounts and grant permissions to the accounts. For more information, see [Manage user permissions on MongoDB databases](/intl.en-US/User Guide/Account management/Manage user permissions on MongoDB databases.md).
+    -   <database\>: the name of the authentication database to which the database account belongs. If the database account is root, enter admin. If you want to specify a database other than the authentication database, run the [db.createUser\(\)](https://docs.mongodb.com/manual/reference/method/db.createUser/index.html) command to create an account and then use the account to connect to the database.
+    Example:
 
     ```
     mongo --host s-bp**********.mongodb.rds.aliyuncs.com:3717 -u root -p --authenticationDatabase admin
     ```
 
-7.  在命令行提示`Enter password:`时，输入数据库账号对应的密码并按回车键确认。如果忘记了root账号的密码，您可以通过[设置密码]()的方式来重置密码。
+7.  When `Enter password:` is displayed, enter the password of the database account and press Enter. If you forget the password of the root account, you can reset the password. For more information, see [Set a password for a standalone ApsaraDB for MongoDB instance]().
 
-    **说明：** 输入密码时，密码字符是不可见的。
+    **Note:** The password you enter is not displayed.
 
 
-## 常见的连接场景
+## Common connection scenarios
 
--   [如何通过公网连接MongoDB实例](/intl.zh-CN/用户指南/连接实例/如何通过公网连接MongoDB实例.md)
--   [ECS实例与MongoDB实例网络类型不同时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例网络类型不同时如何连接.md)
--   [ECS实例与MongoDB实例地域不同时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例地域不同时如何连接.md)
--   [ECS实例与MongoDB实例不在同一阿里云账号时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例不在同一阿里云账号时如何连接.md)
+-   [Connect to an ApsaraDB for MongoDB instance over the Internet](/intl.en-US/User Guide/Instance connection/Connect to an ApsaraDB for MongoDB instance over the Internet.md)
+-   [How to connect an ECS instance to an ApsaraDB for MongoDB instance when their network types are different](/intl.en-US/User Guide/Instance connection/How to connect an ECS instance to an ApsaraDB for MongoDB instance when their network types are different.md)
+-   [How to connect an ECS instance to an ApsaraDB for MongoDB instance when they are in different regions](/intl.en-US/User Guide/Instance connection/How to connect an ECS instance to an ApsaraDB for MongoDB instance when they are in
+         different regions.md)
+-   [Connect an ECS instance with an ApsaraDB for MongoDB instance in another Alibaba Cloud account](/intl.en-US/User Guide/Instance connection/Connect an ECS instance with an ApsaraDB for MongoDB instance in another Alibaba Cloud
+         account.md)
 
-## 相关问题
+## Related FAQ
 
--   [排查 Mongo Shell 登录问题](/intl.zh-CN/常见问题/连接数据库/Linux实例使用Mongo Shell登录MongoDB数据库提示“Timeout while receiving message”错误.md)
--   [排查因连接数耗尽导致的数据库连接问题](/intl.zh-CN/常见问题/连接数据库/排查因连接数耗尽导致的数据库连接问题.md)
--   [排查 MongoDB CPU使用率高的问题](/intl.zh-CN/最佳实践/性能/排查MongoDB CPU使用率高的问题.md)
--   [如何查询及限制连接数](/intl.zh-CN/常见问题/连接数据库/如何查询及限制MongoDB实例的连接数.md)
+-   [How do I troubleshoot logon issues for the mongo shell?](/intl.en-US/Product Usage/Database connections/The system prompts "Timeout while receiving message" when logging on to apsaradb for MongoDB through the Mongo Shell from a Linux instance.md)
+-   [How to troubleshoot database connection failures after the number of connections reaches the upper limit](/intl.en-US/Product Usage/Database connections/How to troubleshoot database connection failures after the number of connections reaches the upper limit.md)
+-   [How do I troubleshoot the high CPU utilization of ApsaraDB for MongoDB?](/intl.en-US/Best Practices/Performance/Troubleshoot the high CPU utilization of ApsaraDB for MongoDB.md)
+-   [How do I query and limit the number of connections?](/intl.en-US/Product Usage/Database connections/How do I query and limit the number of connections?.md)
 
