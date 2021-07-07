@@ -1,52 +1,23 @@
-# 入门概述
+# Get started
 
-本文介绍云数据库MongoDB实例从创建到连接使用的整体流程，指引您快速掌握创建MongoDB实例、配置实例信息及连接实例的方法。
+This topic describes how to get started with a replica set instance of ApsaraDB for MongoDB. In this topic, you can quickly become familiar with the operations for creating, configuring, and connecting to an ApsaraDB for MongoDB instance.
 
-## 部署架构
+## Flowchart for an ApsaraDB for MongoDB instance
 
-云数据库MongoDB具有可灵活部署的架构，能够满足不同的业务场景。具体如下：
+The first time you use ApsaraDB for MongoDB, you can start with [Before you start](/intl.en-US/Quick Start/Usage notes.md).
 
--   单节点架构
+The following figure shows the operations that you must perform before you use an ApsaraDB for MongoDB instance.
 
-    适用于开发、测试、学习培训及其他非企业核心数据存储的场景。您可以根据各类场景的差异适配对应的规格配置，为企业降低更多的成本支出。详情请参见[单节点架构](/intl.zh-CN/产品简介/系统架构/单节点架构.md)。
+![Flowchart](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1023797951/p13100.png)
 
--   副本集架构
-
-    适用于读多写少或有临时活动的突发业务场景。副本集实例提供一个可供读写访问的Primary节点（主节点），一个、三个或五个提供高可用的Secondary节点（从节点），一个隐藏的Hidden节点（隐藏节点），0~5个可选的ReadOnly节点（只读节点）。您可以根据业务需要，按需增删Secondary节点和ReadOnly节点，更好地实现读取性能扩展节点。详情请参见[副本集架构](/intl.zh-CN/产品简介/系统架构/副本集架构.md)。
-
--   分片集群架构
-
-    适用于高并发读写的场景。分片集群实例是基于多个副本集（每个副本集使用三节点主从模式+0~5个只读节点）组成，提供Mongos、Shard、ConfigServer三个组件，您可以自由地选择Mongos和Shard节点的个数和配置，无限扩展性能及存储空间，组建不同能力的分片集群实例。详情请参见[分片集群架构](/intl.zh-CN/产品简介/系统架构/分片集群架构.md)。
-
-
-## 操作流程
-
-从新购实例到可以使用实例，您需要完成以下操作：
-
-![流程图](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4005413261/p263049.png)
-
-1.  创建实例。不同类型实例的创建方法如下：
-    -   [t2068535.md\#]()
-    -   [t2068536.md\#]()
-    -   [t2068538.md\#]()
-    -   [t2068539.md\#]()
-2.  如果创建实例过程中未设置密码或忘记密码，您可以设置或重置密码设置密码，设置方法请参见[重置密码](/intl.zh-CN/快速入门/重置密码.md)。
-3.  设置白名单。将需要连接实例的外部设备添加至实例的白名单，以允许外部设备能够访问该实例。设置方法请参见[t2068543.md\#]()。
-4.  如果您需要使用公网地址连接实例，请您先申请公网连接地址。申请方法请参见[t2068547.md\#]()。
-5.  连接实例。不同实例类型的连接方法如下：
-
-    |实例类型|参见文档|
-    |----|----|
-    |单节点|    -   [通过DMS连接MongoDB单节点实例（推荐）]()
-    -   [t2069633.md\#]()
-    -   [t2068551.md\#]() |
-    |副本集|    -   [通过DMS连接MongoDB副本集实例（推荐）]()
-    -   [t2069634.md\#]()
-    -   [t2068551.md\#]() |
-    |分片集群|    -   [通过DMS连接MongoDB分片集群实例（推荐）]()
-    -   [t2069635.md\#]()
-    -   [t2068551.md\#]() |
-    |Serverless|    -   [t2069637.md\#]()
-    -   [t2068551.md\#]() |
-
+1.  Create a instance. The procedure depends on the instance architecture type. For more information, see the following topics:
+    -   [Create a standalone instance]()
+    -   [Create a replica set instance](/intl.en-US/Quick Start/Create an instance/Create a replica set instance.md)
+    -   [Create a sharded cluster instance](/intl.en-US/Quick Start/Create an instance/Create a sharded cluster instance.md)
+2.  [Reset the password](/intl.en-US/Quick Start/Reset the password.md).
+3.  [Configure a whitelist for an ApsaraDB for MongoDB instance](/intl.en-US/Quick Start/Configure a whitelist for an ApsaraDB for MongoDB instance.md).
+4.  [Apply for a public endpoint for an ApsaraDB for MongoDB instance](/intl.en-US/Quick Start/Apply for a public endpoint for an ApsaraDB for MongoDB instance.md).
+5.  Connect to a instance. The procedure depends on the instance architecture type. For more information, see the following topics:
+    -   [Overview of replica set instance connections]()
+    -   [Overview of sharded cluster instance connections]()
 
