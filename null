@@ -1,48 +1,50 @@
-# 设置白名单
+# Configure a whitelist for a standalone ApsaraDB for MongoDB instance
 
-创建MongoDB单节点实例后，您需要设置实例的白名单，以允许外部设备访问该实例。默认的白名单只包含默认的IP地址（127.0.0.1），表示任何设备均无法访问该实例。
+This topic describes how to configure a whitelist for a standalone ApsaraDB for MongoDB instance. Only the devices whose IP addresses are added to the whitelists of the instance are allowed to access the instance. The default whitelist only contains the IP address 127.0.0.1, which indicates that no devices can connect to the instance.
 
--   在初次使用目标实例前，需要先设置实例的白名单。添加白名单后，实例的**基本信息**页面和**数据库连接**页面才可以显示实例的连接地址。
--   正确使用白名单可以让MongoDB得到高级别的安全保护，建议定期维护白名单。
+-   You must configure a whitelist upon the first use of an instance. After the whitelist is configured, the connection address of the instance is displayed on the **Basic Information** and **Database Connections** pages.
+-   Proper configuration of the whitelists can enhance access security of ApsaraDB for MongoDB. We recommend that you regularly maintain the whitelist.
 
-## 操作步骤
+## Procedure
 
-1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
+1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
 
-2.  在页面左上角，选择实例所在的资源组和地域。
+2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
 
-3.  在左侧导航栏，单击**副本集实例列表**。
+3.  In the left-side navigation pane, click **Replica Set Instances**.
 
-4.  找到目标实例，单击实例ID。
+4.  Find the target instance and click its ID.
 
-5.  在左侧导航栏，选择**数据安全性** \> **白名单设置**。
+5.  In the left-side navigation pane, choose **Data Security** \> **Whitelist Settings**.
 
-6.  单击**操作**列的![更多](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5494087951/p13206.png)，并单击**手动修改**或者**加载ECS内网IP添加**来设置IP白名单。
+6.  Click the ![More](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/7023797951/p13206.png) icon in the **Actions** column, and select **Manually Modify** or **Import ECS Intranet IP**.
 
-    -   单击**手动修改**，手动输入IP地址或IP段，然后单击**确定**。
-    -   单击**加载ECS内网IP添加**，在弹出对话框中将显示当前阿里云账号下ECS的内网IP。您可以选择所需的IP地址并将其添加到白名单中，然后单击**确定**。
+    -   Click **Manually Modify**. In the dialog box that appears, enter an IP address or CIDR block, and click **OK**.
+    -   Click **Import ECS Intranet IP**. In the dialog box that appears, the internal IP addresses of the ECS instances of your Alibaba Cloud account are displayed. You can select the desired IP addresses, add them to a whitelist, and click **OK**.
 
-        ![添加ECS内网IP](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5494087951/p13209.png)
+        ![Add internal network IP address of the ECS instance to a whitelist](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/8023797951/p13209.png)
 
-    **说明：**
+    **Note:**
 
-    -   IP地址之间以英文逗号（,）分隔，不可重复，最多1000个。
+    -   If a whitelist contains more than one IP address, separate them with commas \(,\). Every IP address in a whitelist must be unique. A whitelist can contain a maximum of 1,000 IP addresses.
 
-        支持格式如：0.0.0.0/0、10.23.12.24（单个IP地址）、10.23.12.24/24（[CIDR模式](~~54484~~)，即无类域间路由，/24表示了地址中前缀的长度，范围\[1，32\]）。
+        Supported formats include 0.0.0.0/0, 10.23.12.24 \(single IP address\), and 10.23.12.24/24. 10.23.12.24/24 is a CIDR notation \(for more information, see [CIDR blocks](~~54484~~)\), in which the suffix /24 indicates the number of bits for the prefix of the IP address. The prefix consists of 1 to 32 bits.
 
-    -   设置为0.0.0.0/0或空表示对访问的IP来源不作任何限制，此时MongoDB数据库将面临高安全风险，请谨慎使用。
+    -   If the value is 0.0.0.0/0 or empty, the ApsaraDB for MongoDB instance can be accessed by all IP addresses. In this situation, the database is at high security risk.
 
-## 更多操作
+## More operations
 
--   [通过ECS安全组设置白名单（单节点、副本集或分片集群实例）](/intl.zh-CN/用户指南/数据安全性/设置白名单及安全组.md)
--   [删除白名单分组或安全组（单节点、副本集或分片集群实例）](/intl.zh-CN/用户指南/数据安全性/设置白名单及安全组.md)
+-   [Configure an ECS security group for a standalone instance, replica set instance, or sharded cluster instance](/intl.en-US/User Guide/Data security/Configure a whitelist or an ECS security group for an ApsaraDB for MongoDB instance.md)
+-   [Delete a whitelist or an ECS security group of a standalone instance, replica set instance, or sharded cluster instance](/intl.en-US/User Guide/Data security/Configure a whitelist or an ECS security group for an ApsaraDB for MongoDB instance.md)
 
-## 常见的连接场景
+## Common connection scenarios
 
--   [如何通过公网连接MongoDB实例](/intl.zh-CN/用户指南/连接实例/如何通过公网连接MongoDB实例.md)
--   [ECS实例与MongoDB实例网络类型不同时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例网络类型不同时如何连接.md)
--   [ECS实例与MongoDB实例地域不同时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例地域不同时如何连接.md)
--   [ECS实例与MongoDB实例不在同一阿里云账号时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例不在同一阿里云账号时如何连接.md)
+-   [Connect to an ApsaraDB for MongoDB instance over the Internet](/intl.en-US/User Guide/Instance connection/Connect to an ApsaraDB for MongoDB instance over the Internet.md)
+-   [How to connect an ECS instance to an ApsaraDB for MongoDB instance when their network types are different](/intl.en-US/User Guide/Instance connection/How to connect an ECS instance to an ApsaraDB for MongoDB instance when their network types are different.md)
+-   [How to connect an ECS instance to an ApsaraDB for MongoDB instance when they are in different regions](/intl.en-US/User Guide/Instance connection/How to connect an ECS instance to an ApsaraDB for MongoDB instance when they are in
+         different regions.md)
+-   [Connect an ECS instance with an ApsaraDB for MongoDB instance in another Alibaba Cloud account](/intl.en-US/User Guide/Instance connection/Connect an ECS instance with an ApsaraDB for MongoDB instance in another Alibaba Cloud
+         account.md)
 
-添加白名单后，实例的**基本信息**页面和**数据库连接**页面将显示实例的专有网络连接地址。
+After a whitelist is configured, the VPC connection address of the instance is displayed on the **Basic Information** and **Database Connections** pages.
 
