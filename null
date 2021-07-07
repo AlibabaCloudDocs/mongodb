@@ -1,85 +1,56 @@
----
-keyword: [connect to a specified database by using the mongo shell, ApsaraDB for MongoDB secure write, ApsaraDB for MongoDB logon methods, how to connect ApsaraDB for MongoDB, ApsaraDB for MongoDB password that you connect to a database]
----
+# 入门概述
 
-# Connect to a standalone ApsaraDB for MongoDB instance by using the mongo shell
+本文介绍云数据库MongoDB实例从创建到连接使用的整体流程，指引您快速掌握创建MongoDB实例、配置实例信息及连接实例的方法。
 
-This topic describes how to connect to a standalone ApsaraDB for MongoDB instance by using the mongo shell. The mongo shell is a database management tool that comes with MongoDB. You can install the mongo shell on your client or in an ECS instance.
+## 部署架构
 
--   The version of the mongo shell is the same as your instance. This ensures successful authentication. For more information about the installation procedure, visit [Install MongoDB](https://docs.mongodb.com/manual/installation/). Select the correct version based on your client.
--   The IP address of your client is added to a whitelist of the ApsaraDB for MongoDB instance. For more information, see [Configure a whitelist for a standalone ApsaraDB for MongoDB instance]().
+云数据库MongoDB具有可灵活部署的架构，能够满足不同的业务场景。具体如下：
 
-    **Note:** If you want to connect to the instance over the Internet, you must apply for a public endpoint. For more information, see [Apply for a public endpoint for a standalone ApsaraDB for MongoDB instance]().
+-   单节点架构
 
+    适用于开发、测试、学习培训及其他非企业核心数据存储的场景。您可以根据各类场景的差异适配对应的规格配置，为企业降低更多的成本支出。详情请参见[单节点架构](/cn.zh-CN/产品简介/系统架构/单节点架构.md)。
 
-## Procedure
+-   副本集架构
 
-1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
+    适用于读多写少或有临时活动的突发业务场景。副本集实例提供一个可供读写访问的Primary节点（主节点），一个、三个或五个提供高可用的Secondary节点（从节点），一个隐藏的Hidden节点（隐藏节点），0~5个可选的ReadOnly节点（只读节点）。您可以根据业务需要，按需增删Secondary节点和ReadOnly节点，更好地实现读取性能扩展节点。详情请参见[副本集架构](/cn.zh-CN/产品简介/系统架构/副本集架构.md)。
 
-2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
+-   分片集群架构
 
-3.  In the left-side navigation pane, click **Replica Set Instances**.
+    适用于高并发读写的场景。分片集群实例是基于多个副本集（每个副本集使用三节点主从模式+0~5个只读节点）组成，提供Mongos、Shard、ConfigServer三个组件，您可以自由地选择Mongos和Shard节点的个数和配置，无限扩展性能及存储空间，组建不同能力的分片集群实例。详情请参见[分片集群架构](/cn.zh-CN/产品简介/系统架构/分片集群架构.md)。
 
-4.  Find the target instance and click its ID.
+-   Serverless架构
 
-5.  In the left-side navigation pane, click **Database Connections** to obtain the endpoint of the primary node.
-
-    ![Obtain the endpoint](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/6833912261/p13741.png)
-
-    |Item|Description|
-    |:---|:----------|
-    |Connection type|    -   **Internal Connections**: A virtual private cloud \(VPC\) is an isolated virtual network that provides higher security and higher performance than the classic network. By default, ApsaraDB for MongoDB provides endpoints on a VPC.
-    -   **Public Connections**: By default, ApsaraDB for MongoDB instances do not provide public endpoints because connecting to instances over the Internet poses security risks. If you want to connect to a sharded cluster instance from a device outside Alibaba Cloud \(for example, a local client\), you must apply for a public endpoint. For more information, see [Apply for a public endpoint for a standalone ApsaraDB for MongoDB instance](). |
-    |**Node**|Primary: indicates the primary node of the ApsaraDB for MongoDB instance. You can connect to this node to perform read/write operations on the database.|
-    |Address|The connection string of the primary node is in the format of `<host>:<port>`. **Note:**
-
-    -   <host\>: the endpoint of the primary node.
-    -   <port\>: the service port number of the primary node. |
-    |The connection string URI is in the following format:     ```
-mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][? options]]
-    ```
-
-    -   `mongodb://`: the prefix, which indicates a connection string URI.
-    -   `username:password@`: the account and password used to log on to a database of the ApsaraDB for MongoDB instance. Separate the username and password with a colon \(:\).
-    -   `hostX:portX`: the endpoint and port number of the instance.
-    -   `/database`: the name of the authentication database to which the database account belongs.
-    -   `? options`: additional connection options. |
-
-6.  Run the following command on the local server or ECS instance where the mongo shell is installed to connect to the database:
-
-    ```
-    mongo --host <host:port> -u <username> -p --authenticationDatabase <database>
-    ```
-
-    **Note:**
-
-    -   `<host:port>`: the endpoint of the primary node, which includes the domain name and port number.
-    -   `<username>`: the database account of the ApsaraDB for MongoDB instance. The initial account is root. We recommend that you do not log on to a database as the root user in a production environment. You can create accounts and grant permissions to the accounts. For more information, see [Manage user permissions on MongoDB databases](/intl.en-US/User Guide/Account management/Manage user permissions on MongoDB databases.md).
-    -   `<database>`: the name of the authentication database to which the database account belongs. If the database account is root, enter admin. If you want to specify a database other than the authentication database, run the [db.createUser\(\)](https://docs.mongodb.com/manual/reference/method/db.createUser/index.html) command to create an account and then use the account to connect to the database.
-    Example:
-
-    ```
-    mongo --host dds-bpxxxxxxxxxx.mongodb.rds.aliyuncs.com:3717 -u root -p --authenticationDatabase admin
-    ```
-
-7.  When `Enter password:` is displayed, enter the password for the database account and press Enter. If you forget the password of the root user, you can reset the password. For more information, see [Set a password for a standalone ApsaraDB for MongoDB instance]().
-
-    **Note:** The password you enter is not displayed.
+    适用于中小型客户群体。Serverless形态提供代理、网络资源、命名空间、存储空间的垂直资源隔离能力，提供计算资源按需计费能力，具有资源用量低、简单易用、弹性灵活、价格低廉等优点，完美解决了MongoDB使用门槛高的问题，帮助中小客户轻松上云。详情请参见[Serverless架构](/cn.zh-CN/产品简介/系统架构/Serverless架构.md)。
 
 
-## Common connection scenarios
+## 操作流程
 
--   [Connect to an ApsaraDB for MongoDB instance over the Internet](/intl.en-US/User Guide/Instance connection/Connect to an ApsaraDB for MongoDB instance over the Internet.md)
--   [How to connect an ECS instance to an ApsaraDB for MongoDB instance when their network types are different](/intl.en-US/User Guide/Instance connection/How to connect an ECS instance to an ApsaraDB for MongoDB instance when their network types are different.md)
--   [How to connect an ECS instance to an ApsaraDB for MongoDB instance when they are in different regions](/intl.en-US/User Guide/Instance connection/How to connect an ECS instance to an ApsaraDB for MongoDB instance when they are in
-         different regions.md)
--   [Connect an ECS instance with an ApsaraDB for MongoDB instance in another Alibaba Cloud account](/intl.en-US/User Guide/Instance connection/Connect an ECS instance with an ApsaraDB for MongoDB instance in another Alibaba Cloud
-         account.md)
+从新购实例到可以使用实例，您需要完成以下操作：
 
-## Related FAQ
+![流程图](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4005413261/p263049.png)
 
--   [How do I troubleshoot logon issues for the mongo shell?](/intl.en-US/Product Usage/Database connections/The system prompts "Timeout while receiving message" when logging on to apsaradb for MongoDB through the Mongo Shell from a Linux instance.md)
--   [How to troubleshoot database connection failures after the number of connections reaches the upper limit](/intl.en-US/Product Usage/Database connections/How to troubleshoot database connection failures after the number of connections reaches the upper limit.md)
--   [How do I troubleshoot the high CPU utilization of ApsaraDB for MongoDB?](/intl.en-US/Best Practices/Performance/Troubleshoot the high CPU utilization of ApsaraDB for MongoDB.md)
--   [How do I query and limit the number of connections?](/intl.en-US/Product Usage/Database connections/How do I query and limit the number of connections?.md)
+1.  创建实例。不同类型实例的创建方法如下：
+    -   [t2068535.md\#]()
+    -   [t2068536.md\#]()
+    -   [t2068538.md\#]()
+    -   [t2068539.md\#]()
+2.  如果创建实例过程中未设置密码或忘记密码，您可以设置或重置密码设置密码，设置方法请参见[重置密码](/cn.zh-CN/快速入门/重置密码.md)。
+3.  设置白名单。将需要连接实例的外部设备添加至实例的白名单，以允许外部设备能够访问该实例。设置方法请参见[t2068543.md\#]()。
+4.  如果您需要使用公网地址连接实例，请您先申请公网连接地址。申请方法请参见[t2068547.md\#]()。
+5.  连接实例。不同实例类型的连接方法如下：
+
+    |实例类型|参见文档|
+    |----|----|
+    |单节点|    -   [通过DMS连接MongoDB单节点实例（推荐）]()
+    -   [t2069633.md\#]()
+    -   [t2068551.md\#]() |
+    |副本集|    -   [通过DMS连接MongoDB副本集实例（推荐）]()
+    -   [t2069634.md\#]()
+    -   [t2068551.md\#]() |
+    |分片集群|    -   [通过DMS连接MongoDB分片集群实例（推荐）]()
+    -   [t2069635.md\#]()
+    -   [t2068551.md\#]() |
+    |Serverless|    -   [t2069637.md\#]()
+    -   [t2068551.md\#]() |
+
 
