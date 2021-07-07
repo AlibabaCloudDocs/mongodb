@@ -1,87 +1,87 @@
-# 设置白名单
+# Configure a whitelist for an ApsaraDB for MongoDB instance
 
-创建MongoDB实例后您需要设置实例的白名单，以允许外部设备访问该实例。默认的白名单只包含默认的IP地址（127.0.0.1），表示任何设备均无法访问该实例。
+This topic describes how to configure an IP address whitelist for an ApsaraDB for MongoDB instance. After you create an ApsaraDB for MongoDB instance, you must configure an IP address whitelist to allow access only from authorized devices. The default whitelist contains only the IP address 127.0.0.1, which indicates that no devices can access the ApsaraDB for MongoDB instance.
 
--   在初次使用目标实例前，需要先设置实例的白名单。添加白名单后，实例的**基本信息**页面和**数据库连接**页面才可以显示实例的连接地址。
--   正确使用白名单可以让MongoDB得到高级别的安全保护，建议定期维护白名单。
+-   Before you use an ApsaraDB for MongoDB instance for the first time, you must configure a whitelist for the instance. After you configure the whitelist, the endpoints of the instance appear on the **Basic Information** and **Database Connections** pages.
+-   Whitelists make your ApsaraDB for MongoDB instances more secure. We recommend that you maintain the whitelists on a regular basis.
 
-## 通过白名单分组设置白名单（单节点、副本集或分片集群实例）
+## Configure an IP address whitelist for a standalone instance, replica set instance, or sharded cluster instance
 
-1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
+1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
 
-2.  在页面左上角，选择实例所在的资源组和地域。
+2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
 
-3.  根据实例类型，在左侧导航栏单击**副本集实例列表**或**分片集群实例列表**。
+3.  In the left-side navigation pane, click **Replica Set Instances**, or **Sharded Cluster Instances** based on the instance type.
 
-4.  找到目标实例，单击实例ID。
+4.  Find the target instance and click its ID.
 
-5.  在左侧导航栏，选择**数据安全性** \> **白名单设置**。
+5.  In the left-side navigation pane, choose **Data Security** \> **Whitelist Settings**.
 
-6.  单击**操作**列的![更多](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5494087951/p13206.png)，并单击**手动修改**或者**加载ECS内网IP添加**来设置IP白名单。
+6.  Find the IP address whitelist that you want to configure, and choose ![More icon](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/7023797951/p13206.png) \> **Manually Modify** or **Import ECS Intranet IP** in the **Actions** column.
 
-    **手动修改**
+    **Manually Modify**
 
-    1.  在右侧弹出的**手动修改**面板中，根据自身实际网络情况单击**IPv4**或**IPv6**。
+    1.  In the **Manually Modify** panel, click the **IPv4** or **IPv6** tab based on your network connection.
 
-        **说明：**
+        **Note:**
 
-        -   **IPv4**白名单限制：
-            -   IP地址之间以英文逗号（,）分隔，不可重复，最多1000个。
+        -   Limits for **IPv4** addresses:
+            -   Separate multiple IP addresses with commas \(,\). A maximum of 1,000 different IP addresses can be added.
 
-                支持格式如：`0.0.0.0/0`、`10.23.12.24`（单个IP地址）、`10.23.12.24/24`（[CIDR模式](~~54484~~)，即无类域间路由，`/24`表示了地址中前缀的长度，范围\[1，32\]）。
+                A whitelist can include IP addresses such as `0.0.0.0/0` and `10.23.12.24`, or [CIDR blocks](~~54484~~) such as `10.23.12.24/24`. `/24` indicates that the prefix of the CIDR block is 24-bit long. You can replace 24 with a value within the range of 1 to 32.
 
-            -   `0.0.0.0/0`或空表示对访问的IP来源不作任何限制，此时MongoDB数据库将面临高安全风险，请谨慎使用。
-        -   **IPv6**白名单限制：
-            -   IP地址之间以英文逗号（,）分隔，不可重复，最多1000个。
+            -   If the whitelist is empty or contains `0.0.0.0/0`, all IP addresses can access the ApsaraDB for MongoDB instance. This may introduce security risks to the instance. Proceed with caution.
+        -   Limits for **IPv6** addresses:
+            -   Separate multiple IP addresses with commas \(,\). A maximum of 1,000 different IP addresses can be added.
 
-                支持格式如：`::`、`0:0:0:0:0:0:0:1`等。当前仅支持单个IP地址。后续会提供[CIDR模式](~~54484~~)的支持。
+                Supported formats include `::` and `0:0:0:0:0:0:0:1`. Only IP addresses are supported. [CIDR blocks](~~54484~~) will be supported later.
 
-            -   设置为`::`或空表示对访问的IP来源不作任何限制，此时MongoDB数据库将面临高安全风险，请谨慎使用。
-            -   当前**IPv6**白名单模式仅对位于华东1（杭州）区域G可用区中的实例生效。
-            -   当前仅云数据库MongoDB版4.2版本实例支持**IPv6**白名单模式。
-        -   单个白名单分组中仅支持设置**IPv4**白名单或**IPv6**白名单，无法同时设置。如有需求请分别在不同的白名单分组中设置不同类别的IP地址。
-    2.  单击**确定**。
+            -   If the whitelist is empty or contains only `::`, all IP addresses can access the ApsaraDB for MongoDB instance. This may introduce security risks to the instance. Proceed with caution.
+            -   You can specify **IPv6** address whitelists only if the instance resides in Zone G of the China \(Hangzhou\) region.
+            -   You can specify **IPv6** address whitelists only if the version of the database engine is 4.2.
+        -   You cannot specify both **IPv4** and **IPv6** addresses in a single whitelist. If you want to specify both IPv4 and IPv6 addresses, specify them in separate whitelists.
+    2.  Click **OK**.
 
-    **加载ECS内网IP添加**
+    **Import ECS Intranet IP**
 
-    1.  单击**加载ECS内网IP添加**，在弹出对话框中将显示当前阿里云账号下ECS的内网IP，您可以选择所需的IP地址并将其添加到白名单中。
+    1.  Click **Import ECS Intranet IP**. In the Import ECS Intranet IP panel, the internal IP addresses of ECS instances created in the current account are displayed. Select one or more IP addresses and add them to the IP address whitelist.
 
-        ![添加ECS内网IP](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5494087951/p13209.png)
+        ![Add internal IP addresses of ECS instances](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/8023797951/p13209.png)
 
-    2.  单击**确定**。
+    2.  Click **OK**.
 
-        **说明：** 手动添加多个ECS的IP在操作上较为复杂，为提升运维的便捷性您可以[通过ECS安全组设置白名单（单节点、副本集或分片集群实例）](/intl.zh-CN/用户指南/数据安全性/设置白名单及安全组.md)。
+        **Note:** For easy O&M and access control, we recommend that you add an ECS security group. For more information, see [Configure an ECS security group for a standalone instance, replica set instance, or sharded cluster instance](/intl.en-US/User Guide/Data security/Configure a whitelist or an ECS security group for an ApsaraDB for MongoDB instance.md).
 
 
-## 通过ECS安全组设置白名单（单节点、副本集或分片集群实例）
+## Configure an ECS security group for a standalone instance, replica set instance, or sharded cluster instance
 
-为提升运维的便捷性，避免手动添加多个ECS的IP地址，您可以为MongoDB实例绑定ECS安全组实现快速授权。
+An ECS security group relieves you from the tedious work of adding IP addresses or CIDR blocks. It makes database O&M easier.
 
-1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
+1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
 
-2.  在页面左上角，选择实例所在的资源组和地域。
+2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
 
-3.  根据实例类型，在左侧导航栏单击**副本集实例列表**或**分片集群实例列表**。
+3.  In the left-side navigation pane, click **Replica Set Instances**, or **Sharded Cluster Instances** based on the instance type.
 
-4.  找到目标实例，单击实例ID。
+4.  Find the target instance and click its ID.
 
-5.  在左侧导航栏，选择**数据安全性** \> **白名单设置**。
+5.  Click **Add Security Group**.
 
-6.  单击**添加安全组**。
+6.  In the Add Security Group panel, select one or more ECS security groups that you want to add.
 
-7.  在弹出的对话框中，选择需要绑定的安全组，然后单击**确定**。
+    ![Add one or more ECS security groups](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/4027562061/p70088.png)
 
-    ![添加安全组](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6807222061/p70088.png)
+    **Note:**
 
-    **说明：**
+    -   Each ApsaraDB for MongoDB instance can be added to up to 10 security groups. After you add an ECS security group, all its ECS instances can access the ApsaraDB for MongoDB instance either over an internal network or over the Internet. For access over an internal network, the two types of instances must have the same network type. If the network type is VPC, the two types of instances must be in the same VPC. For access over the Internet, you must have applied for a public endpoint for the ApsaraDB for MongoDB instance.
+    -   If you move your pointer over an ECS security group, you can view its name and description. If you move your pointer over VPC, you can view the VPC ID. This way, you can quickly find an ECS security group.
 
-    -   每个MongoDB实例可以加入10个安全组。加入后，该安全组中的所有ECS实例既可以通过内网访问MongoDB实例（ECS实例和MongoDB实例的网络类型需相同，如果是专有网络，则要求属于同一个VPC ID），也可以通过外网访问MongoDB实例（MongoDB实例需已申请公网连接地址）。
-    -   为便于定位目标安全组，您可以将鼠标指针悬浮在安全组ID上，可显示安全组的名称和描述信息；将鼠标指针悬浮在VPC图标上，可显示VPC ID信息。
+## Common scenarios
 
-## 常见的连接场景
-
--   [如何通过公网连接MongoDB实例](/intl.zh-CN/用户指南/连接实例/如何通过公网连接MongoDB实例.md)
--   [ECS实例与MongoDB实例网络类型不同时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例网络类型不同时如何连接.md)
--   [ECS实例与MongoDB实例地域不同时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例地域不同时如何连接.md)
--   [ECS实例与MongoDB实例不在同一阿里云账号时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例不在同一阿里云账号时如何连接.md)
+-   [Connect to an ApsaraDB for MongoDB instance over the Internet](/intl.en-US/User Guide/Instance connection/Connect to an ApsaraDB for MongoDB instance over the Internet.md)
+-   [How to connect an ECS instance to an ApsaraDB for MongoDB instance when their network types are different](/intl.en-US/User Guide/Instance connection/How to connect an ECS instance to an ApsaraDB for MongoDB instance when their network types are different.md)
+-   [How to connect an ECS instance to an ApsaraDB for MongoDB instance when they are in different regions](/intl.en-US/User Guide/Instance connection/How to connect an ECS instance to an ApsaraDB for MongoDB instance when they are in
+         different regions.md)
+-   [Connect an ECS instance with an ApsaraDB for MongoDB instance in another Alibaba Cloud account](/intl.en-US/User Guide/Instance connection/Connect an ECS instance with an ApsaraDB for MongoDB instance in another Alibaba Cloud
+         account.md)
 
