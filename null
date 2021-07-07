@@ -1,60 +1,56 @@
-# 重置密码
+# Reset the password
 
-如果您在创建实例时没有立即设置密码、需要修改旧密码或忘记密码，您可以通过重置密码重新设置数据库的密码。
+This topic describes how to set or reset the password of an ApsaraDB for MongoDB instance.
 
-## 单节点或副本集实例
+## Reset the password of a standalone or replica set instance
 
-1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
+1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
 
-2.  在页面左上角，选择实例所在的资源组和地域。
+2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
 
-3.  在左侧导航栏，单击**副本集实例列表**。
+3.  In the left-side navigation pane, click **Replica Set Instances**.
 
-4.  找到目标实例，单击实例ID。
+4.  Find the target instance and click its ID.
 
-5.  在左侧导航栏，单击**账号管理**。
+5.  In the left-side navigation pane, click **Accounts**.
 
-6.  单击**重置密码**。
+6.  Click **Reset Password**.
 
-7.  在**重置密码**页面，输入**新密码**，并在**确认新密码**输入框中再次输入密码。
+7.  In the **Reset Password** panel, enter a new password in the **New Password** field and enter the password again in the **Confirm New Password** field. Click **OK**.
 
-    ![输入新密码](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6904216061/p13222.png)
+    ![Enter a new password](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5023797951/p13222.png)
 
-    **说明：**
+    **Note:**
 
-    -   密码由大写字母、小写字母、数字、特殊字符中的至少三种组成，特殊字符为：
+    -   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include:
 
-        !@\#$%^&\*\(\)\_+=
+        ! @ \# $ % ^ & \* \( \)\_+ - =
 
-    -   密码长度为8~32位。
-8.  单击**确定**。
+    -   The password must be 8 to 32 characters in length.
 
+## Reset the password of a sharded cluster instance
 
-## 分片集群实例
+1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
 
-1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
+2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
 
-2.  在页面左上角，选择实例所在的资源组和地域。
+3.  In the left-side navigation pane, click **Sharded Cluster Instances**.
 
-3.  在左侧导航栏，单击**分片集群实例列表**。
+4.  Find the target instance and click its ID.
 
-4.  找到目标实例，单击实例ID。
+5.  In the left-side navigation pane, click **Accounts**.
 
-5.  在左侧导航栏，单击**账号管理**。
+6.  Click **Reset Password**.
 
-6.  单击**重置密码**。
+7.  In the **Reset Password** panel, enter a new password in the **New Password** field and enter the password again in the **Confirm New Password** field. Click **OK**.
 
-7.  在**重置密码**页面，输入**新密码**，并在**确认新密码**输入框中再次输入密码。
+    ![Enter a new password](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5023797951/p13222.png)
 
-    ![输入新密码](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6904216061/p13222.png)
+    **Note:**
 
-    **说明：**
+    -   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include:
 
-    -   密码由大写字母、小写字母、数字、特殊字符中的至少三种组成，特殊字符为：
+        ! @ \# $ % ^ & \* \( \)\_+ - =
 
-        !@\#$%^&\*\(\)\_+=
-
-    -   密码长度为8~32位。
-8.  单击**确定**。
-
+    -   The password must be 8 to 32 characters in length.
 
