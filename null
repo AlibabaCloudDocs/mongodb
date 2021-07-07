@@ -34,7 +34,7 @@
     |**数据库名称**|填入鉴权数据库名，即数据库账号所属的数据库。 **说明：**
 
     -   如果**数据库账号**填写的是root，那么对应的数据库名即为admin。
-    -   不建议在生产环境中直接使用root账号连接数据库。您可以根据业务需求创建用户并分配权限，详情请参见[使用DMS管理MongoDB实例的账号](/cn.zh-CN/用户指南/账号管理/MongoDB数据库账号权限管理.md)。 |
+    -   不建议在生产环境中直接使用root账号连接数据库。您可以根据业务需求创建用户并分配权限，详情请参见[使用DMS管理MongoDB实例的账号](/intl.zh-CN/用户指南/账号管理/MongoDB数据库账号权限管理.md)。 |
     |**数据库账号**|目标数据库的账号，初始账号为`root`。|
     |**数据库密码**|填入该数据库账号对应的密码。 **说明：** 如果忘记root账号的密码，您可以[重置密码]()。 |
 
@@ -45,23 +45,15 @@
 
 ## 常见的连接场景
 
--   [如何通过公网连接MongoDB实例](/cn.zh-CN/用户指南/连接实例/如何通过公网连接MongoDB实例.md)
--   [ECS实例与MongoDB实例网络类型不同时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例网络类型不同时如何连接.md)
--   [ECS实例与MongoDB实例地域不同时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例地域不同时如何连接.md)
--   [ECS实例与MongoDB实例不在同一阿里云账号时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例不在同一阿里云账号时如何连接.md)
+-   [如何通过公网连接MongoDB实例](/intl.zh-CN/用户指南/连接实例/如何通过公网连接MongoDB实例.md)
+-   [ECS实例与MongoDB实例网络类型不同时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例网络类型不同时如何连接.md)
+-   [ECS实例与MongoDB实例地域不同时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例地域不同时如何连接.md)
+-   [ECS实例与MongoDB实例不在同一阿里云账号时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例不在同一阿里云账号时如何连接.md)
 
 ## 相关问题
 
--   [排查Mongo Shell登录问题](/cn.zh-CN/常见问题/连接数据库/Linux实例使用Mongo Shell登录MongoDB数据库提示“Timeout while receiving message”错误.md)
--   [排查因连接数耗尽导致的数据库连接问题](/cn.zh-CN/常见问题/连接数据库/MongoDB实例连接数耗尽导致数据库连接失败.md)
--   [排查MongoDB CPU使用率高的问题](/cn.zh-CN/最佳实践/性能/排查MongoDB CPU使用率高的问题.md)
--   [如何查询及限制连接数](/cn.zh-CN/常见问题/连接数据库/如何查询及限制MongoDB实例的连接数.md)
-
-## 更多信息
-
-在DMS控制台的顶部菜单栏中，您可以通过选择**SQLConsole** \> **单库查询**打开单库查询页签，然后把鼠标放在![图标](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9953325061/p182003.png)图标上，通过单击下拉菜单中的选项进入数据库自治服务DAS（Database Autonomy Service）控制台。
-
-![进入DAS管理页面](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9953325061/p182002.png)
-
-**说明：** 在DAS控制台中，您可以对MongoDB实例的实时性能、实时会话等信息进行监控和管理，详情请参见[数据库自治服务帮助文档](https://help.aliyun.com/product/63907.html)中用户指南的相关文档。
+-   [排查Mongo Shell登录问题](/intl.zh-CN/常见问题/连接数据库/Linux实例使用Mongo Shell登录MongoDB数据库提示“Timeout while receiving message”错误.md)
+-   [排查因连接数耗尽导致的数据库连接问题](/intl.zh-CN/常见问题/连接数据库/排查因连接数耗尽导致的数据库连接问题.md)
+-   [排查MongoDB CPU使用率高的问题](/intl.zh-CN/最佳实践/性能/排查MongoDB CPU使用率高的问题.md)
+-   [如何查询及限制连接数](/intl.zh-CN/常见问题/连接数据库/如何查询及限制MongoDB实例的连接数.md)
 
