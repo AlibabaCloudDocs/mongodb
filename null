@@ -1,100 +1,102 @@
-# Create a sharded cluster instance
+# 创建Serverless实例
 
-This topic describes how to create a sharded cluster instance in the ApsaraDB for MongoDB console.
+云数据库MongoDB提供的Serverless实例适用于中小型客户群体。本文介绍云数据库MongoDB Serverless实例的创建方法。
 
--   An Alibaba Cloud account is created. For more information, see [Sign up with Alibaba Cloud](https://www.alibabacloud.com/help/zh/doc-detail/50482.htm).
--   Your account balance is sufficient if you want to create a pay-as-you-go instance.
+已注册阿里云账号，注册流程请参见[注册阿里云账号](https://help.aliyun.com/knowledge_detail/37195.html)。
 
-## Billing
+## 注意事项
 
-For more information, see [Billing items and pricing](/intl.en-US/Purchase Guide/Billing items and pricing.md).
+如果应用部署在ECS实例，您需要确保云数据库MongoDB实例和ECS服务器满足以下条件，以保证网络的连通性。
 
-## Procedure
+-   所在地域相同。如果您已经创建了ECS服务器，您可以查看ECS所在地域，查看方法请参见[查看ECS实例所在地域](/cn.zh-CN/实例/管理实例属性/查看实例信息.md)。
+-   建议所属可用区相同，以减少网络延时。如果您已经创建了ECS服务器，您可以查看ECS所在可用区，查看方法请参见[查看ECS实例所在地域](/cn.zh-CN/实例/管理实例属性/查看实例信息.md)。
+-   网络类型为**专有网络**。如果您已经创建了ECS服务器，您可以查看ECS的网络类型，查看方法请参见[查看ECS实例网络类型](/cn.zh-CN/实例/管理实例属性/查看实例信息.md)，当ECS服务器的网络类型为**经典网络**时，您可以将**经典网络**迁移至**专有网络**，迁移方法请参见[ECS实例从经典网络迁移到专有网络](/cn.zh-CN/网络/经典网络迁移到专有网络（新版）/ECS实例从经典网络迁移到专有网络.md)。
 
-After you perform the following operations, ApsaraDB for MongoDB automatically creates your instance. You do not need to manually install or deploy an instance.
+## 费用说明
 
-1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
+云数据库MongoDB Serverless实例支持包年包月付费类型，关于收费信息请参见[收费项目及价格说明](/cn.zh-CN/产品定价/收费项目及价格说明.md)。
 
-2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
+如果您是首次购买云数据库MongoDB实例，您可以参与数据库首购折扣价活动，活动信息请参见[云数据库优惠活动](https://www.aliyun.com/database/dbfirstbuy)。
 
-3.  In the left-side navigation pane, click **Sharded Cluster Instances**.
+## 操作步骤
 
-4.  On the **Sharded Cluster Instances** page, click **Create Instance**.
+1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
 
-5.  Click **Sharded Cluster \(Subscription\)** or **Sharded Cluster \(Pay-as-you-go\)**.
+2.  在页面左上角，选择实例所在的资源组和地域。
 
-    **Note:**
+3.  在左侧导航栏，单击**Serverless实例列表**。
 
-    -   Subscription: You must pay for an instance when you create the instance. This method is more cost-effective than the pay-as-you-go method. We recommend that you select this method for long-term use. A longer subscription period enables a larger discount.
-    -   Pay-as-you-go: You are billed on an hourly basis based on the used resources. We recommend that you select this billing method for short-term use. You can reduce costs by releasing your pay-as-you-go instance after you no longer need the instance.
-6.  Configure the instance parameters. The following table describes the related parameters.
+4.  在**Serverless实例列表**页面，单击**创建实例**。
 
-    |Section|Parameter|Description|
-    |:------|:--------|:----------|
-    |**Basic Configuration**|**Region**|The region where the ApsaraDB for MongoDB instance is deployed. After an instance is created, you cannot change the region. Exercise caution when you select the region.
+5.  在**商品类型**区域，请根据业务需求，选择**Serverless（预付费）**。
 
-Instances in the same region \(such as an ECS instance and an ApsaraDB for MongoDB instance\) can be connected with each other over an internal network. |
-    |**Zone**|Select a zone from the region. Zones are geographic locations within a region. Each zone contains independent power supply and network resources. An ECS instance and an ApsaraDB for MongoDB instance in the same zone can be connected over an internal network with minimum network latency. For more information about zones, see [Zones](https://www.alibabacloud.com/help/zh/doc-detail/40654.htm#h2-url-2).
+6.  设置以下参数，完成Serverless实例的参数配置。
 
-**Note:** To implement zone-disaster recovery, you can deploy the sharded cluster instance across multiple zones. For more information, see [Create a multi-zone sharded cluster instance](/intl.en-US/User Guide/Zone-disaster restoration solution/Create a multi-zone sharded cluster instance.md). |
-    |**Database Version**|The MongoDB version of the sharded cluster instance. Valid values: 3.4, 4.0, and 4.2. For more information about versions, see [MongoDB versions and storage engines](/intl.en-US/Product Introduction/MongoDB versions and storage engines.md).
+    |参数|参数说明|
+    |:-|:---|
+    |**地域和可用区**|选择实例所属地域和可用区。**说明：**
 
-**Note:** You can manually upgrade the database version when an instance is running. For more information, see [Upgrade MongoDB versions](/intl.en-US/User Guide/Instance management/Upgrading Database Version/Upgrade MongoDB versions.md). |
-    |**Storage Engine**|The storage engine of the instance, which is fixed as **WiredTiger**. |
-    |**Network Type**|**Classic**|Cloud services on a classic network are not isolated. Unauthorized access can only be blocked by using security groups or whitelists.|
-    |**VPC**|A virtual private cloud \(VPC\) is an isolated network with higher security and performance than the classic network. We recommend that you select the VPC network type. **Note:**
-
-    -   You must create a VPC in advance. For more information, see [Create a VPC](/intl.en-US/VPCs and vSwitchs/Work with VPCs.md).
-    -   You can change the network type after you create an instance. For more information, see [Switch the network type of an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Network connection management/Switch the network type of an ApsaraDB for MongoDB instance.md).
-    -   If you want to migrate your applications to the cloud, you can build a virtual data center by connecting your on-premises data center to the resources in a VPC through a leased line or a virtual private network \(VPN\). For more information, see [Configure a hybrid access solution to switch the network type of an ApsaraDB for MongoDB instance from classic network to VPC](/intl.en-US/User Guide/Network connection management/Configure a hybrid access solution to switch the network type of an ApsaraDB for MongoDB instance from classic network to VPC.md). |
-    |**Mongos Specification**|**Specification**|The specifications of each mongos node. For more information, see [Instance types](/intl.en-US/Product Introduction/Instance types.md). **Note:** You can add new mongos nodes or change the configurations of existing shard nodes while a sharded cluster instance is running. |
-    |**Quantity**|The number of mongos nodes. A sharded cluster instance can contain 2 to 32 mongos nodes. |
-    |**Shard Specifications**|**Specification**|The specifications of each shard node. For more information, see [Instance types](/intl.en-US/Product Introduction/Instance types.md). **Note:** You can add new shard nodes or change the configurations of existing shard nodes while a sharded cluster instance is running. |
-    |**Storage Space**|The storage capacity of each shard node. Valid values: 10 GB to 1,000 GB. **Note:** The storage capacity of a shard node stores your data, system, and log files. |
-    |**Quantity**|The number of shard nodes. A sharded cluster instance can contain 2 to 32 shard nodes. |
-    |**Configserver Specifications**|**Specification**|The specifications of each Configserver node, which is fixed as 1 vCPU, 2 GiB memory, and 20 GB of storage capacity. The Configserver specifications are not user-configurable. |
-    |**Set Password**|**Set Now**|    -   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include
+    -   实例创建成功后将无法更换地域，请您谨慎选择。
+    -   如果应用部署在ECS实例，请您选择与ECS实例相同的地域，否则无法直接通过内网通信。
+    -   如果应用部署在ECS实例，建议您选择与ECS实例相同的可用区，以减少网络延时。
+    -   您可以选择多可用区实现实例的同城容灾。 |
+    |**专有网络**|选择实例所属专有网络。如果您没有可以使用的专有网络，您可以在专有网络控制台创建专有网络，创建方法请参见[使用专有网络](/cn.zh-CN/专有网络和交换机/使用专有网络.md)。 **说明：** 如果需要更改网络类型，具体请参见[切换实例网络类型](/cn.zh-CN/用户指南/管理网络连接/切换实例网络类型.md)。 |
+    |**虚拟交换机**|选择实例所属交换机。如果您没有可以使用的交换机，您可以在专有网络控制台创建交换机，创建方法请参见[使用交换机](/cn.zh-CN/专有网络和交换机/使用交换机.md)。|
+    |**性能规格**|固定为100 CU。|
+    |**存储容量**|选择实例存储容量的大小。取值范围为1~10 GB，步长为1 GB。|
+    |**用户密码**|设置数据库账号的密码，请按照如下规则设置密码：    -   密码由大写字母、小写字母、数字、特殊字符中的至少三种组成，特殊字符为：
 
 !@\#$%^&\*\(\)\_+-=
 
-    -   The password must be 8 to 32 characters in length. |
-    |**Set Later**|Set a password after the instance is created. For more information, see [Set a password for a sharded cluster instance]().|
-    |**Validity**|N/A|You must specify this parameter when you create a sharded cluster instance that uses the subscription billing method. You can select one to nine months for the subscription period on a monthly basis, or one to five years for the subscription period on a yearly basis.|
+    -   密码长度为8~32位。 |
+    |**实例名称**|自定义实例的名称。|
+    |**购买数量**|选择相同配置实例的数量，可以设置1~99的整数。|
+    |**购买时长**|选择购买时长。按天可选择1天、7天和14天；包月可选择1~9个月；包年可选择1~5年。|
 
-7.  After you configure the preceding parameters, click **Buy Now**.
+7.  购买实例。
 
-8.  On the Confirm Order page, read and select ApsaraDB for MongoDB Agreement of Service, and complete the payment.
+    1.  配置完成后，单击**立即购买**。
+
+    2.  在**确认订单**页面，阅读并勾选服务协议，根据提示完成支付。
+
+8.  查看Serverless实例是否创建成功。
+
+    1.  支付完成后，单击**管理控制台**，进入云数据库MongoDB控制台。
+
+    2.  在页面左上角，选择主机所在的资源组和地域。
+
+    3.  在左侧导航栏，选择**Serverless实例列表**。
+
+    4.  查看创建的实例是否在Serverless实例列表中。
+
+        -   是，说明实例已创建，当实例状态为**运行中**时，说明实例创建成功。
+        -   否，请您等待10~15分钟后刷新页面重新查看，如果Serverless列表中仍然没有，请先排查是否是以下原因导致，如果不是，请联系阿里云技术支持。
+
+            可能导致实例列表中找不到实例的可能原因及解决办法。
+
+            |可能原因|解决方法|
+            |----|----|
+            |地域选择错误|在云数据库MongoDB控制台左上角，选择实例所在的资源组和地域。|
+            |实例列表选择错误|在云数据库MongoDB控制台左侧导航栏，选择**Serverless实例列表**。|
+            |资源不足|新创建的实例可能因为资源不足而退款。请您在订单管理中查看退款，具体请参见[订单管理](https://expense.console.aliyun.com/#/order/list/)。
+
+在您确认退款后，您可以选择以下任意一种方法处理：
+
+            -   更换可用区尝试再次购买。
+            -   提交工单处理，具体请参见[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)。 |
 
 
-## View the created instance
+## 相关API
 
-1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
+|接口|说明|
+|--|--|
+|[CreateServerlessDBInstance](/cn.zh-CN/API参考/生命周期管理/CreateServerlessDBInstance.md)|创建云数据库MongoDB Serverless版实例。|
+|[DescribeInstanceAutoRenewalAttribute](/cn.zh-CN/API参考/生命周期管理/DescribeInstanceAutoRenewalAttribute.md)|查询云数据库MongoDB实例是否为自动付费。|
+|[DescribeDBInstanceAttribute](/cn.zh-CN/API参考/查询实例信息/DescribeDBInstanceAttribute.md)|查询云数据库MongoDB实例的详情。|
 
-2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
+实例创建完成后，您还需要执行以下操作：
 
-3.  In the left-side navigation pane, click **Sharded Cluster Instances**.
-
-
-## Troubleshoot if you cannot find the instance
-
-|Possible cause|Solution|
-|--------------|--------|
-|You selected a wrong region in the console.|Select the region where the instance is deployed. For more information, see [View the created instance](#section_w0s_59q_9fp).|
-|You opened an incorrect page.|Select the correct instance list. Perform the following operations:1.  View the created instance. For more information, see [View the created instance](#section_w0s_59q_9fp).
-2.  Select the correct instance list. For more information, see **Sharded Cluster Instances**. |
-|The instance list in the ApsaraDB for MongoDB console was not updated or was updated before the instance is created.|Wait several minutes and then update the instance list to check whether the instance is added to the list.|
-|Resources are insufficient.|The system may fail to create the instance due to insufficient resources. In this case, your payment is refunded. You can check the refund on the [Orders](https://expense.console.aliyun.com/#/order/list/) page.
-
-After you confirm the refunded fees, you can try one of the following methods:
-
--   Create an instance in another zone.
--   Submit a ticket. For more information, see [Submit a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/createIndex). |
-
-After you create an instance, perform the following operations:
-
--   Set a password if you do not set a password when you create the instance. For more information, see [Reset the password]().
--   Configure a whitelist for the instance to allow external devices to access the instance. For more information, see [Configure a whitelist for an ApsaraDB for MongoDB instance]().
--   Apply for a public endpoint if you want to connect to the instance over the Internet. For more information, see [Apply for a public endpoint for an ApsaraDB for MongoDB instance]().
-
-For more information about instance connection methods and connection scenarios, see [Connect to an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Instance connection/Connect to an ApsaraDB for MongoDB instance.md).
+-   如果您在创建实例时没有立即设置密码，请您设置密码，设置方法请参见[设置密码]()。
+-   设置实例的白名单，以允许外部设备访问该实例，设置方法请参见[设置白名单]()。
+-   如果您需要通过公网连接实例，请您先申请公网连接地址，申请方法请参见[申请公网连接地址]()。
 
