@@ -1,59 +1,83 @@
-# Connect to a standalone ApsaraDB for MongoDB instance by using DMS
+---
+keyword: [mongo 连接指定数据库, mongodb安全写入, mongo登录方法, mongodb如何连接, mongo密码登录连接数据库]
+---
 
-Data Management \(DMS\) is an integrated and visualized database solution that offers data management, structure management, user authorization, security auditing, data trend analysis, data tracking, BI charts, performance optimization, and server management. You can use DMS to connect to a standalone ApsaraDB for MongoDB instance for remote access and online management.
+# 通过Mongo Shell连接MongoDB单节点实例
 
-## Preparations
+Mongo Shell是MongoDB数据库自带的数据库管理工具，您可以在本地或ECS上安装Mongo Shell工具，然后通过Mongo Shell连接MongoDB单节点实例。
 
-Add the IP address of the DMS server \(100.104.0.0/16\) to the whitelist of the ApsaraDB for MongoDB instance. For more information, see [Configure a whitelist for a standalone ApsaraDB for MongoDB instance]().
+-   为保障鉴权成功，请安装与MongoDB实例版本相对应的Mongo Shell版本。安装步骤请参见官方文档[Install MongoDB](https://docs.mongodb.com/manual/installation/)（请根据您的客户端版本在页面左上角选择版本号）。
+-   已将客户端的IP地址加入到MongoDB实例的白名单中，详情请参见[设置白名单]()。
 
-**Note:** Skip this step if you have added the IP address of the DMS server to the whitelist of the ApsaraDB for MongoDB instance.
-
-## Procedure
-
-1.  Log on to the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/).
-
-2.  In the upper-left corner of the page, select the resource group and the region of the target instance.
-
-3.  In the left-side navigation pane, click **Replica Set Instances**.
-
-4.  Find the target instance and click its ID.
-
-5.  In the upper-right corner of the page, click **Log On**. You are redirected to the **Data Management** console.
-
-6.  In the **Login instance** dialog box, configure the parameters.
-
-    ![Log on to DMS](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/2934881161/p181952.png)
-
-    |Parameter|Description|
-    |---------|-----------|
-    |**Database type**|The database engine of the instance. By default, this parameter is set to the database engine of the instance that you want to access.|
-    |**Instance Area**|The region where the instance is deployed. By default, this parameter is set to the region where the current instance is deployed.|
-    |**Connection string address**|The endpoint and port number that are used to connect to the instance. By default, this parameter is set to the endpoint and port number of the current instance.|
-    |**Database Name**|The name of the database corresponding to the account if authentication is enabled. **Note:**
-
-    -   If **Database account** is set to root, the database name is admin.
-    -   We recommend that you do not log on to a database as the root user in the production environment. You can create users and grant permissions to them based on your requirement. For more information, see [Manage MongoDB users by using DMS](/intl.en-US/User Guide/Account management/Manage user permissions on MongoDB databases.md). |
-    |**Database account**|The account that is used to access the database. The initial account is `root`.|
-    |**Database password**|The password of the account that is used to access the database. **Note:** If you forget the password of the root account, you can reset the password by using the method specified in [Set a password](). |
-
-7.  Click **Login**.
-
-    **Note:** If you want your web browser to remember the password, select **Remember password** before you click **Login**.
+    **说明：** 如需通过公网连接MongoDB实例，需要[申请公网连接地址]()。
 
 
-## Common connection scenarios
+## 操作步骤
 
--   [Connect to an ApsaraDB for MongoDB instance over the Internet](/intl.en-US/User Guide/Instance connection/Connect to an ApsaraDB for MongoDB instance over the Internet.md)
--   [How to connect an ECS instance to an ApsaraDB for MongoDB instance when their network types are different](/intl.en-US/User Guide/Instance connection/How to connect an ECS instance to an ApsaraDB for MongoDB instance when their network types are different.md)
--   [How to connect an ECS instance to an ApsaraDB for MongoDB instance when they are in different regions](/intl.en-US/User Guide/Instance connection/How to connect an ECS instance to an ApsaraDB for MongoDB instance when they are in
-         different regions.md)
--   [Connect an ECS instance with an ApsaraDB for MongoDB instance in another Alibaba Cloud account](/intl.en-US/User Guide/Instance connection/Connect an ECS instance with an ApsaraDB for MongoDB instance in another Alibaba Cloud
-         account.md)
+1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
 
-## References
+2.  在页面左上角，选择实例所在的资源组和地域。
 
--   [How to troubleshoot logon issues for the mongo shell](/intl.en-US/Product Usage/Database connections/The system prompts "Timeout while receiving message" when logging on to apsaradb for MongoDB through the Mongo Shell from a Linux instance.md)
--   [How to troubleshoot database connection failures after the number of connections reaches the upper limit](/intl.en-US/Product Usage/Database connections/How to troubleshoot database connection failures after the number of connections reaches the upper limit.md)
--   [Troubleshoot the high CPU usage of ApsaraDB for MongoDB](/intl.en-US/Best Practices/Performance/Troubleshoot the high CPU utilization of ApsaraDB for MongoDB.md)
--   [How to query and limit the number of connections](/intl.en-US/Product Usage/Database connections/How do I query and limit the number of connections?.md)
+3.  在左侧导航栏，单击**副本集实例列表**。
+
+4.  找到目标实例，单击实例ID。
+
+5.  在左侧导航栏，单击**数据库连接**，获取连接Primary节点的连接地址。
+
+    ![获取连接地址](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4029615061/p13741.png)
+
+    |项目|说明|
+    |:-|:-|
+    |地址类型|    -   **私网连接**：专有网络是一种隔离的网络环境，安全性和性能均高于传统的经典网络。 MongoDB实例默认提供专有网络连接地址，通过专有网络连接MongoDB实例可以获取更高的安全性和性能。
+    -   **公网连接**：由于通过公网连接实例存在一定的安全风险，MongoDB实例默认未提供公网连接地址。如果您要使用阿里云以外的设备（例如本地设备）连接MongoDB实例，您可以手动[申请公网连接地址]()。 |
+    |**节点**|Primary节点：MongoDB实例的主节点，连接该节点可执行数据库的读写操作。|
+    |连接地址|Primary节点连接地址：格式为`<host>:<port>`。 **说明：**
+
+    -   <host\>：Primary节点的域名地址。
+    -   <port\>：Primary节点的服务端口。 |
+    |Connection String URI连接地址：格式为     ```
+mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
+    ```
+
+    -   `mongodb://`：前缀，代表这是一个Connection String URI连接地址。
+    -   `username:password@`：连接MongoDB实例的用户名和密码，使用英文冒号（:）分隔。
+    -   `hostX:portX`：实例的连接地址和端口号。
+    -   `/database`：鉴权数据库名，即数据库账号所属的数据库。
+    -   `?options`：指定额外的连接选项。 |
+
+6.  在安装有Mongo Shell的本地服务器或ECS中执行如下命令连接数据库。
+
+    ```
+    mongo --host <host:port> -u <username> -p --authenticationDatabase <database>
+    ```
+
+    **说明：**
+
+    -   `<host:port>`：Primary节点的连接地址，包含域名和端口号信息。
+    -   `<username>`：MongoDB实例的数据库账号，初始账号为root。不建议在生产环境中直接使用root账号连接数据库。您可以根据业务需求创建用户并分配权限，详情请参见[MongoDB数据库账号权限管理](/cn.zh-CN/用户指南/账号管理/MongoDB数据库账号权限管理.md)。
+    -   `<database>`：鉴权数据库名，即数据库账号所属的数据库。当数据库账号为root时，对应的数据库为admin。如果您希望指定其他数据库，请先在该数据库中使用[db.createUser\(\)](https://docs.mongodb.com/manual/reference/method/db.createUser/index.html)命令创建账号，然后再使用该账号进行连接。
+    示例：
+
+    ```
+    mongo --host dds-bpxxxxxxxxxx.mongodb.rds.aliyuncs.com:3717 -u root -p --authenticationDatabase admin
+    ```
+
+7.  当命令行提示`Enter password:`时，输入数据库账号对应的密码并按回车键确认。如果忘记了root账号的密码，您可以通过[设置密码]()的方式来重置密码。
+
+    **说明：** 输入密码时，密码字符是不可见的。
+
+
+## 常见的连接场景
+
+-   [如何通过公网连接MongoDB实例](/cn.zh-CN/用户指南/连接实例/如何通过公网连接MongoDB实例.md)
+-   [ECS实例与MongoDB实例网络类型不同时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例网络类型不同时如何连接.md)
+-   [ECS实例与MongoDB实例地域不同时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例地域不同时如何连接.md)
+-   [ECS实例与MongoDB实例不在同一阿里云账号时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例不在同一阿里云账号时如何连接.md)
+
+## 相关问题
+
+-   [排查Mongo Shell登录问题](/cn.zh-CN/常见问题/连接数据库/Linux实例使用Mongo Shell登录MongoDB数据库提示“Timeout while receiving message”错误.md)
+-   [排查因连接数耗尽导致的数据库连接问题](/cn.zh-CN/常见问题/连接数据库/MongoDB实例连接数耗尽导致数据库连接失败.md)
+-   [排查MongoDB CPU使用率高的问题](/cn.zh-CN/最佳实践/性能/排查MongoDB CPU使用率高的问题.md)
+-   [如何查询及限制连接数](/cn.zh-CN/常见问题/连接数据库/如何查询及限制MongoDB实例的连接数.md)
 
