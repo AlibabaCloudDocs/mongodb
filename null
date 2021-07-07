@@ -35,7 +35,7 @@ Mongo Shell是MongoDB数据库自带的数据库管理工具，您可以在本�
     **说明：**
 
     -   <mongos\_host\>：任一Mongos节点连接地址中的连接地址。
-    -   <username\>：MongoDB实例的数据库账号，初始账号为root。不建议在生产环境中直接使用root账号连接数据库。您可以根据业务需求创建用户并分配权限，详情请参见[MongoDB数据库账号权限管理](/cn.zh-CN/用户指南/账号管理/MongoDB数据库账号权限管理.md)。
+    -   <username\>：MongoDB实例的数据库账号，初始账号为root。不建议在生产环境中直接使用root账号连接数据库。您可以根据业务需求创建用户并分配权限，详情请参见[MongoDB数据库账号权限管理](/intl.zh-CN/用户指南/账号管理/MongoDB数据库账号权限管理.md)。
     -   <database\>：鉴权数据库名，即数据库账号所属的数据库。当数据库账号为root时，对应的数据库为admin。如果您希望指定其他数据库，请先在该数据库中使用[db.createUser\(\)](https://docs.mongodb.com/manual/reference/method/db.createUser/index.html)命令创建账号，然后再使用该账号进行连接。
     示例：
 
@@ -50,15 +50,15 @@ Mongo Shell是MongoDB数据库自带的数据库管理工具，您可以在本�
 
 ## 常见的连接场景
 
--   [如何通过公网连接MongoDB实例](/cn.zh-CN/用户指南/连接实例/如何通过公网连接MongoDB实例.md)
--   [ECS实例与MongoDB实例网络类型不同时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例网络类型不同时如何连接.md)
--   [ECS实例与MongoDB实例地域不同时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例地域不同时如何连接.md)
--   [ECS实例与MongoDB实例不在同一阿里云账号时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例不在同一阿里云账号时如何连接.md)
+-   [如何通过公网连接MongoDB实例](/intl.zh-CN/用户指南/连接实例/如何通过公网连接MongoDB实例.md)
+-   [ECS实例与MongoDB实例网络类型不同时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例网络类型不同时如何连接.md)
+-   [ECS实例与MongoDB实例地域不同时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例地域不同时如何连接.md)
+-   [ECS实例与MongoDB实例不在同一阿里云账号时如何连接](/intl.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例不在同一阿里云账号时如何连接.md)
 
 ## 相关问题
 
--   [排查 Mongo Shell 登录问题](/cn.zh-CN/常见问题/连接数据库/Linux实例使用Mongo Shell登录MongoDB数据库提示“Timeout while receiving message”错误.md)
--   [排查因连接数耗尽导致的数据库连接问题](/cn.zh-CN/常见问题/连接数据库/MongoDB实例连接数耗尽导致数据库连接失败.md)
--   [排查 MongoDB CPU使用率高的问题](/cn.zh-CN/最佳实践/性能/排查MongoDB CPU使用率高的问题.md)
--   [如何查询及限制连接数](/cn.zh-CN/常见问题/连接数据库/如何查询及限制MongoDB实例的连接数.md)
+-   [排查 Mongo Shell 登录问题](/intl.zh-CN/常见问题/连接数据库/Linux实例使用Mongo Shell登录MongoDB数据库提示“Timeout while receiving message”错误.md)
+-   [排查因连接数耗尽导致的数据库连接问题](/intl.zh-CN/常见问题/连接数据库/排查因连接数耗尽导致的数据库连接问题.md)
+-   [排查 MongoDB CPU使用率高的问题](/intl.zh-CN/最佳实践/性能/排查MongoDB CPU使用率高的问题.md)
+-   [如何查询及限制连接数](/intl.zh-CN/常见问题/连接数据库/如何查询及限制MongoDB实例的连接数.md)
 
