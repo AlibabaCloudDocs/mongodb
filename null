@@ -1,50 +1,51 @@
-# 使用前须知
+# Usage notes
 
-您可以轻松地将业务从自建MongoDB数据库转移至云数据库MongoDB，但是云数据库MongoDB本身也有一些使用约束需要您注意。
+You can migrate data from a self-managed MongoDB database to an ApsaraDB for MongoDB instance, but you must pay close attention to the limits of ApsaraDB for MongoDB.
 
-## 单节点实例
+## Standalone instances
 
-|操作|约束|
-|:-|:-|
-|实例部署|仅支持在华东1、华东2、华北1、华北2及华南1地域中创建单节点实例。|
-|数据库版本|仅支持MongoDB 3.4版本。|
-|存储引擎|仅支持WiredTiger引擎。 |
-|公网连接地址|由于通过公网连接存在一定安全风险，实例开通后默认只提供内网连接地址。如您需要公网连接地址可[手动申请](/intl.zh-CN/用户指南/管理网络连接/公网连接地址/申请公网连接地址.md)。|
-|重启实例|必须通过[MongoDB控制台](https://mongodb.console.aliyun.com/)或调用[RestartDBInstance](/intl.zh-CN/API参考/实例管理/RestartDBInstance.md)接口重启实例。|
-|数据迁移|[使用MongoDB工具迁移数据](/intl.zh-CN/用户指南/数据迁移和同步/数据迁移/使用MongoDB工具将自建数据库迁移至单节点实例.md)或[使用DTS迁移单节点架构的自建MongoDB数据库上云](/intl.zh-CN/用户指南/数据迁移和同步/数据迁移/使用DTS迁移单节点架构的自建MongoDB数据库上云.md)。|
-|数据备份|由于单节点实例的架构的特殊性，单节点实例采用快照备份的方式备份数据。 **说明：** 快照备份可以保留某一时间点的磁盘数据状态。 |
-|数据恢复|仅支持[从备份点创建实例](/intl.zh-CN/用户指南/数据恢复/从备份点创建实例.md)。|
-|修改实例参数|出于安全和稳定性考虑，部分参数不支持修改，详情请参见[设置数据库参数](/intl.zh-CN/用户指南/参数设置/设置数据库参数.md)。|
+|Operation|Limit|
+|:--------|:----|
+|Deploy an instance|Standalone instances can be created only in the China \(Hangzhou\), China \(Shanghai\), China \(Qingdao\), China \(Beijing\), and China \(Shenzhen\) regions.|
+|Configure the database version|The MongoDB version must be 3.4.|
+|Configure the storage engine|The storage engine must be WiredTiger. |
+|Connect to an instance by using its public endpoint|It is risky to connect to ApsaraDB for MongoDB instances over the Internet. By default, only an internal endpoint is provided after an instance is activated. If you need to connect to an instance over the Internet, apply for a public endpoint. For more information, see [Apply for a public endpoint for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Network connection management/Public IP Connection/Apply for a public endpoint for an ApsaraDB for MongoDB instance.md).|
+|Restart an instance|You must restart an instance by using the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/) or by calling the [RestartDBInstance](/intl.en-US/API Reference/Instance management/RestartDBInstance.md) operation.|
+|Migrate data|You can use the built-in commands of MongoDB or Data Transmission Service \(DTS\) to migrate data. For more information, see [Migrate user-created databases to Alibaba Cloud by using tools provided by MongoDB](/intl.en-US/User Guide/Data migration and synchronization/Migrate data/Migrate self-managed MongoDB databases to standalone instances by using tools provided by MongoDB.md) or [Migrate a self-managed standalone MongoDB database to Alibaba Cloud by using DTS](/intl.en-US/User Guide/Data migration and synchronization/Migrate data/Migrate self-managed standalone MongoDB databases to Alibaba Cloud by using DTS.md).|
+|Back up data|Standalone instances are backed up in snapshot mode due to their special architecture. **Note:** A snapshot backup retains the status of disk data at a specific point in time. |
+|Restore data|You can create instances based only on backup data. For more information, see [Create an instance from a backup](/intl.en-US/User Guide/Data recovery/Create an instance from a backup.md).|
+|Modify the parameters of an instance|For security and stability reasons, some parameters cannot be modified. For more information, see [Configure database parameters for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Parameter settings/Configure database parameters for an ApsaraDB for MongoDB instance.md).|
 
-## 副本集实例
+## Replica set instances
 
-|操作|约束|
-|:-|:-|
-|实例部署|实例的版本与存储引擎的选择存在一定的约束性，详情请参见[版本及存储引擎](/intl.zh-CN/产品简介/版本及存储引擎.md)。|
-|搭建副本集|-   系统自动搭建的副本集中，提供一个可使用的Primary节点，一个隐藏的Hidden节点（对用户不可见），剩余节点为可使用的Secondary节点。
--   实例运行过程中，您可以根据业务需求变更节点数量（三节点、五节点、七节点），实现按需增删Secondary节点的目的，详情请参见[t41229.md\#](/intl.zh-CN/用户指南/实例管理/变更实例配置/变更副本集实例配置.md)。
+|Operation|Limit|
+|:--------|:----|
+|Deploy an instance|The database version must match the storage engine. For more information, see [MongoDB versions and storage engines](/intl.en-US/Product Introduction/MongoDB versions and storage engines.md).|
+|Build replica set nodes|-   A replica set instance automatically created by ApsaraDB for MongoDB consists of a primary node, a hidden secondary node that is invisible to you, and one or more secondary nodes.
+-   When a replica set instance is running, you can scale the instance to one that has three, five, or seven nodes. For more information, see [Change the number of nodes for a replica set instance](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Change the number of nodes for a replica set instance.md).
 
-**说明：** 不支持将自建的从节点接入至副本集实例中，如您需要将副本集实例的数据同步至自建数据库进行数据测试或分析，您可以使用MongoShake实现，详情请参见[使用MongoShake实现MongoDB副本集间的单向同步](/intl.zh-CN/用户指南/数据迁移和同步/数据同步/使用MongoShake实现MongoDB副本集间的单向同步.md)。 |
-|数据库小版本|如果您的数据库小版本过期或者不在维护列表内，当执行[实例版本升级](/intl.zh-CN/用户指南/实例管理/数据库升级/升级数据库版本.md)、[数据迁移](/intl.zh-CN/用户指南/数据迁移和同步/MongoDB数据迁移和同步方案概览.md)、[变更实例配置](/intl.zh-CN/用户指南/实例管理/变更实例配置/变更配置方案概览.md)、[从备份点创建实例](/intl.zh-CN/用户指南/数据恢复/从备份点创建实例.md)、[按时间点新建实例](/intl.zh-CN/用户指南/数据恢复/按时间点新建实例.md)或[MongoDB单库恢复](/intl.zh-CN/用户指南/数据恢复/MongoDB单库恢复.md)等操作时，为保证提供更出色的性能和稳定性，系统会默认将您的数据库小版本升级至最新版。|
-|重启实例|必须通过[MongoDB控制台](https://mongodb.console.aliyun.com/)或调用[RestartDBInstance](/intl.zh-CN/API参考/实例管理/RestartDBInstance.md)接口重启实例。|
-|数据迁移|[使用DTS迁移副本集架构的自建MongoDB数据库上云](/intl.zh-CN/用户指南/数据迁移和同步/数据迁移/使用DTS迁移副本集架构的自建MongoDB数据库上云.md)或[使用MongoDB工具将自建数据库迁移至副本集实例](/intl.zh-CN/用户指南/数据迁移和同步/数据迁移/使用MongoDB工具将自建数据库迁移至副本集实例.md)。|
-|数据备份|[自动备份](/intl.zh-CN/用户指南/数据备份/设置自动备份MongoDB数据.md)固定为物理备份方式，[手动备份](/intl.zh-CN/用户指南/数据备份/手动备份MongoDB数据.md)时可选择物理备份或逻辑备份。 **说明：** 当实例的数据库版本为3.2或3.4时，实例中集合加索引的数量需控制在1万以内，否则可能造成物理备份失败。如果您的业务可能会超过此限制，建议[升级数据库版本](/intl.zh-CN/用户指南/实例管理/数据库升级/升级数据库版本.md)至4.0或4.2，您也可以在创建实例时选择数据库版本为4.0或4.2。 |
-|数据恢复|-   副本集实例均支持[从备份点创建实例](/intl.zh-CN/用户指南/数据恢复/从备份点创建实例.md)和[按时间点新建实例](/intl.zh-CN/用户指南/数据恢复/按时间点新建实例.md)方式来恢复数据。
--   仅三节点副本集支持[直接恢复备份数据到当前实例](/intl.zh-CN/用户指南/数据恢复/直接恢复备份数据到当前实例.md)。 |
-|修改实例参数|出于安全和稳定性考虑，部分参数不支持修改，详情请参见[设置数据库参数](/intl.zh-CN/用户指南/参数设置/设置数据库参数.md)。|
+**Note:** You cannot connect to a replica set instance from a secondary node of a self-managed database. If you want to synchronize data from a replica set instance to a self-managed MongoDB database for data testing or analysis, you can use MongoShake. For more information, see [Use MongoShake to implement one-way synchronization between ApsaraDB for MongoDB replica set instances](/intl.en-US/User Guide/Data migration and synchronization/Data synchronization/Use MongoShake to implement one-way synchronization between ApsaraDB for MongoDB replica set instances.md). |
+|Upgrade the minor version of an ApsaraDB for MongoDB instance|To ensure better performance and stability of the instance, the system will upgrade the minor version to the latest version by default. If the minor version of your instance expires or is not included in the maintenance list and the instance is [upgraded](/intl.en-US/User Guide/Instance management/Upgrading Database Version/Upgrade MongoDB versions.md), [migrated](/intl.en-US/User Guide/Data migration and synchronization/Overview.md), [changed](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Configuration change overview.md), [Created from a backup](/intl.en-US/User Guide/Data recovery/Create an instance from a backup.md), [Created by point-in-time](/intl.en-US/User Guide/Data recovery/Restore data to a new ApsaraDB for MongoDB instance by point in time.md), or performed [Restore data to a new ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Data recovery/Restore data to a new ApsaraDB for MongoDB instance.md).|
+|Restart an instance|You must restart an instance by using the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/) or by calling the [RestartDBInstance](/intl.en-US/API Reference/Instance management/RestartDBInstance.md) operation.|
+|Migrate data|You can use the built-in commands of MongoDB or Data Transmission Service \(DTS\) to migrate data. For more information, see [Migrate the replica set of a self-managed MongoDB database to Alibaba Cloud by using DTS](/intl.en-US/User Guide/Data migration and synchronization/Migrate data/Migrate a MongoDB replica set from a self-managed database to ApsaraDB for MongoDB by using DTS.md) or [Migrate self-managed databases to Alibaba Cloud by using tools provided by MongoDB](/intl.en-US/User Guide/Data migration and synchronization/Migrate data/Migrate self-managed databases to Alibaba Cloud by using tools provided by MongoDB.md).|
+|Back up data|Automatic backup supports only physical backup. Manual backup supports both physical and logical backup. For more information, see [Configure automatic backup for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Data backup/Configure automatic backup for an ApsaraDB for MongoDB instance.md) and [Manually back up an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Data backup/Manually back up an ApsaraDB for MongoDB instance.md). **Note:** If the database version of an instance is 3.2 or 3.4, the number of collections and indexes in the instance cannot exceed 10,000. Otherwise, physical backup may fail. If you want to increase this limit, we recommend that you upgrade the database version to 4.0 or 4.2. For more information, see [Upgrade MongoDB versions](/intl.en-US/User Guide/Instance management/Upgrading Database Version/Upgrade MongoDB versions.md). Alternatively, you can set the database version to 4.0 or 4.2 when you create an instance. |
+|Restore data|-   You can restore data from a point in time or a backup set. For more information, see [Create an instance from a backup](/intl.en-US/User Guide/Data recovery/Create an instance from a backup.md) and [Restore data to a new ApsaraDB for MongoDB instance by point in time](/intl.en-US/User Guide/Data recovery/Restore data to a new ApsaraDB for MongoDB instance by point in time.md).
+-   You can restore data to your current replica set instance only if it has three nodes. For more information, see [Restore data to the current ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Data recovery/Restore data to the current ApsaraDB for MongoDB instance.md). |
+|Modify the parameters of an instance|For security and stability reasons, some parameters cannot be modified. For more information, see [Configure database parameters for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Parameter settings/Configure database parameters for an ApsaraDB for MongoDB instance.md).|
 
-## 分片集群实例
+## Sharded cluster instances
 
-|操作|约束|
-|:-|:-|
-|实例部署|实例的版本与存储引擎的选择存在一定的约束性，详情请参见[版本及存储引擎](/intl.zh-CN/产品简介/版本及存储引擎.md)。|
-|搭建集群节点|-   在创建分片集群实例时，您可以选择Mongos和shard节点的配置和节点数量。
--   实例运行过程中，您也可以添加Mongos和shard节点，暂不支持删除节点的操作，详情请参见[变更配置方案概览](/intl.zh-CN/用户指南/实例管理/变更实例配置/变更配置方案概览.md)。 |
-|数据库小版本|如果您的数据库小版本过期或者不在维护列表内，当执行[实例版本升级](/intl.zh-CN/用户指南/实例管理/数据库升级/升级数据库版本.md)、[数据迁移](/intl.zh-CN/用户指南/数据迁移和同步/MongoDB数据迁移和同步方案概览.md)、[变更实例配置](/intl.zh-CN/用户指南/实例管理/变更实例配置/变更配置方案概览.md)、[从备份点创建实例](/intl.zh-CN/用户指南/数据恢复/从备份点创建实例.md)、[按时间点新建实例](/intl.zh-CN/用户指南/数据恢复/按时间点新建实例.md)或[MongoDB单库恢复](/intl.zh-CN/用户指南/数据恢复/MongoDB单库恢复.md)等操作时，为保证提供更出色的性能和稳定性，系统会默认将您的数据库小版本升级至最新版。|
-|重启实例|必须通过[MongoDB控制台](https://mongodb.console.aliyun.com/)或调用[RestartDBInstance](/intl.zh-CN/API参考/实例管理/RestartDBInstance.md)接口重启实例。|
-|数据迁移|[使用MongoDB工具迁移数据](/intl.zh-CN/用户指南/数据迁移和同步/数据迁移/使用MongoDB工具将自建数据库迁移至分片集群实例.md)或[使用DTS迁移数据](/intl.zh-CN/用户指南/数据迁移和同步/数据迁移/使用DTS迁移分片集群架构的自建MongoDB数据库上云.md)。 |
-|数据备份|[自动备份](/intl.zh-CN/用户指南/数据备份/设置自动备份MongoDB数据.md)固定为物理备份方式，[手动备份MongoDB数据](/intl.zh-CN/用户指南/数据备份/手动备份MongoDB数据.md)可选择物理备份或逻辑备份。 **说明：** 当实例的数据库版本为3.2或3.4时，实例中集合加索引的数量需控制在1万以内，否则可能造成物理备份失败。如果您的业务可能会超过此限制，建议[升级数据库版本](/intl.zh-CN/用户指南/实例管理/数据库升级/升级数据库版本.md)至4.0，您也可以在创建实例时选择数据库版本为4.0。 |
-|数据恢复|仅支持[按时间点新建实例](/intl.zh-CN/用户指南/数据恢复/按时间点新建实例.md)方式来恢复数据。|
-|修改实例参数|出于安全和稳定性考虑，暂不支持修改实例参数。|
-|数据读写|分片集群实例中的admin数据库仅支持用户读取，不支持写入。|
+|Operation|Limit|
+|:--------|:----|
+|Deploy an instance|The database version must match the storage engine. For more information, see [MongoDB versions and storage engines](/intl.en-US/Product Introduction/MongoDB versions and storage engines.md).|
+|Build cluster components|-   When you create a sharded cluster instance, you can specify the specifications and numbers of mongos and shards.
+-   When the instance is running, you can add mongos and shards, but you cannot remove them. For more information, see [Configuration change overview](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Configuration change overview.md). |
+|Upgrade the minor version of an ApsaraDB for MongoDB instance|To ensure better performance and stability of the instance, the system will upgrade the minor version to the latest version by default. If the minor version of your instance expires or is not included in the maintenance list and the instance is [upgraded](/intl.en-US/User Guide/Instance management/Upgrading Database Version/Upgrade MongoDB versions.md), [migrated](/intl.en-US/User Guide/Data migration and synchronization/Overview.md), [changed](/intl.en-US/User Guide/Instance management/Changing Instance Configuration/Configuration change overview.md), [Created from a backup](/intl.en-US/User Guide/Data recovery/Create an instance from a backup.md), [Created by point-in-time](/intl.en-US/User Guide/Data recovery/Restore data to a new ApsaraDB for MongoDB instance by point in time.md), or performed [Restore data to a new ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Data recovery/Restore data to a new ApsaraDB for MongoDB instance.md).|
+|Restart an instance|You must restart an instance by using the [ApsaraDB for MongoDB console](https://mongodb.console.aliyun.com/) or by calling the [RestartDBInstance](/intl.en-US/API Reference/Instance management/RestartDBInstance.md) operation.|
+|Migrate data|You can use the built-in commands of MongoDB or Data Transmission Service \(DTS\) to migrate data. For more information, see [Migrate user-created databases to Alibaba Cloud by using tools provided by MongoDB](/intl.en-US/User Guide/Data migration and synchronization/Migrate data/Migrate a self-managed MongoDB database to ApsaraDB for MongoDB by using tools provided
+         by MongoDB.md) or [Migrate the replica set of a user-created MongoDB database to ApsaraDB for MongoDB by using DTS](/intl.en-US/User Guide/Data migration and synchronization/Migrate data/Migrate a self-managed sharded MongoDB database to ApsaraDB for MongoDB by using DTS.md). |
+|Back up data|Automatic backup supports only physical backup. Manual backup supports both physical and logical backup. For more information, see [Configure automatic backup for an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Data backup/Configure automatic backup for an ApsaraDB for MongoDB instance.md) and [Manually back up an ApsaraDB for MongoDB instance](/intl.en-US/User Guide/Data backup/Manually back up an ApsaraDB for MongoDB instance.md). **Note:** If the database version of an instance is 3.2 or 3.4, the number of collections and indexes in the instance cannot exceed 10,000. Otherwise, physical backup may fail. If you want to increase this limit, we recommend that you upgrade the database version to 4.0. For more information, see [Upgrade MongoDB versions](/intl.en-US/User Guide/Instance management/Upgrading Database Version/Upgrade MongoDB versions.md).Alternatively, you can set the database version to 4.0 when you create an instance. |
+|Restore data|You can restore data only by point in time. For more information, see [Restore data to a new ApsaraDB for MongoDB instance by point in time](/intl.en-US/User Guide/Data recovery/Restore data to a new ApsaraDB for MongoDB instance by point in time.md).|
+|Modify the parameters of an instance|For security and stability reasons, some parameters cannot be modified.|
+|Read and write data|You can only read data from the admin database of a sharded cluster instance, and you cannot write data to the admin database.|
 
