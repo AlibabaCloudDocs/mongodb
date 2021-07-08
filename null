@@ -1,62 +1,49 @@
----
-keyword: [mongo 连接指定数据库, mongodb安全写入, mongo登录方法, mongodb如何连接, mongo密码登录连接数据库]
----
+# 创建MongoDB集群
 
-# 通过Mongo Shell连接MongoDB Serverless版实例
+您需要先创建专属集群MyBase，才能使用专属集群MyBase内的各项功能。
 
-Mongo Shell是MongoDB数据库自带的数据库管理工具，您可以在本地或ECS上安装Mongo Shell工具，然后通过Mongo Shell连接Serverless实例。
+关于MyBase for MongoDB的更多介绍，请参见[概述]()。
 
--   为保障鉴权成功，请安装与MongoDB实例版本相对应的Mongo Shell版本。安装步骤请参见官方文档[Install MongoDB](https://docs.mongodb.com/manual/installation/)（请根据您的客户端版本在页面左上角选择版本号）。
--   已将客户端的IP地址加入到MongoDB实例的白名单中，详情请参见[设置白名单]()。
+## 注意事项
 
-    **说明：** 如需通过公网连接MongoDB实例，需要[申请公网连接地址]()。
-
+-   一个专属集群MyBase只能位于一个地域。
+-   一个专属集群MyBase只能属于一个专有网络VPC。
+-   专属集群MyBase名称在同地域内必须唯一。
 
 ## 操作步骤
 
-1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
+1.  登录[云数据库专属集群控制台](https://cddc.console.aliyun.com)。
 
-2.  在页面左上角，选择实例所在的资源组和地域。
+2.  在页面左上角，选择目标地域。
 
-3.  在左侧导航栏，单击**Serverless实例列表**。
+    ![选择地域](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2599530261/p129122.png)
 
-4.  找到目标实例，单击实例ID。
+3.  在**集群列表**页，单击**创建专属集群**。
 
-5.  在**基本信息**页面的**连接信息**区域，获取连接地址。
+    ![创建专属集群](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2599530261/p271335.png)
 
-    ![连接地址](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5215322061/p171187.png)
+4.  在**创建专属集群**页，设置以下参数。
 
-6.  在安装有Mongo Shell的本地服务器或ECS中通过如下命令连接实例。
+    ![创建专属集群-mongodb](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7930070261/p272374.png)
 
-    ```
-    mongo "<连接串地址>"
-    ```
+    |参数|说明|
+    |--|--|
+    |**引擎**|专属集群的引擎。选择MongoDB。 |
+    |**专属集群名称**|专属集群的名称。|
+    |**专有网络**|专属集群归属的专有网络VPC。如需创建新的专有网络，您可登录[VPC控制台](https://vpc.console.aliyun.com/vpc) 。**说明：** VPC设置后无法修改，只能删除专属集群后重新创建专属集群，请确保VPC选择正确。 |
+    |**资源分配策略**|专属集群资源调度的默认分配策略：     -   **均衡分配**：最大化追求更稳定的系统表现，优先从未分配资源或已分配资源较少的主机中分配资源。
+    -   **紧凑分配**：最大化追求更充分的资源利用率，优先从创建时间较早且已分配资源较多的主机中分配资源。 |
+    |**主机故障处理策略**|主机故障时，系统的处理策略：     -   **自动替换主机**：系统会自动替换故障主机。
 
-    **说明：**
+**说明：**
 
-    -   双引号须为英文双引号（""）。
-    -   <连接串地址\>：实例的ConnectionStringURI地址。
+        -   如果故障主机是云盘主机，云盘会自动迁移计算资源以自动替换主机。
+        -   如果故障主机是非云盘主机，则系统会先将故障主机上的实例迁移走，然后再替换故障主机。
+    -   **手动替换主机**：用户需要手动替换故障主机。 |
+    |**开放OS权限**|专属集群MongoDB引擎的主机不提供操作系统（OS）权限，默认为关闭。|
 
-        ConnectionStringURI或ReadOnly ConnectionStringURI地址中的`****`需要替换为数据库密码。如您丢失数据库密码请[重置密码]()。
+5.  首次使用该阿里云账号创建专属集群MyBase时，创建专属集群MyBase页底部会提示需要获取ECS网卡及安全组授权，请单击**点击授权**。
 
-    示例：
+6.  单击**确定**。
 
-    ```
-    mongo "mongodb://user******:****@dds-t4n*******-pub.mongodb.singapore.rds.aliyuncs.com:3717/admin"
-    ```
-
-
-## 常见的连接场景
-
--   [如何通过公网连接MongoDB实例](/cn.zh-CN/用户指南/连接实例/如何通过公网连接MongoDB实例.md)
--   [ECS实例与MongoDB实例网络类型不同时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例网络类型不同时如何连接.md)
--   [ECS实例与MongoDB实例地域不同时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例地域不同时如何连接.md)
--   [ECS实例与MongoDB实例不在同一阿里云账号时如何连接](/cn.zh-CN/用户指南/连接实例/ECS实例与MongoDB实例不在同一阿里云账号时如何连接.md)
-
-## 相关问题
-
--   [排查 Mongo Shell 登录问题](/cn.zh-CN/常见问题/连接数据库/Linux实例使用Mongo Shell登录MongoDB数据库提示“Timeout while receiving message”错误.md)
--   [排查因连接数耗尽导致的数据库连接问题](/cn.zh-CN/常见问题/连接数据库/MongoDB实例连接数耗尽导致数据库连接失败.md)
--   [排查 MongoDB CPU使用率高的问题](/cn.zh-CN/最佳实践/性能/排查MongoDB CPU使用率高的问题.md)
--   [如何查询及限制连接数](/cn.zh-CN/常见问题/连接数据库/如何查询及限制MongoDB实例的连接数.md)
 
