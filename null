@@ -1,0 +1,85 @@
+# 查看监控信息
+
+云数据库MongoDB管理控制台提供了丰富的性能监控数据，方便您查看和掌握实例的运行状态。
+
+## 背景信息
+
+关于云数据库MongoDB的监控信息功能，请您了解以下内容：
+
+-   新旧版本MongoDB管理控制台支持的监控信息功能存在差异，建议您使用新版MongoDB管理控制台，体验更多特性。
+-   如果您使用的是新版本MongoDB管理控制台，但查看到的实例采集粒度为1秒/次或300秒/次，属于正常现象，原因为：
+    -   当前部分存量实例继承原有的监控粒度采集设置。
+    -   实例在旧版本MongoDB管理控制台进行了监控粒度采集设置，详情请参见[设置监控采集粒度](/intl.zh-CN/用户指南/监控与报警/监控信息/设置监控采集粒度.md)。
+-   如果您使用的是旧版本MongoDB管理控制台，但查看到的实例采集粒度为60秒/次，属于正常现象，说明该实例是在监控采集粒度统一变更为60秒/次后创建。更多信息请参见[【通知】11月19日监控采集粒度变更为60秒](/intl.zh-CN/产品通知/【通知】11月19日监控采集粒度变更为60秒.md)。
+
+## 注意事项
+
+-   如果您接收到来自阿里云的告警信息（例如提示您CPU使用率高于80%），在您通过查看实例的监控信息进行问题溯源分析时，您需要筛选实例的节点，以排查各节点是否存在异常。
+-   监控数据保存时间为7天，您无法查看7天之前的监控信息。
+
+## 操作步骤
+
+1.  登录[MongoDB管理控制台](https://mongodb.console.aliyun.com/)。
+
+2.  在页面左上角，选择实例所在的资源组和地域。
+
+3.  根据实例类型，在左侧导航栏单击**副本集实例列表**或**Serverless实例列表**。
+
+4.  找到目标实例，单击实例ID。
+
+5.  在左侧导航栏中，单击**监控信息**。
+
+6.  根据实例类型，选择要查看监控信息的节点。
+
+    **说明：** 默认展示最近一天的监控数据，您也可以选择查询时间来查看监控历史数据。
+
+    -   单节点实例：固定展示Primary节点的监控数据，无法选择。
+    -   副本集实例：在页面上方，选择实例中的Primary节点和Secondary节点。
+
+        ![副本集实例监控信息](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/0369041261/p67534.png)
+
+    -   分片集群实例：在页面上方，选择实例中的Mongos节点、Shard节点和ConfigServer节点。
+
+        **说明：** 节点ID以**s-**为前缀的是Mongos节点；以**d-**为前缀的是Shard节点；以**-cs**为后缀的是ConfigServer节点。
+
+        ![分片集群实例监控信息](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4747376161/p67540.png)
+
+
+## 监控项说明
+
+|监控项|说明|
+|:--|:-|
+|CPU使用率|cpu\_usage：实例的CPU使用率。|
+|内存使用率|mem\_usage：实例的内存使用率。|
+|IOPS使用量|IOPS使用量，包括： -   data\_iops：数据盘IOPS。
+-   log\_iops：日志盘IOPS。 |
+|IOPS使用率|iops\_usage：实例使用IOPS大小与最大可用IOPS的比值。|
+|磁盘空间使用量|实例使用的磁盘空间，包括： -   ins\_size：总使用空间。
+-   data\_size：数据磁盘使用空间。
+-   log\_size：日志磁盘使用空间。 |
+|磁盘空间使用率|disk\_usage：实例总使用空间与规格最大可使用空间的比值。|
+|操作QPS数|实例的操作QPS数，包括： -   insert操作数。
+-   query操作数。
+-   delete操作数。
+-   update操作数。
+-   getmore操作数。
+-   command操作数。 |
+|连接数|current\_conn：实例当前连接数|
+|cursors|实例当前使用的cursor数，包括： -   total\_open：当前cursor打开数量。
+-   timed\_out：cursor超时数量。 |
+|网络流量|实例的网络流量，包括： -   bytes\_in：进口流量。
+-   bytes\_out：出口流量。
+-   num\_requests：处理的请求数。 |
+|等待全局锁的队列长度|实例当前等待全局锁的队列长度，包括： -   gl\_cq\_readers：全局读锁的等待队列长度。
+-   gl\_cq\_writers：全局写锁的等待队列长度。
+-   gl\_cq\_total：所有全局锁的等待队列长度。 |
+|WiredTiger|实例wiredTiger引擎cache层指标，包括： -   bytes\_read\_into\_cache：读入cache的数据量大小。
+-   bytes\_written\_from\_cache：从cache写的磁盘大小。
+-   maximum\_bytes\_configured：配置最大可用的磁盘大小。 |
+|主备延时|repl\_lag：采集实例主备节点的数据同步延时信息。|
+|WT请求队列|查看当前正在并发（out）的读写请求数以及剩余可用（available）的并发数。包括： -   write\_concurrent\_trans\_out：写并发请求数。
+-   read\_concurrent\_trans\_out：读并发请求数。
+-   write\_concurrent\_trans\_available：可用的写并发数。
+-   read\_concurrent\_trans\_available：可用的读并发数。 |
+|IO延迟|iocheck\_cost：反映当前IO的响应性能。**说明：** 该监控项仅适用于副本集实例。 |
+
